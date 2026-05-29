@@ -24,6 +24,7 @@ import time
 sys.path.insert(0, ".")
 
 import mpmath as mp
+from riemann.resources import get_config, check_resources, print_summary
 
 RESULTS_DIR = "results"
 os.makedirs(RESULTS_DIR, exist_ok=True)
@@ -217,23 +218,42 @@ def main():
         print(f"  Flint: {flint.__version__}")
     except ImportError:
         print("  Flint: not available")
+    print(f"\n  Resource limits:")
+    print_summary()
+    if not check_resources("weekend run"):
+        print("  ABORTING: insufficient resources.")
+        return
     print(SEP)
 
     t_total = time.time()
+    completed = []
 
-    phase_1_cvs_sweep()
-    phase_2_cvs_deep_13()
-    phase_3_even_dominance()
-    phase_4_dh_control()
-    phase_5_falsification()
+    for name, func in [
+        ("CvS sweep", phase_1_cvs_sweep),
+        ("CvS deep c=13", phase_2_cvs_deep_13),
+        ("Even dominance", phase_3_even_dominance),
+        ("DH control", phase_4_dh_control),
+        ("Falsification", phase_5_falsification),
+    ]:
+        if not check_resources(name):
+            print(f"  Skipping {name}: resources too low")
+            continue
+        try:
+            func()
+            completed.append(name)
+        except Exception as e:
+            print(f"  ERROR in {name}: {e}")
+            save_result(f"error_{name.replace(' ', '_')}", {"error": str(e)})
 
     total = time.time() - t_total
     print(f"\n{SEP}")
     print(f"  WEEKEND RUN COMPLETE")
+    print(f"  Phases completed: {len(completed)}/5")
     print(f"  Total wall time: {total/60:.1f} minutes")
     print(f"  Results in: {RESULTS_DIR}/")
     print(SEP)
 
 
+# CRITICAL: __name__ guard prevents fork bomb on Windows
 if __name__ == "__main__":
     main()

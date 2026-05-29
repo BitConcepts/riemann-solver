@@ -1,101 +1,73 @@
-"""Benchmark this machine's hardware for Riemann solver workloads."""
+"""Benchmark this machine's hardware for Riemann solver workloads.
+
+IMPORTANT: Must be run as `python bench_hardware.py`, not imported.
+The multiprocessing section requires the __name__ == '__main__' guard.
+"""
+
 import os
 import time
-import multiprocessing
+
 import numpy as np
 
-print("=" * 60)
-print("  HARDWARE BENCHMARK FOR RIEMANN SOLVER")
-print("=" * 60)
 
-print(f"\nCPU cores (logical): {os.cpu_count()}")
-print(f"Usable workers: {multiprocessing.cpu_count()}")
+def _digamma_batch(t_values):
+    """Worker function — must be top-level for pickling."""
+    import mpmath as mp
+    mp.mp.dps = 150
+    for t_val in t_values:
+        mp.digamma(mp.mpc(0.25, t_val))
 
-# GPU check
-try:
-    import cupy as cp
-    print(f"CuPy: {cp.__version__}")
-    props = cp.cuda.runtime.getDeviceProperties(0)
-    gpu_name = props["name"].decode()
-    dev = cp.cuda.Device(0)
-    free, total = dev.mem_info
-    print(f"GPU: {gpu_name}")
-    print(f"VRAM: {total / 1024**3:.1f} GB total, {free / 1024**3:.1f} GB free")
-    has_gpu = True
-except Exception as e:
-    print(f"GPU: not available ({e})")
-    has_gpu = False
 
-# Eigendecomposition benchmark
-for n in [201, 501]:
-    A = np.random.randn(n, n)
-    A = (A + A.T) / 2
+def run_benchmark():
+    from riemann.resources import get_config, print_summary
 
+    print("=" * 60)
+    print("  HARDWARE BENCHMARK FOR RIEMANN SOLVER")
+    print("=" * 60)
+
+    print("\nResource Configuration:")
+    print_summary()
+    cfg = get_config()
+
+    # Eigendecomposition benchmark (no multiprocessing, always safe)
+    for n in [201, 501]:
+        A = np.random.randn(n, n)
+        A = (A + A.T) / 2
+        t0 = time.time()
+        np.linalg.eigh(A)
+        t_cpu = time.time() - t0
+        print(f"\n{n}x{n} symmetric eigh (CPU): {t_cpu * 1000:.1f}ms")
+
+    # Digamma single-core
+    import mpmath as mp
+    mp.mp.dps = 150
+    t_values = [float(i) for i in range(200)]
     t0 = time.time()
-    np.linalg.eigh(A)
-    t_cpu = time.time() - t0
-    print(f"\n{n}x{n} symmetric eigh:")
-    print(f"  CPU (numpy): {t_cpu * 1000:.1f}ms")
+    for t_val in t_values:
+        mp.digamma(mp.mpc(0.25, t_val))
+    t_single = time.time() - t0
+    print(f"\n200 digamma evals at 150 dps:")
+    print(f"  Single-core: {t_single * 1000:.0f}ms ({t_single / 200 * 1000:.2f}ms/eval)")
 
-    if has_gpu:
-        try:
-            import cupy as cp
-            A_gpu = cp.asarray(A)
-            cp.cuda.Stream.null.synchronize()
-            cp.linalg.eigh(A_gpu)
-            cp.cuda.Stream.null.synchronize()
-            t0 = time.time()
-            cp.linalg.eigh(A_gpu)
-            cp.cuda.Stream.null.synchronize()
-            t_gpu = time.time() - t0
-            print(f"  GPU (cupy):  {t_gpu * 1000:.1f}ms")
-            print(f"  Speedup: {t_cpu / t_gpu:.1f}x")
-        except Exception as e:
-            print(f"  GPU eigh: unavailable ({type(e).__name__}: {e})")
-            print(f"  (Install full CUDA Toolkit for cuSOLVER support)")
+    # Multi-core with SAFE worker count
+    import multiprocessing
+    n_workers = cfg.max_workers
+    chunks = [t_values[i::n_workers] for i in range(n_workers)]
+    t0 = time.time()
+    with multiprocessing.Pool(n_workers) as pool:
+        pool.map(_digamma_batch, chunks)
+    t_multi = time.time() - t0
+    speedup = t_single / t_multi if t_multi > 0 else 0
+    print(f"  {n_workers}-worker: {t_multi * 1000:.0f}ms  (speedup: {speedup:.1f}x)")
 
-# Multiprocessing benchmark (digamma throughput)
-import mpmath as mp
-mp.mp.dps = 150
+    # Projections
+    single_rate = 200 / t_single
+    multi_rate = 200 / t_multi if t_multi > 0 else 1
+    for label, elems in [("N=50", 101 * 101), ("N=100", 201 * 201)]:
+        print(f"\n  CvS build {label}:")
+        print(f"    Single: ~{elems / single_rate:.0f}s  |  {n_workers}-worker: ~{elems / multi_rate:.0f}s")
 
-def digamma_batch(args):
-    """Compute digamma for a batch of points."""
-    count = 0
-    for t_val in args:
-        s = mp.mpc(0.25, t_val)
-        mp.digamma(s)
-        count += 1
-    return count
 
-t_values = [float(i) for i in range(200)]
-
-# Single-core
-t0 = time.time()
-digamma_batch(t_values)
-t_single = time.time() - t0
-print(f"\n200 digamma evals at 150 dps:")
-print(f"  Single-core: {t_single * 1000:.0f}ms ({t_single / 200 * 1000:.2f}ms/eval)")
-
-# Multi-core
-n_workers = min(os.cpu_count(), 16)
-chunks = [t_values[i::n_workers] for i in range(n_workers)]
-t0 = time.time()
-with multiprocessing.Pool(n_workers) as pool:
-    pool.map(digamma_batch, chunks)
-t_multi = time.time() - t0
-print(f"  {n_workers}-core: {t_multi * 1000:.0f}ms ({t_multi / 200 * 1000:.2f}ms/eval)")
-print(f"  Speedup: {t_single / t_multi:.1f}x")
-
-# Projection for CvS
-elements_n50 = 101 * 101  # N=50 -> 101x101 matrix
-elements_n100 = 201 * 201
-single_rate = 200 / t_single  # evals per second
-multi_rate = 200 / t_multi
-
-print(f"\nProjected CvS matrix build times (estimated):")
-print(f"  N=50  (101x101={elements_n50} elements):")
-print(f"    Single-core: ~{elements_n50 / single_rate:.0f}s")
-print(f"    {n_workers}-core: ~{elements_n50 / multi_rate:.0f}s")
-print(f"  N=100 (201x201={elements_n100} elements):")
-print(f"    Single-core: ~{elements_n100 / single_rate:.0f}s")
-print(f"    {n_workers}-core: ~{elements_n100 / multi_rate:.0f}s")
+# ━━ This guard is CRITICAL on Windows. Without it: fork bomb → lockup. ━━
+if __name__ == "__main__":
+    run_benchmark()

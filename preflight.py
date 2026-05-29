@@ -94,7 +94,7 @@ def check_weekend_imports():
     """Verify run_weekend.py can be imported without side effects."""
     # This checks that run_weekend.py has proper __name__ guard
     import importlib.util
-    spec = importlib.util.spec_from_file_location("run_weekend", "run_weekend.py")
+    spec = importlib.util.spec_from_file_location("run", "run.py")
     mod = importlib.util.module_from_spec(spec)
     # Should NOT execute main() on import — that's the __name__ guard
     spec.loader.exec_module(mod)
@@ -140,7 +140,7 @@ if __name__ == "__main__":
 
     if failed == 0:
         print(f"\n  ALL CLEAR — safe to run unattended:")
-        print(f"    .work\\env\\Scripts\\python.exe run_weekend.py")
+        print(f"    .work\\env\\Scripts\\python.exe run.py")
     else:
         print(f"\n  *** FIX FAILURES BEFORE RUNNING UNATTENDED ***")
         for name, ok, detail in results:

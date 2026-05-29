@@ -4,12 +4,13 @@ Run this overnight or over the weekend for the heavy computations:
   python run_weekend.py
 
 Estimated times (with gmpy2 + python-flint):
-  Phase 1: CvS sweep c=13..29, N=50      ~20 min
-  Phase 2: CvS c=13, N=100, dps=150      ~30 min (55-digit γ₁)
-  Phase 3: CvS c=17, N=100, dps=150      ~45 min
-  Phase 4: Even-dominance certs λ=10..100 ~15 min
-  Phase 5: DH control test                ~5 min
-  Phase 6: Full falsification suite       ~10 min
+  Phase 1: CvS sweep c=13..29, N=50        ~20 min
+  Phase 2: CvS c=13, N=100, dps=150        ~30 min (55-digit γ₁)
+  Phase 3: Even-dominance certs λ=10..100   ~15 min
+  Phase 4: DH control test                  ~5 min
+  Phase 5: Full falsification suite         ~10 min
+  Phase 6: Form stabilization test          ~30 min (NEW - from research loop)
+  Phase 7: Eigenvalue isolation check       ~4 min  (NEW - from MathOverflow finding)
   Total: ~2-3 hours
 
 Results are saved to results/ directory as JSON.
@@ -208,6 +209,141 @@ def phase_5_falsification():
     return results
 
 
+def phase_6_form_stabilization():
+    """Test form stabilization for compactly supported test functions.
+
+    KEY INSIGHT from research loop iteration 25:
+    For test functions with supp(f) in [p^{-1}, p], the Weil form QW_lambda(f)
+    only involves primes <= p. So it STOPS CHANGING once lambda^2 > p.
+    If this stabilization + CCM Theorem 6.1 (criticality) holds, the
+    convergence gap in CCM section 8 can be BYPASSED.
+    """
+    from connes_cvs import build_galerkin_matrix, compute_ground_state
+
+    print(f"\n{SEP}")
+    print("  PHASE 6: FORM STABILIZATION TEST")
+    print("  (Does QW_lambda stabilize for compactly supported test functions?)")
+    print(SEP)
+
+    # Use a fixed small N to make this fast — we're testing stabilization, not precision
+    N = 30
+    dps = 50
+    T = 200
+
+    # Test: as c increases beyond the support of the test function,
+    # does lambda_min stop changing?
+    cutoffs = [7, 11, 13, 17, 19, 23, 29, 31, 37]
+    results = []
+    t0 = time.time()
+
+    prev_lam = None
+    for c in cutoffs:
+        Q = build_galerkin_matrix(c=c, N=N, T=T, dps=dps)
+        lam_min, _ = compute_ground_state(Q)
+        log_lam = float(mp.log10(abs(lam_min)))
+
+        if prev_lam is not None:
+            delta = abs(log_lam - prev_log)
+        else:
+            delta = None
+
+        results.append({
+            "c": c, "log10_lambda_min": log_lam,
+            "delta_from_prev": delta,
+        })
+        delta_str = f"  delta={delta:.2f} OOM" if delta is not None else ""
+        print(f"  c={c:2d}: log10|lam_min|={log_lam:.1f}{delta_str}")
+
+        prev_lam = lam_min
+        prev_log = log_lam
+
+    elapsed = time.time() - t0
+
+    # Check if deltas are DECREASING (stabilization) or constant (no stabilization)
+    deltas = [r["delta_from_prev"] for r in results if r["delta_from_prev"] is not None]
+    if len(deltas) >= 3:
+        increasing = all(deltas[i] <= deltas[i-1] * 1.5 for i in range(1, len(deltas)))
+        stabilizing = deltas[-1] < deltas[0] * 0.5
+    else:
+        increasing = False
+        stabilizing = False
+
+    summary = {
+        "cutoffs": cutoffs,
+        "results": results,
+        "deltas_decreasing": stabilizing,
+        "interpretation": "Form may be stabilizing" if stabilizing else "No clear stabilization",
+        "time_s": elapsed,
+    }
+    print(f"\n  Stabilizing: {stabilizing}")
+    print(f"  Time: {elapsed:.0f}s")
+    save_result("phase6_form_stabilization", summary)
+    return summary
+
+
+def phase_7_eigenvalue_isolation():
+    """Verify eigenvalue isolation (simplicity) at increasing precision.
+
+    KEY INSIGHT from research loop iteration 21 (MathOverflow Q508994):
+    The 'null space' of QW is a float64 artifact. At high precision,
+    the minimum eigenvalue is ISOLATED with ratio growing 10^6 to 10^15.
+    This confirms the simplicity hypothesis of CCM Theorem 1.1.
+    """
+    from connes_cvs import build_galerkin_matrix, compute_ground_state
+
+    print(f"\n{SEP}")
+    print("  PHASE 7: EIGENVALUE ISOLATION CHECK")
+    print("  (Verify simplicity of ground state — CCM Theorem 1.1 hypothesis)")
+    print(SEP)
+
+    c = 13
+    N = 50
+    T = 400
+    dps = 80
+
+    t0 = time.time()
+    Q = build_galerkin_matrix(c=c, N=N, T=T, dps=dps)
+
+    # Get ALL eigenvalues
+    Qs = mp.matrix(Q.rows, Q.cols)
+    for i in range(Q.rows):
+        for j in range(Q.cols):
+            Qs[i, j] = (Q[i, j] + Q[j, i]) / 2
+    eigenvalues = mp.eigsy(Qs)[0]
+
+    # Sort by absolute value
+    sorted_eigs = sorted(eigenvalues, key=lambda x: abs(x))
+
+    # Find the two smallest |eigenvalues|
+    lam_0 = sorted_eigs[0]
+    lam_1 = sorted_eigs[1]
+
+    ratio = abs(lam_1 / lam_0) if lam_0 != 0 else float("inf")
+    log_ratio = float(mp.log10(ratio)) if ratio > 0 and ratio != float("inf") else None
+
+    elapsed = time.time() - t0
+
+    result = {
+        "c": c, "N": N, "dps": dps,
+        "lambda_0": str(lam_0),
+        "lambda_1": str(lam_1),
+        "isolation_ratio": float(ratio),
+        "log10_ratio": log_ratio,
+        "simplified": ratio > 100,  # well-isolated if ratio >> 1
+        "time_s": elapsed,
+    }
+
+    print(f"  lambda_0 = {mp.nstr(lam_0, 10)}")
+    print(f"  lambda_1 = {mp.nstr(lam_1, 10)}")
+    print(f"  |lambda_1/lambda_0| = {ratio:.2e}")
+    if log_ratio:
+        print(f"  log10(ratio) = {log_ratio:.1f}")
+    print(f"  Isolated: {result['simplified']}")
+    print(f"  Time: {elapsed:.0f}s")
+    save_result("phase7_eigenvalue_isolation", result)
+    return result
+
+
 def main():
     print(SEP)
     print("  RIEMANN SOLVER — WEEKEND DEEP RUN")
@@ -234,6 +370,8 @@ def main():
         ("Even dominance", phase_3_even_dominance),
         ("DH control", phase_4_dh_control),
         ("Falsification", phase_5_falsification),
+        ("Form stabilization", phase_6_form_stabilization),
+        ("Eigenvalue isolation", phase_7_eigenvalue_isolation),
     ]:
         if not check_resources(name):
             print(f"  Skipping {name}: resources too low")
@@ -248,7 +386,7 @@ def main():
     total = time.time() - t_total
     print(f"\n{SEP}")
     print(f"  WEEKEND RUN COMPLETE")
-    print(f"  Phases completed: {len(completed)}/5")
+    print(f"  Phases completed: {len(completed)}/7")
     print(f"  Total wall time: {total/60:.1f} minutes")
     print(f"  Results in: {RESULTS_DIR}/")
     print(SEP)

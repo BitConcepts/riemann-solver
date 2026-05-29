@@ -43,8 +43,8 @@ class ResourceConfig:
     max_ram_gb: Optional[float] = None
     min_free_ram_gb: float = 4.0
 
-    # GPU — default: OFF (cuSOLVER needs full CUDA Toolkit)
-    gpu_enabled: bool = False
+    # GPU — default: auto-detect (prefer GPU, CPU fallback)
+    gpu_enabled: bool = True
     gpu_device: int = 0
     gpu_max_vram_gb: Optional[float] = None
 

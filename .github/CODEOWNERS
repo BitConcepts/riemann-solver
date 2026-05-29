@@ -1,0 +1,8 @@
+# Default owners for everything
+* @tpierson
+
+# Proof-critical modules require explicit review
+src/riemann/li_criterion.py @tpierson
+src/riemann/weil_positivity.py @tpierson
+src/riemann/spectral.py @tpierson
+docs/PROOF_STRATEGY.md @tpierson

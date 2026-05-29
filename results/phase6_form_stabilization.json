@@ -1,0 +1,63 @@
+{
+  "cutoffs": [
+    7,
+    11,
+    13,
+    17,
+    19,
+    23,
+    29,
+    31,
+    37
+  ],
+  "results": [
+    {
+      "c": 7,
+      "log10_lambda_min": -27.119643337069625,
+      "delta_from_prev": null
+    },
+    {
+      "c": 11,
+      "log10_lambda_min": -42.90650681089176,
+      "delta_from_prev": 15.786863473822137
+    },
+    {
+      "c": 13,
+      "log10_lambda_min": -47.5412144869723,
+      "delta_from_prev": 4.634707676080538
+    },
+    {
+      "c": 17,
+      "log10_lambda_min": -50.29101723750494,
+      "delta_from_prev": 2.7498027505326377
+    },
+    {
+      "c": 19,
+      "log10_lambda_min": -50.579019309507466,
+      "delta_from_prev": 0.28800207200252714
+    },
+    {
+      "c": 23,
+      "log10_lambda_min": -51.38229680927433,
+      "delta_from_prev": 0.8032774997668639
+    },
+    {
+      "c": 29,
+      "log10_lambda_min": -50.15489941233915,
+      "delta_from_prev": 1.2273973969351815
+    },
+    {
+      "c": 31,
+      "log10_lambda_min": -50.33016334830906,
+      "delta_from_prev": 0.17526393596990886
+    },
+    {
+      "c": 37,
+      "log10_lambda_min": -50.69423447544999,
+      "delta_from_prev": 0.3640711271409316
+    }
+  ],
+  "deltas_decreasing": true,
+  "interpretation": "Form may be stabilizing",
+  "time_s": 426.7354300022125
+}

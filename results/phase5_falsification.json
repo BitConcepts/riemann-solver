@@ -1,0 +1,15 @@
+{
+  "off_line": {
+    "candidates": 0,
+    "range": "t=[10,200]"
+  },
+  "li_monitor": {
+    "max_n": 24,
+    "violations": []
+  },
+  "gram": {
+    "n_max": 1000,
+    "violations": 42
+  },
+  "time_s": 16.598049879074097
+}

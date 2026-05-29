@@ -2,6 +2,15 @@
   "spec_version": "0.11.7",
   "current_phase": "verification",
   "previous_phases": ["research", "architecture", "implementation"],
+  "verified_results": {
+    "cvs_c13": {"lambda_min": "1.97e-57", "gamma1_digits": 17},
+    "cvs_c17": {"lambda_min": "2.22e-69", "gamma1_digits": 15},
+    "dh_control": "PASSED (159 off-line candidates)",
+    "even_dominance": "6/6 consistent with Geiger",
+    "li_criterion": "lambda_1..20 all positive",
+    "off_line_search": "0 candidates (consistent with RH)",
+    "gram_violations": "13 found in n<500, first at n=126"
+  },
   "phase_history": [
     {"phase": "research", "entered": "2026-05-29T12:20:00Z", "exited": "2026-05-29T12:40:00Z"},
     {"phase": "architecture", "entered": "2026-05-29T12:40:00Z", "exited": "2026-05-29T13:00:00Z"},

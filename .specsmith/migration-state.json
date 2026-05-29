@@ -16,5 +16,15 @@
     {"phase": "architecture", "entered": "2026-05-29T12:40:00Z", "exited": "2026-05-29T13:00:00Z"},
     {"phase": "implementation", "entered": "2026-05-29T13:00:00Z", "exited": "2026-05-29T13:20:00Z"},
     {"phase": "verification", "entered": "2026-05-29T13:20:00Z", "exited": null}
-  ]
+  ],
+  "audit": {
+    "timestamp": "2026-05-29T15:32:00Z",
+    "tests": "10/10 passing",
+    "lint": "clean",
+    "preflight": "8/8 passing",
+    "cpsc_removed": true,
+    "research_iterations": 30,
+    "run_script": "run.py (7 phases, ~2-3h)",
+    "commits_on_main": 15
+  }
 }

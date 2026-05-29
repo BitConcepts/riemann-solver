@@ -40,13 +40,15 @@ t3 = time.time()
 for z in zeros:
     gamma = z["gamma_detected"]
     err = z["error"]
-    if err != 0:
+    k = z["k"]
+    if gamma is not None and err is not None and err != 0:
         digits = -float(mp.log10(abs(err)))
+        print(f"  gamma_{k} = {mp.nstr(gamma, 30)}")
+        print(f"    |error| = {mp.nstr(err, 6)} ({digits:.0f} matching digits)")
+    elif gamma is not None:
+        print(f"  gamma_{k} = {mp.nstr(gamma, 30)} (exact match)")
     else:
-        digits = float("inf")
-    idx = z["index"]
-    print(f"  gamma_{idx} = {mp.nstr(gamma, 30)}")
-    print(f"    |error| = {mp.nstr(err, 6)} ({digits:.0f} matching digits)")
+        print(f"  gamma_{k} = not detected at this precision")
 
 total = t3 - t0
 print(f"\n  Total time: {total:.1f}s")

@@ -21,7 +21,6 @@ RULES:
 from __future__ import annotations
 
 import os
-import platform
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
@@ -211,14 +210,14 @@ def print_summary():
         if vram is not None:
             print(f"  GPU: enabled, device {cfg.gpu_device}, {vram:.1f}GB VRAM")
         else:
-            print(f"  GPU: enabled but not available (install CUDA Toolkit)")
+            print("  GPU: enabled but not available (install CUDA Toolkit)")
     else:
-        print(f"  GPU: disabled (set gpu_enabled=True or RIEMANN_GPU_ENABLED=true)")
+        print("  GPU: disabled (set gpu_enabled=True or RIEMANN_GPU_ENABLED=true)")
 
 
 if __name__ == "__main__":
     print("Resource Configuration:")
     print_summary()
-    print(f"\n  Override via env vars or set_config():")
-    print(f"    RIEMANN_MAX_CPUS=8  RIEMANN_GPU_ENABLED=true  RIEMANN_MAX_RAM_GB=32")
-    print(f"  Or create riemann.resources.toml / ~/.riemann/resources.toml")
+    print("\n  Override via env vars or set_config():")
+    print("    RIEMANN_MAX_CPUS=8  RIEMANN_GPU_ENABLED=true  RIEMANN_MAX_RAM_GB=32")
+    print("  Or create riemann.resources.toml / ~/.riemann/resources.toml")

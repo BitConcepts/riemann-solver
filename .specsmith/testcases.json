@@ -22,15 +22,9 @@
       "status": "passing",
       "count": 3
     },
-    {
-      "file": "tests/test_constraint.py",
-      "tests": ["test_projection", "test_cas_model"],
-      "status": "passing",
-      "count": 2
-    }
   ],
-  "total_tests": 12,
-  "total_passing": 12,
+  "total_tests": 10,
+  "total_passing": 10,
   "total_failing": 0,
   "last_run": "2026-05-29T14:35:00Z"
 }

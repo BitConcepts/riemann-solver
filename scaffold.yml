@@ -14,7 +14,7 @@ description: >-
   Rigorous proof or disproof of the Riemann Hypothesis, targeting the
   Clay Mathematics Institute Millennium Prize ($1M). Multiple independent
   verification criteria (Li, Weil/CvS, spectral, de Bruijn-Newman),
-  falsification harnesses, and CPSC constraint-projection bridge.
+  falsification harnesses, and Connes spectral program integration.
   All work must meet CMI publication and peer-review standards.
 services: false
 shell_wrappers: false
@@ -38,14 +38,6 @@ integrations:
 - warp
 auxiliary_disciplines:
 - cli-python
-cpsc_bridge:
-  enabled: true
-  engine: cpsc-engine-python
-  engine_path: ../BitConcepts/cpsc-engine-python
-  connection: >-
-    Critical line Re(s) = 1/2 is the constraint manifold.
-    Non-trivial zeros are projected onto it and residuals measured.
-    Li criterion lambda_n >= 0 maps to countable constraint sequence.
 attack_vectors:
 - id: LI
   name: Keiper-Li Criterion

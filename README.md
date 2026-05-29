@@ -1,7 +1,7 @@
 # Riemann Hypothesis Solver
 
-**Computational attack on the Riemann Hypothesis via multiple independent
-verification criteria, falsification harnesses, and CPSC constraint-projection bridge.**
+**Rigorous proof or disproof of the Riemann Hypothesis, targeting the
+Clay Mathematics Institute Millennium Prize ($1,000,000).**
 
 ---
 
@@ -51,19 +51,6 @@ methods actually work.
 
 ---
 
-## CPSC Connection
-
-This project bridges to the CPSC (Constraint-Projected State Computing)
-paradigm:
-
-- **Constraint manifold**: The critical line Re(s) = 1/2
-- **DoF vector**: Imaginary parts tₙ of zeros ρ = 1/2 + itₙ
-- **Projection**: Map candidate zeros onto the constraint manifold
-- **Residual**: |ζ(ρ)| measures constraint violation
-- **Li's criterion**: λₙ ≥ 0 is a countably infinite sequence of constraint checks
-
----
-
 ## Quick Start
 
 ```bash
@@ -107,7 +94,6 @@ riemann-solver/
 │   ├── dbn_constant.py   # de Bruijn-Newman bounds
 │   ├── weil_positivity.py # CvS Galerkin matrix
 │   ├── spectral.py       # spectral operators
-│   ├── constraint.py     # CPSC bridge
 │   └── utils.py          # common utilities
 ├── benchmarks/           # benchmark suites
 ├── falsification/        # falsification harnesses

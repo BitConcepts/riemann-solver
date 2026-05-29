@@ -5,7 +5,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "riemann-solver"
 version = "0.1.0"
-description = "Computational attack on the Riemann Hypothesis via multiple verification criteria, falsification harnesses, and CPSC constraint-projection bridge."
+description = "Rigorous proof or disproof of the Riemann Hypothesis targeting the Clay Millennium Prize. Multiple verification criteria, falsification harnesses, and Connes spectral program integration."
 readme = "README.md"
 license = {text = "Research & Evaluation"}
 requires-python = ">=3.11"

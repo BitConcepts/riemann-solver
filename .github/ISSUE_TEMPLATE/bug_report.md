@@ -15,7 +15,6 @@ A clear description of what the incorrect computation or behavior is.
 - [ ] li_criterion.py
 - [ ] weil_positivity.py
 - [ ] spectral.py
-- [ ] constraint.py
 - [ ] gpu.py
 - [ ] Other
 

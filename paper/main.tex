@@ -1,4 +1,5 @@
 \documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
 \usepackage{amsmath,amssymb,amsthm}
@@ -252,7 +253,7 @@ Script & Purpose \\
 \section{Discussion}
 \label{sec:discussion}
 
-\paragraph{Strengths.} The algebraic core is pure elementary computation. The interval arithmetic uses exact symbolic derivatives (no finite differences). The decay condition is overwhelmingly satisfied ($\Phi(10) \sim 10^{-661{,}947{,}899}$ vs.\ $e^{-10^3} \sim 10^{-434}$).
+\paragraph{Strengths.} The algebraic core is pure elementary computation. The interval arithmetic uses exact symbolic derivatives (no finite differences). The decay condition is overwhelmingly satisfied ($\Phi(10) \sim 10^{-661\,947\,899}$ vs.\ $e^{-10^3} \sim 10^{-434}$).
 
 \paragraph{Limitations.} The interval arithmetic verification relies on the \texttt{mpmath.iv} implementation of interval arithmetic. An independent reproduction using a different IA library (e.g., MPFI, Arb) would further strengthen the result. The Lean~4 formalization axiomatizes the computational certificates rather than deriving them within the proof assistant.
 

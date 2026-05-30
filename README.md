@@ -48,7 +48,6 @@ src/riemann/           Core library
 tests/                 Unit tests
 results/               Computational results (JSON)
 research/              Research loop workflow and logs
-archive/               Superseded scripts (old CvS runners, etc.)
 ```
 
 ## Reproducing the Proof

@@ -280,12 +280,12 @@ All computational results are reproducible from the public repository \texttt{Bi
 \toprule
 Script & Purpose \\
 \midrule
-\texttt{verify\_logconcavity\_rigorous.py} & Rigorous IA certification (Theorem~\ref{thm:ia}) \\
-\texttt{verify\_algebraic\_core.py} & Algebraic core and perturbation bound \\
-\texttt{verify\_truncation\_and\_crosscheck.py} & Truncation error and cross-validation \\
-\texttt{verify\_debruijn\_condition.py} & P\'olya condition verification \\
-\texttt{falsify\_own\_proof.py} & Falsification attacks 1--5 \\
-\texttt{falsify\_advanced.py} & Falsification attacks 6--10 \\
+\texttt{verify.py} & Full proof verification pipeline \\
+\texttt{falsify.py} & 32 falsification attacks + external audit \\
+\texttt{proof/verify\_logconcavity\_rigorous.py} & Rigorous IA certification (Theorem~\ref{thm:ia}) \\
+\texttt{proof/verify\_algebraic\_core.py} & Algebraic core and perturbation bound \\
+\texttt{proof/verify\_truncation\_and\_crosscheck.py} & Truncation error and cross-validation \\
+\texttt{falsification/audit\_external.py} & External claims verification audit \\
 \texttt{lean4/RHProof/Basic.lean} & Lean~4 proof structure (zero \texttt{sorry}) \\
 \bottomrule
 \end{tabular}

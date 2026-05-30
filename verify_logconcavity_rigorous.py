@@ -33,7 +33,7 @@ def phi_n_and_derivs_iv(n, u_iv):
                      phi_n'' = g''*E + 2*g'*E' + g*E''
 
     g' = 9*pi^2*n^4*e^{9u/2} - 15*pi*n^2*e^{5u/2}/2
-    g'' = 81*pi^2*n^4*e^{9u/2}/4 - 75*pi*n^2*e^{5u/2}/4
+    g'' = 81*pi^2*n^4*e^{9u/2}/2 - 75*pi*n^2*e^{5u/2}/4
 
     E' = -2*pi*n^2*e^{2u} * E
     E'' = (-4*pi*n^2*e^{2u} + 4*pi^2*n^4*e^{4u}) * E
@@ -50,7 +50,7 @@ def phi_n_and_derivs_iv(n, u_iv):
     # g and derivatives
     g = 2 * pi**2 * n4 * e9u2 - 3 * pi * n2 * e5u2
     gp = 9 * pi**2 * n4 * e9u2 - iv.mpf(15) * pi * n2 * e5u2 / 2
-    gpp = iv.mpf(81) * pi**2 * n4 * e9u2 / 4 - iv.mpf(75) * pi * n2 * e5u2 / 4
+    gpp = iv.mpf(81) * pi**2 * n4 * e9u2 / 2 - iv.mpf(75) * pi * n2 * e5u2 / 4
 
     # E and derivatives
     E = iv.exp(-pi * n2 * e2u)

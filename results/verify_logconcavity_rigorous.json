@@ -7,11 +7,11 @@
     0,
     1.0
   ],
-  "certified": 1961,
-  "failed": 39,
-  "max_Q_upper": -1.4445449267906293e-13,
-  "worst_u": 0.9802500000000001,
-  "time_s": 2.629330635070801,
+  "certified": 1899,
+  "failed": 101,
+  "max_Q_upper": -5.938071125857473e-13,
+  "worst_u": 0.94925,
+  "time_s": 2.2504310607910156,
   "all_certified": false,
   "rigorous": true,
   "note": "Derivatives computed by closed-form product rule, no finite differences"

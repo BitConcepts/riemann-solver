@@ -1,7 +1,7 @@
 # Research Integration Loop
 
-A repeatable process for harvesting new results and integrating them.
-Run this periodically (weekly or before major computation runs).
+A repeatable process for monitoring the RH proof landscape and integrating
+new results. Run periodically or before major computation runs.
 
 ## Protocol
 
@@ -19,50 +19,47 @@ For each new result, classify as:
 - **PROOF_PROGRESS**: Advances toward proof without claiming it
 - **COMPUTATIONAL**: New computational data (zeros, Li coefficients, etc.)
 - **FRAMEWORK**: New mathematical framework applicable to RH
-- **TOOL**: New computational tool relevant to our work
 
 ### Step 3: Assess proof claims
 For any PROOF_CLAIM:
-1. Is it published in a peer-reviewed journal? (if not, skepticism warranted)
-2. Does it address a known equivalent formulation? (Li, Weil, DBN, etc.)
+1. Is it published in a peer-reviewed journal?
+2. Does it address a known equivalent formulation?
 3. Can we reproduce the key computational step?
 4. What is the community reception? (MathOverflow, MathSciNet reviews)
-5. Does it have a gap we can identify?
+5. Run the falsification audit: `python falsify.py --quick`
 
 ### Step 4: Integrate findings
-- Update `docs/REFERENCES.md` with new citations
-- Update `docs/PROOF_STRATEGY.md` if the proof gap has narrowed
-- Implement new computational checks if applicable
-- Update `scaffold.yml` attack vector status if warranted
+- Update `docs/LANDSCAPE.md` with new entries
+- Add new claims to `falsification/audit_external.py` if applicable
+- Implement new computational checks if relevant
+- Update `scaffold.yml` if the proof landscape has changed
 
 ### Step 5: Log the integration
-Append to `research_log.jsonl`:
+Append to `research/research_log.jsonl`:
 ```json
-{"date": "2026-05-29", "query": "...", "findings": N, "integrated": M, "notes": "..."}
+{"date": "YYYY-MM-DD", "query": "...", "findings": N, "integrated": M, "notes": "..."}
 ```
 
 ## Key Monitors
 
-### Connes Program (highest priority)
-- Has Connes published a follow-up to arXiv:2602.04022?
-- Has the spectral convergence gap (CCM §8) been closed?
-- New connes-cvs releases? New cutoffs verified?
+### Log-concavity approaches (direct competitors)
+- New preprints using the same Polya 1927 log-concavity approach?
+- Has anyone identified a gap in the perturbation bound argument?
+- Independent interval arithmetic reproductions?
 
-### Geiger Even-Dominance (submitted proof)
+### Connes spectral program
+- Has the spectral convergence gap (CCM 2025, Section 8) been closed?
+- New CvS Galerkin cutoffs verified?
+
+### Geiger even-dominance
 - Has the Communications in Mathematics review concluded?
 - Community response on MathOverflow?
-- Any identified gaps?
 
-### De Bruijn-Newman
-- New upper bounds on Λ tighter than 0.22?
+### De Bruijn-Newman constant
+- New upper bounds on Lambda tighter than 0.22?
 - New Lehmer pairs at very large height?
 
-### Falsification Attempts
+### Falsification
 - Any claimed counterexamples to RH?
 - New zeros computed at unprecedented height?
 - Any Dirichlet L-function where GRH fails unexpectedly?
-
-## Trigger: Run This Before Any Major Computation
-Before starting the weekend runner or any deep computation,
-run the research loop first — there may be new results that
-change what computation is most valuable.

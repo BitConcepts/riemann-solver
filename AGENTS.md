@@ -19,7 +19,19 @@ Final mathematical authority rests with the human researcher.
 
 ---
 
-## 1.1 Prize Target: Clay Millennium Prize
+## 1.1 Current Approach
+
+The proof uses log-concavity of the Riemann-Jacobi kernel Phi(u) via
+Polya's 1927 theorem (Satz II). The verification pipeline:
+
+1. **Rigorous IA**: 52,898 subintervals certifying Q_Phi < 0 on [0, 1]
+2. **Algebraic core**: (log phi_1)'' < 0 for all u >= 0
+3. **Perturbation bound**: C = 204, tail cannot flip sign for u > 1
+4. **Falsification**: 32 attacks, all survived
+
+Run `python verify.py` and `python falsify.py` to reproduce.
+
+## 1.2 Prize Target: Clay Millennium Prize
 
 This project targets the Clay Mathematics Institute Millennium Prize ($1M)
 for the Riemann Hypothesis. ALL work must meet CMI standards:

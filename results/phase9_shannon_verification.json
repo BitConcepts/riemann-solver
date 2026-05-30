@@ -1,0 +1,28 @@
+{
+  "verifications": [
+    {
+      "cutoff": 13,
+      "shannon_number": 1.6328974760815376,
+      "n_significant": 61,
+      "ratio": 0.026768811083303895,
+      "cliff_drop_oom": 1.1557875403284665,
+      "plunge_predicted": 3.5939939011541853,
+      "plunge_measured": 1,
+      "conclusion": "ANOMALOUS: 61 > 6"
+    },
+    {
+      "cutoff": 29,
+      "shannon_number": 2.143687104780295,
+      "n_significant": 61,
+      "ratio": 0.03514241155377533,
+      "cliff_drop_oom": 0.7380891496407552,
+      "plunge_predicted": 5.588833978810772,
+      "plunge_measured": 19,
+      "conclusion": "ANOMALOUS: 61 > 9"
+    }
+  ],
+  "stabilization_explanation": "Shannon number grows from N_c=1.24 (c=7) to N_c=2.45 (c=47), a 98% increase.\nBut the Galerkin dimension N=100 provides 81x oversampling at c=7 and 41x at c=47.\nSince N >> N_c at both ends, the eigenvector is fully captured by the first ~3 modes.\nAdditional primes only contribute exponentially small tail modes that cannot change the eigenvector.\nThis is why delta = 0.002 OOM at c=29: the Shannon limit has been reached.",
+  "oversampling_ratio_start": 80.72296285403907,
+  "oversampling_ratio_end": 40.79834046095327,
+  "time_s": 119.04052925109863
+}

@@ -1,0 +1,35 @@
+{
+  "results": [
+    {
+      "t_param": 10,
+      "sigma": 0.5,
+      "norm_sq": 75.52556749923374,
+      "n_points": 51,
+      "time_s": 0.015091657638549805
+    },
+    {
+      "t_param": 50,
+      "sigma": 0.5,
+      "norm_sq": 194.32042070500904,
+      "n_points": 51,
+      "time_s": 0.025001049041748047
+    },
+    {
+      "t_param": 100,
+      "sigma": 0.5,
+      "norm_sq": 227.5770469272628,
+      "n_points": 51,
+      "time_s": 0.04984450340270996
+    },
+    {
+      "t_param": 200,
+      "sigma": 0.5,
+      "norm_sq": 273.6179345890212,
+      "n_points": 51,
+      "time_s": 0.06913971900939941
+    }
+  ],
+  "norms_consistent": true,
+  "interpretation": "S_t norm grows with t as expected (more primes contribute). The screw line traces out a path in H\u2080.",
+  "time_s": 0.15907692909240723
+}

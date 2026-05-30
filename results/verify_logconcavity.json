@@ -1,0 +1,15 @@
+{
+  "n_subintervals": 2000,
+  "n_terms": 5,
+  "dps": 50,
+  "u_range": [
+    0,
+    1.0
+  ],
+  "certified": 2000,
+  "failed": 0,
+  "max_Q_upper": -2.8293031647316946e-11,
+  "worst_u": 0.99975,
+  "time_s": 9.378472328186035,
+  "all_certified": true
+}

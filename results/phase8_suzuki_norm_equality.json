@@ -1,0 +1,88 @@
+{
+  "results": [
+    {
+      "n_zeros": 10,
+      "test_function": "bump[-0.5,0.5]",
+      "pw_norm_sq": 0.00021490950545382864,
+      "pi_weil_form": 0.0029076676830339125,
+      "ratio": 0.07391130241870976,
+      "log10_residual": -0.03334741609845923
+    },
+    {
+      "n_zeros": 10,
+      "test_function": "bump[-0.3,0.3]",
+      "pw_norm_sq": 0.0,
+      "pi_weil_form": 0.0038519070016673046,
+      "ratio": 0.0,
+      "log10_residual": 0.0
+    },
+    {
+      "n_zeros": 10,
+      "test_function": "gaussian_bump(\u03c3=0.2)",
+      "pw_norm_sq": 0.00010956392067848711,
+      "pi_weil_form": 0.00011538418899605491,
+      "ratio": 0.949557488177459,
+      "log10_residual": -1.2972032955424875
+    },
+    {
+      "n_zeros": 10,
+      "test_function": "cos(\u03c0x)\u00b7bump",
+      "pw_norm_sq": 8.55504590592512e-05,
+      "pi_weil_form": 0.00040742250795461685,
+      "ratio": 0.20997970752460426,
+      "log10_residual": -0.1023617532704405
+    },
+    {
+      "n_zeros": 10,
+      "test_function": "cos(2\u03c0x)\u00b7bump",
+      "pw_norm_sq": 3.60053239755139e-06,
+      "pi_weil_form": 0.00514065469132334,
+      "ratio": 0.0007004034726605062,
+      "log10_residual": -0.0003042879378903168
+    },
+    {
+      "n_zeros": 30,
+      "test_function": "bump[-0.5,0.5]",
+      "pw_norm_sq": 0.00021490950545382864,
+      "pi_weil_form": 0.0029106934755828598,
+      "ratio": 0.07383446840303014,
+      "log10_residual": -0.03331138585107131
+    },
+    {
+      "n_zeros": 30,
+      "test_function": "bump[-0.3,0.3]",
+      "pw_norm_sq": 0.0,
+      "pi_weil_form": 0.003884977009993878,
+      "ratio": 0.0,
+      "log10_residual": 0.0
+    },
+    {
+      "n_zeros": 30,
+      "test_function": "gaussian_bump(\u03c3=0.2)",
+      "pw_norm_sq": 0.00010956392067848711,
+      "pi_weil_form": 0.00011538418899606006,
+      "ratio": 0.9495574881774166,
+      "log10_residual": -1.2972032955421224
+    },
+    {
+      "n_zeros": 30,
+      "test_function": "cos(\u03c0x)\u00b7bump",
+      "pw_norm_sq": 8.55504590592512e-05,
+      "pi_weil_form": 0.00040769113753847384,
+      "ratio": 0.2098413509201627,
+      "log10_residual": -0.10228570174435413
+    },
+    {
+      "n_zeros": 30,
+      "test_function": "cos(2\u03c0x)\u00b7bump",
+      "pw_norm_sq": 3.60053239755139e-06,
+      "pi_weil_form": 0.005143779552394785,
+      "ratio": 0.0006999779755092914,
+      "log10_residual": -0.00030410301734579576
+    }
+  ],
+  "n_tests": 10,
+  "n_violations": 8,
+  "all_consistent_with_rh": false,
+  "interpretation": "8 VIOLATIONS detected! Investigate for potential RH disproof."
+}

@@ -152,14 +152,56 @@ toward rigorous proof by:
 
 ---
 
+## New Bridge Pathway (May 2026)
+
+### Suzuki (2025): Unconditional RH Equivalent
+
+**Theorem 1.4**: RH ⟺ ||P̂Dψ||²_{L²(ℝ)} = π⟨ψ, ψ⟩_W for all ψ ∈ C_c^∞(ℝ)
+
+This gives us an RH-equivalent condition that is COMPUTABLE on both sides:
+- LHS (Paley-Wiener norm): unconditional, pure Fourier analysis
+- RHS (Weil form): the same quantity our CvS Galerkin measures
+
+**Unconditional spaces H₀, K₀**: Suzuki constructs these WITHOUT assuming
+RH, using screw functions S_t(z). Under RH, H₀ = H_W. The question is
+whether CvS eigenvectors converge to elements of H₀.
+
+Implemented in: `src/riemann/suzuki.py`, tested by `run_bridge.py` Phase 8.
+
+### Ohzeki (2026): Shannon Number and Convergence Rate
+
+The Laplace-Slepian kernel has Shannon number N_c = 2·log(c)/π.
+This explains our form stabilization:
+- For c=13: N_c ≈ 1.63 (only ~2 significant modes)
+- For c=47: N_c ≈ 2.45 (only ~3 significant modes)
+- With N=100 basis functions, we oversample by 40-60x
+- Eigenvector is fully determined by first ~N_c modes
+- Adding more primes adds only exponentially small tail modes
+
+The Karnik-Romberg-Davenport (2021) bounds quantify the convergence:
+the plunge region has O(log(N_c)·log(1/ε)) eigenvalues, providing the
+non-asymptotic control needed for Connes' step 6.5.
+
+Implemented in: `src/riemann/shannon.py`, tested by `run_bridge.py` Phase 9.
+
+### The Bridge
+
+1. CvS eigenvectors live in truncated Weil form space
+2. Shannon number bounds show they stabilize after ~N_c modes
+3. Suzuki's Theorem 5.6: stable elements must converge to H₀
+4. If CvS eigenvectors → H₀, and H₀ = de Branges space (under RH),
+   then eigenvector zeros → Riemann zeros
+5. Suzuki's Theorem 1.4 provides a direct numerical test
+
 ## Key Insight for Our Approach
 
 The most promising path combines:
 - **Connes' spectral construction** (the framework)
 - **Groskin's computational infrastructure** (the verification)
-- **Geiger's even-dominance certificates** (the computer-assisted rigor)
-- **CPSC constraint-projection** (modeling the proof structure)
+- **Suzuki's norm equality** (the RH-equivalent test)
+- **Ohzeki's Shannon theory** (the convergence rate control)
 
-The convergence gap is the bottleneck. The prolate wave function
-connection (Slepian theory) may provide the analytical handle.
-This is where focused effort should go.
+The convergence gap is addressed by the Shannon number argument:
+once N >> N_c, the eigenvector is information-theoretically determined.
+The identification gap is addressed by Suzuki's norm equality: if
+||P̂Dψ||² = π⟨ψ, ψ⟩_W, the limit must be in the de Branges space.

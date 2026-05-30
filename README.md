@@ -148,6 +148,7 @@ If you use this work, please cite:
   author = {Pierson, Tristen Kyle},
   title  = {Log-Concavity of the {R}iemann {X}i Kernel and the {R}iemann {H}ypothesis},
   year   = {2026},
+  doi    = {10.5281/zenodo.20465036},
   url    = {https://github.com/BitConcepts/riemann-solver}
 }
 ```

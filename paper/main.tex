@@ -18,10 +18,13 @@
 \newtheorem{remark}[theorem]{Remark}
 
 \title{Log-Concavity of the Riemann Xi Kernel\\and the Riemann Hypothesis}
-\author{Tristen Pierson\\
+\author{Tristen Kyle Pierson\\
   BitConcepts Research\\
   \small ORCID: \href{https://orcid.org/0009-0003-7269-956X}{0009-0003-7269-956X}}
-\date{\today}
+\date{May 2026}
+
+\newcommand{\doiurl}{\url{https://doi.org/10.5281/zenodo.20465036}}
+\newcommand{\repourl}{\url{https://github.com/BitConcepts/riemann-solver}}
 
 \begin{document}
 \maketitle
@@ -33,7 +36,10 @@ The proof combines three components: (1)~an algebraic core showing $(\log\varphi
 
 We subject every link in the proof chain to 32~systematic falsification attacks across 6~categories. All attacks fail, including: independent verification that the cosine transform of~$e^{-t^3}$ has complex zeros (confirming the necessity of P\'olya's decay condition); numerical confirmation that $\int\Phi(u)\,du = \xi(1/2)$ to 15~digits (verifying our formula convention); derivative verification against \texttt{mpmath.diff}; and containment checks on~\texttt{mpmath.iv} interval arithmetic. Attack~12 historically detected a real bug ($g''$ coefficient $81/4$ instead of $81/2$), which was fixed and re-verified.
 
-All computational results are reproducible via publicly available Python scripts. A Lean~4 formalization of the proof structure compiles with zero \texttt{sorry} declarations.
+All computational results are reproducible via publicly available Python scripts at \repourl. A Lean~4 formalization of the proof structure compiles with zero \texttt{sorry} declarations.
+
+\medskip\noindent
+\textbf{DOI:} \doiurl
 \end{abstract}
 
 %% =========================================================================
@@ -277,7 +283,7 @@ Attack~1 is particularly significant: the cosine transform of $e^{-t^3}$ has 4~c
 \section{Reproducibility}
 \label{sec:reproduce}
 
-All computational results are reproducible from the public repository \texttt{BitConcepts/riemann-solver}:
+All computational results are reproducible from the public repository at \repourl:
 
 \begin{center}
 \small

@@ -13,106 +13,78 @@ We verify that the Riemann-Jacobi kernel Phi(u) is strictly log-concave on [0, i
 ```
 pip install -r requirements.txt
 pip install -e .
-python -m pytest tests/ -v
+python verify.py --quick    # proof verification (fast, ~2s)
+python falsify.py --quick   # falsification audit (fast, ~1s)
 ```
 
 ## Repository Structure
 
 ```
-paper/                 LaTeX manuscript (7 pages, 10 references)
+verify.py              Run the proof verification pipeline
+falsify.py             Run the falsification suite + external audit
 proof/                 Proof verification scripts
-  verify_logconcavity_rigorous.py    Rigorous IA, exact derivatives (52,898 subintervals)
-  verify_algebraic_core.py           Algebraic core + perturbation bound (C=204)
+  verify_logconcavity_rigorous.py    Rigorous IA (52,898 subintervals)
+  verify_algebraic_core.py           Algebraic core + perturbation (C=204)
   verify_truncation_and_crosscheck.py  Truncation error + cross-validation
-  verify_debruijn_condition.py       Polya/de Bruijn condition verification
+  verify_debruijn_condition.py       Polya condition verification
 falsification/         32 falsification attacks + external audit
-  run_all.py           Run all attacks in sequence
-  audit_external.py    Verification audit of external RH proof claims
-  falsify_own_proof.py               Attacks 1-5
-  falsify_advanced.py                Attacks 6-10
-  falsify_structural.py              Attacks 11-15
-  falsify_edge_cases.py              Attacks 16-20
-  falsify_deep.py                    Attacks 21-26
-  falsify_final.py                   Attacks 27-32
+  run_all.py           Run all 32 attacks
+  audit_external.py    Verification audit of external RH claims
+  falsify_*.py         Individual attack batches (1-5, 6-10, ..., 27-32)
+paper/                 LaTeX manuscript (7 pages, 10 references)
 docs/                  Supplementary documentation
   LANDSCAPE.md         RH proof landscape survey (May 2026)
 lean4/                 Lean 4 formalization (zero sorry, 13 axioms)
-src/riemann/           Core library (13 modules)
-tests/                 Unit tests (10/10 passing)
+src/riemann/           Core library
+tests/                 Unit tests
 results/               Computational results (JSON)
+research/              Research loop workflow and logs
+archive/               Superseded scripts (old CvS runners, etc.)
 ```
 
 ## Reproducing the Proof
 
-### Step 1: Rigorous Interval Arithmetic
+### Full pipeline (~70s)
 
 ```
-python proof/verify_logconcavity_rigorous.py
+python verify.py
 ```
 
-Certifies Q_Phi(u) < 0 on [0, 1.0] using exact symbolic derivatives in interval arithmetic. 52,898 subintervals (adaptive grid), 60-digit precision.
+Runs all 4 verification steps: rigorous IA (52,898 subintervals, 60-digit precision), algebraic core, truncation error, Polya conditions.
 
-### Step 2: Algebraic Core
-
-```
-python proof/verify_algebraic_core.py
-```
-
-Proves (log phi_1)'' < 0 analytically. Computes perturbation constant C = 204.
-
-### Step 3: Truncation Error
+### Quick check (~2s)
 
 ```
-python proof/verify_truncation_and_crosscheck.py
+python verify.py --quick
 ```
 
-Bounds the n >= 6 truncation error at 7.03e-43. Safety factor: 10^30 below Q_Phi margin.
+Skips the slow IA step; runs algebraic core, truncation/cross-validation, and Polya conditions.
 
 ## Running the Falsification Suite
 
-### All 32 Attacks
+### Full suite (32 attacks + external audit)
 
 ```
-python falsification/run_all.py
+python falsify.py
 ```
 
-Each attack tries to BREAK the proof. 31 passed cleanly. Attack 12 found a real bug (g'' coefficient 81/4 instead of 81/2), which has been fixed and re-verified.
+Each attack tries to BREAK the proof. 32/32 pass. Attack 12 historically found a real bug (g'' coefficient 81/4 instead of 81/2), which has been fixed.
 
-### Individual Attack Batches
-
-```
-python falsification/falsify_own_proof.py       # Attacks 1-5
-python falsification/falsify_advanced.py        # Attacks 6-10
-python falsification/falsify_structural.py      # Attacks 11-15
-python falsification/falsify_edge_cases.py      # Attacks 16-20
-python falsification/falsify_deep.py            # Attacks 21-26
-python falsification/falsify_final.py           # Attacks 27-32
-```
-
-## External Claims Verification Audit
-
-The audit framework tests other claimed RH proofs against the same criteria we apply to our own work.
-
-### Run all audits
+### Quick audit only
 
 ```
-python falsification/audit_external.py
+python falsify.py --quick
 ```
 
-### Audit a specific claim
+### Individual scripts
 
 ```
-python falsification/audit_external.py --claim gershon-2026
-python falsification/audit_external.py --claim self          # self-audit
+python falsification/run_all.py                # 32 attacks
+python falsification/audit_external.py --quick  # external claims audit
+python falsification/audit_external.py --claim self  # self-audit only
 ```
 
-### Quick mode (skip slow numerical checks)
-
-```
-python falsification/audit_external.py --quick
-```
-
-### Available claims
+### Auditable claims
 
 - `gershon-2026` — Log-concavity preprint (Preprints.org 202604.1513)
 - `preprint-0159` — Log-concavity preprint (Preprints.org 202604.0159)
@@ -155,9 +127,8 @@ To run the full verification locally:
 
 ```
 pip install -r requirements.txt && pip install -e ".[dev]"
-python falsification/run_all.py          # 32 falsification attacks
-python falsification/audit_external.py   # external claims audit
-python proof/verify_truncation_and_crosscheck.py  # cross-validation
+python verify.py     # full proof pipeline
+python falsify.py    # 32 attacks + external audit
 ```
 
 ## Citation

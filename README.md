@@ -1,8 +1,11 @@
 # Riemann Hypothesis: Log-Concavity Proof and Falsification Suite
 
 [![CI](https://github.com/BitConcepts/riemann-solver/actions/workflows/ci.yml/badge.svg)](https://github.com/BitConcepts/riemann-solver/actions/workflows/ci.yml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.20465036.svg)](https://doi.org/10.5281/zenodo.20465036)
 [![License: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE-CODE)
 [![License: CC BY 4.0](https://img.shields.io/badge/Paper-CC%20BY%204.0-lightgrey.svg)](LICENSE-PAPER)
+
+**Paper**: [Pierson (2026) — Log-Concavity of the Riemann Xi Kernel and the Riemann Hypothesis](https://doi.org/10.5281/zenodo.20465036)
 
 ## Claim
 

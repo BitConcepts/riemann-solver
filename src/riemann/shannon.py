@@ -176,7 +176,7 @@ def verify_shannon_prediction(
 
     Uses the connes-cvs package for the Galerkin matrix.
     """
-    from connes_cvs import build_galerkin_matrix, compute_ground_state
+    from connes_cvs import build_galerkin_matrix
 
     results = []
     for c in cutoffs:

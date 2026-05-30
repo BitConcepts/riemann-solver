@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Run all solver attack vectors and falsification harnesses."""
 
 import sys

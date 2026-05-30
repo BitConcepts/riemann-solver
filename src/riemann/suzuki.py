@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Suzuki (2025) norm equality test — an unconditional RH equivalent.
 
 Implements the computational test of Suzuki's Theorem 1.4:

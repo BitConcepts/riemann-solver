@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Weil positivity criterion and Connes-van Suijlekom Galerkin matrix.
 
 Implements the truncated Weil operator Q(c) from restricted Euler

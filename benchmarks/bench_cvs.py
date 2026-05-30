@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Benchmark: CvS Galerkin eigenvalue convergence across prime cutoffs.
 
 Reference values from Groskin (2026):

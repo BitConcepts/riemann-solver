@@ -1,0 +1,10 @@
+This repository uses a split license:
+
+- Code (Python scripts, Lean files, CI configs): MIT License
+  See LICENSE-CODE for the full text.
+
+- Paper, documentation, and written content (paper/, docs/): CC BY 4.0
+  See LICENSE-PAPER for the full text.
+
+If in doubt, the license for a specific file is indicated by the SPDX
+header in the file itself.

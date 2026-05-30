@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """De Bruijn-Newman constant Λ: bounds and Lehmer pair analysis.
 
 RH ⟺ Λ ≤ 0. Known: 0 ≤ Λ ≤ 0.22.

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Falsification: search for Lehmer pairs (unusually close zero pairs).
 
 Tight Lehmer pairs provide lower bounds on the de Bruijn-Newman

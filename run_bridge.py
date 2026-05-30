@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Bridge runner: Suzuki norm equality + Shannon eigenvalue analysis.
 
 Tests the analytical bridge from our computational evidence (form

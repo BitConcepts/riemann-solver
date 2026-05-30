@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Spectral operator construction for the Riemann Hypothesis.
 
 Implements the rank-one perturbation of the scaling operator on [λ⁻¹, λ]

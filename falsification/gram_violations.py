@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Falsification: Gram's law violation analysis.
 
 Gram's law states (-1)^n Z(g_n) > 0 at Gram points g_n.

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Riemann xi function ξ(s) and related computations.
 
     ξ(s) = ½ s(s-1) π^{-s/2} Γ(s/2) ζ(s)

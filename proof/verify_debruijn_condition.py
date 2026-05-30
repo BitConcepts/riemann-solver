@@ -62,7 +62,7 @@ print()
 
 # Condition D: log Phi is concave on [0, inf)
 print("D. (log Phi)''(u) <= 0 for u >= 0")
-print("   Status: YES (verified by rigorous IA, 11961 subintervals)")
+print("   Status: YES (verified by rigorous IA, 52898 subintervals)")
 print()
 
 # Condition E: Superexponential decay

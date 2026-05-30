@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Benchmark: Li coefficient growth rate analysis."""
 
 from riemann.li_criterion import li_coefficients, li_growth_check

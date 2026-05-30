@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Shannon number analysis for CvS Galerkin eigenvalue structure.
 
 Connects Ohzeki (2026)'s Slepian-Laplace theory to the Connes-van

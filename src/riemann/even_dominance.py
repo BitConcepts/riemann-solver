@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Even-dominance certificate reproduction (Geiger 2026).
 
 Geiger's claimed proof of RH uses the Connes-van Suijlekom framework

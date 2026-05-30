@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Benchmark this machine's hardware for Riemann solver workloads.
 
 IMPORTANT: Must be run as `python bench_hardware.py`, not imported.

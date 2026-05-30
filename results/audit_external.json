@@ -1,0 +1,175 @@
+[
+  {
+    "claim_id": "gershon-2026",
+    "title": "Gershon log-concavity (April 2026)",
+    "source": "Preprints.org 202604.1513",
+    "approach": "Log-concavity via Polya 1927",
+    "date": "2026-04",
+    "n_checks": 3,
+    "n_passed": 1,
+    "n_failed": 2,
+    "n_critical": 1,
+    "checks": [
+      {
+        "name": "perturbation inequality direction",
+        "passed": false,
+        "detail": "Inequality goes wrong direction: need C*eps < |Q|, not |Q| < C*eps",
+        "severity": "critical"
+      },
+      {
+        "name": "exp(-t^4) counterexample claim",
+        "passed": false,
+        "detail": "Incorrect: Csordas-Varga 1989 shows exp(-t^4) has ONLY real zeros.",
+        "severity": "warning"
+      },
+      {
+        "name": "g'' coefficient (numerical)",
+        "passed": true,
+        "detail": "Rel error: 0.00e+00. g'' coefficient should be 81*pi^2*n^4/2. Derivation: (9/2)^2 * 2 = 81/2.",
+        "severity": "info"
+      }
+    ]
+  },
+  {
+    "claim_id": "preprint-0159",
+    "title": "Log-concavity preprint (April 2026)",
+    "source": "Preprints.org 202604.0159",
+    "approach": "Log-concavity via Polya 1927",
+    "date": "2026-04",
+    "n_checks": 3,
+    "n_passed": 1,
+    "n_failed": 2,
+    "n_critical": 2,
+    "checks": [
+      {
+        "name": "perturbation inequality direction",
+        "passed": false,
+        "detail": "Inequality goes wrong direction: need C*eps < |Q|, not |Q| < C*eps",
+        "severity": "critical"
+      },
+      {
+        "name": "IA coverage range",
+        "passed": false,
+        "detail": "IA covers [0.0, 0.5]. Gap: [0.5, 1.0] not certified. Our verification uses [0, 1.0].",
+        "severity": "critical"
+      },
+      {
+        "name": "g'' coefficient (numerical)",
+        "passed": true,
+        "detail": "Rel error: 0.00e+00. g'' coefficient should be 81*pi^2*n^4/2. Derivation: (9/2)^2 * 2 = 81/2.",
+        "severity": "info"
+      }
+    ]
+  },
+  {
+    "claim_id": "aivisions-2026",
+    "title": "A.I. Visions \"Semilocal Spectral Descent\"",
+    "source": "Zenodo 19546495",
+    "approach": "Form stabilization",
+    "date": "2026-04",
+    "n_checks": 3,
+    "n_passed": 1,
+    "n_failed": 2,
+    "n_critical": 1,
+    "checks": [
+      {
+        "name": "approach type",
+        "passed": true,
+        "detail": "Spectral approach (not log-concavity).",
+        "severity": "info"
+      },
+      {
+        "name": "eigenvector stability assumption",
+        "passed": false,
+        "detail": "Eigenvector mode count changes from 7 to 22 as cutoff c increases from 13 to 47.",
+        "severity": "critical"
+      },
+      {
+        "name": "peer review status",
+        "passed": false,
+        "detail": "Not peer-reviewed. Blockchain timestamped only.",
+        "severity": "warning"
+      }
+    ]
+  },
+  {
+    "claim_id": "geiger-2026",
+    "title": "Geiger even-dominance",
+    "source": "Zenodo 10.5281/zenodo.19035640",
+    "approach": "Even dominance via CAP certificates",
+    "date": "2026-03",
+    "n_checks": 3,
+    "n_passed": 3,
+    "n_failed": 0,
+    "n_critical": 0,
+    "checks": [
+      {
+        "name": "approach type",
+        "passed": true,
+        "detail": "Even-dominance (not log-concavity).",
+        "severity": "info"
+      },
+      {
+        "name": "CAP certificates",
+        "passed": true,
+        "detail": "Reproduced at 6 lambda values.",
+        "severity": "info"
+      },
+      {
+        "name": "key step: Proposition A6",
+        "passed": true,
+        "detail": "Under peer review (2+ months).",
+        "severity": "info"
+      }
+    ]
+  },
+  {
+    "claim_id": "self",
+    "title": "This work (BitConcepts/riemann-solver)",
+    "source": "BitConcepts/riemann-solver",
+    "approach": "Log-concavity via Polya 1927",
+    "date": "2026-05",
+    "n_checks": 6,
+    "n_passed": 6,
+    "n_failed": 0,
+    "n_critical": 0,
+    "checks": [
+      {
+        "name": "g'' coefficient",
+        "passed": true,
+        "detail": "g'' coefficient should be 81*pi^2*n^4/2. Derivation: (9/2)^2 * 2 = 81/2.",
+        "severity": "info"
+      },
+      {
+        "name": "perturbation inequality direction",
+        "passed": true,
+        "detail": "Correctly requires C*eps << |Q_Phi|",
+        "severity": "info"
+      },
+      {
+        "name": "perturbation constant C magnitude",
+        "passed": true,
+        "detail": "Claimed C=204. Our verified C=204. Ratio: 0.00e+00",
+        "severity": "info"
+      },
+      {
+        "name": "IA coverage range",
+        "passed": true,
+        "detail": "IA covers [0.0, 1.0].",
+        "severity": "info"
+      },
+      {
+        "name": "IA subinterval count",
+        "passed": true,
+        "detail": "Claims 52898 subintervals on [0.0, 1.0]",
+        "severity": "info"
+      },
+      {
+        "name": "counterexample understanding",
+        "passed": true,
+        "detail": "No incorrect claims",
+        "severity": "info"
+      }
+    ]
+  }
+]

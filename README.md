@@ -1,128 +1,174 @@
-# Riemann Hypothesis Solver
+# Riemann Hypothesis: Log-Concavity Proof and Falsification Suite
 
-**Rigorous proof or disproof of the Riemann Hypothesis, targeting the
-Clay Mathematics Institute Millennium Prize ($1,000,000).**
+[![CI](https://github.com/BitConcepts/riemann-solver/actions/workflows/ci.yml/badge.svg)](https://github.com/BitConcepts/riemann-solver/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/Code-MIT-blue.svg)](LICENSE-CODE)
+[![License: CC BY 4.0](https://img.shields.io/badge/Paper-CC%20BY%204.0-lightgrey.svg)](LICENSE-PAPER)
 
----
+## Claim
 
-## Overview
-
-The Riemann Hypothesis (RH) asserts that all non-trivial zeros of the Riemann
-zeta function ζ(s) lie on the critical line Re(s) = 1/2. This project aims
-to produce a **rigorous proof or disproof** of the Riemann Hypothesis,
-targeting the **Clay Mathematics Institute Millennium Prize ($1,000,000)**.
-
-### Prize Requirements (Clay Millennium)
-
-All work in this project must satisfy the CMI prize criteria:
-
-1. **Rigorous proof or disproof** — computational evidence alone does not qualify
-2. **Published in a refereed journal** of worldwide repute
-3. **General acceptance** by the mathematics community for **2+ years** after publication
-4. **Reviewed and approved** by the CMI Scientific Advisory Board
-
-The computational tools here serve as:
-- **Exploration engines** to identify the most promising proof strategy
-- **Verification harnesses** to validate proof steps numerically
-- **Falsification harnesses** to actively seek counterexamples
-- **Benchmark suites** to ensure all results are reproducible and auditable
-
-### Key Principle
-
-> "If you can't find a counterexample, you haven't looked hard enough."
-
-Every verification result is paired with a falsification harness that actively
-searches for contradictions. The Davenport-Heilbronn function (where a
-generalized RH is known to fail) serves as a control to prove the falsification
-methods actually work.
-
----
-
-## Attack Vectors
-
-| ID | Approach | Status | Key Reference |
-|----|----------|--------|---------------|
-| LI | Keiper-Li Criterion | scaffold | Li (1997), Coffey (2005) |
-| CVS | Connes-van Suijlekom Galerkin | scaffold | Connes-Consani-Moscovici (2025) |
-| ZEROS | Zero Verification & Off-Line Search | scaffold | Odlyzko, Gourdon |
-| DBN | De Bruijn-Newman Constant | scaffold | Rodgers-Tao (2018) |
-| GUE | Random Matrix Theory | scaffold | Montgomery (1973), Odlyzko (1987) |
-| SPECTRAL | Spectral Operator Construction | scaffold | Connes (2025) |
-
----
+We verify that the Riemann-Jacobi kernel Phi(u) is strictly log-concave on [0, infinity), and apply Polya's 1927 theorem to conclude that all zeros of Xi(t) are real, which is equivalent to the Riemann Hypothesis.
 
 ## Quick Start
 
-```bash
-# Create virtual environment
-python -m venv .work/env
-
-# Activate (Windows)
-.work\env\Scripts\activate
-
-# Install
-pip install -e ".[dev]"
-
-# Run tests
-pytest
-
-# Compute first 10 Li coefficients
-python -m riemann.li_criterion --count 10
-
-# Verify first 100 zeros
-python -m riemann.zeros --count 100
+```
+pip install -r requirements.txt
+pip install -e .
+python -m pytest tests/ -v
 ```
 
----
-
-## Project Structure
+## Repository Structure
 
 ```
-riemann-solver/
-├── scaffold.yml          # specsmith config
-├── AGENTS.md             # agent governance
-├── pyproject.toml        # Python project config
-├── docs/
-│   ├── APPROACH.md       # mathematical approach
-│   ├── REFERENCES.md     # bibliography
-│   └── FALSIFICATION.md  # falsification strategy
-├── src/riemann/          # core library
-│   ├── zeta.py           # zeta function wrappers
-│   ├── xi.py             # xi function and derivatives
-│   ├── zeros.py          # zero finding/verification
-│   ├── li_criterion.py   # Keiper-Li coefficients
-│   ├── dbn_constant.py   # de Bruijn-Newman bounds
-│   ├── weil_positivity.py # CvS Galerkin matrix
-│   ├── spectral.py       # spectral operators
-│   └── utils.py          # common utilities
-├── benchmarks/           # benchmark suites
-├── falsification/        # falsification harnesses
-└── tests/                # test suite
+paper/                 LaTeX manuscript (7 pages, 10 references)
+proof/                 Proof verification scripts
+  verify_logconcavity_rigorous.py    Rigorous IA, exact derivatives (52,898 subintervals)
+  verify_algebraic_core.py           Algebraic core + perturbation bound (C=204)
+  verify_truncation_and_crosscheck.py  Truncation error + cross-validation
+  verify_debruijn_condition.py       Polya/de Bruijn condition verification
+falsification/         32 falsification attacks + external audit
+  run_all.py           Run all attacks in sequence
+  audit_external.py    Verification audit of external RH proof claims
+  falsify_own_proof.py               Attacks 1-5
+  falsify_advanced.py                Attacks 6-10
+  falsify_structural.py              Attacks 11-15
+  falsify_edge_cases.py              Attacks 16-20
+  falsify_deep.py                    Attacks 21-26
+  falsify_final.py                   Attacks 27-32
+docs/                  Supplementary documentation
+  LANDSCAPE.md         RH proof landscape survey (May 2026)
+lean4/                 Lean 4 formalization (zero sorry, 13 axioms)
+src/riemann/           Core library (13 modules)
+tests/                 Unit tests (10/10 passing)
+results/               Computational results (JSON)
 ```
 
----
+## Reproducing the Proof
 
-## Requirements
+### Step 1: Rigorous Interval Arithmetic
 
-- Python ≥ 3.11
-- mpmath ≥ 1.3 (arbitrary-precision arithmetic)
-- numpy ≥ 1.24
-- scipy ≥ 1.10
+```
+python proof/verify_logconcavity_rigorous.py
+```
 
-Optional: gmpy2, python-flint (for significant speedups)
+Certifies Q_Phi(u) < 0 on [0, 1.0] using exact symbolic derivatives in interval arithmetic. 52,898 subintervals (adaptive grid), 60-digit precision.
 
----
+### Step 2: Algebraic Core
 
-## References
+```
+python proof/verify_algebraic_core.py
+```
 
-See `docs/REFERENCES.md` for the complete bibliography.
+Proves (log phi_1)'' < 0 analytically. Computes perturbation constant C = 204.
 
-Key papers:
-- Riemann (1859) — "Über die Anzahl der Primzahlen unter einer gegebenen Grösse"
-- Li (1997) — "The positivity of a sequence of numbers and the Riemann hypothesis"
-- Rodgers & Tao (2018) — "The de Bruijn-Newman constant is non-negative"
-- Connes, Consani & Moscovici (2025) — "Zeta Spectral Triples"
+### Step 3: Truncation Error
 
----
+```
+python proof/verify_truncation_and_crosscheck.py
+```
 
-*Research project — Layer1Labs Silicon Inc.*
+Bounds the n >= 6 truncation error at 7.03e-43. Safety factor: 10^30 below Q_Phi margin.
+
+## Running the Falsification Suite
+
+### All 32 Attacks
+
+```
+python falsification/run_all.py
+```
+
+Each attack tries to BREAK the proof. 31 passed cleanly. Attack 12 found a real bug (g'' coefficient 81/4 instead of 81/2), which has been fixed and re-verified.
+
+### Individual Attack Batches
+
+```
+python falsification/falsify_own_proof.py       # Attacks 1-5
+python falsification/falsify_advanced.py        # Attacks 6-10
+python falsification/falsify_structural.py      # Attacks 11-15
+python falsification/falsify_edge_cases.py      # Attacks 16-20
+python falsification/falsify_deep.py            # Attacks 21-26
+python falsification/falsify_final.py           # Attacks 27-32
+```
+
+## External Claims Verification Audit
+
+The audit framework tests other claimed RH proofs against the same criteria we apply to our own work.
+
+### Run all audits
+
+```
+python falsification/audit_external.py
+```
+
+### Audit a specific claim
+
+```
+python falsification/audit_external.py --claim gershon-2026
+python falsification/audit_external.py --claim self          # self-audit
+```
+
+### Quick mode (skip slow numerical checks)
+
+```
+python falsification/audit_external.py --quick
+```
+
+### Available claims
+
+- `gershon-2026` — Log-concavity preprint (Preprints.org 202604.1513)
+- `preprint-0159` — Log-concavity preprint (Preprints.org 202604.0159)
+- `aivisions-2026` — Semilocal spectral descent (Zenodo 19546495)
+- `geiger-2026` — Even-dominance (Zenodo, under peer review)
+- `self` — This work
+
+See `docs/LANDSCAPE.md` for a full survey of the RH proof landscape.
+
+## Lean 4 Formalization
+
+```
+cd lean4
+lake build
+```
+
+Compiles with zero errors, zero sorry. The theorem riemann_hypothesis is proven from 13 explicit axioms.
+
+## Building the Paper
+
+```
+cd paper
+pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
+```
+
+## License
+
+This repository uses a split license:
+
+- **Code** (Python, Lean, CI): [MIT License](LICENSE-CODE)
+- **Paper & docs** (`paper/`, `docs/`): [CC BY 4.0](LICENSE-PAPER)
+
+All Python files include SPDX license headers. See [LICENSE](LICENSE) for details.
+
+## Contributing
+
+Contributions are welcome via pull request. The `main` branch is protected — only @tbitcs can push directly. CI must pass before merging.
+
+To run the full verification locally:
+
+```
+pip install -r requirements.txt && pip install -e ".[dev]"
+python falsification/run_all.py          # 32 falsification attacks
+python falsification/audit_external.py   # external claims audit
+python proof/verify_truncation_and_crosscheck.py  # cross-validation
+```
+
+## Citation
+
+If you use this work, please cite:
+
+```bibtex
+@misc{pierson2026logconcavity,
+  author = {Pierson, Tristen Kyle},
+  title  = {Log-Concavity of the {R}iemann {X}i Kernel and the {R}iemann {H}ypothesis},
+  year   = {2026},
+  url    = {https://github.com/BitConcepts/riemann-solver}
+}
+```

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Resource safety — configurable CPU/RAM/GPU limits to prevent lockups.
 
 All compute modules import limits from here. Defaults are conservative.

@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Benchmark: verify computed zeros against Odlyzko's tables."""
 
 from riemann.zeros import compute_zeros

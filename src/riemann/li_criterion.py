@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Keiper-Li coefficient computation for the Riemann Hypothesis.
 
 Li's criterion: RH ⟺ λ_n ≥ 0 for all positive integers n.

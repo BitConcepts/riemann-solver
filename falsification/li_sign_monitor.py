@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Falsification: monitor Li coefficients for sign changes.
 
 Any λ_n < 0 immediately disproves the Riemann Hypothesis.

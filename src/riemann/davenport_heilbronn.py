@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Davenport-Heilbronn function — a control where generalized RH fails.
 
 The DH function is a Dirichlet series satisfying a functional equation

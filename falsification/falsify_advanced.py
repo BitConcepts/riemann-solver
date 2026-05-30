@@ -96,7 +96,7 @@ def get_derivs(n_start, n_end, u):
         e2u = mp.exp(2*u); e4u = e2u**2
         g = 2*pi**2*n4*e9u2 - 3*pi*n2*e5u2
         gp = 9*pi**2*n4*e9u2 - mp.mpf(15)*pi*n2*e5u2/2
-        gpp = mp.mpf(81)*pi**2*n4*e9u2/4 - mp.mpf(75)*pi*n2*e5u2/4
+        gpp = mp.mpf(81)*pi**2*n4*e9u2/2 - mp.mpf(75)*pi*n2*e5u2/4
         E = mp.exp(-pi*n2*e2u)
         Ep = -2*pi*n2*e2u*E
         Epp = (-4*pi*n2*e2u + 4*pi**2*n4*e4u)*E

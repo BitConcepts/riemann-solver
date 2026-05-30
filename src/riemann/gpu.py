@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """GPU-accelerated matrix operations for Galerkin and spectral computations.
 
 Provides transparent GPU acceleration via CuPy (CUDA) or PyTorch when

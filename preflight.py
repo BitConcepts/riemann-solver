@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Pre-flight check: verify all phases will work before unattended run.
 
 Runs a quick smoke test of each phase with minimal parameters to catch

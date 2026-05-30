@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Falsification: systematic search for zeros off the critical line.
 
 Any zero ρ with Re(ρ) ≠ 1/2 would disprove the Riemann Hypothesis.

@@ -1,18 +1,21 @@
 {
   "method": "exact_symbolic_derivatives",
-  "n_subintervals": 2000,
+  "n_subintervals": 52898,
+  "n_coarse": 1898,
+  "n_fine": 51000,
+  "u_split": 0.949,
   "n_terms": 5,
   "dps": 60,
   "u_range": [
     0,
     1.0
   ],
-  "certified": 1899,
-  "failed": 101,
-  "max_Q_upper": -5.938071125857473e-13,
-  "worst_u": 0.94925,
-  "time_s": 2.2504310607910156,
-  "all_certified": false,
+  "certified": 52898,
+  "failed": 0,
+  "max_Q_upper": -3.3560148634612064e-12,
+  "worst_u": 0.94875,
+  "time_s": 66.64955282211304,
+  "all_certified": true,
   "rigorous": true,
-  "note": "Derivatives computed by closed-form product rule, no finite differences"
+  "note": "Adaptive grid: coarse on [0, 0.95], fine on [0.95, 1.0]"
 }

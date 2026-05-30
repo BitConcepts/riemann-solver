@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Quick CvS Galerkin run at c=17."""
 from connes_cvs import build_galerkin_matrix, compute_ground_state, extract_zeros
 import mpmath as mp

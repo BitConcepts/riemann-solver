@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Weekend runner: deep CvS Galerkin computation + full verification sweep.
 
 Run this overnight or over the weekend for the heavy computations:

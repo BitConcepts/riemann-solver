@@ -21,8 +21,11 @@ from mpmath import iv
 # Configuration
 DPS = 60
 N_TERMS = 5
-N_SUBINTERVALS = 2000
 U_MAX = 1.0
+# Adaptive grid: coarse on [0, U_SPLIT], fine on [U_SPLIT, U_MAX]
+U_SPLIT = 0.949
+N_COARSE = 1898   # delta = 0.0005
+N_FINE = 51000    # delta ~ 1e-6
 
 
 def phi_n_and_derivs_iv(n, u_iv):
@@ -101,14 +104,23 @@ def main():
     mp.mp.dps = DPS
     iv.dps = DPS
 
+    n_total = N_COARSE + N_FINE
     print("=" * 72)
     print("  RIGOROUS LOG-CONCAVITY VERIFICATION")
     print("  Exact symbolic derivatives + interval arithmetic")
-    print("  Q_Phi(u) < 0 for u in [0, %.1f]" % U_MAX)
-    print("  %d subintervals, %d terms, %d-digit precision" % (N_SUBINTERVALS, N_TERMS, DPS))
+    print("  Q_Phi(u) < 0 for u in [0, %.2f]" % U_MAX)
+    print("  %d coarse + %d fine = %d total, %d terms, %d-digit precision" %
+          (N_COARSE, N_FINE, n_total, N_TERMS, DPS))
     print("=" * 72)
 
-    delta = U_MAX / N_SUBINTERVALS
+    subintervals = []
+    dc = U_SPLIT / N_COARSE
+    for i in range(N_COARSE):
+        subintervals.append((i * dc, (i + 1) * dc))
+    df = (U_MAX - U_SPLIT) / N_FINE
+    for i in range(N_FINE):
+        subintervals.append((U_SPLIT + i * df, U_SPLIT + (i + 1) * df))
+
     certified = 0
     failed = 0
     max_upper = float("-inf")
@@ -116,14 +128,11 @@ def main():
 
     t0 = time.time()
 
-    for i in range(N_SUBINTERVALS):
-        u_lo = i * delta
-        u_hi = (i + 1) * delta
-
+    for idx, (u_lo, u_hi) in enumerate(subintervals):
         try:
             Q_lo, Q_hi = Q_Phi_rigorous(u_lo, u_hi)
         except Exception as e:
-            print("  ERROR at subinterval %d (u=[%.4f,%.4f]): %s" % (i, u_lo, u_hi, e))
+            print("  ERROR at subinterval %d (u=[%.6f,%.6f]): %s" % (idx, u_lo, u_hi, e))
             failed += 1
             continue
 
@@ -133,27 +142,27 @@ def main():
                 max_upper = Q_hi
                 worst_u = (u_lo + u_hi) / 2
         else:
-            print("  FAIL at u=[%.4f,%.4f]: Q in [%.4e, %.4e]" % (u_lo, u_hi, Q_lo, Q_hi))
+            print("  FAIL at u=[%.6f,%.6f]: Q in [%.4e, %.4e]" % (u_lo, u_hi, Q_lo, Q_hi))
             failed += 1
 
-        if (i + 1) % 500 == 0:
+        if (idx + 1) % 5000 == 0 or (idx + 1) == n_total:
             elapsed = time.time() - t0
             print("  ... %d/%d done (%.0fs, %d certified, %d failed)" %
-                  (i + 1, N_SUBINTERVALS, elapsed, certified, failed))
+                  (idx + 1, n_total, elapsed, certified, failed))
 
     elapsed = time.time() - t0
 
     print()
     print("=" * 72)
     print("  RESULTS")
-    print("  Certified: %d/%d" % (certified, N_SUBINTERVALS))
-    print("  Failed:    %d/%d" % (failed, N_SUBINTERVALS))
-    print("  Max upper bound on Q: %.6e at u=%.4f" % (max_upper, worst_u))
+    print("  Certified: %d/%d" % (certified, n_total))
+    print("  Failed:    %d/%d" % (failed, n_total))
+    print("  Max upper bound on Q: %.6e at u=%.6f" % (max_upper, worst_u))
     print("  Time: %.0fs" % elapsed)
 
     if failed == 0:
         print()
-        print("  *** ALL SUBINTERVALS CERTIFIED ***")
+        print("  *** ALL %d SUBINTERVALS CERTIFIED ***" % n_total)
         print("  Q_Phi(u) < 0 on [0, %.1f] with EXACT symbolic derivatives." % U_MAX)
         print("  This is a RIGOROUS result: no discretization error in derivatives.")
         print("  Combined with the algebraic argument for u > 1.0,")
@@ -166,7 +175,10 @@ def main():
 
     result = {
         "method": "exact_symbolic_derivatives",
-        "n_subintervals": N_SUBINTERVALS,
+        "n_subintervals": n_total,
+        "n_coarse": N_COARSE,
+        "n_fine": N_FINE,
+        "u_split": U_SPLIT,
         "n_terms": N_TERMS,
         "dps": DPS,
         "u_range": [0, U_MAX],
@@ -177,7 +189,7 @@ def main():
         "time_s": elapsed,
         "all_certified": failed == 0,
         "rigorous": True,
-        "note": "Derivatives computed by closed-form product rule, no finite differences",
+        "note": "Adaptive grid: coarse on [0, %.3f], fine on [%.3f, %.1f]" % (U_SPLIT, U_SPLIT, U_MAX),
     }
     with open("results/verify_logconcavity_rigorous.json", "w") as f:
         json.dump(result, f, indent=2)

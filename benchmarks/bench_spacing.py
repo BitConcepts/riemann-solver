@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Benchmark: zero spacing statistics vs GUE prediction."""
 
 from riemann.zeros import compute_zeros, normalized_spacing

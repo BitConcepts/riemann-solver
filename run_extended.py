@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Extended runs: higher-N stabilization, 55-digit CvS, Geiger safety factors.
 
 Usage:

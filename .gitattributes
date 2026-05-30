@@ -1,0 +1,36 @@
+# Auto-detect text files and normalize to LF in the repo
+* text=auto eol=lf
+
+# Explicit text files
+*.py        text eol=lf
+*.md        text eol=lf
+*.txt       text eol=lf
+*.yml       text eol=lf
+*.yaml      text eol=lf
+*.toml      text eol=lf
+*.cfg       text eol=lf
+*.json      text eol=lf
+*.tex       text eol=lf
+*.bib       text eol=lf
+*.bst       text eol=lf
+*.lean      text eol=lf
+*.sh        text eol=lf
+*.jsonl     text eol=lf
+
+# Windows-specific scripts keep CRLF
+*.ps1       text eol=crlf
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+
+# Binary files — do not normalize
+*.pdf       binary
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.ico       binary
+*.zip       binary
+*.gz        binary
+*.tar       binary
+*.whl       binary
+*.egg       binary

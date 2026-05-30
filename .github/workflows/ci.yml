@@ -8,10 +8,11 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
     strategy:
       matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
         python-version: ["3.11", "3.12"]
+    runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v4
 
@@ -31,6 +32,12 @@ jobs:
 
       - name: Unit tests
         run: pytest -v --tb=short
+
+      - name: Quick proof verification
+        run: python verify.py --quick
+
+      - name: Quick falsification audit
+        run: python falsify.py --quick
 
   proof-verification:
     runs-on: ubuntu-latest

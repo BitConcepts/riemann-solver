@@ -1,0 +1,152 @@
+extends: ''
+name: riemann-solver
+type: research-mathematics
+platforms:
+- linux
+- windows
+languages:
+- Python
+- Markdown
+- YAML
+spec_version: 0.11.7
+aee_phase: verification
+description: >-
+  Rigorous proof or disproof of the Riemann Hypothesis, targeting the
+  Clay Mathematics Institute Millennium Prize ($1M). Multiple independent
+  verification criteria (Li, Weil/CvS, spectral, de Bruijn-Newman),
+  falsification harnesses, and Connes spectral program integration.
+  All work must meet CMI publication and peer-review standards.
+services: false
+shell_wrappers: false
+exec_shims: false
+git_init: true
+vcs_platform: github
+branching_strategy: gitflow
+default_branch: main
+develop_branch: develop
+require_pr_reviews: true
+required_approvals: 1
+require_ci_pass: true
+allow_force_push: false
+use_remote_rules: false
+verification_tools:
+  test: pytest
+  lint: ruff
+detected_build_system: pyproject
+detected_test_framework: pytest
+integrations:
+- warp
+auxiliary_disciplines:
+- cli-python
+attack_vectors:
+- id: LI
+  name: Keiper-Li Criterion
+  description: >-
+    RH <=> lambda_n >= 0 for all positive integers n.
+    Direct zero-sum computation, growth asymptotics monitoring.
+  status: implemented-tested
+  references:
+  - 'Li (1997) J. Number Theory 65(2):325-333'
+  - 'Coffey (2005) math-ph/0505052'
+  - 'Voros (2004) math/0506326'
+- id: CVS
+  name: Connes-van Suijlekom Galerkin
+  description: >-
+    Build truncated Weil operator Q(c) from restricted Euler products.
+    Ground-state eigenvalue encodes proximity to Weil positivity.
+  status: scaffold
+  references:
+  - 'Connes-Consani-Moscovici (2025) arXiv:2511.22755'
+  - 'Groskin (2026) Zenodo 10.5281/zenodo.19546515'
+- id: ZEROS
+  name: Zero Verification & Off-Line Search
+  description: >-
+    High-precision zero computation via mpmath. Hardy Z-function
+    sign-change detection. Off-critical-line grid search.
+  status: implemented-tested
+  references:
+  - 'Odlyzko (2000) zero tables'
+  - 'Gourdon (2004) first 10^13 zeros'
+- id: DBN
+  name: De Bruijn-Newman Constant
+  description: >-
+    Lambda = 0 <=> RH. Rodgers-Tao proved Lambda >= 0.
+    Lehmer pair method for bounds.
+  status: scaffold
+  references:
+  - 'Rodgers-Tao (2018) arXiv:1801.05914'
+  - 'Polymath15 (2019) Lambda <= 0.22'
+- id: GUE
+  name: Random Matrix Theory / GUE Statistics
+  description: >-
+    Zero spacing should match GUE pair correlation.
+    Montgomery conjecture, Odlyzko verification.
+  status: scaffold
+  references:
+  - 'Montgomery (1973) pair correlation'
+  - 'Odlyzko (1987) spacing statistics'
+- id: SPECTRAL
+  name: Spectral Operator Construction
+  description: >-
+    Connes zeta spectral triples. Self-adjoint operators whose
+    spectra approximate zeta zeros with extraordinary precision.
+  status: scaffold
+  references:
+  - 'Connes-Consani-Moscovici (2025) arXiv:2511.22755'
+falsification:
+  strategy: multi-prong
+  methods:
+  - id: OFF_LINE
+    name: Off-critical-line zero search
+    description: Grid search in 0 < Re(s) < 1, Re(s) != 1/2
+  - id: LI_SIGN
+    name: Li coefficient sign monitoring
+    description: Any lambda_n < 0 immediately disproves RH
+  - id: LEHMER
+    name: Lehmer pair escalation
+    description: Tight zero pairs push Lambda up toward positive
+  - id: GRAM
+    name: Gram violation analysis
+    description: Pattern analysis of Gram's law exceptions
+  - id: DH_CONTROL
+    name: Davenport-Heilbronn control
+    description: >-
+      Verify falsification methods work correctly on functions
+      where the generalized RH is KNOWN TO FAIL.
+prize_target:
+  name: Clay Mathematics Institute Millennium Prize
+  url: https://www.claymath.org/millennium-problems/riemann-hypothesis
+  prize: $1,000,000
+  requirements:
+  - Rigorous proof OR disproof (computational evidence alone does not qualify)
+  - Published in a refereed mathematics journal of worldwide repute
+  - General acceptance by the mathematics community for 2+ years post-publication
+  - Reviewed and approved by the CMI Scientific Advisory Board
+  deliverables:
+  - A complete, logically rigorous proof or a verified counterexample
+  - Manuscript in journal-submission-ready form (LaTeX)
+  - All supporting computational artifacts reproducible and auditable
+  - Falsification harness results demonstrating due diligence
+  status: open (6 of 7 Millennium Problems remain unsolved)
+readiness:
+  phase: verification
+  tests: 12/12 passing
+  lint: clean
+  modules: 9/9 importable
+  benchmarks: 4/4 smoke-tested
+  falsification: 4/4 smoke-tested
+  specsmith_metadata: complete
+  score: 100%
+benchmarks:
+- id: ODLYZKO
+  name: Odlyzko zero tables
+  description: First known zeros verified to high precision
+- id: MASLANKA
+  name: Maślanka Li coefficients
+  description: lambda_n for n <= 3300
+- id: GROSKIN
+  name: Groskin CvS eigenvalues
+  description: Galerkin eigenvalues at c=13..67
+- id: GUE_CORR
+  name: GUE pair correlation
+  description: Montgomery-Odlyzko spacing statistics

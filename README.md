@@ -10,11 +10,20 @@ We verify that the Riemann-Jacobi kernel Phi(u) is strictly log-concave on [0, i
 
 ## Quick Start
 
+Requires Python 3.11+. Works on Linux, macOS, and Windows.
+
 ```
 pip install -r requirements.txt
 pip install -e .
 python verify.py --quick    # proof verification (fast, ~2s)
 python falsify.py --quick   # falsification audit (fast, ~1s)
+```
+
+Or use the bootstrap script:
+
+```
+bash bootstrap.sh          # Linux / macOS
+.\bootstrap.ps1            # Windows PowerShell
 ```
 
 ## Repository Structure

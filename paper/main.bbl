@@ -1,3 +1,60 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{csordas1986}
+George Csordas, Timothy~S. Norfolk, and Richard~S. Varga.
+\newblock The {R}iemann hypothesis and the {T}ur{\'a}n inequalities.
+\newblock {\em Transactions of the American Mathematical Society},
+  296(2):521--541, 1986.
+
+\bibitem{csordas1989}
+George Csordas and Richard~S. Varga.
+\newblock Integral transforms and the {L}aguerre--{P}{\'o}lya class.
+\newblock {\em Complex Variables}, 12:211--230, 1989.
+
+\bibitem{debruijn1950}
+N.~G. de~Bruijn.
+\newblock The roots of trigonometric integrals.
+\newblock {\em Duke Mathematical Journal}, 17:197--226, 1950.
+
+\bibitem{dimitrov2011}
+Dimitar~K. Dimitrov and F{\'a}bio~R. Lucas.
+\newblock Higher order {T}ur{\'a}n inequalities for the {R}iemann
+  $\xi$-function.
+\newblock {\em Proceedings of the American Mathematical Society},
+  139:1013--1022, 2011.
+
+\bibitem{griffin2019}
+Michael Griffin, Ken Ono, Larry Rolen, and Don Zagier.
+\newblock Jensen polynomials for the {R}iemann zeta function and other
+  sequences.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  116(23):11103--11110, 2019.
+
+\bibitem{mpmath}
+Fredrik Johansson.
+\newblock mpmath: a {P}ython library for arbitrary-precision floating-point
+  arithmetic, 2024.
+
+\bibitem{levin1964}
+B.~Ja. Levin.
+\newblock {\em Distribution of Zeros of Entire Functions}.
+\newblock American Mathematical Society, 1964.
+
+\bibitem{polya1927}
+G.~P{\'o}lya.
+\newblock {\"U}ber trigonometrische {I}ntegrale mit nur reellen {N}ullstellen.
+\newblock {\em Journal f{\"u}r die reine und angewandte Mathematik}, 158:6--18,
+  1927.
+
+\bibitem{rodgers2020}
+Brad Rodgers and Terence Tao.
+\newblock The de {B}ruijn--{N}ewman constant is non-negative.
+\newblock {\em Forum of Mathematics, Pi}, 8:e6, 2020.
+
+\bibitem{titchmarsh1986}
+E.~C. Titchmarsh.
+\newblock {\em The Theory of the {R}iemann Zeta-Function}.
+\newblock Oxford University Press, 2nd edition, 1986.
+\newblock Revised by D. R. Heath-Brown.
 
 \end{thebibliography}

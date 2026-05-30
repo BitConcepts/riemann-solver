@@ -35,3 +35,6 @@ src/*.egg-info/
 
 # Specsmith
 .specsmith/credit-budget.json
+
+# Local planning (not for public repo)
+NEXT_STEPS.md

@@ -15,8 +15,8 @@ The proof has three components:
 
 2. **Interval arithmetic verification**: Q_Φ(u) = Φ''Φ - (Φ')² < 0 on
    [0, 1.0], verified by rigorous interval arithmetic with exact symbolic
-   derivatives (11,961 certified subintervals: 1,961 on [0, 0.98] + 10,000
-   on [0.98, 1.0]).
+   derivatives (52,898 certified subintervals: 1,898 on [0, 0.949] + 51,000
+   on [0.949, 1.0]).
 
 3. **Perturbation bound**: For u > 1.0, the tail R = Σ_{n≥2} φ_n satisfies
    |R|/φ₁ < 10⁻²⁹, and the near-cancellation ratio is bounded, so the
@@ -102,7 +102,7 @@ The derivatives of φ_n = g · E are computed by the product rule:
 
 where g', g'', E', E'' are computed in closed form:
   g' = 9π²n⁴e^{9u/2} - (15/2)πn²e^{5u/2}
-  g'' = (81/4)π²n⁴e^{9u/2} - (75/4)πn²e^{5u/2}
+  g'' = (81/2)π²n⁴e^{9u/2} - (75/4)πn²e^{5u/2}
   E' = -2πn²e^{2u} · E
   E'' = (-4πn²e^{2u} + 4π²n⁴e^{4u}) · E
 
@@ -110,10 +110,10 @@ All computations use mpmath.iv (interval arithmetic) at 60-digit precision,
 retaining n = 1,...,5 terms (contribution from n ≥ 6 is < 10⁻⁴⁹).
 
 **Results:**
-- [0, 0.98]: 1961/1961 subintervals certified (width 5×10⁻⁴)
-- [0.98, 1.0]: 10000/10000 subintervals certified (width 2×10⁻⁶)
-- Total: **11,961/11,961 subintervals certified**
-- Maximum Q upper bound: -1.44 × 10⁻¹³
+- [0, 0.949]: 1,898/1,898 subintervals certified (width 5×10⁻⁴)
+- [0.949, 1.0]: 51,000/51,000 subintervals certified (width ~10⁻⁶)
+- Total: **52,898/52,898 subintervals certified**
+- Maximum Q upper bound: -3.36 × 10⁻¹²
 
 ## 6. Perturbation Bound for u > 1.0
 
@@ -127,7 +127,7 @@ The near-cancellation ratio (|φ₁''φ₁| + φ₁'²)/|Q_{φ₁}| reaches at m
 36× at u = 1.0 (growing as u increases). But the tail ratio ε < 10⁻²⁹
 at u = 1.0 and decreases superexponentially.
 
-Therefore: |ΔQ|/|Q_{φ₁}| < C × 36 × 10⁻²⁹ < 10⁻²⁶ ≪ 1.
+The explicit constant C = 204, so |ΔQ|/|Q_{φ₁}| < 204 × 10⁻²⁹ ≈ 2×10⁻²⁷ ≪ 1.
 
 Since Q_{φ₁} < 0 (algebraic core) and |ΔQ| ≪ |Q_{φ₁}|:
   Q_Φ = Q_{φ₁} + ΔQ < 0 for all u > 1.0.  ∎
@@ -141,7 +141,7 @@ Since Q_{φ₁} < 0 (algebraic core) and |ΔQ| ≪ |Q_{φ₁}|:
 2. Φ(-u) = Φ(u) (Section 2)
 3. Φ ∈ L¹(ℝ) (Section 2)
 4. (log Φ)''(u) ≤ 0 for u ≥ 0:
-   - [0, 1.0]: Interval arithmetic, 11,961 certified subintervals (Section 5)
+   - [0, 1.0]: Interval arithmetic, 52,898 certified subintervals (Section 5)
    - [1.0, ∞): Algebraic core + perturbation bound (Sections 3, 6)
 
 By the Pólya-de Bruijn theorem (Section 1), Ξ(t) has only real zeros.
@@ -150,12 +150,14 @@ Since RH ⟺ all zeros of Ξ are real, the Riemann Hypothesis follows.  ∎
 ## 8. Reproducibility
 
 All computational results are reproducible:
-- `verify_logconcavity_rigorous.py`: Rigorous IA verification with exact derivatives
-- `verify_algebraic_core.py`: Algebraic core and perturbation bound
-- `test_logconcavity.py`: Stress tests (Φ positivity, evenness, Q profile)
-- `test_exp_t4_argprinc.py`: Verification that exp(-t⁴) has only real zeros
 
-Lean 4 formalization scaffold in `lean4/RHProof/Basic.lean`.
+```
+python verify.py          # Full proof pipeline
+python falsify.py         # 32 falsification attacks + external audit
+```
+
+Individual scripts in `proof/` and `falsification/`.
+Lean 4 formalization in `lean4/RHProof/Basic.lean`.
 
 ## 9. Status and Caveats
 

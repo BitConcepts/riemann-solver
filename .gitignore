@@ -29,5 +29,9 @@ Thumbs.db
 htmlcov/
 .coverage
 
+# Egg-info (generated)
+*.egg-info/
+src/*.egg-info/
+
 # Specsmith
 .specsmith/credit-budget.json

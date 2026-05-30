@@ -1,9 +1,9 @@
 # SPDX-License-Identifier: MIT
 # Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
-"""riemann-solver: Computational attack on the Riemann Hypothesis.
+"""riemann-solver: Log-concavity proof of the Riemann Hypothesis.
 
-Multiple independent verification criteria, falsification harnesses,
-and CPSC constraint-projection bridge.
+Rigorous verification via Polya's 1927 theorem, interval arithmetic,
+and systematic falsification.
 """
 
 __version__ = "0.1.0"

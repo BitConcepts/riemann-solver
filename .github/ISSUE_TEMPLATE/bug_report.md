@@ -9,13 +9,12 @@ assignees: ''
 **Describe the bug**
 A clear description of what the incorrect computation or behavior is.
 
-**Module affected**
-- [ ] zeta.py
-- [ ] zeros.py
-- [ ] li_criterion.py
-- [ ] weil_positivity.py
-- [ ] spectral.py
-- [ ] gpu.py
+**Component affected**
+- [ ] proof/ (verification scripts)
+- [ ] falsification/ (attack scripts)
+- [ ] paper/ (LaTeX manuscript)
+- [ ] src/riemann/ (core library)
+- [ ] verify.py / falsify.py (entry points)
 - [ ] Other
 
 **Precision context**

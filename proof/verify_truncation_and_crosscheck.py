@@ -57,9 +57,9 @@ print()
 print("Total bound on |sum_{n>=6} 4*phi_n(u)| for u in [0, 1.0]:")
 print("  <= %.4e" % float(total_bound.b))
 print("  Bound: < 10^-42 (dominated by the n=6 term)")
-print("  Q_Phi margin: >= 1.44e-13 (from IA verification)")
+print("  Q_Phi margin: >= 3.36e-12 (from IA verification)")
 print("  Truncation / margin ratio: < %.1e (safe by factor %.0e)" %
-      (float(total_bound.b) / 1.44e-13, 1.44e-13 / float(total_bound.b)))
+      (float(total_bound.b) / 3.36e-12, 3.36e-12 / float(total_bound.b)))
 
 print()
 print("=" * 72)
@@ -142,8 +142,8 @@ else:
 results = {
     "truncation_bound": float(total_bound.b),
     "truncation_bound_below_1e42": float(total_bound.b) < 1e-42,
-    "q_phi_margin": 1.44e-13,
-    "safety_factor": 1.44e-13 / float(total_bound.b),
+    "q_phi_margin": 3.36e-12,
+    "safety_factor": 3.36e-12 / float(total_bound.b),
     "cross_validation_passed": all_agree,
 }
 with open("results/truncation_crosscheck.json", "w") as f:

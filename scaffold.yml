@@ -4,6 +4,7 @@ type: research-mathematics
 platforms:
 - linux
 - windows
+- macos
 languages:
 - Python
 - Markdown
@@ -21,9 +22,8 @@ shell_wrappers: false
 exec_shims: false
 git_init: true
 vcs_platform: github
-branching_strategy: gitflow
+branching_strategy: trunk
 default_branch: main
-develop_branch: develop
 require_pr_reviews: true
 required_approvals: 1
 require_ci_pass: true

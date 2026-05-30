@@ -6,8 +6,13 @@ labels: enhancement
 assignees: ''
 ---
 
-**Attack vector**
-Which proof strategy does this relate to? (Li, CvS, Spectral, DBN, GUE, other)
+**Component**
+Which part of the project does this relate to?
+- [ ] Proof verification (proof/)
+- [ ] Falsification suite (falsification/)
+- [ ] External audit framework
+- [ ] Paper / documentation
+- [ ] Other
 
 **Mathematical basis**
 Reference the paper(s) this is based on.
@@ -15,5 +20,5 @@ Reference the paper(s) this is based on.
 **Proposed implementation**
 Describe the computation or proof step.
 
-**Expected impact on proof gap**
-Which of the 3 missing steps (from PROOF_STRATEGY.md) does this address?
+**Expected impact**
+How does this strengthen the proof or improve verification?

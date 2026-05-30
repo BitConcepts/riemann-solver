@@ -90,42 +90,6 @@ The convergence question reduces to:
 
 ---
 
-## CPSC as Proof Modeler
-
-The CPSC paradigm can model the proof obligation structure:
-
-**Constraint Architecture for the Proof:**
-```
-constraint_architecture:
-  - type: spectral_reality
-    constraint: "All eigenvalues of D^(λ,N)_log are real"
-    status: PROVEN (Theorem 1.1, Carathéodory-Fejér)
-
-  - type: eigenvector_convergence
-    constraint: "k_λ converges in Sobolev norm as λ → ∞"
-    status: EMPIRICALLY_SUPPORTED (Groskin: s(c) grows, overlap ≥ 0.95)
-    gap: RIGOROUS_BOUND_NEEDED
-
-  - type: fourier_convergence
-    constraint: "k̂_λ → Ξ uniformly on compact sets"
-    status: EMPIRICALLY_SUPPORTED (329 digits at c=100)
-    gap: UNIFORM_CONVERGENCE_PROOF_NEEDED
-
-  - type: limit_identification
-    constraint: "The limit function equals the Riemann Ξ function"
-    status: OPEN
-    gap: FUNCTIONAL_EQUATION_MATCHING
-```
-
-**DoF vector**: The proof has 3 remaining degrees of freedom (Steps 1-3).
-**Projection**: Each step can be "projected" from empirical evidence
-toward rigorous proof by:
-1. Establishing explicit error bounds
-2. Proving monotonicity of convergence
-3. Using the prolate wave function framework for analytical control
-
----
-
 ## Actionable Work Items
 
 ### Immediate (this project can do)

@@ -129,29 +129,3 @@ operator on [λ^{-1}, λ]. The spectra of these operators converge
 **Key property**: The operators are self-adjoint, so their spectra are
 real. A rigorous proof of spectral convergence would establish RH.
 
----
-
-## CPSC Constraint Bridge
-
-The CPSC paradigm models this problem as:
-
-**CAS-YAML schema**:
-```yaml
-domain: riemann-zeta-zeros
-constraint_architecture:
-  - type: critical_line
-    constraint: "Re(rho) == 0.5"
-    for_all: "rho in nontrivial_zeros(zeta)"
-projection:
-  strategy: iterative
-  dof: imaginary_parts
-  manifold: critical_line
-verification:
-  residual: "|zeta(0.5 + i*t)|"
-  threshold: 1e-20
-```
-
-Each zero ρ has one degree of freedom (its imaginary part t). The
-constraint Re(ρ) = 1/2 fixes the real part. "Projection" means:
-given a candidate (σ + it) with σ ≈ 1/2, Newton-refine to σ = 1/2
-exactly and measure |ζ(1/2 + it)|.

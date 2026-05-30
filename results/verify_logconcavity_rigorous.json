@@ -1,0 +1,18 @@
+{
+  "method": "exact_symbolic_derivatives",
+  "n_subintervals": 2000,
+  "n_terms": 5,
+  "dps": 60,
+  "u_range": [
+    0,
+    1.0
+  ],
+  "certified": 1961,
+  "failed": 39,
+  "max_Q_upper": -1.4445449267906293e-13,
+  "worst_u": 0.9802500000000001,
+  "time_s": 2.629330635070801,
+  "all_certified": false,
+  "rigorous": true,
+  "note": "Derivatives computed by closed-form product rule, no finite differences"
+}

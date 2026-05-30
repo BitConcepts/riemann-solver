@@ -1,0 +1,7 @@
+{
+  "truncation_bound": 7.027019588437716e-43,
+  "truncation_bound_below_1e42": true,
+  "q_phi_margin": 1.44e-13,
+  "safety_factor": 2.0492329384841637e+29,
+  "cross_validation_passed": true
+}

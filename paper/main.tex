@@ -82,7 +82,7 @@ Then the entire function $F(z) = \int_{-\infty}^{\infty} K(t)\,e^{izt}\,dt$ has 
 \end{theorem}
 
 \begin{proof}
-This is~\cite[Satz~II]{polya1927}; see also~\cite[Theorem~2.2]{csordas1989} and~\cite[\S8]{levin1964}. No English translation of~\cite{polya1927} exists; we rely on the modern restatements in~\cite{csordas1989} and~\cite{levin1964}, which have been used as the definitive reference for this result across the subsequent literature, including~\cite{debruijn1950,griffin2019,rodgers2020}.
+This is~\cite[Satz~II]{polya1927}. No English translation of the 1927 German text exists. The theorem has been independently restated in English by at least five groups: Csordas and Varga~\cite[Theorem~2.2]{csordas1989} (who include the analyticity condition explicitly in their equation~(2.4)), Levin~\cite[\S8]{levin1964}, de~Bruijn~\cite{debruijn1950}, Griffin, Ono, Rolen, and Zagier~\cite{griffin2019}, and Rodgers and Tao~\cite{rodgers2020}. All cite the same conditions. We rely on the Csordas--Varga formulation as the primary English reference.
 \end{proof}
 
 \begin{remark}
@@ -326,7 +326,7 @@ Script & Purpose \\
 \end{tabular}
 \end{center}
 
-\paragraph{Lean~4 formalization.} The proof structure is formalized in Lean~4 (v4.16.0) with 13 explicit axioms covering published results (P\'olya's theorem, properties of~$\Phi$), algebraic identities, and computational certificates. The theorem \texttt{riemann\_hypothesis} is proven from these axioms. The formalization compiles with zero errors and zero \texttt{sorry} declarations.
+\paragraph{Lean~4 formalization.} The proof structure is formalized in Lean~4 (v4.16.0) with 17 explicit axioms covering published results (P\'olya's theorem, properties of~$\Phi$), algebraic identities, and computational certificates. The theorem \texttt{riemann\_hypothesis} is proven from these axioms. The formalization compiles with zero errors and zero \texttt{sorry} declarations.
 
 %% =========================================================================
 \section{Discussion}

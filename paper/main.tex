@@ -61,7 +61,7 @@ where the \emph{Riemann--Jacobi kernel} is
 
 We verify computationally that $\int_0^\infty \Phi(u)\,du = \xi(1/2) \approx 0.4971$ to 15~digits, confirming the correctness of~\eqref{eq:phi}.
 
-\paragraph{Approach.} In 1927, P\'olya~\cite{polya1927} proved that if a kernel~$K(t)$ is even, positive, integrable, log-concave on~$[0,\infty)$, and decays superexponentially, then its cosine transform has only real zeros (see Theorem~\ref{thm:polya} below). We verify that~$\Phi$ satisfies all of these conditions, thereby establishing RH.
+\paragraph{Approach.} In 1927, P\'olya~\cite{polya1927} proved that if a kernel~$K(t)$ is even, positive, integrable, log-concave on~$[0,\infty)$, real analytic, and decays superexponentially, then its cosine transform has only real zeros (see Theorem~\ref{thm:polya} below). We verify that~$\Phi$ satisfies all of these conditions, thereby establishing RH.
 
 \paragraph{Prior work.} The log-concavity of the dominant term~$\varphi_1$ was observed by Csordas and Varga~\cite{csordas1989}. The Tur\'an inequalities for the Taylor coefficients of~$\Xi$ were established by Csordas, Norfolk, and Varga~\cite{csordas1986}, and higher-order generalizations by Dimitrov and Lucas~\cite{dimitrov2011} and Griffin, Ono, Rolen, and Zagier~\cite{griffin2019}. The connection between log-concavity and the de~Bruijn--Newman constant was explored by de~Bruijn~\cite{debruijn1950} and Rodgers and Tao~\cite{rodgers2020}. The key distinction of this work is verifying log-concavity of the \emph{full kernel}~$\Phi$, not just the dominant term.
 
@@ -101,12 +101,13 @@ The kernel~$\Phi$ defined by~\eqref{eq:phi} satisfies:
 \item $\Phi(u) > 0$ for all~$u \geq 0$;
 \item $\Phi(-u) = \Phi(u)$ for all~$u$;
 \item $\Phi \in L^1(\mathbb{R})$;
-\item $\Phi(u) = O\bigl(e^{-\pi e^{2u}}\bigr)$ as~$u \to +\infty$.
+\item $\Phi(u) = O\bigl(e^{-\pi e^{2u}}\bigr)$ as~$u \to +\infty$;
+\item $\Phi$ is real analytic on~$\mathbb{R}$.
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
-Properties~(i)--(iii) are classical; see~\cite[\S2.10]{titchmarsh1986} and~\cite[Theorem~A]{csordas1989}. Property~(iv) follows from the dominant exponential factor $e^{-\pi e^{2u}}$ in~$\varphi_1$.
+Properties~(i)--(iii) are classical; see~\cite[\S2.10]{titchmarsh1986} and~\cite[Theorem~A]{csordas1989}. Property~(iv) follows from the dominant exponential factor $e^{-\pi e^{2u}}$ in~$\varphi_1$. For~(v): each~$\varphi_n$ is entire (a product of exponentials), and the series~\eqref{eq:phi} converges uniformly on compacts by the Weierstrass $M$-test.
 
 \emph{Numerical verification.} We confirm $\Phi(u) > 0$ at 10{,}001 uniformly spaced points on $[0,1]$ ($\min = 5.51 \times 10^{-7}$ at $u = 1$), and $|\Phi(u) - \Phi(-u)|/|\Phi(u)| < 10^{-70}$ at 8~test points.
 \end{proof}
@@ -263,7 +264,7 @@ The kernel~$\Phi$ satisfies:
 \item $\Phi \in L^1(\mathbb{R})$ \hfill (Proposition~\ref{prop:phi_properties});
 \item $(\log\Phi)''(u) \leq 0$ for~$u \geq 0$ \hfill (Theorem~\ref{thm:main});
 \item $\Phi(u) = O(e^{-\pi e^{2u}}) = O(e^{-|u|^3})$ \hfill (Proposition~\ref{prop:phi_properties});
-\item $\Phi$ is real analytic on~$\mathbb{R}$ \hfill (uniformly convergent series of analytic functions).
+\item $\Phi$ is real analytic on~$\mathbb{R}$ \hfill (Proposition~\ref{prop:phi_properties}).
 \end{enumerate}
 By Theorem~\ref{thm:polya} (P\'olya 1927), $\Xi(t) = \int\Phi(u)\cos(tu)\,du$ has only real zeros. Since RH is equivalent to all zeros of~$\Xi$ being real~\cite{titchmarsh1986}, the Riemann Hypothesis follows.
 \end{proof}

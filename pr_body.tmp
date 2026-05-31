@@ -1,0 +1,12 @@
+## Tail Bound, Scaling Audit, and Analyticity Verification
+
+Three adversarial verification documents.
+
+- tail_bound_uniform_proof.md: Verdict: PLAUSIBLE BUT INCOMPLETE.
+- q_scaling_audit.md: Verdict: SCALING CONSISTENT.
+- phi_even_analyticity_proof.md: Verdict: PHI ANALYTICITY VERIFIED.
+
+_Conversation: https://app.warp.dev/conversation/f0b2b178-cb31-4ded-9206-47d479a7a6a8_
+_Run: https://oz.warp.dev/runs/019e7e7d-723d-71f8-80ee-74241a0c383a_
+
+_This PR was generated with [Oz](https://warp.dev/oz)._

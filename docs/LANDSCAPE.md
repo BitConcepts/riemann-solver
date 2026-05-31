@@ -77,6 +77,32 @@ completeness and apply the same criteria to all entries.
 - **Status**: Published in non-specialist journal.
 - **Assessment**: Not independently verified.
 
+### Louiz "Super-Exponential Kernel" (May 2026)
+- **Source**: DOI: 10.13140/RG.2.2.35504.32004 (ResearchGate); validation report May 2026
+- **Approach**: Super-exponential Möbius kernel R(c) = Sμ(c)/S(c) as analytic proxy
+  for 1/ζ(1/c). Mapping s = 1/c connects Re(c) > 1 to critical strip.
+- **Status**: ResearchGate preprint. Self-validated by Gemini DeepResearch (AI).
+  No peer review. Primary and validation papers both authored by Louiz.
+- **Critical issues found**:
+  1. R(c) → 1 identically for all c. Super-exponential suppression erases
+     all n≥2 Möbius information because μ(1)=1 makes the n=1 terms identical
+     in S and Sμ. The kernel does not encode ζ(s).
+  2. Functional equivalence R(1/s)=1/ζ(s) asserted via invalid analytic
+     continuation argument (matching at single boundary limit c→∞ is not
+     sufficient to identify two distinct analytic functions).
+  3. Internal inconsistency: §6.1 numerics are consistent with
+     f = exp(-n^c·e^c), but the paper's Lean definition uses
+     f = exp(-n^c·exp(exp(c))). These differ by ~700 orders of magnitude
+     at c=2. The paper contradicts itself.
+  4. Lean theorem uses 'sorry' — not machine-verified.
+  5. §5.2 claims Louiz 'disproved the Twin Primes Conjecture via Brun's
+     upper bound'. Brun's theorem does not disprove TPC; TPC is open.
+- **Our verification**: `bench_louiz_kernel.py` (numerical); `audit_louiz_2026`
+  in `audit_external.py`. 3 critical + 2 warning issues documented.
+- **Lessons**: Fast convergence ≠ correct target; analytic continuation requires
+  open-set agreement; AI-generated Lean with sorry is not formal proof;
+  internal consistency checks are mandatory.
+
 ### Various Zenodo/viXra claims
 - Multiple claimed proofs posted on Zenodo and viXra (Meghani, Singh Khalsa,
   Morato de Dalmases, Duran, Wang-Fu, etc.)

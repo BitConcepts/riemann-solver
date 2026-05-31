@@ -1,0 +1,239 @@
+[
+  {
+    "id": "connes-2026",
+    "title": "A Survey with New Results on the Spectral Interpretation of Zeros of L-functions",
+    "author": "Alain Connes",
+    "year": 2026,
+    "source": "J. Open Math. Problems 2(1), 1-52",
+    "approach": "Spectral program: CCM operator, CvS Galerkin matrix, Weil explicit formula",
+    "tier": 1,
+    "claims_rh": false,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": true,
+    "status": "peer-reviewed",
+    "critical_gaps": [
+      "Convergence of det_reg to Xi function not proven (CCM 2025, Section 8)",
+      "CCM eigenvector restructures (7–22 modes) as cutoff increases — stabilization is of eigenvalue, not eigenvector"
+    ],
+    "lessons": [
+      "CvS Galerkin is reproducible and gives a real computational handle on the Weil form",
+      "Shannon number N_c = O(log c) bounds significant modes — explains why eigenvalue stabilizes",
+      "Eigenvector stabilization and eigenvalue stabilization are distinct; only the eigenvalue stabilizes",
+      "Suzuki Theorem 1.4 gives an unconditional RH equivalent: ||P̂Dψ||² = π⟨ψ,ψ⟩_W"
+    ],
+    "our_verification": "CvS Galerkin reproduced at 6 cutoffs c=13..47; eigenvalue plateau confirmed; eigenvector mode analysis done",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "griffin-ono-2019",
+    "title": "Jensen polynomials for the Riemann zeta function and other sequences",
+    "author": "Griffin, Ono, Rolen, Zagier",
+    "year": 2019,
+    "source": "PNAS 116(23)",
+    "approach": "Proves Jensen polynomial hyperbolicity for each fixed degree d (finitely many exceptions in n)",
+    "tier": 1,
+    "claims_rh": false,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": true,
+    "status": "peer-reviewed",
+    "critical_gaps": [
+      "Hyperbolicity proven for each fixed d, not for all d simultaneously — RH requires all degrees"
+    ],
+    "lessons": [
+      "Jensen polynomials give a concrete finite-dimensional reduction of RH at each order",
+      "The Laguerre–Pólya class is the right target; log-concavity of Taylor coefficients is related"
+    ],
+    "our_verification": "Well-established, widely accepted",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "rodgers-tao-2020",
+    "title": "The de Bruijn–Newman constant is non-negative",
+    "author": "Rodgers, Tao",
+    "year": 2020,
+    "source": "Forum of Mathematics, Pi 8",
+    "approach": "Proves Λ ≥ 0; combined with Polymath15 Λ ≤ 0.22. RH ⟺ Λ = 0.",
+    "tier": 1,
+    "claims_rh": false,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": true,
+    "status": "peer-reviewed",
+    "critical_gaps": [
+      "Only shows Λ ≥ 0; proving Λ = 0 is equivalent to RH and remains open"
+    ],
+    "lessons": [
+      "The de Bruijn–Newman constant Λ = 0 is equivalent to RH; proving Λ ≤ 0 would suffice",
+      "The de Bruijn condition (used in our proof) is directly connected to Λ via Polya 1927"
+    ],
+    "our_verification": "Peer-reviewed, widely accepted",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "geiger-2026",
+    "title": "Even dominance of the Weil quadratic form",
+    "author": "Geiger",
+    "year": 2026,
+    "source": "Zenodo 10.5281/zenodo.19035640; submitted to Communications in Mathematics 2026-03-27",
+    "approach": "Even dominance of Weil QF via CAP certificates + Prime Number Theorem transfer",
+    "tier": 2,
+    "claims_rh": true,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": false,
+    "status": "under review (2+ months, no verdict as of 2026-05)",
+    "critical_gaps": [
+      "Proposition A6 interpolation is the key unverified step",
+      "Not yet peer-reviewed"
+    ],
+    "lessons": [
+      "CAP certificates provide a rigorous finite computational certificate — a strong model",
+      "Even dominance connects to our log-concavity approach via the Weil form",
+      "Long review period (2+ months) without rejection is mildly positive signal"
+    ],
+    "our_verification": "Even-dominance certificates reproduced at 6 lambda values; Proposition A6 not independently verified",
+    "benchmark_script": null,
+    "audit_id": "geiger-2026"
+  },
+  {
+    "id": "gershon-2026",
+    "title": "Log-concavity approach to RH (Gershon)",
+    "author": "Gershon",
+    "year": 2026,
+    "source": "Preprints.org 202604.1513",
+    "approach": "Log-concavity of Xi kernel via Polya 1927; Lean 4 partial formalization",
+    "tier": 3,
+    "claims_rh": true,
+    "lean_code": true,
+    "lean_complete": false,
+    "peer_reviewed": false,
+    "status": "preprint",
+    "critical_gaps": [
+      "Perturbation bound inequality goes the wrong direction (equation 16)",
+      "Claims exp(-t^4) is a counterexample to log-concavity implying real zeros — incorrect per Csordas-Varga 1989",
+      "g'' coefficient error"
+    ],
+    "lessons": [
+      "The perturbation bound inequality direction is a subtle but critical check — easy to get backwards",
+      "exp(-t^4) has only real zeros (Csordas-Varga 1989 Example 2.1) — do not claim it as a counterexample",
+      "Our IA must cover [0, 1.0] not just [0, 0.5]"
+    ],
+    "our_verification": "3 critical issues found; perturbation bound direction wrong; counterexample claim incorrect",
+    "benchmark_script": null,
+    "audit_id": "gershon-2026"
+  },
+  {
+    "id": "preprint-0159",
+    "title": "Log-concavity preprint (anonymous, April 2026)",
+    "author": "Unknown",
+    "year": 2026,
+    "source": "Preprints.org 202604.0159",
+    "approach": "Log-concavity of Xi kernel via Polya 1927; claims Lean 4 formalization",
+    "tier": 3,
+    "claims_rh": true,
+    "lean_code": true,
+    "lean_complete": false,
+    "peer_reviewed": false,
+    "status": "preprint",
+    "critical_gaps": [
+      "Perturbation bound inequality goes wrong direction",
+      "Interval arithmetic covers [0, 0.5] only — gap at [0.5, 1.0]",
+      "g'' coefficient issue"
+    ],
+    "lessons": [
+      "IA coverage must span [0, 1.0] — [0, 0.5] leaves the most sensitive region uncertified",
+      "Same perturbation direction error as Gershon — this is a systematic trap in this approach"
+    ],
+    "our_verification": "3 critical issues found; IA coverage only [0, 0.5]; perturbation direction wrong",
+    "benchmark_script": null,
+    "audit_id": "preprint-0159"
+  },
+  {
+    "id": "aivisions-2026",
+    "title": "Semilocal Spectral Descent",
+    "author": "A.I. Visions LTD",
+    "year": 2026,
+    "source": "Zenodo 19546495",
+    "approach": "Claims form stabilization bypasses CCM convergence gap via eigenvector stability",
+    "tier": 4,
+    "claims_rh": true,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": false,
+    "status": "preprint (blockchain timestamped)",
+    "critical_gaps": [
+      "Eigenvector mode count changes from 7 to 22 as cutoff c increases from 13 to 47 — eigenvector is NOT stable",
+      "No peer review"
+    ],
+    "lessons": [
+      "Eigenvalue stabilization ≠ eigenvector stabilization — must check both",
+      "Our phase 9 (screw line) result shows H₀ space filling is consistent with eigenvector restructuring"
+    ],
+    "our_verification": "Eigenvector mode analysis disproves the stability assumption",
+    "benchmark_script": null,
+    "audit_id": "aivisions-2026"
+  },
+  {
+    "id": "louiz-2026",
+    "title": "A new AI assisted proof of the Riemann Hypothesis: A Super-Exponential Kernel Approach",
+    "author": "Akram Louiz",
+    "year": 2026,
+    "source": "DOI: 10.13140/RG.2.2.35504.32004 (ResearchGate preprint); validation report May 2026",
+    "approach": "Super-exponential Möbius kernel R(c) = Sμ(c)/S(c) claimed as analytic proxy for 1/ζ(1/c); mapping s=1/c connects Re(c)>1 to critical strip",
+    "tier": 4,
+    "claims_rh": true,
+    "lean_code": true,
+    "lean_complete": false,
+    "peer_reviewed": false,
+    "status": "preprint (ResearchGate); self-validated by AI (Gemini DeepResearch)",
+    "critical_gaps": [
+      "R(c) → 1 identically for all c — super-exponential suppression erases all n≥2 Möbius information. R(c) does not encode ζ(s) at all",
+      "Functional equivalence R(1/s)=1/ζ(s) asserted via invalid analytic continuation from single boundary limit",
+      "Lean theorem 'analytic_louiz_kernel' uses 'sorry' — not machine-verified",
+      "Internal inconsistency: §6.1 numerics (exp(-n^c·e^c)) contradict Lean definition (exp(-n^c·exp(exp(c)))) by ~700 orders of magnitude",
+      "Spurious claim: §5.2 'disproves Twin Primes Conjecture via Brun's upper bound' — Brun's theorem does not disprove TPC",
+      "Self-validated: both papers authored by Louiz; no independent expert review"
+    ],
+    "lessons": [
+      "Fast convergence ≠ correct target. Super-exponential dampening is real but the ratio converges to 1, not 1/ζ(s)",
+      "Analytic continuation requires open-set agreement, not just matching at a single boundary limit",
+      "AI-generated Lean with 'sorry' is not formal proof — do not cite partial Lean scaffolds as machine verification",
+      "Internal consistency between formal definition and numerical examples is mandatory — our falsify.py exists for this",
+      "Self-validation by AI is not scientific peer review; independent falsification attempts are the standard"
+    ],
+    "our_verification": "Benchmark (bench_louiz_kernel.py): R(c)≈1 at all test points; §6.1 numerics reproduced with sec61 formula; Lean/sec61 inconsistency confirmed; 3 critical + 2 warning issues found",
+    "benchmark_script": "benchmarks/bench_louiz_kernel.py",
+    "audit_id": "louiz-2026"
+  },
+  {
+    "id": "this-work",
+    "title": "Log-concavity of the Riemann-Jacobi Kernel Phi(u) and the Riemann Hypothesis",
+    "author": "Tristen Kyle Pierson / BitConcepts Research",
+    "year": 2026,
+    "source": "BitConcepts/riemann-solver; paper/Pierson_2026_LogConcavity_RH.pdf",
+    "approach": "Log-concavity of Xi kernel Phi(u) via Polya 1927 (Satz II); 52,898 IA subintervals; C=204 perturbation bound; 32 falsification attacks",
+    "tier": 3,
+    "claims_rh": true,
+    "lean_code": true,
+    "lean_complete": false,
+    "peer_reviewed": false,
+    "status": "preprint (not submitted); Lean scaffold partial",
+    "critical_gaps": [
+      "Lean4 formalization is a partial scaffold (not complete machine proof)",
+      "Not yet submitted for peer review"
+    ],
+    "lessons": [
+      "Our falsification protocol (32 attacks + external audit) is the core differentiator",
+      "Internal consistency is enforced by running falsify.py against our own proof",
+      "IA coverage [0, 1.0] with 52,898 subintervals distinguishes us from partial-coverage preprints"
+    ],
+    "our_verification": "Self: g'' coefficient verified (81/2), C=204 perturbation bound correct direction, IA [0,1.0] complete, cross-validation passed",
+    "benchmark_script": null,
+    "audit_id": "self"
+  }
+]

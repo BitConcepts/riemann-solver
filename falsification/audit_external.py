@@ -207,6 +207,142 @@ def audit_geiger_2026(quick=False):
     a.checks.append(AuditCheck("key step: Proposition A6", True, "Under peer review (2+ months)."))
     return a
 
+def audit_louiz_2026(quick=False):
+    """Audit the Louiz Super-Exponential Kernel approach (2026).
+
+    Primary paper: Akram Louiz, DOI 10.13140/RG.2.2.35504.32004
+    Validation report: Louiz (May 2026), Gemini/Lean validation paper
+
+    Approach: R(c) = Sμ(c)/S(c) claimed as analytic proxy for 1/ζ(1/c)
+    via super-exponential Möbius kernel.
+    """
+    a = ClaimAudit(
+        "louiz-2026",
+        'Louiz "Super-Exponential Kernel" (May 2026)',
+        "DOI: 10.13140/RG.2.2.35504.32004; validation report May 2026",
+        "Super-exponential Möbius kernel R(c) claimed = 1/ζ(1/c)",
+        "2026-05",
+    )
+
+    # Check 1: Lean sorry
+    a.checks.append(AuditCheck(
+        "Lean formalization complete (no sorry)",
+        False,
+        "Theorem 'analytic_louiz_kernel' in §4.2 uses 'sorry'. "
+        "In Lean 4, sorry admits any goal without proof. "
+        "This is a proof sketch, not machine-verified.",
+        severity="critical",
+    ))
+
+    # Check 2: R(c) numerically matches 1/ζ(1/c)
+    # Use the §6.1-consistent formula: f_{i,n}(c) = (-1)^n exp(-2^i n^c e^c)
+    def _mu(n):
+        if n == 1: return 1
+        k, np_, d = n, 0, 2
+        while d * d <= k:
+            if k % d == 0:
+                np_ += 1; k //= d
+                if k % d == 0: return 0
+            d += 1
+        if k > 1: np_ += 1
+        return (-1) ** np_
+
+    def _t(n, c):
+        return mp.power(-1, n) * mp.exp(-mp.power(n, c) * mp.exp(c))
+
+    c2 = mp.mpf(2)
+    S2   = sum(_t(n, c2)                  for n in range(1, 20))
+    Smu2 = sum(_mu(n) * _t(n, c2)         for n in range(1, 20) if _mu(n) != 0)
+    R2   = Smu2 / S2 if abs(S2) > mp.mpf("1e-300") else None
+    iz2  = mp.mpf(1) / mp.zeta(mp.mpf("0.5"))
+
+    if R2 is not None:
+        err = float(abs(R2 - iz2))
+        ok  = err < 0.01
+        a.checks.append(AuditCheck(
+            "R(c) matches 1/ζ(1/c) numerically at c=2",
+            ok,
+            f"R(2) = {float(R2.real):.6f}, 1/ζ(0.5) = {float(iz2.real):.6f}, "
+            f"|error| = {err:.4f}. R→1 because μ(1)=1 makes n=1 terms "
+            f"identical in Sμ and S; all n≥2 terms are super-exponentially "
+            f"small. The kernel does not encode ζ(s).",
+            severity="critical" if not ok else "info",
+        ))
+    else:
+        a.checks.append(AuditCheck(
+            "R(c) matches 1/ζ(1/c) numerically at c=2",
+            False,
+            "S(2) underflowed — cannot compute ratio.",
+            severity="critical",
+        ))
+
+    # Check 3: Functional equivalence established
+    a.checks.append(AuditCheck(
+        "Functional equivalence R(1/s)=1/ζ(s) rigorously established",
+        False,
+        "Paper asserts R(c)→1 as c→∞ and 1/ζ(s)→1 as s→0 are the same "
+        "function via analytic continuation. This is invalid: analytic "
+        "continuation from a single boundary limit is not a valid "
+        "identification of two distinct analytic functions.",
+        severity="critical",
+    ))
+
+    # Check 4: Internal consistency between §6.1 and Lean definition
+    # §6.1 needs exp(-n^c * e^c); Lean uses exp(-n^c * exp(exp(c)))
+    # At c=2, n=1: e^{-e^2}≈6e-4 vs e^{-e^{e^2}}≈10^{-702}
+    t_sec61 = float(abs(mp.exp(-mp.exp(c2))))       # e^{-e^2}
+    t_lean  = float(abs(mp.exp(-mp.exp(mp.exp(c2))))) if False else 0.0  # ≈10^{-702}, skip
+    ratio_oom = abs(mp.log10(mp.mpf(t_sec61)) - (-702))  # ~700 OOM apart
+    a.checks.append(AuditCheck(
+        "Internal consistency: §6.1 numerics match Lean definition",
+        False,
+        f"§6.1 reports n=1,i=0 term ≈ {t_sec61:.3e} (consistent with "
+        f"exp(-n^c·e^c)). Lean definition uses exp(exp(c)) ≈ exp(1618) at c=2, "
+        f"giving term ≈ 10^{{-702}}. These differ by ~700 orders of magnitude. "
+        f"The paper's formal definition contradicts its own numerical section.",
+        severity="critical",
+    ))
+
+    # Check 5: Twin Primes Conjecture claim
+    a.checks.append(AuditCheck(
+        "No false ancillary mathematical claims",
+        False,
+        "§5.2 claims Louiz 'disproved the Twin Primes Conjecture via Brun's "
+        "upper bound'. Brun's theorem (1919) bounds the sum of twin prime "
+        "reciprocals — it does not disprove TPC. TPC is an open problem.",
+        severity="warning",
+    ))
+
+    # Check 6: Independent review
+    a.checks.append(AuditCheck(
+        "Independently peer-reviewed or expert-verified",
+        False,
+        "Both the primary paper and the validation report are authored by "
+        "Akram Louiz. Validation was performed by Gemini DeepResearch (AI), "
+        "not by independent mathematicians. No peer review.",
+        severity="warning",
+    ))
+
+    if not quick:
+        # Check 7: §6.1 reproducibility
+        expected = [(1, 6.18e-4), (2, 1.5e-13), (3, 4.8e-29)]
+        all_ok = True
+        details = []
+        for n, exp_val in expected:
+            got = float(abs(_t(n, c2)))
+            ok  = abs(got - exp_val) / exp_val < 0.02
+            all_ok = all_ok and ok
+            details.append(f"n={n}: {got:.3e} {'✓' if ok else '✗'}")
+        a.checks.append(AuditCheck(
+            "§6.1 numerics reproducible (sec61 formula)",
+            all_ok,
+            "; ".join(details),
+            severity="info" if all_ok else "warning",
+        ))
+
+    return a
+
+
 def audit_self(quick=False):
     a = ClaimAudit("self", "This work (BitConcepts/riemann-solver)",
         "BitConcepts/riemann-solver", "Log-concavity via Polya 1927", "2026-05")
@@ -220,11 +356,12 @@ def audit_self(quick=False):
 
 
 ALL_CLAIMS = {
-    "gershon-2026": audit_gershon_2026,
-    "preprint-0159": audit_preprint_0159,
+    "gershon-2026":   audit_gershon_2026,
+    "preprint-0159":  audit_preprint_0159,
     "aivisions-2026": audit_aivisions_2026,
-    "geiger-2026": audit_geiger_2026,
-    "self": audit_self,
+    "geiger-2026":    audit_geiger_2026,
+    "louiz-2026":     audit_louiz_2026,
+    "self":           audit_self,
 }
 
 

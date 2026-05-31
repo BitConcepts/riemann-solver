@@ -124,6 +124,55 @@
     ]
   },
   {
+    "claim_id": "louiz-2026",
+    "title": "Louiz \"Super-Exponential Kernel\" (May 2026)",
+    "source": "DOI: 10.13140/RG.2.2.35504.32004; validation report May 2026",
+    "approach": "Super-exponential M\u00f6bius kernel R(c) claimed = 1/\u03b6(1/c)",
+    "date": "2026-05",
+    "n_checks": 6,
+    "n_passed": 0,
+    "n_failed": 6,
+    "n_critical": 4,
+    "checks": [
+      {
+        "name": "Lean formalization complete (no sorry)",
+        "passed": false,
+        "detail": "Theorem 'analytic_louiz_kernel' in \u00a74.2 uses 'sorry'. In Lean 4, sorry admits any goal without proof. This is a proof sketch, not machine-verified.",
+        "severity": "critical"
+      },
+      {
+        "name": "R(c) matches 1/\u03b6(1/c) numerically at c=2",
+        "passed": false,
+        "detail": "R(2) = 1.000000, 1/\u03b6(0.5) = -0.684765, |error| = 1.6848. R\u21921 because \u03bc(1)=1 makes n=1 terms identical in S\u03bc and S; all n\u22652 terms are super-exponentially small. The kernel does not encode \u03b6(s).",
+        "severity": "critical"
+      },
+      {
+        "name": "Functional equivalence R(1/s)=1/\u03b6(s) rigorously established",
+        "passed": false,
+        "detail": "Paper asserts R(c)\u21921 as c\u2192\u221e and 1/\u03b6(s)\u21921 as s\u21920 are the same function via analytic continuation. This is invalid: analytic continuation from a single boundary limit is not a valid identification of two distinct analytic functions.",
+        "severity": "critical"
+      },
+      {
+        "name": "Internal consistency: \u00a76.1 numerics match Lean definition",
+        "passed": false,
+        "detail": "\u00a76.1 reports n=1,i=0 term \u2248 6.180e-04 (consistent with exp(-n^c\u00b7e^c)). Lean definition uses exp(exp(c)) \u2248 exp(1618) at c=2, giving term \u2248 10^{-702}. These differ by ~700 orders of magnitude. The paper's formal definition contradicts its own numerical section.",
+        "severity": "critical"
+      },
+      {
+        "name": "No false ancillary mathematical claims",
+        "passed": false,
+        "detail": "\u00a75.2 claims Louiz 'disproved the Twin Primes Conjecture via Brun's upper bound'. Brun's theorem (1919) bounds the sum of twin prime reciprocals \u2014 it does not disprove TPC. TPC is an open problem.",
+        "severity": "warning"
+      },
+      {
+        "name": "Independently peer-reviewed or expert-verified",
+        "passed": false,
+        "detail": "Both the primary paper and the validation report are authored by Akram Louiz. Validation was performed by Gemini DeepResearch (AI), not by independent mathematicians. No peer review.",
+        "severity": "warning"
+      }
+    ]
+  },
+  {
     "claim_id": "self",
     "title": "This work (BitConcepts/riemann-solver)",
     "source": "BitConcepts/riemann-solver",

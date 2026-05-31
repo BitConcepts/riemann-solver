@@ -1,0 +1,98 @@
+{
+  "paper_id": "louiz-2026",
+  "title": "Super-Exponential Kernel Approach to the Analyticity of 1/\u03b6(s)",
+  "doi": "10.13140/RG.2.2.35504.32004",
+  "run_date": "2026-05-31",
+  "elapsed_s": 0.11,
+  "sec61_numerics_match": false,
+  "lean_def_matches_sec61": false,
+  "comparisons": [
+    {
+      "c": 1.1,
+      "s": 0.9090909090909091,
+      "R": 1.0616929050033275,
+      "inv_zeta": -0.09588239078464486,
+      "abs_err": 1.1575752957879724
+    },
+    {
+      "c": 1.5,
+      "s": 0.6666666666666666,
+      "R": 1.000546325692169,
+      "inv_zeta": -0.40856670637913334,
+      "abs_err": 1.4091130320713021
+    },
+    {
+      "c": 2.0,
+      "s": 0.5,
+      "R": 1.0000000004717184,
+      "inv_zeta": -0.6847652360899366,
+      "abs_err": 1.684765236561655
+    },
+    {
+      "c": 2.5,
+      "s": 0.4,
+      "R": 1.0,
+      "inv_zeta": -0.8812142693761356,
+      "abs_err": 1.8812142693761356
+    },
+    {
+      "c": 3.0,
+      "s": 0.3333333333333333,
+      "R": 1.0,
+      "inv_zeta": -1.0273688510439527,
+      "abs_err": 2.0273688510439527
+    },
+    {
+      "c": 4.0,
+      "s": 0.25,
+      "R": 1.0,
+      "inv_zeta": -1.2295912365679749,
+      "abs_err": 2.229591236567975
+    },
+    {
+      "c": 5.0,
+      "s": 0.2,
+      "R": 1.0,
+      "inv_zeta": -1.3625446094771594,
+      "abs_err": 2.362544609477159
+    }
+  ],
+  "R_near_1_fraction": "6/7",
+  "R_at_c2": 1.0000000004717184,
+  "inv_zeta_at_s_half": -0.6847652360899366,
+  "R_equals_inv_zeta": false,
+  "gaps": [
+    {
+      "severity": "critical",
+      "name": "Functional equivalence gap",
+      "detail": "R(c) \u2192 1 identically; the claim R(1/s) = 1/\u03b6(s) is asserted via analytic continuation from a single boundary limit (c\u2192\u221e), which is insufficient. Analytic continuation requires agreement on a set with an interior limit point, not just a single boundary value."
+    },
+    {
+      "severity": "critical",
+      "name": "Lean proof incomplete",
+      "detail": "The key theorem 'analytic_louiz_kernel' uses 'sorry'. In Lean 4, 'sorry' admits any goal without proof. The Lean code is a sketch, not a machine-verified proof."
+    },
+    {
+      "severity": "critical",
+      "name": "Internal formula inconsistency",
+      "detail": "\u00a76.1 numerics imply f = exp(-2^i \u00b7 n^c \u00b7 e^c). The Lean definition uses exp(2^(c\u00b7i) \u00b7 n^c \u00b7 exp(exp(c))). These differ by ~700 orders of magnitude at c=2. At least one version is wrong."
+    },
+    {
+      "severity": "warning",
+      "name": "Spurious ancillary claim",
+      "detail": "\u00a75.2 states Louiz 'disproved the Twin Primes Conjecture via Brun's upper bound'. Brun's theorem (1919) provides an upper bound on the sum of reciprocals of twin primes; it does not disprove TPC. TPC remains open."
+    },
+    {
+      "severity": "warning",
+      "name": "AI self-validation",
+      "detail": "Both papers authored by Akram Louiz. Validation performed by Gemini DeepResearch (an AI tool), not by independent mathematicians. No peer review."
+    }
+  ],
+  "lessons": [
+    "Fast convergence \u2260 correct target. Super-exponential dampening is real, but converging quickly to 1 does not mean converging to 1/\u03b6(s). Always verify the target, not just the speed.",
+    "Analytic continuation requires open-set agreement. Matching at a single boundary point or limit is not enough. Our proof must establish equality on an open domain.",
+    "'sorry' in Lean is not formal verification. Our lean4/ scaffold is clearly partial (see RHProof/Basic.lean). We must never cite it as a complete machine proof.",
+    "Internal consistency is non-negotiable. If our numerics and our formal definitions would disagree, that is a bug. Our falsify.py protocol (run_all.py) exists precisely to catch this.",
+    "Independent falsification is what honest science looks like. This paper has no falsification protocol. We do."
+  ]
+}

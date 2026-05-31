@@ -85,7 +85,9 @@ This is~\cite[Satz~II]{polya1927}; see also~\cite[Theorem~2.2]{csordas1989} and~
 \end{proof}
 
 \begin{remark}
-The decay condition~(iv) is essential. The function $e^{-t^p}$ is log-concave for all~$p \geq 2$, but its cosine transform has only real zeros when~$p$ is an \emph{even integer}~\cite[\S2, Example~2.1]{csordas1989}. For odd~$p$, complex zeros exist: our argument-principle computation finds 4~complex zeros of $\int_0^\infty e^{-t^3}\cos(zt)\,dt$ in the region $[5,15] \times [-5,5]$ (winding number~6 vs.\ 2~real zeros). Our kernel~$\Phi$ decays as $e^{-\pi e^{2u}}$, which satisfies condition~(iv) with any~$\delta > 0$ and margin exceeding $10^{12\,000\,000}$ at~$u = 8$.
+The conditions of Theorem~\ref{thm:polya} are not individually sufficient. The function $e^{-|t|^p}$ satisfies~(i)--(iii) for all~$p \geq 2$, and its cosine transform has only real zeros when~$p$ is an \emph{even integer}~\cite[\S2, Example~2.1]{csordas1989}. For $p = 3$, the function $e^{-t^3}$ (defined on~$[0,\infty)$) is not even, and the even extension $e^{-|t|^3}$ satisfies~(i)--(iii) but its decay $e^{-|t|^3}$ fails~(iv) since $3 < 2 + \delta$ requires $\delta \leq 1$ and the theorem needs the decay to dominate \emph{any} polynomial times Gaussian. Our argument-principle computation finds 4~complex zeros of $\int_0^\infty e^{-t^3}\cos(zt)\,dt$ in $[5,15] \times [-5,5]$ (winding number~6 vs.\ 2~real zeros), confirming that the conditions are not vacuous.
+
+Our kernel~$\Phi$ decays as $e^{-\pi e^{2u}}$, which satisfies condition~(iv) with any~$\delta > 0$ and margin exceeding $10^{12\,000\,000}$ at~$u = 8$.
 \end{remark}
 
 %% =========================================================================
@@ -306,7 +308,9 @@ Script & Purpose \\
 \texttt{proof/verify\_logconcavity\_rigorous.py} & Rigorous IA certification (Theorem~\ref{thm:ia}) \\
 \texttt{proof/verify\_algebraic\_core.py} & Algebraic core and perturbation bound \\
 \texttt{proof/verify\_truncation\_and\_crosscheck.py} & Truncation error and cross-validation \\
+\texttt{proof/verify\_logconcavity\_arb.py} & Independent Arb/FLINT reproduction \\
 \texttt{falsification/audit\_external.py} & External claims verification audit \\
+\texttt{verification/verify\_certificate.py} & Standalone certificate verifier \\
 \texttt{lean4/RHProof/Basic.lean} & Lean~4 proof structure (zero \texttt{sorry}) \\
 \bottomrule
 \end{tabular}
@@ -320,7 +324,9 @@ Script & Purpose \\
 
 \paragraph{Strengths.} The algebraic core is pure elementary computation. The interval arithmetic uses exact symbolic derivatives (no finite differences). The perturbation constant $C = 204$ is computed explicitly, not merely bounded. The decay condition is satisfied with margin exceeding $10^{12\,000\,000}$ at~$u = 8$.
 
-\paragraph{Limitations.} The interval arithmetic verification relies on the \texttt{mpmath.iv} implementation. An independent reproduction using a different IA library (e.g., MPFI, Arb) would further strengthen the result. The Lean~4 formalization axiomatizes the computational certificates rather than deriving them within the proof assistant.
+\paragraph{Independent reproduction.} The interval arithmetic verification has been independently reproduced using Arb~(FLINT) via \texttt{python-flint}, a completely different IA library from \texttt{mpmath.iv}. The Arb verification certifies all 55{,}892 subintervals (with a slightly earlier grid split at $u = 0.946$) in under 3~seconds at 200-bit precision. Both libraries agree: $Q_\Phi(u) < 0$ on~$[0,1]$.
+
+\paragraph{Limitations.} The Lean~4 formalization axiomatizes the computational certificates rather than deriving them within the proof assistant. The Pólya theorem (Theorem~\ref{thm:polya}) is cited from secondary sources~\cite{csordas1989,levin1964}; the original 1927 German text~\cite{polya1927} has not been independently translated, though the restatements in~\cite{csordas1989} and~\cite{levin1964} are the standard references used throughout the subsequent literature.
 
 \paragraph{Relation to prior claims.} A preprint by Gershon (April 2026) establishes the same log-concavity result but contains a presentation error in the perturbation bound (the inequality in their equation~(16) goes the wrong direction; $|f''f| + f'^2 \geq |Q_f|$ by the triangle inequality, not~$\leq$). Our treatment computes~$C$ explicitly and extends the interval arithmetic verification to $[0, 1.0]$ (vs.\ $[0, 0.5]$).
 

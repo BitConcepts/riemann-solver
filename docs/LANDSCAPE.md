@@ -238,6 +238,89 @@ completeness and apply the same criteria to all entries.
 - None peer-reviewed. Most have obvious gaps or circular reasoning.
 - Not individually assessed.
 
+---
+
+## Research Loop Update (2026-05-31)
+
+### Connes (2026), arXiv:2602.04022 — Major survey + new strategy
+- **Source**: arXiv:2602.04022v1, "The Riemann Hypothesis: Past, Present and a
+  Letter Through Time", February 2026.
+- **Approach**: Comprehensive 165-year survey plus a new "Letter to Riemann"
+presenting a strategy using prolate spheroidal wave functions, the Poisson
+formula, and the approximation k_λ → k as λ→∞. Proves convergence zeros
+lie exactly on the critical line for every finite truncation.
+- **Convergence gap status**: **STILL OPEN** (confirmed in §6). Connes
+  explicitly frames §6.5 "Convergence of the Fourier transforms" and §6.6
+  "Remaining steps" as open problems, not resolved results. The spectral
+  convergence gap from CCM 2025 §8 is referenced as open.
+- **New connection**: Information theory / prolate wave operator as the
+  analytic bridge (§7.6). This is the direction our run_bridge.py Phase 9
+  (Shannon analysis) follows.
+- **Impact for this project**: §6.5 is exactly the convergence gap we are
+  trying to address. No closed proof yet.
+
+### Sliwinski (2026), arXiv:2601.12133 — Inverse-logarithmic lower bound
+- **Source**: arXiv:2601.12133, "Spectral Analysis of the D^{λ,N}_log Operators",
+  January 2026.
+- **Key result**: Proves ε(λ, N) ≥ 1/(4 ln λ) as a *lower bound* on the
+  Mean Absolute Error between the CvS/CCM spectrum and the Riemann zeros.
+  Convergence is at most inverse-logarithmic; if no faster rate holds,
+  convergence to the Riemann zeros is extremely slow.
+- **Consequence**: If ε → 0 only as 1/ln λ, the N-sweep used by Groskin
+  (fast convergence in c at fixed N) is a finite-N artifact, not the
+  continuum limit. This partially explains why nine convergence models
+  failed in Groskin (2026).
+- **Impact**: Warns against interpreting fast c-convergence as evidence
+  for the continuum limit. The proof is Heisenberg-based (uncertainty
+  principle on H_λ = L²([λ⁻¹,λ], d*u)).
+
+### Real Sociedad Española de Física (Zenodo March 2026)
+- **Source**: Zenodo 10.5281/zenodo.19355650, "Spectral Properties of the
+  Truncated Weil Operator & Numerical Verification of Weil Positivity"
+- **Unconditional results**: Proves 5 results including resolvent
+  convergence rate O(Λ⁻¹/²), J-self-adjointness, Hilbert-Schmidt
+  decomposition.
+- **Obstruction identified**: Proves norm convergence of truncated operators
+  to the prolate projection is **IMPOSSIBLE**, ruling out the most direct
+  convergence route. RH reduces to a single analytic statement:
+  "asymptotic kernel invisibility" as Λ→∞.
+- **Impact**: Removes one candidate proof strategy but narrows the gap
+  to a concrete falsifiable condition.
+
+### Michałowski (Feb 2026), arXiv:2602.20313 — De Bruijn-Newman kernel ∉ PF5
+- **Source**: arXiv:2602.20313, "On the Pólya Frequency Order of the
+  de Bruijn-Newman Kernel"
+- **Result**: Proves K(u)=Φ(|u|) is not a Pólya frequency function of
+  order 5 (PF5). The 5×5 Toeplitz minor has certified negative determinant
+  −1.85×10⁻⁹ (80-digit interval arithmetic).
+- **Impact on Lambda bound**: Does not change Λ ≤ 0.2 (Platt-Trudgian 2021).
+  Total positivity (PF∞) would imply all zeros real, so PF5 failure means the
+  kernel is not totally positive. No new upper/lower bound on Λ.
+
+### Gershon (April 2026, preprints.org) — Claimed Λ = 0
+- **Source**: preprints.org 10.20944/preprints202604.1513.v1,
+  "The De Bruijn-Newman Constant Is Zero"
+- **Claim**: Proves Λ = 0 (which is RH) via strict log-concavity κ ≥ 19.24,
+  Jensen polynomial hyperbolicity Kd,n < 0 for d ≤ 22, and a dissipation
+  bound on Dr(n).
+- **Status**: NOT peer-reviewed. The log-concavity result (Part I) is
+  consistent with our proof (it is a strengthening of our IA result).
+  The Λ = 0 conclusion in §11 requires the dissipation bound S ≤ 19.41,
+  which depends on 10,822-point interval arithmetic. The passage from
+  log-concavity to all-zeros-real is non-trivial and requires Pólya TP∞,
+  not just TP2. Not independently verified.
+- **Impact**: The κ ≥ 19.24 log-concavity lower bound strengthens our IA
+  result (we certify Q_Phi < 0; Gershon gives a quantitative bound on the
+  curvature). Worth tracking.
+
+### Lambda upper bound status (2026-05-31)
+- Best rigorous upper bound: **Λ ≤ 0.2** (Platt-Trudgian 2021; tighter
+  than Polymath15's 0.22 from 2019).
+- No published improvement in 2025-2026 found by this search.
+- Gershon (2026) claims Λ = 0 but not peer-reviewed.
+
+---
+
 ## Notes
 
 This survey is maintained in the repository and updated as new information

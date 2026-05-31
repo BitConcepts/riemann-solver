@@ -74,71 +74,148 @@ _KNOWN_ZEROS = [
 # ── Weil form via spectral zero sum ──────────────────────────────────
 
 
-def _mellin_transform(psi: callable, s: mp.mpc, dps: int = 50) -> mp.mpc:
-    """Mellin transform of ψ: M[ψ](s) = ∫₀^∞ ψ(x) x^{s-1} dx.
-
-    For test functions on ℝ, we split into positive and negative half:
-        M̃[ψ](s) = ∫₀^∞ ψ(x) x^{s-1} dx + ∫₀^∞ ψ(-x) x^{s-1} dx
-
-    But Suzuki works with the Fourier transform on ℝ, not the Mellin transform.
-    The correct quantity is the Fourier transform ψ̂(t) = ∫ ψ(x) e^{-2πitx} dx
-    evaluated at t = γ_n/(2π), i.e., at the imaginary parts of the zeros.
-    """
-    with mp.workdps(dps):
-        return mp.quad(
-            lambda x: psi(x) * mp.exp(-2j * mp.pi * s * x),
-            [-2, 2],
-            maxdegree=8,
-        )
+def _ft_at_freq(
+    psi: callable,
+    freq: mp.mpf,
+    support: tuple[float, float],
+    dps: int,
+) -> mp.mpc:
+    """Compute ψ̂(freq) = ∫ ψ(x) exp(-2πi·freq·x) dx over the support interval."""
+    a, b = mp.mpf(str(support[0])), mp.mpf(str(support[1]))
+    return mp.quad(
+        lambda x: psi(x) * mp.exp(-2j * mp.pi * freq * x),
+        [a, b],
+        maxdegree=9,
+    )
 
 
-def weil_form(psi: callable, n_zeros: int = 30, dps: int = 50) -> mp.mpf:
-    """Compute the Weil hermitian form ⟨ψ, ψ⟩_W via spectral zero sum.
+def weil_form_zeros(
+    psi: callable,
+    n_zeros: int = 30,
+    dps: int = 50,
+    support: tuple[float, float] = (-2.0, 2.0),
+    use_zetazero: bool = False,
+) -> mp.mpf:
+    """Compute the ZERO CONTRIBUTION to the Weil quadratic form.
 
-    Using the spectral side of the Weil explicit formula:
+    Formula:
+        W_zeros(ψ) = Σ_{n=1}^{n_zeros} 2 |ψ̂(γ_n/(2π))|²
 
-        ⟨ψ, ψ⟩_W = Σ_{ρ} |ψ̂(γ_n/(2π))|²
+    where γ_n = Im(ρ_n) are the imaginary parts of the nontrivial zeros
+    ρ_n = 1/2 + iγ_n of ζ(s), and ψ̂(f) = ∫ ψ(x) exp(-2πifx) dx.
 
-    where ρ = 1/2 + iγ_n are the nontrivial zeros of ζ(s), and ψ̂ is
-    the standard Fourier transform.
+    IMPORTANT: This is only the ZERO CONTRIBUTION. The complete Weil form is:
+        W_complete(ψ) = W_zeros(ψ) + W_primes(ψ) + W_arch(ψ)
 
-    This representation is:
-    - Correct by construction (it IS the Weil form)
-    - Manifestly non-negative (sum of squares)
-    - Converges as n_zeros → ∞
+    where W_primes involves the von Mangoldt sum over prime powers, and
+    W_arch is the archimedean (log|x|/log-Gamma) contribution.
 
-    We sum over both +γ_n and -γ_n (the zeros come in conjugate pairs),
-    so the total contribution from each γ_n is 2|ψ̂(γ_n/(2π))|².
+    For the Suzuki equality ||P̂Dψ||² = π⟨ψ,ψ⟩_W to hold, W_complete is
+    required. W_zeros alone is sufficient only when the archimedean and prime
+    contributions are negligible, which holds approximately for test functions
+    concentrated near 0 (small support, e.g. gaussian_bump with σ ≤ 0.3).
+
+    Convergence note: as n_zeros → ∞, W_zeros(ψ) → W_complete(ψ) for
+    test functions whose Fourier transform decays slowly (broad-support
+    functions benefit from more zeros); use use_zetazero=True and large
+    n_zeros for best accuracy.
 
     Args:
         psi: test function ψ ∈ C_c^∞(ℝ)
-        n_zeros: number of zeros to include (max 30)
+        n_zeros: number of nontrivial zeros to include
         dps: decimal precision
+        support: interval over which ψ is nonzero (for quadrature bounds)
+        use_zetazero: if True, compute zeros via mp.zetazero (slow but unlimited)
+                      if False, use precomputed _KNOWN_ZEROS list (max 30)
 
     Returns:
-        ⟨ψ, ψ⟩_W ≥ 0
+        W_zeros(ψ) ≥ 0  (partial Weil form; see docstring)
     """
     with mp.workdps(dps):
-        n = min(n_zeros, len(_KNOWN_ZEROS))
         total = mp.mpf(0)
+        n = n_zeros if use_zetazero else min(n_zeros, len(_KNOWN_ZEROS))
 
         for i in range(n):
-            gamma_n = mp.mpf(_KNOWN_ZEROS[i])
-            # Frequency corresponding to this zero
+            if use_zetazero:
+                gamma_n = mp.im(mp.zetazero(i + 1))
+            else:
+                gamma_n = mp.mpf(_KNOWN_ZEROS[i])
+
             freq = gamma_n / (2 * mp.pi)
-
-            # ψ̂(freq) = ∫ ψ(x) exp(-2πi·freq·x) dx
-            ft_val = mp.quad(
-                lambda x: psi(x) * mp.exp(-2j * mp.pi * freq * x),
-                [-2, 2],
-                maxdegree=8,
-            )
-
-            # Both +γ and -γ contribute: |ψ̂(freq)|² + |ψ̂(-freq)|²
-            # For real ψ: ψ̂(-freq) = conj(ψ̂(freq)), so both terms equal |ψ̂(freq)|²
+            ft_val = _ft_at_freq(psi, freq, support, dps)
+            # ρ and ρ̄ contribute equally for real ψ: 2|ψ̂(freq)|²
             total += 2 * abs(ft_val) ** 2
 
         return total
+
+
+def weil_form_primes(
+    psi: callable,
+    prime_max: int = 100,
+    dps: int = 50,
+    support: tuple[float, float] = (-2.0, 2.0),
+) -> mp.mpf:
+    """Compute the PRIME POWER contribution to the Weil quadratic form.
+
+    From the Weil explicit formula, the prime powers p^k contribute:
+        W_primes(ψ) = 2 Σ_{n≥2, Λ(n)>0} (Λ(n)/√n) · Re[ψ̂(log(n)/(2π))]
+                    · ψ̂(0)
+
+    More precisely, the bilinear form has a cross-term:
+        W_primes(ψ, ψ) = Σ_{n≥2} (Λ(n)/√n) · [ψ̂(log(n)/(2π)) · ψ̂(0)*
+                         + ψ̂(0) · ψ̂(log(n)/(2π))* + ...]
+
+    For real ψ, the von Mangoldt contribution simplifies to:
+        W_primes(ψ) = 2 Σ_{Λ(n)>0, n≤prime_max^k} (Λ(n)/√n) ·
+                      Re[ψ̂(log(n)/(2π))] · |ψ̂(0)|
+
+    Note: the sign of this contribution relative to W_zeros determines
+    whether it increases or decreases the total form. It enters with a
+    NEGATIVE sign in the standard explicit formula decomposition.
+
+    This function computes the MAGNITUDE |W_primes(ψ)| for diagnostic use.
+    Args:
+        psi: test function ψ
+        prime_max: include all prime powers p^k ≤ prime_max
+        dps: decimal precision
+        support: quadrature bounds
+
+    Returns:
+        |W_primes(ψ)|  (unsigned magnitude, for diagnostic purposes)
+    """
+    with mp.workdps(dps):
+        # ψ̂(0) = ∫ ψ(x) dx
+        ft_zero = _ft_at_freq(psi, mp.mpf(0), support, dps)
+
+        total = mp.mpf(0)
+        for n in range(2, prime_max + 1):
+            lam = _von_mangoldt(n)
+            if lam <= 0:
+                continue
+            freq = mp.log(mp.mpf(n)) / (2 * mp.pi)
+            ft_val = _ft_at_freq(psi, freq, support, dps)
+            # Contribution: (Λ(n)/√n) · 2·Re[ψ̂(freq)·ψ̂(0)*]
+            contribution = (lam / mp.sqrt(mp.mpf(n))) * 2 * mp.re(ft_val * mp.conj(ft_zero))
+            total += contribution
+
+        return abs(total)
+
+
+def weil_form(
+    psi: callable,
+    n_zeros: int = 30,
+    dps: int = 50,
+    support: tuple[float, float] = (-2.0, 2.0),
+    use_zetazero: bool = False,
+) -> mp.mpf:
+    """Compute the Weil quadratic form (zero contribution; backwards-compatible).
+
+    Wrapper around weil_form_zeros for backwards compatibility.
+    See weil_form_zeros for the full documentation and caveats.
+    """
+    return weil_form_zeros(
+        psi, n_zeros=n_zeros, dps=dps, support=support, use_zetazero=use_zetazero
+    )
 
 
 # ── Correct Suzuki operator (Corollary 1.2, arXiv:2209.04658v3) ──────
@@ -411,7 +488,10 @@ def test_norm_equality(
     """
     with mp.workdps(dps):
         lhs = paley_wiener_norm_sq(psi, dps=dps, support=support)
-        rhs_weil = weil_form(psi, n_zeros=n_zeros, dps=dps)
+        # Pass the function's support to weil_form so quadrature bounds are correct.
+        # Note: weil_form computes W_zeros only (see weil_form_zeros docstring).
+        # For broad-support functions the archimedean term is not included here.
+        rhs_weil = weil_form(psi, n_zeros=n_zeros, dps=dps, support=support)
         rhs = mp.pi * rhs_weil
 
         if rhs != 0:

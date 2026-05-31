@@ -487,7 +487,7 @@
     "author": "Tristen Kyle Pierson / BitConcepts Research",
     "year": 2026,
     "source": "BitConcepts/riemann-solver; paper/Pierson_2026_LogConcavity_RH.pdf",
-    "approach": "Log-concavity of Xi kernel Phi(u) via Polya 1927 (Satz II); 52,898 IA subintervals; C=204 perturbation bound; 32 falsification attacks",
+    "approach": "Log-concavity of Xi kernel Phi(u) via Polya 1927 (Satz II); 52,898 IA subintervals; C=204 perturbation bound; 36 falsification attacks (7 batches)",
     "tier": 3,
     "claims_rh": true,
     "lean_code": true,
@@ -495,11 +495,11 @@
     "peer_reviewed": false,
     "status": "preprint (not submitted); Lean scaffold partial",
     "critical_gaps": [
-      "Lean4 formalization is a partial scaffold (not complete machine proof)",
+      "Lean4 formalization: 12 axioms remain (3 problem-statement, 5 classical props, 3 computational certs, 1 structural glue)",
       "Not yet submitted for peer review"
     ],
     "lessons": [
-      "Our falsification protocol (32 attacks + external audit) is the core differentiator",
+      "Our falsification protocol (36 attacks, 7 batches + external audit) is the core differentiator",
       "Internal consistency is enforced by running falsify.py against our own proof",
       "IA coverage [0, 1.0] with 52,898 subintervals distinguishes us from partial-coverage preprints"
     ],

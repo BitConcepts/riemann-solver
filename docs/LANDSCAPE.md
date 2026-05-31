@@ -28,6 +28,13 @@ completeness and apply the same criteria to all entries.
   RH is equivalent to Lambda = 0.
 - **Verification**: Published, peer-reviewed, widely accepted.
 
+### RH for Hyperelliptic Curves (Lean 4 formalization, Feb 2026)
+- **Source**: GitHub math-inc/RiemannHypothesisCurves; ~4000 lines Lean 4
+- **Approach**: Bombieri-Stepanov polynomial method proving |#solutions - q| ≤ 5m√q
+  for hyperelliptic curves y²=f(x) over F_q. This is RH for function fields (Weil
+  theorem), NOT classical RH.
+- **Status**: Complete Lean4 proof. Gold standard for AI-assisted formal verification.
+
 ## Tier 2: Submitted or under review
 
 ### Yamaguchi "Gram Jacobi / Spectral Determinant" (May 2026)
@@ -84,6 +91,13 @@ completeness and apply the same criteria to all entries.
 - **Our assessment**: One of the most honest papers in this landscape. The
   Li coefficient framework is consistent with our own `li_criterion.py`.
   `audit_singh_khalsa_2026` in `audit_external.py` verifies the framing.
+
+### Bhattacharjee "Liouville-Collar Closure" (April 2026)
+- **Source**: IJRST Vol 16, Issue 2, DOI:10.37648/ijrst.v16i02.002
+- **Approach**: Liouville function L(X), dyadic collar partition, Kuznetsov spectral
+  formula, β-large-sieve dispersion bound. RH via Littlewood-Denjoy.
+- **Status**: Published in IJRST (broad-scope journal, peer-reviewed). Kuznetsov
+  spectral cancellation requires conductor uniformity not established.
 
 ### Ladjeroud — Hilbert-Polya via SUSYQM (Nov 2025)
 - **Source**: HAL hal-05342267; Centre Universitaire de Mila, Algeria
@@ -170,11 +184,17 @@ completeness and apply the same criteria to all entries.
   restructures significantly (7-22 modes) as cutoff increases, contradicting
   the paper's implicit assumption of eigenvector stability.
 
-### Bhattacharjee "Liouville-Collar Closure" (April 2026)
-- **Source**: IJRST Vol 16, Issue 2
-- **Approach**: Liouville function square identity -> spectral large sieve -> RH
-- **Status**: Published in non-specialist journal.
-- **Assessment**: Not independently verified.
+### Structural Resolution (Anonymous, Jan 2026)
+- **Source**: Zenodo DOI: 10.5281/zenodo.18365022
+- **Approach**: Second-difference observables + oscillatory probes + β-large-sieve
+  contradiction. Off-critical zero exceeds large-sieve dispersion bound.
+- **Status**: Unvalidated. 'Globally locked parameter regime' is circular.
+
+### Tensor-Sieve p-adic Framework (ryanncode, April 2026)
+- **Source**: GitHub ryanncode/tensor-sieve; based on MeLoCoToN/FTNILO arXiv preprints
+- **Approach**: Non-Archimedean F₁ algebraic curve, Krein space, p-adic Bruhat-Tits
+  tree shift operator, adelic harmonic analysis. Phase 1 only: GUE-like spacing.
+- **Status**: Phase 1 executable only. No unconditional proof claimed.
 
 ### Louiz "Super-Exponential Kernel" (May 2026)
 - **Source**: DOI: 10.13140/RG.2.2.35504.32004 (ResearchGate); validation report May 2026
@@ -201,6 +221,16 @@ completeness and apply the same criteria to all entries.
 - **Lessons**: Fast convergence ≠ correct target; analytic continuation requires
   open-set agreement; AI-generated Lean with sorry is not formal proof;
   internal consistency checks are mandatory.
+
+## Tier 5: Pseudoscientific frameworks
+
+### Motanova "Riemann-Adelic" / QCAL (2025-2026)
+- **Source**: Zenodo DOI: 10.5281/zenodo.17281699; GitHub motanova84/Riemann-adelic
+- **Approach**: S-finite adelic systems wrapped in QCAL (Quantum Coherent Algebraic
+  Logic) framework. Claims 'cosmic coherence' at f₀=141.7001 Hz connecting Riemann
+  zeros to QCD vacuum modes and consciousness. Claims 5 millennium problems solved.
+- **Status**: Pseudoscientific QCAL layer. Lean code uses sorry extensively.
+  Mathematical core (adelic/Fredholm) not independently reviewable due to noise.
 
 ### Various Zenodo/viXra claims
 - Multiple claimed proofs posted on Zenodo and viXra (Meghani, Singh Khalsa,

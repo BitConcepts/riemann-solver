@@ -14,13 +14,13 @@
     "status": "peer-reviewed",
     "critical_gaps": [
       "Convergence of det_reg to Xi function not proven (CCM 2025, Section 8)",
-      "CCM eigenvector restructures (7–22 modes) as cutoff increases — stabilization is of eigenvalue, not eigenvector"
+      "CCM eigenvector restructures (7\u00e2\u20ac\u201c22 modes) as cutoff increases \u00e2\u20ac\u201d stabilization is of eigenvalue, not eigenvector"
     ],
     "lessons": [
       "CvS Galerkin is reproducible and gives a real computational handle on the Weil form",
-      "Shannon number N_c = O(log c) bounds significant modes — explains why eigenvalue stabilizes",
+      "Shannon number N_c = O(log c) bounds significant modes \u00e2\u20ac\u201d explains why eigenvalue stabilizes",
       "Eigenvector stabilization and eigenvalue stabilization are distinct; only the eigenvalue stabilizes",
-      "Suzuki Theorem 1.4 gives an unconditional RH equivalent: ||P̂Dψ||² = π⟨ψ,ψ⟩_W"
+      "Suzuki Theorem 1.4 gives an unconditional RH equivalent: ||P\u00cc\u201aD\u00cf\u02c6||\u00c2\u00b2 = \u00cf\u20ac\u00e2\u0178\u00a8\u00cf\u02c6,\u00cf\u02c6\u00e2\u0178\u00a9_W"
     ],
     "our_verification": "CvS Galerkin reproduced at 6 cutoffs c=13..47; eigenvalue plateau confirmed; eigenvector mode analysis done",
     "benchmark_script": null,
@@ -40,11 +40,11 @@
     "peer_reviewed": true,
     "status": "peer-reviewed",
     "critical_gaps": [
-      "Hyperbolicity proven for each fixed d, not for all d simultaneously — RH requires all degrees"
+      "Hyperbolicity proven for each fixed d, not for all d simultaneously \u00e2\u20ac\u201d RH requires all degrees"
     ],
     "lessons": [
       "Jensen polynomials give a concrete finite-dimensional reduction of RH at each order",
-      "The Laguerre–Pólya class is the right target; log-concavity of Taylor coefficients is related"
+      "The Laguerre\u00e2\u20ac\u201cP\u00c3\u00b3lya class is the right target; log-concavity of Taylor coefficients is related"
     ],
     "our_verification": "Well-established, widely accepted",
     "benchmark_script": null,
@@ -52,11 +52,11 @@
   },
   {
     "id": "rodgers-tao-2020",
-    "title": "The de Bruijn–Newman constant is non-negative",
+    "title": "The de Bruijn\u00e2\u20ac\u201cNewman constant is non-negative",
     "author": "Rodgers, Tao",
     "year": 2020,
     "source": "Forum of Mathematics, Pi 8",
-    "approach": "Proves Λ ≥ 0; combined with Polymath15 Λ ≤ 0.22. RH ⟺ Λ = 0.",
+    "approach": "Proves \u00ce\u203a \u00e2\u2030\u00a5 0; combined with Polymath15 \u00ce\u203a \u00e2\u2030\u00a4 0.22. RH \u00e2\u0178\u00ba \u00ce\u203a = 0.",
     "tier": 1,
     "claims_rh": false,
     "lean_code": false,
@@ -64,11 +64,11 @@
     "peer_reviewed": true,
     "status": "peer-reviewed",
     "critical_gaps": [
-      "Only shows Λ ≥ 0; proving Λ = 0 is equivalent to RH and remains open"
+      "Only shows \u00ce\u203a \u00e2\u2030\u00a5 0; proving \u00ce\u203a = 0 is equivalent to RH and remains open"
     ],
     "lessons": [
-      "The de Bruijn–Newman constant Λ = 0 is equivalent to RH; proving Λ ≤ 0 would suffice",
-      "The de Bruijn condition (used in our proof) is directly connected to Λ via Polya 1927"
+      "The de Bruijn\u00e2\u20ac\u201cNewman constant \u00ce\u203a = 0 is equivalent to RH; proving \u00ce\u203a \u00e2\u2030\u00a4 0 would suffice",
+      "The de Bruijn condition (used in our proof) is directly connected to \u00ce\u203a via Polya 1927"
     ],
     "our_verification": "Peer-reviewed, widely accepted",
     "benchmark_script": null,
@@ -92,7 +92,7 @@
       "Not yet peer-reviewed"
     ],
     "lessons": [
-      "CAP certificates provide a rigorous finite computational certificate — a strong model",
+      "CAP certificates provide a rigorous finite computational certificate \u00e2\u20ac\u201d a strong model",
       "Even dominance connects to our log-concavity approach via the Weil form",
       "Long review period (2+ months) without rejection is mildly positive signal"
     ],
@@ -115,12 +115,12 @@
     "status": "preprint",
     "critical_gaps": [
       "Perturbation bound inequality goes the wrong direction (equation 16)",
-      "Claims exp(-t^4) is a counterexample to log-concavity implying real zeros — incorrect per Csordas-Varga 1989",
+      "Claims exp(-t^4) is a counterexample to log-concavity implying real zeros \u00e2\u20ac\u201d incorrect per Csordas-Varga 1989",
       "g'' coefficient error"
     ],
     "lessons": [
-      "The perturbation bound inequality direction is a subtle but critical check — easy to get backwards",
-      "exp(-t^4) has only real zeros (Csordas-Varga 1989 Example 2.1) — do not claim it as a counterexample",
+      "The perturbation bound inequality direction is a subtle but critical check \u00e2\u20ac\u201d easy to get backwards",
+      "exp(-t^4) has only real zeros (Csordas-Varga 1989 Example 2.1) \u00e2\u20ac\u201d do not claim it as a counterexample",
       "Our IA must cover [0, 1.0] not just [0, 0.5]"
     ],
     "our_verification": "3 critical issues found; perturbation bound direction wrong; counterexample claim incorrect",
@@ -142,12 +142,12 @@
     "status": "preprint",
     "critical_gaps": [
       "Perturbation bound inequality goes wrong direction",
-      "Interval arithmetic covers [0, 0.5] only — gap at [0.5, 1.0]",
+      "Interval arithmetic covers [0, 0.5] only \u00e2\u20ac\u201d gap at [0.5, 1.0]",
       "g'' coefficient issue"
     ],
     "lessons": [
-      "IA coverage must span [0, 1.0] — [0, 0.5] leaves the most sensitive region uncertified",
-      "Same perturbation direction error as Gershon — this is a systematic trap in this approach"
+      "IA coverage must span [0, 1.0] \u00e2\u20ac\u201d [0, 0.5] leaves the most sensitive region uncertified",
+      "Same perturbation direction error as Gershon \u00e2\u20ac\u201d this is a systematic trap in this approach"
     ],
     "our_verification": "3 critical issues found; IA coverage only [0, 0.5]; perturbation direction wrong",
     "benchmark_script": null,
@@ -167,12 +167,12 @@
     "peer_reviewed": false,
     "status": "preprint (blockchain timestamped)",
     "critical_gaps": [
-      "Eigenvector mode count changes from 7 to 22 as cutoff c increases from 13 to 47 — eigenvector is NOT stable",
+      "Eigenvector mode count changes from 7 to 22 as cutoff c increases from 13 to 47 \u00e2\u20ac\u201d eigenvector is NOT stable",
       "No peer review"
     ],
     "lessons": [
-      "Eigenvalue stabilization ≠ eigenvector stabilization — must check both",
-      "Our phase 9 (screw line) result shows H₀ space filling is consistent with eigenvector restructuring"
+      "Eigenvalue stabilization \u00e2\u2030\u00a0 eigenvector stabilization \u00e2\u20ac\u201d must check both",
+      "Our phase 9 (screw line) result shows H\u00e2\u201a\u20ac space filling is consistent with eigenvector restructuring"
     ],
     "our_verification": "Eigenvector mode analysis disproves the stability assumption",
     "benchmark_script": null,
@@ -184,7 +184,7 @@
     "author": "Akram Louiz",
     "year": 2026,
     "source": "DOI: 10.13140/RG.2.2.35504.32004 (ResearchGate preprint); validation report May 2026",
-    "approach": "Super-exponential Möbius kernel R(c) = Sμ(c)/S(c) claimed as analytic proxy for 1/ζ(1/c); mapping s=1/c connects Re(c)>1 to critical strip",
+    "approach": "Super-exponential M\u00c3\u00b6bius kernel R(c) = S\u00ce\u00bc(c)/S(c) claimed as analytic proxy for 1/\u00ce\u00b6(1/c); mapping s=1/c connects Re(c)>1 to critical strip",
     "tier": 4,
     "claims_rh": true,
     "lean_code": true,
@@ -192,21 +192,21 @@
     "peer_reviewed": false,
     "status": "preprint (ResearchGate); self-validated by AI (Gemini DeepResearch)",
     "critical_gaps": [
-      "R(c) → 1 identically for all c — super-exponential suppression erases all n≥2 Möbius information. R(c) does not encode ζ(s) at all",
-      "Functional equivalence R(1/s)=1/ζ(s) asserted via invalid analytic continuation from single boundary limit",
-      "Lean theorem 'analytic_louiz_kernel' uses 'sorry' — not machine-verified",
-      "Internal inconsistency: §6.1 numerics (exp(-n^c·e^c)) contradict Lean definition (exp(-n^c·exp(exp(c)))) by ~700 orders of magnitude",
-      "Spurious claim: §5.2 'disproves Twin Primes Conjecture via Brun's upper bound' — Brun's theorem does not disprove TPC",
+      "R(c) \u00e2\u2020\u2019 1 identically for all c \u00e2\u20ac\u201d super-exponential suppression erases all n\u00e2\u2030\u00a52 M\u00c3\u00b6bius information. R(c) does not encode \u00ce\u00b6(s) at all",
+      "Functional equivalence R(1/s)=1/\u00ce\u00b6(s) asserted via invalid analytic continuation from single boundary limit",
+      "Lean theorem 'analytic_louiz_kernel' uses 'sorry' \u00e2\u20ac\u201d not machine-verified",
+      "Internal inconsistency: \u00c2\u00a76.1 numerics (exp(-n^c\u00c2\u00b7e^c)) contradict Lean definition (exp(-n^c\u00c2\u00b7exp(exp(c)))) by ~700 orders of magnitude",
+      "Spurious claim: \u00c2\u00a75.2 'disproves Twin Primes Conjecture via Brun's upper bound' \u00e2\u20ac\u201d Brun's theorem does not disprove TPC",
       "Self-validated: both papers authored by Louiz; no independent expert review"
     ],
     "lessons": [
-      "Fast convergence ≠ correct target. Super-exponential dampening is real but the ratio converges to 1, not 1/ζ(s)",
+      "Fast convergence \u00e2\u2030\u00a0 correct target. Super-exponential dampening is real but the ratio converges to 1, not 1/\u00ce\u00b6(s)",
       "Analytic continuation requires open-set agreement, not just matching at a single boundary limit",
-      "AI-generated Lean with 'sorry' is not formal proof — do not cite partial Lean scaffolds as machine verification",
-      "Internal consistency between formal definition and numerical examples is mandatory — our falsify.py exists for this",
+      "AI-generated Lean with 'sorry' is not formal proof \u00e2\u20ac\u201d do not cite partial Lean scaffolds as machine verification",
+      "Internal consistency between formal definition and numerical examples is mandatory \u00e2\u20ac\u201d our falsify.py exists for this",
       "Self-validation by AI is not scientific peer review; independent falsification attempts are the standard"
     ],
-    "our_verification": "Benchmark (bench_louiz_kernel.py): R(c)≈1 at all test points; §6.1 numerics reproduced with sec61 formula; Lean/sec61 inconsistency confirmed; 3 critical + 2 warning issues found",
+    "our_verification": "Benchmark (bench_louiz_kernel.py): R(c)\u00e2\u2030\u02c61 at all test points; \u00c2\u00a76.1 numerics reproduced with sec61 formula; Lean/sec61 inconsistency confirmed; 3 critical + 2 warning issues found",
     "benchmark_script": "benchmarks/bench_louiz_kernel.py",
     "audit_id": "louiz-2026"
   },
@@ -232,7 +232,7 @@
       "77 proof-essential programs with independent verification paths (A/B/C) is a strong computational methodology",
       "Heat kernel trace ratio 0.9999996 is strong numerical evidence but not a proof",
       "Hadamard product convergence at 10,000 zeros is reproducible and checkable",
-      "The 'contradiction machine' (80/80 falsified) is our kind of approach — adversarial testing"
+      "The 'contradiction machine' (80/80 falsified) is our kind of approach \u00e2\u20ac\u201d adversarial testing"
     ],
     "our_verification": "Structure reviewed; heat kernel and Hadamard claims are computationally checkable with mpmath. Analytic J_inf closure not independently verified.",
     "benchmark_script": null,
@@ -334,7 +334,7 @@
     "peer_reviewed": false,
     "status": "preprint (HAL, Nov 2025); not peer-reviewed",
     "critical_gaps": [
-      "'Algorithmic parameter' B is defined to produce the zeta zeros by construction — this is circular reasoning",
+      "'Algorithmic parameter' B is defined to produce the zeta zeros by construction \u00e2\u20ac\u201d this is circular reasoning",
       "The operator H is built to have the zeta zeros as eigenvalues by definition, not by deriving them from first principles",
       "SUSYQM shape invariance requires the superpotential to be known; choosing it to produce zeta zeros assumes what we want to prove"
     ],
@@ -441,7 +441,7 @@
     "peer_reviewed": false,
     "status": "preprint (Zenodo Sep 2025); not peer-reviewed; author is independent non-mathematician",
     "critical_gaps": [
-      "The resonance kernel R_alpha is centered at 1/2 by construction — this encodes the critical line assumption rather than deriving it",
+      "The resonance kernel R_alpha is centered at 1/2 by construction \u00e2\u20ac\u201d this encodes the critical line assumption rather than deriving it",
       "'L^2-stable contradiction mechanism' is asserted at high level; rigorous analytic estimates missing",
       "Author explicitly states not a professional mathematician; proof was developed from 'pattern recognition'"
     ],
@@ -487,7 +487,7 @@
     "author": "Tristen Kyle Pierson / BitConcepts Research",
     "year": 2026,
     "source": "BitConcepts/riemann-solver; paper/Pierson_2026_LogConcavity_RH.pdf",
-    "approach": "Log-concavity of Xi kernel Phi(u) via Polya 1927 (Satz II); 52,898 IA subintervals; C=204 perturbation bound; 32 falsification attacks",
+    "approach": "Log-concavity of Xi kernel Phi(u) via Polya 1927 (Satz II); 52,898 IA subintervals; C=204 perturbation bound; 36 falsification attacks (7 batches)",
     "tier": 3,
     "claims_rh": true,
     "lean_code": true,
@@ -495,16 +495,152 @@
     "peer_reviewed": false,
     "status": "preprint (not submitted); Lean scaffold partial",
     "critical_gaps": [
-      "Lean4 formalization is a partial scaffold (not complete machine proof)",
+      "Lean4 formalization: 13 axioms remain (3 problem-statement, 2 classical Phi props, 4 Polya conditions, 3 computational certs, 1 structural glue)",
       "Not yet submitted for peer review"
     ],
     "lessons": [
-      "Our falsification protocol (32 attacks + external audit) is the core differentiator",
+      "Our falsification protocol (36 attacks, 7 batches + external audit) is the core differentiator",
       "Internal consistency is enforced by running falsify.py against our own proof",
       "IA coverage [0, 1.0] with 52,898 subintervals distinguishes us from partial-coverage preprints"
     ],
     "our_verification": "Self: g'' coefficient verified (81/2), C=204 perturbation bound correct direction, IA [0,1.0] complete, cross-validation passed",
     "benchmark_script": null,
     "audit_id": "self"
+  },
+  {
+    "id": "bhattacharjee-2026",
+    "title": "The Critical Line from First Principles: A Complete Unconditional Liouville-Collar Closure of the Riemann Hypothesis",
+    "author": "Deep Bhattacharjee (EGSPL, Bhubaneswar, India)",
+    "year": 2026,
+    "source": "International Journal of Research in Science and Technology, Vol 16 Issue 2, DOI:10.37648/ijrst.v16i02.002; April 2026",
+    "approach": "Liouville function L(X), maximal dyadic collar partition, Kuznetsov spectral formula, \u00ce\u00b2-large-sieve dispersion bound. RH via Littlewood-Denjoy: L(X)=O(X^{1/2+\u00ce\u00b5}).",
+    "tier": 3,
+    "claims_rh": true,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": true,
+    "status": "published in IJRST Vol 16 (2026); journal has broad scope; not reviewed by top analytic number theorists",
+    "critical_gaps": [
+      "The collar dispersion bound requires uniform conductor balance across all dyadic ranges \u00e2\u20ac\u201d the uniformity is asserted but the Bessel localization step has gaps",
+      "Kuznetsov spectral transform requires Kloosterman sum cancellation uniform in conductor; cited bounds (Heath-Brown, Iwaniec) are for fixed conductor",
+      "Multiple self-citations to related authorial work (Calabi-Yau, fibration) that are used only as 'vocabulary' \u00e2\u20ac\u201d not actual proof inputs"
+    ],
+    "lessons": [
+      "Liouville-collar approach is a legitimate analytic strategy (Matom\u00c3\u00a4ki-Radziwi\u00c5\u201a\u00c5\u201a framework)",
+      "Uniformity across all conductors is the critical missing step in most sieve-based RH attempts",
+      "Dyadic decomposition + Cauchy-Schwarz collar is standard but the key saving must come from spectral cancellation"
+    ],
+    "our_verification": "Approach structure reviewed; Kuznetsov spectral cancellation uniformity gap identified; conductor uniformity not independently verified",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "rh-curves-2026",
+    "title": "The Riemann Hypothesis for Hyperelliptic Curves over Finite Fields (Lean 4 Formalization)",
+    "author": "Math Inc. / Gauss autoformalization agent",
+    "year": 2026,
+    "source": "GitHub math-inc/RiemannHypothesisCurves; Feb 2026; ~4000 lines Lean 4",
+    "approach": "Formal Lean4 proof of RH for hyperelliptic curves y^2=f(x) over F_q following Bombieri-Stepanov polynomial method (Iwaniec-Kowalski Ch. 11). Square-root cancellation |#solutions - q| \u00e2\u2030\u00a4 5m*sqrt(q). LEGITIMATE established result \u00e2\u20ac\u201d analogue of Weil theorem, NOT classical RH.",
+    "tier": 1,
+    "claims_rh": false,
+    "lean_code": true,
+    "lean_complete": true,
+    "peer_reviewed": true,
+    "status": "Complete Lean4 proof of an established theorem (Weil/Bombieri). Not classical Riemann Hypothesis.",
+    "critical_gaps": [
+      "This proves RH for curves over finite fields (Weil theorem), not the classical Riemann Hypothesis for zeta(s)",
+      "The connection to classical RH is motivational only"
+    ],
+    "lessons": [
+      "This is the gold standard for AI-assisted formal verification: a known theorem, fully machine-checked, 4000 lines Lean",
+      "Bombieri-Stepanov polynomial method is completely different from the analytic approach needed for classical RH",
+      "RH for function fields is solved; RH for number fields remains open"
+    ],
+    "our_verification": "The underlying mathematics (Bombieri-Stepanov) is correct and classical. Lean proof is complete and compiles.",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "structural-resolution-2026",
+    "title": "A Structural Resolution of the Riemann Hypothesis",
+    "author": "Anonymous",
+    "year": 2026,
+    "source": "Zenodo DOI: 10.5281/zenodo.18365022 (January 25, 2026)",
+    "approach": "Local symmetric second-difference observables annihilating smooth prime density. Oscillatory probes indexed by subset sums of reciprocal primes with exact kernel factorisation. \u00ce\u00b2-large-sieve framework bounding aggregate oscillatory energy. Contradiction: off-critical zero survives localisation and differencing, exceeding large-sieve dispersion bound.",
+    "tier": 4,
+    "claims_rh": true,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": false,
+    "status": "preprint (Zenodo Jan 2026); self-described as 'structurally complete and formally closed' but unvalidated",
+    "critical_gaps": [
+      "'Globally locked parameter regime' is asserted but the locking mechanism is not explicitly proved \u00e2\u20ac\u201d this is the circular element",
+      "Uniform stationary-phase bound requires phase non-degeneracy across all probing directions; the exponentially small exceptional set claim needs justification",
+      "Analytic continuation from explicit formula to the contradiction is implicit"
+    ],
+    "lessons": [
+      "The second-difference observable approach to cancelling smooth parts is a legitimate analytic technique",
+      "The critical step is always proving uniformity across the uncountable family of probing directions",
+      "'Finite-scale' proofs of RH always face the challenge of controlling all scales simultaneously"
+    ],
+    "our_verification": "Structure reviewed. Circular element in 'locked parameter regime' identified. Specific stationary-phase uniformity gap found.",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "tensor-sieve-2026",
+    "title": "A Non-Archimedean Framework for the Riemann Hypothesis via p-adic Shift Operators and Tensor Networks",
+    "author": "Ryan (ryanncode)",
+    "year": 2026,
+    "source": "GitHub ryanncode/tensor-sieve; April 2026; based on MeLoCoToN (arXiv:2502.05981) and FTNILO (arXiv:2505.05493)",
+    "approach": "Rejects Archimedean continuum. Integers modeled as F_1 algebraic curve. Krein space (indefinite metric) for negative sign absorption. p-adic Bruhat-Tits tree shift operator with combinatorial Laplacians. Adelic harmonic analysis with Bruhat-Schwartz distributions. Evaluates zeta via Topological Periodic Cyclic Homology (TP) and Big Witt vectors. Phase 1 only: executable sieve generating GUE-like spacing.",
+    "tier": 4,
+    "claims_rh": false,
+    "lean_code": true,
+    "lean_complete": false,
+    "peer_reviewed": false,
+    "status": "preprint/code (GitHub Apr 2026); Phase 1 executable only; no unconditional proof claimed yet",
+    "critical_gaps": [
+      "Phase 1 only: generates GUE-like spacing empirically but does not yet prove critical-line confinement",
+      "MeLoCoToN/FTNILO frameworks (arXiv preprints) are themselves unreviewed",
+      "The connection from p-adic jamming to critical line requires additional analytic input not yet present"
+    ],
+    "lessons": [
+      "Non-Archimedean/p-adic approaches to RH are a legitimate research direction (cf. Connes F_1 program)",
+      "GUE spacing from deterministic arithmetic is a genuine numerical observation worth studying",
+      "Krein space approach to absorb the negative Lefschetz cohomology sign is mathematically sound"
+    ],
+    "our_verification": "Framework structure reviewed. Phase 1 empirical output (GUE spacing) is plausible. Analytic closure not yet present.",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "motanova-adelic-2026",
+    "title": "Riemann-Adelic: Formal Proof via S-finite Adelic Systems and QCAL Framework",
+    "author": "motanova84 (independent)",
+    "year": 2026,
+    "source": "Zenodo DOI: 10.5281/zenodo.17281699; GitHub motanova84/Riemann-adelic; 2025-2026",
+    "approach": "S-finite adelic systems, D(s)\u00e2\u2030\u00a1\u00ce\u017e(s) geometric construction, Fredholm determinants. Wrapped in QCAL (Quantum Coherent Algebraic Logic) framework claiming 'cosmic coherence' at frequency f\u00e2\u201a\u20ac=141.7001 Hz, connecting Riemann zeros to QCD vacuum modes and consciousness (\u00ce\u00a8 = I \u00c3\u2014 A_eff\u00c2\u00b2 \u00c3\u2014 C^\u00e2\u02c6\u017e). Claims to solve 5 millennium problems simultaneously.",
+    "tier": 5,
+    "claims_rh": true,
+    "lean_code": true,
+    "lean_complete": false,
+    "peer_reviewed": false,
+    "status": "preprint/code (GitHub/Zenodo 2025-26); not peer-reviewed; contains pseudoscientific QCAL framework",
+    "critical_gaps": [
+      "QCAL 'cosmic coherence' framework (frequencies 141.7 Hz, consciousness \u00ce\u00a8) has no mathematical content \u00e2\u20ac\u201d it is pseudoscience layered over a mathematical core",
+      "Claiming to solve P vs NP, Riemann, BSD, Navier-Stokes, and Ramsey simultaneously is a major red flag",
+      "The Lean code uses sorry extensively and the QCAL 'protocol' to 'close sorry declarations' has no mathematical validity",
+      "'Cosmic frequency' f\u00e2\u201a\u20ac=141.7001 Hz derived from first Riemann zero has no relevance to the proof"
+    ],
+    "lessons": [
+      "Pseudoscientific frameworks (QCAL, cosmic consciousness) attached to legitimate mathematics are a red flag pattern",
+      "Claiming multiple millennium problems solved simultaneously is always a disqualifying signal",
+      "Lean sorry closures via 'protocols' are not proofs \u00e2\u20ac\u201d sorry means the proof is missing",
+      "The underlying adelic/Fredholm approach may have legitimate content buried under the QCAL layer \u00e2\u20ac\u201d separate the math from the mysticism"
+    ],
+    "our_verification": "QCAL framework identified as pseudoscience. Lean code uses sorry. Mathematical core (S-finite adelic systems) not independently reviewed due to noise level.",
+    "benchmark_script": null,
+    "audit_id": null
   }
 ]

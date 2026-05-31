@@ -46,25 +46,30 @@ Rank  Paper ID                       Tier  Certainty  Crit  Accepted  Claims RH
    1  rodgers-tao-2020               1       0.2040     0    5/5       No
    2  griffin-ono-2019               1       0.2040     0    4/5       No
    3  connes-2026                    1       0.1900     0    5/5       No
-   4  geiger-2026                    2       0.1900     0    5/5       YES
-   5  chua-2026                      4       0.1860     0    2/5       YES
-   6  this-work (Pierson 2026)       3       0.1690     0    4/5       YES
-   6  yamaguchi-2026                 2       0.1690     0    4/5       YES
-   6  erurh-2026                     3       0.1690     0    4/5       YES
-   9  singh-khalsa-2026              3       0.1620     0    4/5       No
-  10  arxiv-hp-2025                  3       0.1480     0    3/5       YES
-  11  meghani-2026                   4       0.1210     0    1/5       YES
-  11  mcgirl-2026                    4       0.1210     0    1/5       YES
-  13  gershon-2026                   3       0.1000     1    0/5       YES
-  13  preprint-0159                  3       0.1000     2    0/5       YES
-  13  aivisions-2026                 4       0.1000     1    0/5       YES
-  13  louiz-2026                     4       0.1000     3    0/5       YES
-  13  morato-2026                    4       0.1000     3    0/5       YES
-  13  priest-2025                    4       0.1000     1    0/5       YES
-  13  ladjeroud-2025                 4       0.1000     1    0/5       YES
+   3  rh-curves-2026                 1       0.1900     0    5/5       No
+   5  geiger-2026                    2       0.1900     0    5/5       YES
+   6  chua-2026                      4       0.1860     0    2/5       YES
+   7  this-work (Pierson 2026)       3       0.1690     0    4/5       YES
+   7  yamaguchi-2026                 2       0.1690     0    4/5       YES
+   7  erurh-2026                     3       0.1690     0    4/5       YES
+  10  singh-khalsa-2026              3       0.1620     0    4/5       No
+  11  arxiv-hp-2025                  3       0.1480     0    3/5       YES
+  12  bhattacharjee-2026             3       0.1340     0    2/5       YES
+  13  meghani-2026                   4       0.1210     0    1/5       YES
+  13  mcgirl-2026                    4       0.1210     0    1/5       YES
+  15  gershon-2026                   3       0.1000     1    0/5       YES
+  15  preprint-0159                  3       0.1000     2    0/5       YES
+  15  aivisions-2026                 4       0.1000     1    0/5       YES
+  15  louiz-2026                     4       0.1000     3    0/5       YES
+  15  morato-2026                    4       0.1000     3    0/5       YES
+  15  priest-2025                    4       0.1000     1    0/5       YES
+  15  ladjeroud-2025                 4       0.1000     1    0/5       YES
+  15  structural-resolution-2026     4       0.1000     1    0/5       YES
+  15  tensor-sieve-2026              4       0.1000     1    0/5       No
+  15  motanova-adelic-2026           5       0.1000     4    0/5       YES
 ```
 
-Certainty threshold: 0.700 | Papers above threshold: 0/19
+Certainty threshold: 0.700 | Papers above threshold: 0/24
 
 ---
 ## Tier Analysis
@@ -77,6 +82,11 @@ Griffin-Ono score highest because they have zero failure modes — their stated 
 (Λ ≥ 0; Jensen hyperbolicity for fixed d) are correct and peer-reviewed. Connes is one
 point lower because of the known det_reg convergence gap, but all five beliefs are
 accepted because the paper honestly identifies this as an open problem.
+
+rh-curves-2026 (0.190): Complete Lean4 formalization of RH for hyperelliptic curves
+over finite fields (Bombieri-Stepanov). This is a *different* problem from classical RH —
+RH for function fields was solved by Weil. The Lean proof is complete and compiles (~4000
+lines). Gold standard for AI-assisted formal verification of an established result.
 
 **Key insight**: Honest, well-scoped claims with peer review dominate the leaderboard even
 without claiming to solve RH. This is what epistemic integrity looks like.
@@ -112,6 +122,10 @@ arXiv HP-2025 (0.148): 3/5 accepted. Berry-Keating + Bessel construction is the 
 rigorous Hilbert-Pólya attempt. Domain analysis gap and eta-zero complication hold it
 below this work / ERURH.
 
+Bhattacharjee-2026 (0.134): 2/5 accepted. Published in IJRST (peer-reviewed, but broad-
+scope journal). Liouville-collar approach via Matomäki-Radziwiłł framework is legitimate,
+but Kuznetsov spectral cancellation requires conductor uniformity not established.
+
 Gershon/Preprint-0159 (0.100): Both have CRITICAL failure modes (wrong perturbation
 direction). All five beliefs rejected. Score = AEE floor.
 
@@ -129,6 +143,18 @@ Louiz, Morato, Priest, Ladjeroud, AI Visions (0.100): AEE floor. Zero beliefs ac
 Each has CRITICAL failure modes (R≡1 for Louiz; 5-problem overclaim for Morato;
 circular kernel for Priest; circular operator for Ladjeroud; eigenvector instability for
 AI Visions).
+
+Structural-resolution-2026 (0.100): Anonymous Zenodo preprint. Large-sieve contradiction
+approach has a circular 'globally locked parameter regime' assertion. Tensor-sieve-2026
+(0.100): p-adic/adelic framework, Phase 1 only — GUE spacing empirically but no proof.
+
+### Tier 5 — Pseudoscientific frameworks: 0.100
+
+Motanova-adelic-2026 (0.100): QCAL 'Quantum Coherent Algebraic Logic' framework wraps
+legitimate adelic/Fredholm mathematics in pseudoscience (cosmic consciousness, 141.7 Hz
+frequency, solving 5 millennium problems simultaneously). Lean code uses sorry extensively.
+The underlying S-finite adelic approach may have content but cannot be evaluated through
+the noise.
 
 ---
 ## Key Takeaways

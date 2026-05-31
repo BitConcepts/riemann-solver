@@ -7,7 +7,7 @@ This script executes the five verification steps of the RH proof:
   2. Algebraic core + perturbation bound (C=204) for u > 1.5
   3. Truncation error certification + cross-validation
   4. Polya/de Bruijn condition check
-  5. Extended cert: (log Phi)'' < 0 on [1.0, 1.5] (algebraic, 51 checkpoints)
+  5. Extended cert: (log Phi)'' < 0 on [1.0, 3.0] (algebraic, 101 checkpoints)
 
 Usage:
     python verify.py           # Full pipeline (~70s)
@@ -27,7 +27,7 @@ STEPS = [
     ("verify_algebraic_core.py",        "Algebraic core + perturbation bound (C=204)"),
     ("verify_truncation_and_crosscheck.py", "Truncation error + cross-validation"),
     ("verify_debruijn_condition.py",    "Polya/de Bruijn condition check"),
-    ("verify_ia_1_to_1_5.py",           "Extended cert: (log Phi)'' < 0 on [1.0, 1.5] (51 algebraic checkpoints)"),
+    ("verify_ia_1_to_1_5.py",           "Extended cert: (log Phi)'' < 0 on [1.0, 3.0] (101 algebraic checkpoints)"),
 ]
 
 

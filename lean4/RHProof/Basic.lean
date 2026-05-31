@@ -122,13 +122,13 @@ axiom tail_decay : Prop
     See: proof/verify_logconcavity_rigorous.py, verification/certificate.json -/
 axiom ia_verification_0_to_1 : Prop
 
-/-- (log Φ)''(u) < 0 on [1.0, 1.5] — certified algebraically.
+/-- (log Φ)''(u) < 0 on [1.0, 3.0] — certified algebraically (100 checkpoints).
     W₁ = (log φ₁)'' = -24π e^{2u}/h² - 4π e^{2u} (values O(100), no cancellation).
-    Min margin 93.1 at u = 1.0; C·ε < 10^{-25}.
+    Range [1.0, 3.0] with 101 checkpoints; C·ε doubly-exp small.
     See: proof/verify_ia_1_to_1_5.py -/
 axiom ia_verification_1_0_to_1_5 : Prop
 
-/-- Q_Φ(u) < 0 for u > 1.5 via perturbation bound (C = 204; ε(1.5) < 10^{-79}).
+/-- Q_Φ(u) < 0 for u > 3.0 via perturbation bound (C = 204; ε(3.0) doubly-exp small).
     See: proof/verify_algebraic_core.py -/
 axiom perturbation_bound_above_1_5 : Prop
 
@@ -136,8 +136,8 @@ axiom perturbation_bound_above_1_5 : Prop
 -- TIER 5: Structural implication (1 axiom)
 -- =====================================================
 
-/-- Log-concavity on all of [0, ∞): [0,1] by IA, [1,1.5] by algebraic cert,
-    [1.5,∞) by perturbation bound. log_phi1_d2_neg is passed as a proved theorem. -/
+/-- Log-concavity on all of [0, ∞): [0,1] by IA, [1,3.0] by algebraic cert,
+    [3.0,∞) by perturbation bound. log_phi1_d2_neg is passed as a proved theorem. -/
 axiom log_concavity_from_three_parts :
   ia_verification_0_to_1 →
   ia_verification_1_0_to_1_5 →

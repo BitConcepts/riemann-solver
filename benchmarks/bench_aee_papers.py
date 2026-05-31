@@ -275,15 +275,19 @@ def aee_this_work() -> PaperAEEResult:
         claim_confidence=ConfidenceLevel.MEDIUM,
         claim_accept=True,
         claim_failures=[
-            ("Lean4 formalization is partial (scaffold, not complete machine proof)",
-             "lean4/RHProof/Basic.lean contains sorries; not fully machine-verified",
+            ("Lean4 formalization is partial — 12 axioms remain (Polya theorem, IA certificates)",
+             "Polya 1927 Satz II, phi_even, phi_integrable, phi_superexp_decay, phi_real_analytic, "
+             "tail_decay, and the 3 computational certs remain axiomatic. "
+             "Zero sorry. 4 algebraic theorems proved: h_pos_for_nonneg, log_h_d2_neg, "
+             "log_phi1_d2_neg, and phi_positive eliminated via Real.exp_pos.",
              FailureSeverity.MEDIUM),
             ("Not yet submitted for peer review",
              "No independent expert review conducted as of 2026-05",
              FailureSeverity.MEDIUM),
         ],
         has_falsification=True,
-        falsification_note="32 attacks survived; DH control valid (159 off-line DH candidates); Li criterion all positive.",
+        falsification_note="36 attacks survived (7 batches incl. extended attacks 33-36); "
+                           "DH control valid (159 off-line DH candidates); Li criterion all positive.",
         is_consistent=True,
         consistency_note="g'' bug found and fixed by falsification. IA [0,1.0] certified.",
         has_expert_review=False,

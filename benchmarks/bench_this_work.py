@@ -367,8 +367,9 @@ def run_all() -> dict:
         status = "PASS" if result else ("FAIL" if result is False else "SKIP")
         print(f"  [{status:4s}] {name}")
 
-    eep_total = findings.get("eep_total", 0)
-    print(f"  EEP score: {eep_total}/21")
+    aee = findings.get("aee_certainty", None)
+    aee_str = f"{aee:.4f}/1.000" if aee is not None else "(run bench_aee_papers.py)"
+    print(f"  AEE certainty: {aee_str}")
     print("=" * 72)
     return findings
 

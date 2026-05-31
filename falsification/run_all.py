@@ -16,6 +16,7 @@ SCRIPTS = [
     ("falsify_edge_cases.py", "Attacks 16-20: evenness, exp accuracy, IA tracking, Q formula, g'"),
     ("falsify_deep.py", "Attacks 21-26: E'', product rule, negative u, integral, scaling, IA enclosure"),
     ("falsify_final.py", "Attacks 27-32: Polya on exp(-cosh), convergence, E', 15/2, adversarial Q, gamma_2"),
+    ("falsify_extended.py", "Attacks 33-36: 100k-pt 100-digit scan, Polya (i)-(v) IA, Jensen ALL d, Lambda=0"),
 ]
 
 

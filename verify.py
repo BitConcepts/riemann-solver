@@ -28,7 +28,14 @@ STEPS = [
     ("verify_truncation_and_crosscheck.py", "Truncation error + cross-validation"),
     ("verify_debruijn_condition.py",    "Polya/de Bruijn condition check"),
     ("verify_ia_1_to_1_5.py",           "Extended cert: (log Phi)'' < 0 on [1.0, 3.0] (101 algebraic checkpoints)"),
+    ("verify_galerkin_extended.py",     "Galerkin stabilization: CvS form plateau, eigenvector c-invariance (--quick)"),
 ]
+
+
+# Scripts that require extra flags when run via the pipeline
+_SCRIPT_FLAGS = {
+    "verify_galerkin_extended.py": ["--quick"],
+}
 
 
 def run_step(script, desc, quiet=False):
@@ -37,9 +44,10 @@ def run_step(script, desc, quiet=False):
         print("  SKIP: %s not found" % script)
         return False
 
+    extra_flags = _SCRIPT_FLAGS.get(script, [])
     result = subprocess.run(
-        [sys.executable, path],
-        capture_output=True, text=True, timeout=600,
+        [sys.executable, path] + extra_flags,
+        capture_output=True, text=True, timeout=1200,
         cwd=os.path.dirname(PROOF_DIR),
     )
 

@@ -1,0 +1,60 @@
+{
+  "mode": "quick",
+  "phases": {
+    "9": {
+      "phase": 9,
+      "N": 30,
+      "dps": 30,
+      "cutoffs": [
+        7,
+        11,
+        13,
+        17,
+        19,
+        23,
+        29
+      ],
+      "shannon_data": [
+        {
+          "c": 7,
+          "shannon_number": 1.2388048761393597,
+          "plunge_width_estimate": 1.3727736494958456
+        },
+        {
+          "c": 11,
+          "shannon_number": 1.5265475427301982,
+          "plunge_width_estimate": 1.114016198794302
+        },
+        {
+          "c": 13,
+          "shannon_number": 1.6328974760815376,
+          "plunge_width_estimate": 1.0414607871842652
+        },
+        {
+          "c": 17,
+          "shannon_number": 1.8036796341618624,
+          "plunge_width_estimate": 0.9428496383845435
+        },
+        {
+          "c": 19,
+          "shannon_number": 1.8744880726671729,
+          "plunge_width_estimate": 0.9072336685564122
+        },
+        {
+          "c": 23,
+          "shannon_number": 1.9961176140046832,
+          "plunge_width_estimate": 0.8519531509064114
+        },
+        {
+          "c": 29,
+          "shannon_number": 2.143687104780295,
+          "plunge_width_estimate": 0.7933054628349648
+        }
+      ],
+      "shannon_capacity_exceeds_dof": false,
+      "passed": false,
+      "elapsed_s": 0.0030198097229003906
+    }
+  },
+  "all_passed": false
+}

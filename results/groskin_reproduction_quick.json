@@ -1,0 +1,44 @@
+{
+  "run_label": "Quick (N=3, dps=30) \u2014 overlap test, \u03b3\u2081 indicative only",
+  "N": 3,
+  "dps": 30,
+  "gamma1_result": {
+    "gamma_detected": null,
+    "error": null,
+    "log10_error": null,
+    "digits_correct": 0
+  },
+  "overlap_results": [
+    {
+      "c": 13,
+      "log10_lambda_min": -11.408878604331198,
+      "overlap_with_prev": null,
+      "meets_groskin_threshold": null
+    },
+    {
+      "c": 17,
+      "log10_lambda_min": -12.102273417193627,
+      "overlap_with_prev": 0.9999653157233014,
+      "meets_groskin_threshold": true
+    },
+    {
+      "c": 19,
+      "log10_lambda_min": -12.497159268142095,
+      "overlap_with_prev": 0.9999875518385763,
+      "meets_groskin_threshold": true
+    },
+    {
+      "c": 23,
+      "log10_lambda_min": -12.640693958850083,
+      "overlap_with_prev": 0.9999947319036318,
+      "meets_groskin_threshold": true
+    },
+    {
+      "c": 29,
+      "log10_lambda_min": -13.144924450954818,
+      "overlap_with_prev": 0.999992035847862,
+      "meets_groskin_threshold": true
+    }
+  ],
+  "passed": false
+}

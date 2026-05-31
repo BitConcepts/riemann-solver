@@ -1,0 +1,42 @@
+{
+  "mode": "quick",
+  "phases": {
+    "8": {
+      "phase": 8,
+      "n_zeros": 15,
+      "dps": 30,
+      "n_consistent": 0,
+      "n_total": 5,
+      "passed": false,
+      "elapsed_s": 97.75135040283203,
+      "results": [
+        {
+          "function": "gaussian_bump(\u03c3=0.2)",
+          "ratio": 0.9495574881774264,
+          "log10_residual": -1.2972032955422066
+        },
+        {
+          "function": "shifted_bump[0.1,0.9]",
+          "ratio": 5.36364164870591,
+          "log10_residual": 0.6398490782179175
+        },
+        {
+          "function": "hat[-0.8,0.8]",
+          "ratio": 4.484532692952845,
+          "log10_residual": 0.5421445435588614
+        },
+        {
+          "function": "wide_bump[-1.5,1.5]",
+          "ratio": 578.5993573510233,
+          "log10_residual": 2.7616267013568394
+        },
+        {
+          "function": "bump[-0.5,0.5]",
+          "ratio": 0.07385617865601084,
+          "log10_residual": -0.03332156627050903
+        }
+      ]
+    }
+  },
+  "all_passed": false
+}

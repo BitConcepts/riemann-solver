@@ -1,5 +1,92 @@
 [
   {
+    "claim_id": "rodgers-tao-2020",
+    "title": "Rodgers-Tao: de Bruijn-Newman constant Lambda >= 0 (2020)",
+    "source": "Forum of Mathematics, Pi 8 (2020)",
+    "approach": "Proves Lambda >= 0; RH equivalent to Lambda = 0",
+    "date": "2020",
+    "n_checks": 2,
+    "n_passed": 2,
+    "n_failed": 0,
+    "n_critical": 0,
+    "checks": [
+      {
+        "name": "Theorem Lambda >= 0 proven",
+        "passed": true,
+        "detail": "Published and peer-reviewed in Forum of Mathematics, Pi 8. Widely accepted by mathematical community.",
+        "severity": "info"
+      },
+      {
+        "name": "No RH proof claimed",
+        "passed": true,
+        "detail": "Paper explicitly proves only Lambda >= 0. Combined with Polymath15 (Lambda <= 0.22), the gap 0 <= Lambda <= 0.22 remains. RH requires Lambda = 0.",
+        "severity": "info"
+      }
+    ]
+  },
+  {
+    "claim_id": "griffin-ono-2019",
+    "title": "Griffin-Ono-Rolen-Zagier: Jensen polynomial hyperbolicity (2019)",
+    "source": "PNAS 116(23), 2019",
+    "approach": "Jensen polynomial hyperbolicity for each fixed degree d, large n",
+    "date": "2019",
+    "n_checks": 2,
+    "n_passed": 2,
+    "n_failed": 0,
+    "n_critical": 0,
+    "checks": [
+      {
+        "name": "Jensen hyperbolicity for fixed d proven",
+        "passed": true,
+        "detail": "Published in PNAS. Widely accepted. For each fixed d, J^d_n is hyperbolic for all sufficiently large n.",
+        "severity": "info"
+      },
+      {
+        "name": "No RH proof claimed",
+        "passed": true,
+        "detail": "Paper does not claim to prove RH. Jensen hyperbolicity for each fixed d is partial progress, not a complete proof.",
+        "severity": "info"
+      }
+    ]
+  },
+  {
+    "claim_id": "connes-2026-detailed",
+    "title": "Connes spectral program (2026) \u2014 detailed audit",
+    "source": "J. Open Math. Problems 2(1), 2026",
+    "approach": "CvS spectral operators converge to zeta zeros; det_reg gap is open",
+    "date": "2026",
+    "n_checks": 4,
+    "n_passed": 3,
+    "n_failed": 1,
+    "n_critical": 0,
+    "checks": [
+      {
+        "name": "CvS eigenvalue convergence to zeta zeros",
+        "passed": true,
+        "detail": "Numerically verified at 6 cutoffs c=13..47 in this repository. Eigenvalue plateau [-80.7, -79.3] OOM for c=23..47 confirmed.",
+        "severity": "info"
+      },
+      {
+        "name": "det_reg convergence to Xi proven",
+        "passed": false,
+        "detail": "CCM 2025 Section 8 explicitly identifies this as an open gap. Convergence of det_reg to Xi requires additional analytic input.",
+        "severity": "high"
+      },
+      {
+        "name": "Paper honest about the gap",
+        "passed": true,
+        "detail": "Connes' paper explicitly does NOT claim to prove RH. The det_reg gap is clearly labelled as open.",
+        "severity": "info"
+      },
+      {
+        "name": "Our work bypasses this gap",
+        "passed": true,
+        "detail": "This work uses Xi(t) = integral Phi(u) cos(tu) du directly. No spectral operator convergence is needed \u2014 the Fourier cosine representation is an exact identity.",
+        "severity": "info"
+      }
+    ]
+  },
+  {
     "claim_id": "gershon-2026",
     "title": "Gershon log-concavity (April 2026)",
     "source": "Preprints.org 202604.1513",

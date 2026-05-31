@@ -13,7 +13,7 @@
   "min_margin": 93.14903358816888,
   "worst_u": 1.0,
   "all_certified": true,
-  "time_s": 0.16,
+  "time_s": 0.2,
   "combined_coverage": {
     "[0,1.0]": "IA 52898 subintervals (verify_logconcavity_rigorous.py)",
     "[1.0,1.5]": "algebraic+perturbation (this script, 51 checkpoints)",

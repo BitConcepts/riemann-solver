@@ -273,7 +273,7 @@ By Theorem~\ref{thm:polya} (P\'olya 1927), $\Xi(t) = \int\Phi(u)\cos(tu)\,du$ ha
 \section{Falsification Testing}
 \label{sec:falsify}
 
-We subjected every link in the proof chain to 32~systematic falsification attacks organized in 6~batches. Each attack attempts to \emph{break} the proof by finding a counterexample or inconsistency. All 32~attacks failed. A representative selection:
+We subjected every link in the proof chain to 36~systematic falsification attacks organized in 7~batches. Each attack attempts to \emph{break} the proof by finding a counterexample or inconsistency. All 36~attacks failed. A representative selection:
 
 \begin{center}
 \small
@@ -296,9 +296,9 @@ We subjected every link in the proof chain to 32~systematic falsification attack
 \bottomrule
 \end{tabular}
 \end{center}
-\noindent $^*$Attack~12 historically detected a real bug: the $g''$ coefficient was $81/4$ instead of the correct~$81/2$ (i.e., $(9/2)^2 \cdot 2$). This was fixed and all 32~attacks re-verified.
+\noindent $^*$Attack~12 historically detected a real bug: the $g''$ coefficient was $81/4$ instead of the correct~$81/2$ (i.e., $(9/2)^2 \cdot 2$). This was fixed and all 36~attacks re-verified.
 
-The remaining 20~attacks (not shown) cover: $\Phi$ evenness, decay rate, smoothness, circularity checks, $E'$ and $E''$ verification, $Q_\Phi$ symmetry at negative~$u$, scaling invariance under the factor of~4, series convergence, $g'$ coefficient verification, and end-to-end checks at the second Riemann zero~$\gamma_2$.
+The remaining 24~attacks (not shown) cover: $\Phi$ evenness, decay rate, smoothness, circularity checks, $E'$ and $E''$ verification, $Q_\Phi$ symmetry at negative~$u$, scaling invariance under the factor of~4, series convergence, $g'$ coefficient verification, end-to-end checks at the second Riemann zero~$\gamma_2$, and extended attacks~33--36 ($10^5$-point dense $Q_\Phi$ scan at 100-digit precision on $[0, 1.5]$; P\'olya conditions~(i)--(v) explicit IA verification; Jensen polynomial hyperbolicity for all $d = 1, 2, 3$; and $\Lambda = 0$ consistency check with Rodgers--Tao).
 
 Attack~1 is particularly significant: the even function $e^{-|t|^3}$ satisfies conditions~(i)--(iv) of Theorem~\ref{thm:polya} but fails the analyticity condition~(v), and its cosine transform has 4~complex zeros in $[5,15] \times [-5,5]$ (winding number~6 vs.\ 2~real zeros). This confirms that condition~(v) is sharp.
 
@@ -315,7 +315,7 @@ All computational results are reproducible from the public repository at \repour
 Script & Purpose \\
 \midrule
 \texttt{verify.py} & Full proof verification pipeline \\
-\texttt{falsify.py} & 32 falsification attacks + external audit \\
+\texttt{falsify.py} & 36 falsification attacks (7 batches) + external audit \\
 \texttt{proof/verify\_logconcavity\_rigorous.py} & Rigorous IA certification (Theorem~\ref{thm:ia}) \\
 \texttt{proof/verify\_algebraic\_core.py} & Algebraic core and perturbation bound \\
 \texttt{proof/verify\_truncation\_and\_crosscheck.py} & Truncation error and cross-validation \\

@@ -39,6 +39,11 @@ cvs = [
 viz = [
     "matplotlib>=3.7",
 ]
+aee = [
+    # Applied Epistemic Engineering — AEE paper analysis, leaderboard, bench_this_work.py
+    # https://github.com/layer1labs/specsmith  |  https://specsmith.readthedocs.io
+    "specsmith>=0.11.8",
+]
 
 [tool.setuptools.packages.find]
 where = ["src"]

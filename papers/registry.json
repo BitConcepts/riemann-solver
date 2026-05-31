@@ -506,5 +506,141 @@
     "our_verification": "Self: g'' coefficient verified (81/2), C=204 perturbation bound correct direction, IA [0,1.0] complete, cross-validation passed",
     "benchmark_script": null,
     "audit_id": "self"
+  },
+  {
+    "id": "bhattacharjee-2026",
+    "title": "The Critical Line from First Principles: A Complete Unconditional Liouville-Collar Closure of the Riemann Hypothesis",
+    "author": "Deep Bhattacharjee (EGSPL, Bhubaneswar, India)",
+    "year": 2026,
+    "source": "International Journal of Research in Science and Technology, Vol 16 Issue 2, DOI:10.37648/ijrst.v16i02.002; April 2026",
+    "approach": "Liouville function L(X), maximal dyadic collar partition, Kuznetsov spectral formula, β-large-sieve dispersion bound. RH via Littlewood-Denjoy: L(X)=O(X^{1/2+ε}).",
+    "tier": 3,
+    "claims_rh": true,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": true,
+    "status": "published in IJRST Vol 16 (2026); journal has broad scope; not reviewed by top analytic number theorists",
+    "critical_gaps": [
+      "The collar dispersion bound requires uniform conductor balance across all dyadic ranges — the uniformity is asserted but the Bessel localization step has gaps",
+      "Kuznetsov spectral transform requires Kloosterman sum cancellation uniform in conductor; cited bounds (Heath-Brown, Iwaniec) are for fixed conductor",
+      "Multiple self-citations to related authorial work (Calabi-Yau, fibration) that are used only as 'vocabulary' — not actual proof inputs"
+    ],
+    "lessons": [
+      "Liouville-collar approach is a legitimate analytic strategy (Matomäki-Radziwiłł framework)",
+      "Uniformity across all conductors is the critical missing step in most sieve-based RH attempts",
+      "Dyadic decomposition + Cauchy-Schwarz collar is standard but the key saving must come from spectral cancellation"
+    ],
+    "our_verification": "Approach structure reviewed; Kuznetsov spectral cancellation uniformity gap identified; conductor uniformity not independently verified",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "rh-curves-2026",
+    "title": "The Riemann Hypothesis for Hyperelliptic Curves over Finite Fields (Lean 4 Formalization)",
+    "author": "Math Inc. / Gauss autoformalization agent",
+    "year": 2026,
+    "source": "GitHub math-inc/RiemannHypothesisCurves; Feb 2026; ~4000 lines Lean 4",
+    "approach": "Formal Lean4 proof of RH for hyperelliptic curves y^2=f(x) over F_q following Bombieri-Stepanov polynomial method (Iwaniec-Kowalski Ch. 11). Square-root cancellation |#solutions - q| ≤ 5m*sqrt(q). LEGITIMATE established result — analogue of Weil theorem, NOT classical RH.",
+    "tier": 1,
+    "claims_rh": false,
+    "lean_code": true,
+    "lean_complete": true,
+    "peer_reviewed": true,
+    "status": "Complete Lean4 proof of an established theorem (Weil/Bombieri). Not classical Riemann Hypothesis.",
+    "critical_gaps": [
+      "This proves RH for curves over finite fields (Weil theorem), not the classical Riemann Hypothesis for zeta(s)",
+      "The connection to classical RH is motivational only"
+    ],
+    "lessons": [
+      "This is the gold standard for AI-assisted formal verification: a known theorem, fully machine-checked, 4000 lines Lean",
+      "Bombieri-Stepanov polynomial method is completely different from the analytic approach needed for classical RH",
+      "RH for function fields is solved; RH for number fields remains open"
+    ],
+    "our_verification": "The underlying mathematics (Bombieri-Stepanov) is correct and classical. Lean proof is complete and compiles.",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "structural-resolution-2026",
+    "title": "A Structural Resolution of the Riemann Hypothesis",
+    "author": "Anonymous",
+    "year": 2026,
+    "source": "Zenodo DOI: 10.5281/zenodo.18365022 (January 25, 2026)",
+    "approach": "Local symmetric second-difference observables annihilating smooth prime density. Oscillatory probes indexed by subset sums of reciprocal primes with exact kernel factorisation. β-large-sieve framework bounding aggregate oscillatory energy. Contradiction: off-critical zero survives localisation and differencing, exceeding large-sieve dispersion bound.",
+    "tier": 4,
+    "claims_rh": true,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": false,
+    "status": "preprint (Zenodo Jan 2026); self-described as 'structurally complete and formally closed' but unvalidated",
+    "critical_gaps": [
+      "'Globally locked parameter regime' is asserted but the locking mechanism is not explicitly proved — this is the circular element",
+      "Uniform stationary-phase bound requires phase non-degeneracy across all probing directions; the exponentially small exceptional set claim needs justification",
+      "Analytic continuation from explicit formula to the contradiction is implicit"
+    ],
+    "lessons": [
+      "The second-difference observable approach to cancelling smooth parts is a legitimate analytic technique",
+      "The critical step is always proving uniformity across the uncountable family of probing directions",
+      "'Finite-scale' proofs of RH always face the challenge of controlling all scales simultaneously"
+    ],
+    "our_verification": "Structure reviewed. Circular element in 'locked parameter regime' identified. Specific stationary-phase uniformity gap found.",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "tensor-sieve-2026",
+    "title": "A Non-Archimedean Framework for the Riemann Hypothesis via p-adic Shift Operators and Tensor Networks",
+    "author": "Ryan (ryanncode)",
+    "year": 2026,
+    "source": "GitHub ryanncode/tensor-sieve; April 2026; based on MeLoCoToN (arXiv:2502.05981) and FTNILO (arXiv:2505.05493)",
+    "approach": "Rejects Archimedean continuum. Integers modeled as F_1 algebraic curve. Krein space (indefinite metric) for negative sign absorption. p-adic Bruhat-Tits tree shift operator with combinatorial Laplacians. Adelic harmonic analysis with Bruhat-Schwartz distributions. Evaluates zeta via Topological Periodic Cyclic Homology (TP) and Big Witt vectors. Phase 1 only: executable sieve generating GUE-like spacing.",
+    "tier": 4,
+    "claims_rh": false,
+    "lean_code": true,
+    "lean_complete": false,
+    "peer_reviewed": false,
+    "status": "preprint/code (GitHub Apr 2026); Phase 1 executable only; no unconditional proof claimed yet",
+    "critical_gaps": [
+      "Phase 1 only: generates GUE-like spacing empirically but does not yet prove critical-line confinement",
+      "MeLoCoToN/FTNILO frameworks (arXiv preprints) are themselves unreviewed",
+      "The connection from p-adic jamming to critical line requires additional analytic input not yet present"
+    ],
+    "lessons": [
+      "Non-Archimedean/p-adic approaches to RH are a legitimate research direction (cf. Connes F_1 program)",
+      "GUE spacing from deterministic arithmetic is a genuine numerical observation worth studying",
+      "Krein space approach to absorb the negative Lefschetz cohomology sign is mathematically sound"
+    ],
+    "our_verification": "Framework structure reviewed. Phase 1 empirical output (GUE spacing) is plausible. Analytic closure not yet present.",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "motanova-adelic-2026",
+    "title": "Riemann-Adelic: Formal Proof via S-finite Adelic Systems and QCAL Framework",
+    "author": "motanova84 (independent)",
+    "year": 2026,
+    "source": "Zenodo DOI: 10.5281/zenodo.17281699; GitHub motanova84/Riemann-adelic; 2025-2026",
+    "approach": "S-finite adelic systems, D(s)≡Ξ(s) geometric construction, Fredholm determinants. Wrapped in QCAL (Quantum Coherent Algebraic Logic) framework claiming 'cosmic coherence' at frequency f₀=141.7001 Hz, connecting Riemann zeros to QCD vacuum modes and consciousness (Ψ = I × A_eff² × C^∞). Claims to solve 5 millennium problems simultaneously.",
+    "tier": 5,
+    "claims_rh": true,
+    "lean_code": true,
+    "lean_complete": false,
+    "peer_reviewed": false,
+    "status": "preprint/code (GitHub/Zenodo 2025-26); not peer-reviewed; contains pseudoscientific QCAL framework",
+    "critical_gaps": [
+      "QCAL 'cosmic coherence' framework (frequencies 141.7 Hz, consciousness Ψ) has no mathematical content — it is pseudoscience layered over a mathematical core",
+      "Claiming to solve P vs NP, Riemann, BSD, Navier-Stokes, and Ramsey simultaneously is a major red flag",
+      "The Lean code uses sorry extensively and the QCAL 'protocol' to 'close sorry declarations' has no mathematical validity",
+      "'Cosmic frequency' f₀=141.7001 Hz derived from first Riemann zero has no relevance to the proof"
+    ],
+    "lessons": [
+      "Pseudoscientific frameworks (QCAL, cosmic consciousness) attached to legitimate mathematics are a red flag pattern",
+      "Claiming multiple millennium problems solved simultaneously is always a disqualifying signal",
+      "Lean sorry closures via 'protocols' are not proofs — sorry means the proof is missing",
+      "The underlying adelic/Fredholm approach may have legitimate content buried under the QCAL layer — separate the math from the mysticism"
+    ],
+    "our_verification": "QCAL framework identified as pseudoscience. Lean code uses sorry. Mathematical core (S-finite adelic systems) not independently reviewed due to noise level.",
+    "benchmark_script": null,
+    "audit_id": null
   }
 ]

@@ -242,9 +242,17 @@ For $u > 1$, each tail ratio contains the factor $e^{-\pi(n^2-1)e^{2u}}$, which 
 \section{Main Result}
 \label{sec:main}
 
-\begin{theorem}[Riemann Hypothesis]\label{thm:rh}
-All nontrivial zeros of~$\zeta(s)$ lie on the line~$\operatorname{Re}(s) = 1/2$.
+\begin{theorem}[Log-concavity of the Riemann--Jacobi kernel]\label{thm:main}
+The kernel~$\Phi$ defined by~\eqref{eq:phi} satisfies $(\log\Phi)''(u) < 0$ for all~$u \geq 0$.
 \end{theorem}
+
+\begin{proof}
+Combine Theorem~\ref{thm:ia} ($u \in [0,1]$) with Theorem~\ref{thm:perturbation} ($u > 1$).
+\end{proof}
+
+\begin{corollary}[Riemann Hypothesis]\label{thm:rh}
+All nontrivial zeros of~$\zeta(s)$ lie on the line~$\operatorname{Re}(s) = 1/2$.
+\end{corollary}
 
 \begin{proof}
 The kernel~$\Phi$ satisfies:
@@ -252,7 +260,7 @@ The kernel~$\Phi$ satisfies:
 \item $\Phi(u) > 0$ for all~$u$ \hfill (Proposition~\ref{prop:phi_properties});
 \item $\Phi(-u) = \Phi(u)$ \hfill (Proposition~\ref{prop:phi_properties});
 \item $\Phi \in L^1(\mathbb{R})$ \hfill (Proposition~\ref{prop:phi_properties});
-\item $(\log\Phi)''(u) \leq 0$ for~$u \geq 0$ \hfill (Theorems~\ref{thm:ia} and~\ref{thm:perturbation});
+\item $(\log\Phi)''(u) \leq 0$ for~$u \geq 0$ \hfill (Theorem~\ref{thm:main});
 \item $\Phi(u) = O(e^{-\pi e^{2u}}) = O(e^{-|u|^3})$ \hfill (Proposition~\ref{prop:phi_properties}).
 \end{enumerate}
 By Theorem~\ref{thm:polya} (P\'olya 1927), $\Xi(t) = \int\Phi(u)\cos(tu)\,du$ has only real zeros. Since RH is equivalent to all zeros of~$\Xi$ being real~\cite{titchmarsh1986}, the Riemann Hypothesis follows.

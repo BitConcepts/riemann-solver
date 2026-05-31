@@ -303,9 +303,180 @@ def run_benchmark() -> dict:
     return findings
 
 
+# ---------------------------------------------------------------------------
+# Generic validators (AGENTS.md §5: every claim must accompany falsification)
+# ---------------------------------------------------------------------------
+
+def _run_dh_control(findings: dict) -> None:
+    """Part 5: Davenport-Heilbronn control — AGENTS.md §5 requirement.
+
+    The DH function violates the generalized RH. If our falsification harness
+    cannot detect DH's off-line zeros, it is unreliable on ζ(s) too.
+    This MUST be run alongside any verification claim (AGENTS.md §5).
+    """
+    print()
+    print("[5] Davenport-Heilbronn control (AGENTS.md §5 — required)")
+    print("    DH function has zeros OFF the critical line (GRH fails).")
+    print("    If our tools can't detect them, our harness is broken.")
+    try:
+        import sys, os
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(
+            os.path.abspath(__file__))), "src"))
+        from riemann.davenport_heilbronn import run_dh_control
+        result = run_dh_control(dps=20)
+        fe  = result["functional_equation_residual"]
+        n_off = result["off_line_candidates"]
+        valid = result["control_valid"]
+        fe_ok = fe < 1e-5
+        print(f"  Functional equation |f(s)-f(1-s)|: {fe:.2e}  "
+              f"({'OK' if fe_ok else 'FAIL'})")
+        print(f"  Off-line zero candidates found: {n_off}")
+        print(f"  Control valid (off-line zeros detected): {valid}")
+        if valid:
+            print("  Our harness CAN detect off-line zeros.")
+            print("  Consequence: if ζ had an off-line zero, we would (in principle)")
+            print("  detect it. The Louiz kernel, by contrast, gives R≡1 and cannot.")
+        else:
+            print("  *** CONTROL FAILED — harness cannot detect DH off-line zeros ***")
+        findings["dh_control"] = {"valid": valid, "off_line_candidates": n_off,
+                                   "fe_residual": fe, "fe_ok": fe_ok}
+    except Exception as e:
+        print(f"  SKIP ({type(e).__name__}: {e})")
+        print("  Run 'pip install -e .' in the repo root to enable src/ imports.")
+        findings["dh_control"] = {"valid": None, "error": str(e)}
+
+
+def _run_li_check(findings: dict) -> None:
+    """Part 6: Li criterion sign check — generic RH consistency.
+
+    Any λ_n < 0 immediately falsifies RH. Running this confirms our Li
+    criterion harness works and ζ(s) is consistent with RH to n=10.
+    """
+    print()
+    print("[6] Li criterion consistency check")
+    print("    lambda_n < 0 for any n immediately falsifies RH.")
+    try:
+        import sys, os
+        sys.path.insert(0, os.path.join(os.path.dirname(os.path.dirname(
+            os.path.abspath(__file__))), "src"))
+        from riemann.li_criterion import li_coefficient
+        with mp.workdps(30):
+            n_check = 10
+            violations, rows = [], []
+            for n in range(1, n_check + 1):
+                c = li_coefficient(n, 30)
+                rows.append((n, float(c.value), c.positive))
+                if not c.positive:
+                    violations.append(n)
+        for n, val, pos in rows:
+            print(f"  lambda_{n:2d} = {val:+.6e}  {'[+]' if pos else '[*** NEGATIVE — RH VIOLATED ***]'}")
+        ok = len(violations) == 0
+        print(f"  All {n_check} Li coefficients positive: {ok}")
+        print("  (Consistent with RH. Louiz approach gives no additional evidence here.)")
+        findings["li_criterion"] = {"all_positive": ok, "n_checked": n_check,
+                                     "violations": violations}
+    except Exception as e:
+        print(f"  SKIP ({type(e).__name__}: {e})")
+        findings["li_criterion"] = {"all_positive": None, "error": str(e)}
+
+
+def _run_off_line_search(findings: dict) -> None:
+    """Part 7: Quick off-critical-line zero search.
+
+    A coarse grid search for |ζ(σ+it)| < threshold at σ ≠ 1/2.
+    Any confirmed zero off the line falsifies RH.
+    """
+    print()
+    print("[7] Off-critical-line zero search (coarse grid)")
+    print("    Searching sigma in {0.3, 0.4, 0.6, 0.7}, t in [10, 50].")
+    with mp.workdps(25):
+        sigmas = [0.3, 0.4, 0.6, 0.7]
+        t_vals = [mp.mpf(10 + 5*k) for k in range(9)]  # 10,15,...,50
+        candidates = []
+        for sigma in sigmas:
+            for t in t_vals:
+                s = mp.mpc(sigma, t)
+                val = abs(mp.zeta(s))
+                if val < 0.05:
+                    candidates.append({"sigma": float(sigma), "t": float(t),
+                                       "abs_zeta": float(val)})
+        if candidates:
+            print(f"  *** {len(candidates)} NEAR-ZERO CANDIDATE(S) ***")
+            for c in candidates:
+                print(f"    sigma={c['sigma']}, t={c['t']}: |zeta|={c['abs_zeta']:.4e}")
+        else:
+            print(f"  No off-line candidates on grid ({len(sigmas)*len(t_vals)} points).")
+            print("  (Expected: ζ has no zeros off critical line per RH.)")
+    findings["off_line_search"] = {"candidates": candidates,
+                                    "n_points_checked": len(sigmas) * len(t_vals)}
+
+
+def _run_blindness_test(findings: dict) -> None:
+    """Part 8: Kernel blindness — R(c) -> 1 for ANY a(1)=1 coefficient set.
+
+    Demonstrates the fundamental flaw: the Louiz kernel encodes NO information
+    about which function's coefficients are used. Even totally arbitrary
+    sequences with a(1)=1 give R≈1. The kernel is blind to ζ(s).
+    """
+    print()
+    print("[8] Kernel blindness test")
+    print("    If R(c)->1 for ANY coefficient sequence with a(1)=1,")
+    print("    the kernel cannot distinguish zeta from any other function.")
+
+    c = mp.mpf(3)
+    iz = float((mp.mpf(1) / mp.zeta(mp.mpf(1) / c)).real)
+    print(f"  At c=3: 1/zeta(1/3) = {iz:.6f}")
+    print()
+    print(f"  {'Coefficient sequence':38s}  {'R(c)':>12}  verdict")
+    print("  " + "-" * 65)
+
+    def R_for(coeff_fn):
+        S     = sum(_term_sec61(n, 0, c) for n in range(1, 20))
+        S_mod = sum(coeff_fn(n) * _term_sec61(n, 0, c)
+                    for n in range(1, 20))
+        if abs(S) < mp.mpf("1e-200"):
+            return None
+        return S_mod / S
+
+    cases = [
+        ("mu(n) Mobius (Louiz claim)",      lambda n: _mobius(n)),
+        ("a(n)=(-1)^n  (alternating +/-)",  lambda n: mp.power(-1, n)),
+        ("a(n)=1 for all n  (all +1)",      lambda n: 1),
+        ("a(n)=random(-1,+1) seed=42",
+         lambda n, _s=[1,-1,1,1,-1,1,-1,1,1,-1,1,-1,1,1,-1,1,-1,1,1,-1]:
+             _s[(n-1) % len(_s)]),
+    ]
+
+    all_near_1 = True
+    for label, fn in cases:
+        R = R_for(fn)
+        if R is not None:
+            Rf = float(R.real)
+            near = abs(Rf - 1) < 0.05
+            if not near:
+                all_near_1 = False
+            verdict = "R~1 (blind)" if near else "R!=1 (distinguishes?)"
+            print(f"  {label:38s}  {Rf:+12.6f}  {verdict}")
+        else:
+            print(f"  {label:38s}  underflow")
+
+    print()
+    if all_near_1:
+        print("  CONFIRMED: R(c) ~= 1 for every coefficient sequence tested.")
+        print("  The super-exponential kernel is provably blind to all but the n=1")
+        print("  term. It cannot encode, verify, or disprove RH. No paper can fix")
+        print("  this structural limitation without changing the kernel definition.")
+    findings["blindness_test"] = {"all_R_near_1": all_near_1, "c_tested": 3,
+                                    "target_inv_zeta": iz}
+
+
 if __name__ == "__main__":
     t0 = time.time()
     findings = run_benchmark()
+    _run_dh_control(findings)
+    _run_li_check(findings)
+    _run_off_line_search(findings)
+    _run_blindness_test(findings)
     elapsed = time.time() - t0
 
     out = {

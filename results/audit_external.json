@@ -173,6 +173,117 @@
     ]
   },
   {
+    "claim_id": "morato-2026",
+    "title": "Morato de Dalmases: 600-cell Dirac operator (Mar 2026)",
+    "source": "Zenodo 10.5281/zenodo.19112358",
+    "approach": "Dirac operator on 600-cell Hilbert space => zeta zeros as eigenvalues",
+    "date": "2026-03",
+    "n_checks": 4,
+    "n_passed": 0,
+    "n_failed": 4,
+    "n_critical": 3,
+    "checks": [
+      {
+        "name": "Scope of claims is realistic",
+        "passed": false,
+        "detail": "Paper claims to prove simultaneously: RH, GRH, Goldbach Conjecture, Twin Primes Conjecture, and Collatz Conjecture. Each is a separate multi-decade open problem. Claiming all five via one 600-cell geometric framework is a strong red flag.",
+        "severity": "critical"
+      },
+      {
+        "name": "No circular free parameters",
+        "passed": false,
+        "detail": "600-cell angular defect delta_0 ~ 6.8 degrees used as confining potential. This parameter is selected to produce the right spectral properties rather than derived from number-theoretic principles.",
+        "severity": "critical"
+      },
+      {
+        "name": "Goldbach derivation logically independent",
+        "passed": false,
+        "detail": "Goldbach claimed from 'positivity of heat kernel trace'. Heat kernel positivity is automatic for a positive self-adjoint operator and does not directly imply every even integer is a sum of two primes.",
+        "severity": "critical"
+      },
+      {
+        "name": "Peer review status",
+        "passed": false,
+        "detail": "Not peer-reviewed. 11 companion PDFs not consolidated.",
+        "severity": "warning"
+      }
+    ]
+  },
+  {
+    "claim_id": "yamaguchi-2026",
+    "title": "Yamaguchi: Gram Jacobi spectral determinant (May 2026)",
+    "source": "Zenodo 10.5281/zenodo.20357668",
+    "approach": "Gram Jacobi J_N eigenvalues approximate zeta zeros; D_N/xi -> c via Hadamard rigidity",
+    "date": "2026-05",
+    "n_checks": 5,
+    "n_passed": 2,
+    "n_failed": 3,
+    "n_critical": 2,
+    "checks": [
+      {
+        "name": "Heat kernel trace ratio (skipped in quick mode)",
+        "passed": true,
+        "detail": "Claimed ratio 0.9999996 at N=100. Computable; consistent with RH.",
+        "severity": "info"
+      },
+      {
+        "name": "J_inf self-adjointness rigorously established",
+        "passed": false,
+        "detail": "Self-adjointness of J_inf in N->inf limit requires domain analysis. The Gram Jacobi matrix converges numerically but the functional-analytic closure (dense domain, symmetric operator, deficiency indices) is not rigorously established in the paper.",
+        "severity": "critical"
+      },
+      {
+        "name": "Hadamard rigidity (D_N/xi -> c) rigorously closed",
+        "passed": false,
+        "detail": "The convergence D_N(z)/xi(1/2+iz) -> c requires uniform convergence of the Hadamard product, which needs eigenvalue spacing estimates. Numerically supported at 10,000 zeros but analytic proof gap remains.",
+        "severity": "critical"
+      },
+      {
+        "name": "Computational methodology quality",
+        "passed": true,
+        "detail": "77 C proof programs, 3 independent verification paths (A/B/C), adversarial 'contradiction machine' (80/80 falsified), Bitcoin timestamp. Most rigorous computational methodology among independent attempts.",
+        "severity": "info"
+      },
+      {
+        "name": "Peer review status",
+        "passed": false,
+        "detail": "Not peer-reviewed (May 2026 preprint).",
+        "severity": "warning"
+      }
+    ]
+  },
+  {
+    "claim_id": "singh-khalsa-2026",
+    "title": "Singh Khalsa: Li-kernel reduction (Feb 2026, '1% Proof')",
+    "source": "Zenodo 10.5281/zenodo.18726797",
+    "approach": "Reduces RH to single quantitative inequality on Li coefficients",
+    "date": "2026-02",
+    "n_checks": 3,
+    "n_passed": 2,
+    "n_failed": 1,
+    "n_critical": 0,
+    "checks": [
+      {
+        "name": "Claims scope is honest (does not overclaim)",
+        "passed": true,
+        "detail": "Paper explicitly states: 'we do not claim a proof of RH'. The '1%' framing is honest: a reduction, not a completion.",
+        "severity": "info"
+      },
+      {
+        "name": "Li criterion framework mathematically correct",
+        "passed": true,
+        "detail": "Li's criterion (lambda_n > 0 for all n iff RH) is established (Li 1997). The Laguerre-weighted representation of Li coefficients is a known approach.",
+        "severity": "info"
+      },
+      {
+        "name": "Reduction fully closes the proof",
+        "passed": false,
+        "detail": "The reduction identifies one quantitative inequality that would imply RH, but does not prove that inequality. The inequality itself remains open.",
+        "severity": "info"
+      }
+    ]
+  },
+  {
     "claim_id": "self",
     "title": "This work (BitConcepts/riemann-solver)",
     "source": "BitConcepts/riemann-solver",

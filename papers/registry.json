@@ -211,6 +211,277 @@
     "audit_id": "louiz-2026"
   },
   {
+    "id": "yamaguchi-2026",
+    "title": "Spectral Determinant of a Cutoff-Regularized Hamiltonian and the Riemann Zeta Function",
+    "author": "Dan Alec Yamaguchi",
+    "year": 2026,
+    "source": "Zenodo DOI: 10.5281/zenodo.20357668; GitHub danalec/riemann (May 2026)",
+    "approach": "Gram Jacobi matrix J_N: eigenvalues approximate imaginary parts of zeta zeros. Spectral determinant D_N/xi -> c via Hadamard rigidity. 77 C proof programs, 50 validation tests.",
+    "tier": 2,
+    "claims_rh": true,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": false,
+    "status": "preprint (Zenodo, May 2026); most detailed independent attempt; not peer-reviewed",
+    "critical_gaps": [
+      "Gram Jacobi eigenvectors approximate zeta zeros numerically but the analytic identification step (Theorem II: D_N/xi -> c) requires Hadamard rigidity argument not fully closed",
+      "Self-adjointness of J_infinity in the limit N->inf is asserted, not rigorously proven with domain specification",
+      "Not peer-reviewed"
+    ],
+    "lessons": [
+      "77 proof-essential programs with independent verification paths (A/B/C) is a strong computational methodology",
+      "Heat kernel trace ratio 0.9999996 is strong numerical evidence but not a proof",
+      "Hadamard product convergence at 10,000 zeros is reproducible and checkable",
+      "The 'contradiction machine' (80/80 falsified) is our kind of approach — adversarial testing"
+    ],
+    "our_verification": "Structure reviewed; heat kernel and Hadamard claims are computationally checkable with mpmath. Analytic J_inf closure not independently verified.",
+    "benchmark_script": null,
+    "audit_id": "yamaguchi-2026"
+  },
+  {
+    "id": "erurh-2026",
+    "title": "ERURH: A Conditional, Formalized Route to the Riemann Hypothesis through ERU Framework",
+    "author": "Robert Duran",
+    "year": 2026,
+    "source": "HAL hal-05501445; Zenodo DOI: 10.5281/zenodo.18010407 (Feb 2026)",
+    "approach": "Energy-inertia framework on log scale s=log x. Reduces RH for xi_alpha to finite numerical certificates + classical analytic assumptions A/B/C. Full Lean 4 formalization of conditional implication ERURH_GlobalAssumptions => RH(xi_alpha).",
+    "tier": 3,
+    "claims_rh": true,
+    "lean_code": true,
+    "lean_complete": true,
+    "peer_reviewed": false,
+    "status": "preprint (HAL, Feb 2026); Lean proof is genuine but CONDITIONAL on external analytic inputs",
+    "critical_gaps": [
+      "Proof is explicitly conditional: requires external proofs of analytic assumptions A (large sieve), B (spectral decay), C (RMS window hypotheses)",
+      "xi_alpha is a zeta-like function in the ERU framework, not standard Riemann zeta; connection requires Assumption 11.1",
+      "The most honest framing in this class: transparency about what is proven vs assumed is commendable"
+    ],
+    "lessons": [
+      "Conditional reduction to auditable finite certificates is a legitimate proof strategy",
+      "Lean can verify the conditional implication rigorously even without proving the analytic inputs",
+      "The gap between 'xi_alpha' and actual zeta function is typical of ERU-style frameworks",
+      "Explicit assumption lists make a paper more honest and auditable than implicit assumptions"
+    ],
+    "our_verification": "Structure reviewed. Lean conditional theorem is genuine (no sorry in the main implication per the paper). Analytic packages A/B/C not independently verified.",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "singh-khalsa-2026",
+    "title": "An Explicit Li-Kernel Reduction of the Riemann Hypothesis (1% Proof)",
+    "author": "Sardar Dilbag Singh Khalsa",
+    "year": 2026,
+    "source": "Zenodo DOI: 10.5281/zenodo.18726797 (Feb 2026); IIT Bhubaneswar/Mandi/Delhi",
+    "approach": "Reduces RH to a single quantitative inequality: any zero with Re(s) < 1/2 produces exponentially growing contribution to Li coefficients forcing eventual negativity. Uses Laguerre-weighted explicit formula and zero-kernel representation.",
+    "tier": 3,
+    "claims_rh": false,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": false,
+    "status": "preprint (Zenodo, Feb 2026); explicitly NOT claiming a proof of RH; honest reduction paper",
+    "critical_gaps": [
+      "Explicitly does not claim proof of RH; reduces to one open inequality about global cancellations among zeros",
+      "The reduction is genuine but the inequality itself remains unproven"
+    ],
+    "lessons": [
+      "This is what intellectual honesty looks like: clearly stating RH is not proved but a reduction is established",
+      "The Laguerre-weighted explicit formula approach to Li coefficients is a legitimate computational tool",
+      "Papers that don't claim to prove RH but make progress are more credible than those that claim a complete proof"
+    ],
+    "our_verification": "Approach is honest and well-structured. Li coefficient framework is consistent with our own li_criterion.py.",
+    "benchmark_script": null,
+    "audit_id": "singh-khalsa-2026"
+  },
+  {
+    "id": "arxiv-hp-2025",
+    "title": "On the Existence of the Hilbert-Polya Hamiltonian",
+    "author": "Independent (arXiv 2408.15135)",
+    "year": 2025,
+    "source": "arXiv:2408.15135 (Aug 2025, v11); most-cited of the independent arXiv attempts",
+    "approach": "Constructs self-adjoint Hamiltonian R-hat = -D-hat - i*T-hat/(1+exp(-T-hat)) from Berry-Keating D-hat and Bessel operator T-hat. Eigenfunctions involve Dirichlet eta function; boundary condition Psi_s(0)=0 requires eta(s)=0, giving nontrivial Riemann zeros as eigenvalues. Self-adjointness forces eigenvalues real => RH for simple zeros.",
+    "tier": 3,
+    "claims_rh": true,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": false,
+    "status": "arXiv preprint v11 (Aug 2025); 11 versions; not yet peer-reviewed",
+    "critical_gaps": [
+      "Self-adjointness of R-hat requires careful domain analysis: D-hat and T-hat domains must be compatible, intersection may be dense but not obviously so",
+      "The argument works for SIMPLE zeros only; does not handle potential multiple zeros",
+      "Eigenfunctions for non-critical-line eta zeros (z_k = 1 + 2pik/ln2) also satisfy boundary condition, complicating the spectral analysis"
+    ],
+    "lessons": [
+      "Berry-Keating + Bessel operator combination is a more rigorous construction than most Hilbert-Polya attempts",
+      "Domain analysis is the critical missing step in most self-adjoint operator approaches",
+      "Multiple versions (v11) indicate ongoing refinement, which is a positive signal",
+      "Restricting claims to simple zeros is honest about the limitation"
+    ],
+    "our_verification": "Mathematical structure reviewed. The eta function boundary condition is correct. Domain analysis gap identified.",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "ladjeroud-2025",
+    "title": "The Existence of Hilbert-Polya Operator",
+    "author": "Amal Ladjeroud",
+    "year": 2025,
+    "source": "HAL hal-05342267 (Nov 2025); Centre Universitaire de Mila, Algeria",
+    "approach": "Constructs Hilbert-Polya operator H using supersymmetric quantum mechanics (SUSYQM) with shape invariance potentials. Eigenvalues are forced to be the imaginary parts of RH zeros via 'algorithmic parameters' B that update according to differences of consecutive zero imaginary parts. Proves essential self-adjointness.",
+    "tier": 4,
+    "claims_rh": true,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": false,
+    "status": "preprint (HAL, Nov 2025); not peer-reviewed",
+    "critical_gaps": [
+      "'Algorithmic parameter' B is defined to produce the zeta zeros by construction — this is circular reasoning",
+      "The operator H is built to have the zeta zeros as eigenvalues by definition, not by deriving them from first principles",
+      "SUSYQM shape invariance requires the superpotential to be known; choosing it to produce zeta zeros assumes what we want to prove"
+    ],
+    "lessons": [
+      "Circular construction (defining an operator to have zeta zeros as eigenvalues) does not prove those zeros are on the critical line",
+      "Self-adjointness of an operator constructed this way does not imply RH unless the construction itself is RH-independent",
+      "This is a common trap: building in the conclusion as a definition"
+    ],
+    "our_verification": "Construction is circular: zeta zeros are inputs to the operator definition, not outputs.",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "meghani-2026",
+    "title": "Completion-Locked Hilbert-Polya Proof of the Riemann Hypothesis: Euler-First Rigidity",
+    "author": "S.H. Meghani",
+    "year": 2026,
+    "source": "Zenodo DOI: 10.5281/zenodo.19487972 (Jan-Apr 2026, v3); claims UPenn affiliation",
+    "approach": "No-tuning Hilbert-Polya approach: Archimedean completion as rigid boundary condition, zeta-regularized Fredholm determinant of positive self-adjoint operator, Euler-first rigidity on Re(s)>1, single special-value calibration. Produces companion preprints (5 related Zenodo records).",
+    "tier": 4,
+    "claims_rh": true,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": false,
+    "status": "preprint (Zenodo, 3 versions Jan-Apr 2026); not peer-reviewed",
+    "critical_gaps": [
+      "'No-tuning' claim is not rigorously established; single special-value calibration is itself a tuning",
+      "Identification of Fredholm determinant with completed zeta function requires analytic arguments not fully presented",
+      "5 companion preprints suggesting a large-scale programme not yet consolidated"
+    ],
+    "lessons": [
+      "'Completion' and 'rigidity' arguments in L-function theory require careful analytic control",
+      "The volume of companion papers does not substitute for a single complete rigorous proof"
+    ],
+    "our_verification": "Structure reviewed. Key identification step not independently verifiable without full paper.",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "morato-2026",
+    "title": "Complete Proof of RH via Dirac Operators and 600-Cell Holonomy",
+    "author": "Lluis Morato de Dalmases (CronNet Holo Initiative)",
+    "year": 2026,
+    "source": "Zenodo DOI: 10.5281/zenodo.19112358 (Mar 2026, v5); 11 companion PDFs",
+    "approach": "Dirac operator D on Hilbert space constructed from 600-cell {3,3,5} geometry. Claims: (1) RH via zeta-regularized determinant det(1/2-iD)=K*xi(1/2+iD). (2) Goldbach via heat kernel positivity. (3) Twin Primes via GUE statistics. (4) Collatz via octagonal fractal charge. Also claims Bose-Einstein condensation interpretation.",
+    "tier": 4,
+    "claims_rh": true,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": false,
+    "status": "preprint (Zenodo Mar 2026); not peer-reviewed",
+    "critical_gaps": [
+      "Claiming RH + GRH + Goldbach + Twin Primes + Collatz simultaneously is a major red flag",
+      "Each of these is a separate multi-decade open problem; solving all five via one geometric framework is extremely implausible",
+      "600-cell angular defect delta_0 ~ 6.8 degrees used as a free parameter; connection to number theory is asserted not derived",
+      "GUE statistics of zeta zeros prove infinitude of twin primes via Keating-Smith is circular (GUE stats are consistent with RH, not a proof of it)"
+    ],
+    "lessons": [
+      "Claiming multiple millennium problems solved simultaneously is always a red flag",
+      "Geometric frameworks with free parameters (600-cell angular defect) that are tuned to produce the right numbers are not proofs",
+      "Physical analogies (Bose-Einstein condensation) are useful intuition but not mathematical proofs"
+    ],
+    "our_verification": "Not independently verified. Structural red flags (5 open problems) make deep verification low-priority.",
+    "benchmark_script": null,
+    "audit_id": "morato-2026"
+  },
+  {
+    "id": "chua-2026",
+    "title": "On the Riemann Hypothesis via Robin Criterion",
+    "author": "Cheong Siong Chua",
+    "year": 2026,
+    "source": "Zenodo DOI: 10.5281/zenodo.18323203 (Jan 2026); submitted to Duke Mathematical Journal",
+    "approach": "Uses Robin's criterion: RH equivalent to sigma(n) < e^gamma * n * log(log(n)) for all n >= 5041. Attempts to prove this inequality analytically.",
+    "tier": 4,
+    "claims_rh": true,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": false,
+    "status": "submitted to Duke Mathematical Journal (Jan 2026); no published verdict",
+    "critical_gaps": [
+      "Robin's criterion is a known RH equivalent, but proving the inequality for all n requires controlling sigma(n) for highly composite numbers",
+      "Submitted to a top journal (Duke Math J) but no acceptance or referee reports shared",
+      "Using Zenodo as a timestamp before journal verdict is a common pattern; verdict unknown"
+    ],
+    "lessons": [
+      "Robin's criterion is a valid RH equivalent but historically very hard to leverage for a proof",
+      "Journal submission without acceptance is not validation"
+    ],
+    "our_verification": "Approach is legitimate (Robin's criterion is correct). Specific proof steps not independently verified.",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "priest-2025",
+    "title": "The Riemann Hypothesis as a Zero-Flux Condition for a Self-Adjoint Friedrichs Operator",
+    "author": "Eliahi Priest (The Priest Group Pty Ltd)",
+    "year": 2025,
+    "source": "Zenodo DOI: 10.5281/zenodo.17228441 (Sep 2025 v2); author self-describes as 'jeweller by trade'",
+    "approach": "Resonance kernel R_alpha(x)=(x-1/2)^2 * exp(-alpha*(x-1/2)^2). L^2-stable contradiction mechanism: if zero off critical line, associated flux forces L^2 divergence. Claims Clay-grade rigor.",
+    "tier": 4,
+    "claims_rh": true,
+    "lean_code": false,
+    "lean_complete": null,
+    "peer_reviewed": false,
+    "status": "preprint (Zenodo Sep 2025); not peer-reviewed; author is independent non-mathematician",
+    "critical_gaps": [
+      "The resonance kernel R_alpha is centered at 1/2 by construction — this encodes the critical line assumption rather than deriving it",
+      "'L^2-stable contradiction mechanism' is asserted at high level; rigorous analytic estimates missing",
+      "Author explicitly states not a professional mathematician; proof was developed from 'pattern recognition'"
+    ],
+    "lessons": [
+      "Kernels or operators centered at 1/2 by construction cannot prove RH without independent justification for that centering",
+      "'Clay-grade rigor' claimed in a preprint requires actual peer review, not self-assessment"
+    ],
+    "our_verification": "Structural flaw identified: critical line is built into the kernel definition.",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
+    "id": "mcgirl-2026",
+    "title": "The phi-Separation Proof of the Riemann Hypothesis via Total Positivity",
+    "author": "Timothy McGirl (AI collaborators: Claude/Grok/Gemini/GPT)",
+    "year": 2026,
+    "source": "Zenodo DOI: 10.5281/zenodo.18226408; GitHub grapheneaffiliate/riemann-hypothesis-phi-separation-proof (Jan-Mar 2026)",
+    "approach": "phi-kernel K_phi(x)=phi^{-|x|/delta} (golden ratio base) is PF_inf (Schoenberg 1951). De Bruijn-Newman backward flow from t=1/2 (all real zeros, De Bruijn 1950) to t=0 via phi-Gram determinant monotonicity. Repulsive zero dynamics prevents collisions. Also connects to E8 lattice.",
+    "tier": 4,
+    "claims_rh": true,
+    "lean_code": true,
+    "lean_complete": false,
+    "peer_reviewed": false,
+    "status": "preprint (Zenodo Jan 2026, revised Mar 2026); AI co-authored; not peer-reviewed",
+    "critical_gaps": [
+      "De Bruijn backward flow argument: starting from t=1/2 (De Bruijn 1950 says zeros are all real for t>=1/2) and going backward to t=0 requires controlling zero dynamics, not just repulsion near collisions",
+      "phi-Gram determinant monotonicity dD_N/dt > 0 requires proof that this holds for all N simultaneously",
+      "E8 lattice connection is not derived mathematically, described as providing 'scale parameter'",
+      "Four AI systems are listed as co-authors; no independent mathematical verification"
+    ],
+    "lessons": [
+      "De Bruijn-Newman backward flow is a legitimate approach but the non-collision argument requires more than repulsion near individual collisions",
+      "Total positivity of the phi-kernel (Schoenberg 1951) is a real result but connecting it to zeta zeros requires the analytic steps",
+      "AI co-authorship without expert mathematical review is not validation"
+    ],
+    "our_verification": "phi-kernel total positivity claim is correct per Schoenberg 1951. Backward flow non-collision gap identified.",
+    "benchmark_script": null,
+    "audit_id": null
+  },
+  {
     "id": "this-work",
     "title": "Log-concavity of the Riemann-Jacobi Kernel Phi(u) and the Riemann Hypothesis",
     "author": "Tristen Kyle Pierson / BitConcepts Research",

@@ -3,7 +3,7 @@
   "title": "Super-Exponential Kernel Approach to the Analyticity of 1/\u03b6(s)",
   "doi": "10.13140/RG.2.2.35504.32004",
   "run_date": "2026-05-31",
-  "elapsed_s": 0.11,
+  "elapsed_s": 286.82,
   "sec61_numerics_match": false,
   "lean_def_matches_sec61": false,
   "comparisons": [
@@ -94,5 +94,25 @@
     "'sorry' in Lean is not formal verification. Our lean4/ scaffold is clearly partial (see RHProof/Basic.lean). We must never cite it as a complete machine proof.",
     "Internal consistency is non-negotiable. If our numerics and our formal definitions would disagree, that is a bug. Our falsify.py protocol (run_all.py) exists precisely to catch this.",
     "Independent falsification is what honest science looks like. This paper has no falsification protocol. We do."
-  ]
+  ],
+  "dh_control": {
+    "valid": true,
+    "off_line_candidates": 159,
+    "fe_residual": 0.9839018356807959,
+    "fe_ok": false
+  },
+  "li_criterion": {
+    "all_positive": true,
+    "n_checked": 10,
+    "violations": []
+  },
+  "off_line_search": {
+    "candidates": [],
+    "n_points_checked": 36
+  },
+  "blindness_test": {
+    "all_R_near_1": false,
+    "c_tested": 3,
+    "target_inv_zeta": -1.0273688510439527
+  }
 }

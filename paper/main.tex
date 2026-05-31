@@ -86,7 +86,7 @@ This is~\cite[Satz~II]{polya1927}. No English translation of the 1927 German tex
 \end{proof}
 
 \begin{remark}
-Condition~(v) is essential and cannot be dropped. The even function $K(t) = e^{-|t|^3}$ satisfies conditions~(i)--(iv) (with $\delta = 1$ in~(iv) and $(\log K)'' = -6|t| \leq 0$), yet its cosine transform has infinitely many non-real zeros~\cite[\S2, Example~2.1]{csordas1989}. The function $|t|^3$ is $C^\infty$ but \emph{not real analytic} at~$t = 0$, so condition~(v) fails. Our argument-principle computation finds 4~complex zeros of $\int_0^\infty e^{-t^3}\cos(zt)\,dt$ in $[5,15] \times [-5,5]$ (winding number~6 vs.\ 2~real zeros), confirming that analyticity is a sharp requirement.
+Condition~(v) is essential and cannot be dropped. The even function $K(t) = e^{-|t|^3}$ satisfies conditions~(i)--(iv) (with $\delta = 1$ in~(iv) and $(\log K)'' = -6|t| \leq 0$), yet its cosine transform has infinitely many non-real zeros~\cite[\S2, Example~2.1]{csordas1989}. The function $|t|^3$ is $C^2$ but not $C^3$ at~$t = 0$ (since $(|t|^3)''' = 6\operatorname{sgn}(t)$ is discontinuous), so $e^{-|t|^3}$ is not real analytic at the origin and condition~(v) fails. Our argument-principle computation finds 4~complex zeros of $\int_0^\infty e^{-t^3}\cos(zt)\,dt$ in $[5,15] \times [-5,5]$ (winding number~6 vs.\ 2~real zeros), confirming that analyticity is a sharp requirement.
 
 By contrast, $e^{-t^p}$ for \emph{even integer}~$p$ is real analytic and its cosine transform has only real zeros~\cite[\S2, Example~2.1]{csordas1989}. Our kernel~$\Phi$ is real analytic on all of~$\mathbb{R}$ (being a uniformly convergent series of analytic functions) and decays as $e^{-\pi e^{2u}}$, which satisfies~(iv) with any~$\delta > 0$.
 \end{remark}

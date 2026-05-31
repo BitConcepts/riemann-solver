@@ -1,0 +1,22 @@
+{
+  "method": "arb_flint_independent",
+  "library": "python-flint (Arb)",
+  "library_version": "0.8.0",
+  "precision_bits": 200,
+  "n_subintervals_tested": 55892,
+  "n_subintervals_total": 55892,
+  "n_terms": 5,
+  "u_range": [
+    0,
+    1.0
+  ],
+  "u_split": 0.946,
+  "certified": 55892,
+  "failed": 0,
+  "max_Q_upper": -7.911878632998969e-12,
+  "worst_u": 0.9457500000000001,
+  "time_s": 2.1060574054718018,
+  "all_certified": true,
+  "quick_mode": false,
+  "note": "Independent verification using Arb (FLINT), NOT mpmath.iv"
+}

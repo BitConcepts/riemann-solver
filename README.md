@@ -19,8 +19,8 @@ We verify that the Riemann–Jacobi kernel Φ(u) is strictly log-concave on [0,�
 **Proof chain:**
 1. **Algebraic core** — (`log φ₁)′′(u) < 0` for all `u ≥ 0` by explicit computation
 2. **Rigorous IA on [0, 1.0]** — 52,898 subintervals (mpmath.iv, 60-digit) + independent Arb/FLINT (55,892 subintervals, 200-bit)
-3. **Extended cert [1.0, 1.5]** — algebraic approach (avoids catastrophic cancellation: 40× cancellation in direct IA), 51 checkpoints, min margin 93.1
-4. **Perturbation bound [1.5, ∞)** — `C = 204` explicit constant, `ε(1.5) < 10⁻⁷⁹`
+3. **Extended cert [1.0, 3.0]** — algebraic approach (avoids catastrophic cancellation: 40× cancellation in direct IA), 101 checkpoints
+4. **Perturbation bound [3.0, ∞)** — `C = 204` explicit constant, doubly-exp small ε
 
 **Corollaries** (from our log-concavity result):
 - ξ(t) has only real zeros ⇒ Jensen polynomial `Jᵈ_n(X)` hyperbolic for **all** `d ≥ 0`, **all** `n ≥ 0` — strict strengthening of Griffin–Ono–Rolen–Zagier (2019)
@@ -75,7 +75,7 @@ python verify.py   # full pipeline: ~70s (IA step is slow)
 2. Algebraic core + perturbation bound C=204
 3. Truncation error + cross-validation
 4. Pólya/de Bruijn condition check
-5. Extended cert: (log Φ)′′ < 0 on [1.0, 1.5] — 51 algebraic checkpoints
+5. Extended cert: (log Φ)′′ < 0 on [1.0, 3.0] — 101 algebraic checkpoints
 
 Independently reproduced via Arb/FLINT (`proof/verify_logconcavity_arb.py`): 55,892 subintervals, 200-bit, <3s.
 
@@ -123,7 +123,7 @@ proof/
   verify_logconcavity_arb.py        Independent IA — Arb/FLINT (55,892 subintervals)
   verify_algebraic_core.py          Algebraic core + perturbation bound (C=204)
   verify_truncation_and_crosscheck.py  Truncation error + cross-validation
-  verify_ia_1_to_1_5.py             Extended cert [1.0,1.5] — algebraic (51 checkpoints)
+  verify_ia_1_to_1_5.py             Extended cert [1.0,3.0] — algebraic (101 checkpoints)
 
 falsification/
   run_all.py              Run all 36 attacks (7 batches)

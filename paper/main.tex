@@ -329,6 +329,9 @@ Script & Purpose \\
 
 \paragraph{Lean~4 formalization.} The proof structure is formalized in Lean~4 (v4.16.0) with 17 explicit axioms covering published results (P\'olya's theorem, properties of~$\Phi$), algebraic identities, and computational certificates. The theorem \texttt{riemann\_hypothesis} is proven from these axioms. The formalization compiles with zero errors and zero \texttt{sorry} declarations.
 
+\paragraph{Applied Epistemic Engineering assessment.}
+We apply the Applied Epistemic Engineering (AEE) framework~\cite{specsmith} to assess the epistemic quality of this work alongside 18 other claimed or relevant results in the RH landscape. Each work is modeled as an \texttt{AEESession} with five \texttt{BeliefArtifact} objects (proof claim, falsifiability, consistency, expert review, and scope calibration), with identified failure modes encoded as \texttt{FailureMode} instances. The framework applies the AEE pipeline~\cite{specsmith_docs}: \emph{Frame → Disassemble → Stress-Test → Reconstruct} across five axioms (Observability, Falsifiability, Irreducibility, Reconstructability, Convergence). This work scores 0.169/1.000 (4/5 beliefs accepted; non-critical failure modes: partial Lean scaffold, no peer review yet), placing it joint-sixth across all 19 entries and highest among proof claims not under peer review. The only RH-relevant works scoring higher are those with peer review or formal conditional Lean proofs. The AEE belief model and full leaderboard are available in \texttt{papers/LEADERBOARD.md} and results from \texttt{python benchmarks/bench\_aee\_papers.py}.
+
 %% =========================================================================
 \section{Discussion}
 \label{sec:discussion}

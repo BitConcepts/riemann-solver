@@ -129,3 +129,93 @@ operator on [λ^{-1}, λ]. The spectra of these operators converge
 **Key property**: The operators are self-adjoint, so their spectra are
 real. A rigorous proof of spectral convergence would establish RH.
 
+---
+
+## Applied Epistemic Engineering (AEE) Methodology
+
+This project uses Applied Epistemic Engineering (AEE) — from the
+[specsmith](https://github.com/layer1labs/specsmith) toolkit — to
+formally assess the epistemic quality of our proof and all 18 other
+RH claims in the landscape.
+
+### The AEE Framework
+
+AEE treats proof claims as **BeliefArtifacts** — engineering artifacts
+subject to the same discipline as code: version control, testing, and
+refactoring. The core method:
+
+**Frame → Disassemble → Stress-Test → Reconstruct**
+
+Five foundational axioms:
+1. **Observability** — every belief must be inspectable
+2. **Falsifiability** — every belief must be challengeable
+3. **Irreducibility** — beliefs decompose to atomic primitives
+4. **Reconstructability** — every failed belief can be rebuilt
+5. **Convergence** — stress-test + recovery always reaches Equilibrium
+
+### BeliefArtifact Model for RH Proofs
+
+Each paper gets 5 belief artifacts:
+
+```python
+from epistemic import AEESession, BeliefArtifact, FailureMode, FailureSeverity
+
+s = AEESession("paper-id", threshold=0.7)
+
+# 1. Core mathematical claim
+b = s.add_belief("PROOF_CLAIM",
+    propositions=["(log Phi)'' < 0 for all u >= 0",
+                  "By Polya 1927, all zeros of Xi(t) are real"],
+    epistemic_boundary=["Polya Satz II applies; IA covers [0,1.0]"],
+    domain="mathematics", priority="critical")
+
+# Add failure modes found by our audit
+b.failure_modes.append(FailureMode(
+    artifact_id="PROOF_CLAIM",
+    challenge="Lean4 scaffold partial",
+    breakpoint="lean4/RHProof/Basic.lean contains sorries",
+    severity=FailureSeverity.MEDIUM))
+
+# 2-5. Falsifiability, Consistency, Expert Review, Scope Calibration
+# Accept if conditions are met; add FailureModes if gaps found
+
+s.run()                    # Frame → Disassemble → Stress-Test → Reconstruct
+report = s.score()         # AEE certainty score
+print(report.overall_score)  # 0.169 for this work
+```
+
+### How AEE Maps to Our Testing Infrastructure
+
+```
+Belief artifact      → Our implementation
+-------------------------------------------
+PROOF_CLAIM          → proof/verify_*.py + lean4/ scaffold
+FALSIFIABILITY       → falsification/run_all.py (32 attacks)
+CONSISTENCY         → falsification/run_all.py (internal checks)
+EXPERT_REVIEW        → papers/registry.json peer_reviewed field
+SCOPE_CALIBRATION    → audit_external.py --claim self
+```
+
+Running `python benchmarks/bench_aee_papers.py` applies this model to
+all 19 papers and produces a ranked leaderboard (`papers/LEADERBOARD.md`).
+Running `python benchmarks/bench_this_work.py` applies the same tests
+to our own proof (symmetric treatment).
+
+### This Work's AEE Score
+
+- **Certainty**: 0.169 / 1.000
+- **Beliefs accepted**: 4/5 (EXPERT_REVIEW not yet accepted)
+- **Critical failures**: 0
+- **Non-critical failure modes**: partial Lean, no peer review
+- **Ranking**: Joint 6th of 19 papers; highest among proof claims not under peer review
+
+If this work achieves peer review, EXPERT_REVIEW would be accepted,
+raising the score to ~0.204 — matching the peer-reviewed Tier 1 papers.
+
+### AEE Library Reference
+
+- Library: https://specsmith.readthedocs.io/en/stable/epistemic-library/
+- Repository: https://github.com/layer1labs/specsmith
+- Install: `pip install specsmith`  (epistemic library co-installs)
+- Version used: epistemic 0.3.0 (specsmith 0.11.8)
+

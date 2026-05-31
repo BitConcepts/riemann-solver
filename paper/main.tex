@@ -158,8 +158,18 @@ For $u \geq 0$: $|R(u)|/\varphi_1(u) < 1/50$, where $R = \sum_{n\geq 2}\varphi_n
 Each $|\varphi_n|/\varphi_1 \leq n^4 e^{-\pi(n^2-1)e^{2u}}$ by Lemma~\ref{lem:tail_decay}. At $u = 0$ (worst case): $\sum_{n\geq 2} n^4 e^{-\pi(n^2-1)} < 16\cdot e^{-3\pi} + 81\cdot e^{-8\pi} + \cdots < 0.003$.
 \end{proof}
 
-\begin{remark}
-The truncation error from omitting terms $n \geq 6$ in the interval arithmetic computation is bounded rigorously by $7.03 \times 10^{-43}$ over $[0,1]$ (certified by interval arithmetic). Since $|Q_\Phi(u)| \geq 3.36 \times 10^{-12}$ on this interval (Theorem~\ref{thm:ia}), the truncation error is $10^{30}$~times smaller than the certified margin and cannot affect any sign determination.
+\begin{remark}\label{rem:truncation}
+The interval arithmetic verification retains $n = 1,\ldots,5$ and omits $\delta := 4\sum_{n \geq 6}\varphi_n$. The truncation errors on~$[0,1]$ are:
+\[
+|\delta| \leq 7.03 \times 10^{-43}, \quad
+|\delta'| \leq 1.18 \times 10^{-39}, \quad
+|\delta''| \leq 1.98 \times 10^{-36},
+\]
+all certified by interval arithmetic. Writing $\Phi = \Phi_5 + \delta$, the error in~$Q$ propagates as
+\[
+Q_\Phi = Q_{\Phi_5} + \bigl(\Phi_5''\delta + \delta''\Phi_5 - 2\Phi_5'\delta'\bigr) + \bigl(\delta''\delta - (\delta')^2\bigr).
+\]
+At the worst point ($u = 1$), the dominant cross term is $|\delta''\cdot\Phi_5| \approx 1.09 \times 10^{-42}$, giving a total error bound of $1.15 \times 10^{-42}$. Since $|Q_{\Phi_5}| \geq 3.36 \times 10^{-12}$ (Theorem~\ref{thm:ia}), the safety factor exceeds $2.9 \times 10^{30}$, and the truncation cannot affect any sign determination.
 \end{remark}
 
 %% =========================================================================
@@ -191,9 +201,9 @@ g_n'' &= \tfrac{81}{2}\pi^2 n^4 e^{9u/2} - \tfrac{75}{4}\pi n^2 e^{5u/2}, \\
 E_n' &= -2\pi n^2 e^{2u}\cdot E_n, \\
 E_n'' &= \bigl(-4\pi n^2 e^{2u} + 4\pi^2 n^4 e^{4u}\bigr)\cdot E_n.
 \end{align*}
-All computations use \texttt{mpmath.iv} interval arithmetic~\cite{mpmath} at 60-digit precision, retaining $n = 1,\ldots,5$ terms (truncation error ${} < 7.03 \times 10^{-43}$; see Section~\ref{sec:tail}). We partition $[0, 0.949]$ into 1{,}898 subintervals and $[0.949, 1.0]$ into 51{,}000 subintervals (finer grid needed near $u = 1$ where $Q_\Phi$ is small). On each subinterval~$[a,b]$, we evaluate $\Phi$, $\Phi'$, $\Phi''$ on the interval~$[a,b]$ using interval arithmetic, then compute~$Q_\Phi$. If the upper bound of the enclosure is negative, the subinterval is certified.
+All computations use \texttt{mpmath.iv} interval arithmetic~\cite{mpmath} at 60-digit precision, retaining $n = 1,\ldots,5$ terms. Let $\Phi_5 = 4\sum_{n=1}^{5}\varphi_n$ denote the computed partial sum. We partition $[0, 0.949]$ into 1{,}898 subintervals and $[0.949, 1.0]$ into 51{,}000 subintervals (finer grid needed near $u = 1$ where $Q_{\Phi_5}$ is small). On each subinterval~$[a,b]$, we evaluate $\Phi_5$, $\Phi_5'$, $\Phi_5''$ on the interval~$[a,b]$ using interval arithmetic, then compute~$Q_{\Phi_5}$. If the upper bound of the enclosure is negative, the subinterval is certified.
 
-\textbf{Result:} All 52{,}898 subintervals are certified, with maximum upper bound $-3.36 \times 10^{-12}$.
+\textbf{Result:} All 52{,}898 subintervals certify $Q_{\Phi_5}(u) < 0$, with maximum upper bound $-3.36 \times 10^{-12}$. Since the truncation error in~$Q$ is at most $1.15 \times 10^{-42}$ (Remark~\ref{rem:truncation}), we conclude $Q_\Phi(u) < 0$ on~$[0,1]$.
 
 Cross-validation: $Q_\Phi$ values computed independently at 80-digit floating-point precision at 10~selected points all lie within the corresponding interval arithmetic enclosures.
 \end{proof}
@@ -223,7 +233,7 @@ C := \frac{|\Delta Q|}{\varepsilon \cdot |Q_{\varphi_1}|} = 204.
 \]
 Since $C \cdot \varepsilon < 2 \times 10^{-27} \ll 1$ and $Q_{\varphi_1} < 0$ (Theorem~\ref{thm:algebraic}), the perturbation cannot flip the sign: $Q_\Phi = Q_{\varphi_1} + \Delta Q < 0$.
 
-For $u > 1$, all tail ratios decrease superexponentially (each factor of $e^{-\pi(n^2-1)e^{2u}}$ shrinks by orders of magnitude per unit increase in~$u$), so the bound only improves.
+For $u > 1$, each tail ratio contains the factor $e^{-\pi(n^2-1)e^{2u}}$, which decreases doubly-exponentially in~$u$ since $n^2 - 1 \geq 3$. The constant~$C(u) = |\Delta Q|/(\varepsilon\cdot|Q_{\varphi_1}|)$ is a ratio of polynomial-exponential terms in~$e^{2u}$, hence bounded by some polynomial $P(e^{2u})$. Since $e^{-3\pi e^{2u}}$ dominates any polynomial in~$e^{2u}$, the product $C(u)\cdot\varepsilon(u) \to 0$ for~$u > 1$. Numerically: at $u = 1.5$, $\varepsilon < 10^{-81}$, so $C$ would need to exceed $10^{79}$ to matter---impossible for a polynomial-exponential ratio. We verify: $\varepsilon(1.0) = 9.59 \times 10^{-30}$, $\varepsilon(1.5) = 9.98 \times 10^{-82}$, $\varepsilon(2.0) = 5.37 \times 10^{-223}$.
 \end{proof}
 
 %% =========================================================================

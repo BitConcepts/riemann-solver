@@ -35,18 +35,22 @@ bash bootstrap.sh          # Linux / macOS
 verify.py              Run the proof verification pipeline
 falsify.py             Run the falsification suite + external audit
 proof/                 Proof verification scripts
-  verify_logconcavity_rigorous.py    Rigorous IA (52,898 subintervals)
+  verify_logconcavity_rigorous.py    Rigorous IA — mpmath.iv (52,898 subintervals)
+  verify_logconcavity_arb.py         Independent IA — Arb/FLINT (55,892 subintervals)
   verify_algebraic_core.py           Algebraic core + perturbation (C=204)
   verify_truncation_and_crosscheck.py  Truncation error + cross-validation
-  verify_debruijn_condition.py       Polya condition verification
 falsification/         32 falsification attacks + external audit
   run_all.py           Run all 32 attacks
   audit_external.py    Verification audit of external RH claims
-  falsify_*.py         Individual attack batches (1-5, 6-10, ..., 27-32)
+verification/          Adversarial audit documents + certificates
+  certificate.json     Machine-checkable IA certificate (55,892 intervals)
+  verify_certificate.py  Standalone certificate verifier
+  polya_theorem_audit.md  Polya theorem source verification
+  proof_dependency_graph.md  Full proof dependency map
+  + 12 more audit documents
 paper/                 LaTeX manuscript (7 pages, 10 references)
 docs/                  Supplementary documentation
-  LANDSCAPE.md         RH proof landscape survey (May 2026)
-lean4/                 Lean 4 formalization (zero sorry, 13 axioms)
+lean4/                 Lean 4 formalization (16 axioms, zero sorry)
 src/riemann/           Core library
 tests/                 Unit tests
 results/               Computational results (JSON)
@@ -61,7 +65,7 @@ research/              Research loop workflow and logs
 python verify.py
 ```
 
-Runs all 4 verification steps: rigorous IA (52,898 subintervals, 60-digit precision), algebraic core, truncation error, Polya conditions.
+Runs all 4 verification steps: rigorous IA (52,898 subintervals, 60-digit precision), algebraic core, truncation error, Polya conditions. Independently reproduced using Arb/FLINT (55,892 subintervals, 200-bit precision).
 
 ### Quick check (~2s)
 

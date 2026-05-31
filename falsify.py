@@ -53,9 +53,15 @@ def run_audit(quick=True):
     if quick:
         args.append("--quick")
 
+    # Force UTF-8 for subprocess stdout/stderr (needed on Windows with cp1252)
+    import os as _os
+    _env = _os.environ.copy()
+    _env["PYTHONIOENCODING"] = "utf-8"
+    _env["PYTHONUTF8"] = "1"
+
     print("\n[2] Running external claims audit%s..." % (" (quick)" if quick else ""))
     result = subprocess.run(
-        args, capture_output=True, text=True, timeout=600, cwd=ROOT,
+        args, capture_output=True, text=True, timeout=600, cwd=ROOT, env=_env,
     )
 
     # Print audit output

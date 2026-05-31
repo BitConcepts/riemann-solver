@@ -2,14 +2,16 @@
 # Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """Run the complete proof verification pipeline.
 
-This script executes the three components of the RH proof in order:
-  1. Rigorous interval arithmetic (52,898 subintervals on [0, 1])
-  2. Algebraic core + perturbation bound for u > 1
+This script executes the five verification steps of the RH proof:
+  1. Rigorous IA: Q_Phi < 0 on [0, 1.0] (52,898 subintervals, 60-digit)
+  2. Algebraic core + perturbation bound (C=204) for u > 1.5
   3. Truncation error certification + cross-validation
+  4. Polya/de Bruijn condition check
+  5. Extended cert: (log Phi)'' < 0 on [1.0, 1.5] (algebraic, 51 checkpoints)
 
 Usage:
     python verify.py           # Full pipeline (~70s)
-    python verify.py --quick   # Skip the slow IA step, run steps 2-3 only (~2s)
+    python verify.py --quick   # Skip the slow IA step, run steps 2-5 only (~2s)
 """
 import argparse
 import subprocess
@@ -25,6 +27,7 @@ STEPS = [
     ("verify_algebraic_core.py",        "Algebraic core + perturbation bound (C=204)"),
     ("verify_truncation_and_crosscheck.py", "Truncation error + cross-validation"),
     ("verify_debruijn_condition.py",    "Polya/de Bruijn condition check"),
+    ("verify_ia_1_to_1_5.py",           "Extended cert: (log Phi)'' < 0 on [1.0, 1.5] (51 algebraic checkpoints)"),
 ]
 
 

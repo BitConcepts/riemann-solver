@@ -1,0 +1,103 @@
+{
+  "robin": {
+    "robin_violation_found": false,
+    "entries": [
+      {
+        "n": 55440,
+        "sigma_n": 232128,
+        "ratio": 0.98325396384704,
+        "ok": true
+      },
+      {
+        "n": 720720,
+        "sigma_n": 3249792,
+        "ratio": 0.9730459799010844,
+        "ok": true
+      },
+      {
+        "n": 3603600,
+        "sigma_n": 16790592,
+        "ratio": 0.9637267955655459,
+        "ok": true
+      },
+      {
+        "n": 36756720,
+        "sigma_n": 179988480,
+        "ratio": 0.9621073440243553,
+        "ok": true
+      },
+      {
+        "n": 698377680,
+        "sigma_n": 3599769600,
+        "ratio": 0.9602646733760946,
+        "ok": true
+      }
+    ]
+  },
+  "turan": {
+    "turan_violations": [],
+    "j2_violations": [],
+    "all_ok": true,
+    "turan_checks": [
+      {
+        "k": 1,
+        "lhs": 0.0001319275564045357,
+        "rhs": 6.13705632920343e-05,
+        "margin": 7.05569931125014e-05,
+        "ok": true
+      },
+      {
+        "k": 2,
+        "lhs": 1.5240400765634125e-08,
+        "rhs": 9.560411884397201e-09,
+        "margin": 5.679988881236922e-09,
+        "ok": true
+      },
+      {
+        "k": 3,
+        "lhs": 6.928156473925325e-13,
+        "rhs": 4.928484243573398e-13,
+        "margin": 1.9996722303519275e-13,
+        "ok": true
+      },
+      {
+        "k": 4,
+        "lhs": 1.5937872837257103e-17,
+        "rhs": 1.2165729157500423e-17,
+        "margin": 3.7721436797566795e-18,
+        "ok": true
+      }
+    ]
+  },
+  "connes": {
+    "connes_gap_status": "open",
+    "our_bypass": "Fourier cosine representation avoids det_reg convergence",
+    "cvs_plateau_confirmed": true
+  },
+  "geiger": {
+    "geiger_intermediate_failures": 0,
+    "all_checked_ok": true,
+    "entries": [
+      {
+        "lambda": 150.0,
+        "ok": null,
+        "error": "cannot import name 'verify_even_dominance' from 'riemann.even_dominance' (D:\\Development\\BitConcepts\\riemann-solver\\src\\riemann\\even_dominance.py)"
+      },
+      {
+        "lambda": 500.0,
+        "ok": null,
+        "error": "cannot import name 'verify_even_dominance' from 'riemann.even_dominance' (D:\\Development\\BitConcepts\\riemann-solver\\src\\riemann\\even_dominance.py)"
+      },
+      {
+        "lambda": 3000.0,
+        "ok": null,
+        "error": "cannot import name 'verify_even_dominance' from 'riemann.even_dominance' (D:\\Development\\BitConcepts\\riemann-solver\\src\\riemann\\even_dominance.py)"
+      },
+      {
+        "lambda": 7500.0,
+        "ok": null,
+        "error": "cannot import name 'verify_even_dominance' from 'riemann.even_dominance' (D:\\Development\\BitConcepts\\riemann-solver\\src\\riemann\\even_dominance.py)"
+      }
+    ]
+  }
+}

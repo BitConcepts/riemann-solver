@@ -1,6 +1,14 @@
 # SPDX-License-Identifier: MIT
 # Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
-"""Run all 32 falsification attacks against the log-concavity proof of RH.
+"""Run all 36 falsification attacks against the log-concavity proof of RH.
+
+  Attacks 1-5:   kernel properties, decay, Polya counterexample
+  Attacks 6-10:  convention, perturbation C, smoothness, circularity, IA
+  Attacks 11-15: Polya citation, derivatives, L-functions, equivalence
+  Attacks 16-20: evenness, exp accuracy, IA tracking, Q formula, g'
+  Attacks 21-26: E'', product rule, negative u, integral, scaling, IA enclosure
+  Attacks 27-32: Polya on exp(-cosh), convergence, E', 15/2, adversarial Q, gamma_2
+  Attacks 33-36: 100k-pt 100-digit scan, Polya (i)-(v) IA, Jensen ALL d, Lambda=0
 
 Usage:
     python falsification/run_all.py
@@ -16,6 +24,7 @@ SCRIPTS = [
     ("falsify_edge_cases.py", "Attacks 16-20: evenness, exp accuracy, IA tracking, Q formula, g'"),
     ("falsify_deep.py", "Attacks 21-26: E'', product rule, negative u, integral, scaling, IA enclosure"),
     ("falsify_final.py", "Attacks 27-32: Polya on exp(-cosh), convergence, E', 15/2, adversarial Q, gamma_2"),
+    ("falsify_extended.py", "Attacks 33-36: 100k-pt 100-digit scan, Polya (i)-(v) IA, Jensen ALL d, Lambda=0"),
 ]
 
 
@@ -25,7 +34,7 @@ def main():
     results = []
 
     print("=" * 72)
-    print("  RUNNING ALL 32 FALSIFICATION ATTACKS")
+    print("  RUNNING ALL 36 FALSIFICATION ATTACKS (7 batches)")
     print("=" * 72)
 
     for script, desc in SCRIPTS:

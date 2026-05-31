@@ -94,7 +94,7 @@ jobs:
           pip install -r requirements.txt
           pip install -e .
 
-      - name: Run all 32 falsification attacks
+      - name: Run all 36 falsification attacks (7 batches)
         run: python falsification/run_all.py
 
       - name: External claims audit (quick)

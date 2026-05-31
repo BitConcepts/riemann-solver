@@ -25,6 +25,7 @@ STEPS = [
     ("verify_algebraic_core.py",        "Algebraic core + perturbation bound (C=204)"),
     ("verify_truncation_and_crosscheck.py", "Truncation error + cross-validation"),
     ("verify_debruijn_condition.py",    "Polya/de Bruijn condition check"),
+    ("verify_ia_1_to_1_5.py",           "Extended cert: (log Phi)'' < 0 on [1.0, 1.5] (51 algebraic checkpoints)"),
 ]
 
 

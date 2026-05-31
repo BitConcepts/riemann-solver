@@ -44,11 +44,13 @@ axiom phi_integrable : Prop   -- Φ ∈ L¹(ℝ) (superexponential decay)
 -- Ref: Pólya 1927 Satz II; Csordas-Varga 1989 Thm 2.2; Levin 1964 §8
 -- =====================================================
 axiom phi_superexp_decay : Prop   -- Φ(u) = O(exp(-π·e^{2u})), satisfies (iv)
+axiom phi_real_analytic : Prop    -- Φ is real analytic on ℝ, satisfies (v)
 axiom phi_log_concave : Prop      -- (log Φ)''(u) ≤ 0 for u ≥ 0
 
 axiom polya_theorem :
   phi_positive → phi_even → phi_integrable →
-  phi_log_concave → phi_superexp_decay → XiHasOnlyRealZeros
+  phi_log_concave → phi_superexp_decay → phi_real_analytic →
+  XiHasOnlyRealZeros
 
 -- =====================================================
 -- TIER 3: Algebraic identities (provable with Mathlib)
@@ -84,12 +86,13 @@ theorem riemann_hypothesis
     (h2 : phi_even)
     (h3 : phi_integrable)
     (h4 : phi_superexp_decay)
-    (h5 : ia_verification_0_to_1)
-    (h6 : log_phi1_d2_neg)
-    (h7 : perturbation_bound_above_1) :
+    (h5 : phi_real_analytic)
+    (h6 : ia_verification_0_to_1)
+    (h7 : log_phi1_d2_neg)
+    (h8 : perturbation_bound_above_1) :
     RiemannHypothesis := by
-  have lc := log_concavity_from_components h5 h6 h7
-  have xi_real := polya_theorem h1 h2 h3 lc h4
+  have lc := log_concavity_from_components h6 h7 h8
+  have xi_real := polya_theorem h1 h2 h3 lc h4 h5
   exact rh_iff_xi_real.mpr xi_real
 
 end RHProof

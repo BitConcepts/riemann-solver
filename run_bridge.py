@@ -53,7 +53,7 @@ import connes_cvs
 
 def run_phase8(quick: bool) -> dict:
     """Run Suzuki ||P̂Dψ||² = π⟨ψ,ψ⟩_W norm equality suite."""
-    n_zeros = 15 if quick else 50
+    n_zeros = 30 if quick else 50
     dps = 30 if quick else 50
 
     print(f"\n{'=' * 72}")

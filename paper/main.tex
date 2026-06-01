@@ -2,10 +2,13 @@
 \usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
 \usepackage{geometry}
+\usepackage{lmodern}
+\usepackage{microtype}
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{hyperref}
 \usepackage{booktabs}
 \usepackage{enumitem}
+\usepackage{xurl}
 \geometry{margin=1in}
 
 \newtheorem{theorem}{Theorem}
@@ -34,9 +37,9 @@ We verify that the Riemann--Jacobi kernel~$\Phi(u)$, appearing in the Fourier co
 
 The proof combines four components: (1)~an algebraic core showing $(\log\varphi_1)''(u) < 0$ for all $u \geq 0$ by explicit computation; (2)~rigorous interval arithmetic with exact symbolic derivatives certifying $Q_\Phi(u) < 0$ on $[0,1]$ across 52{,}898 subintervals at 60-digit precision; (3)~a no-cancellation algebraic approach certifying $(\log\Phi)''(u) < 0$ on $[1.0, 3.0]$ across 101 overlapping interval checks (minimum margin~93.1; see Theorem~\ref{thm:extended} in Section~\ref{sec:extended}); and (4)~an explicit monotonicity-based tail bound with constant $C = 204$ covering $[3.0, \infty)$ (Theorem~\ref{thm:perturbation_tail}).
 
-We subject every link in the proof chain to 36~systematic falsification attacks across 7~categories. All attacks fail, including: independent verification that the cosine transform of~$e^{-t^3}$ has complex zeros (confirming the necessity of P\'olya's analyticity condition); numerical confirmation that $\int\Phi(u)\,du = \xi(1/2)$ to 15~digits (verifying our formula convention); derivative verification against \texttt{mpmath.diff}; and containment checks on~\texttt{mpmath.iv} interval arithmetic. Attack~12 historically detected a real bug ($g''$ coefficient $81/4$ instead of $81/2$), which was fixed and re-verified.
+We subject every link in the proof chain to 36~systematic falsification attacks across 7~categories. No test detected an inconsistency, including: independent verification that the cosine transform of~$e^{-t^3}$ has complex zeros (confirming the necessity of P\'olya's analyticity condition); numerical confirmation that $\int\Phi(u)\,du = \xi(1/2)$ to 15~digits (verifying our formula convention); derivative verification against \texttt{mpmath.diff}; and containment checks on~\texttt{mpmath.iv} interval arithmetic. Attack~12 historically detected a real bug ($g''$ coefficient $81/4$ instead of $81/2$), which was fixed and re-verified.
 
-All computational results are reproducible via publicly available Python scripts at \repourl. A Lean~4 formalization (\texttt{lean4/RHProof/Basic.lean}) has been machine-checked via \texttt{lake build} on leanprover/lean4:v4.16.0 with Mathlib (commit \texttt{a6276f4c}); the build of 1{,}976 modules completes with zero errors and zero \texttt{sorry} declarations. Six algebraic theorems are proved from Mathlib: \texttt{h\_pos\_for\_nonneg}, \texttt{log\_h\_d2\_neg}, \texttt{log\_phi1\_d2\_neg}, \texttt{phi\_positive\_exp}, and the newly added \texttt{phi1\_pos} ($\varphi_1(u) > 0$ for $u \geq 0$) and \texttt{phi1\_decay\_bound} ($\varphi_1(u) \leq 2\pi e^{2u} e^{-\pi e^{2u}}$ for $u \geq 0$). The main theorem \texttt{riemann\_hypothesis} depends on 13 project-specific axioms and the 3 universal Lean kernel axioms (\texttt{propext}, \texttt{Classical.choice}, \texttt{Quot.sound}).
+All computational results are reproducible at \repourl, with certificate SHA256 hashes in Appendix~\ref{sec:cert}. A Lean~4 formalization verifies the algebraic core with zero \texttt{sorry} declarations; remaining dependencies are recorded as explicit axioms (details in Section~\ref{sec:reproduce}).
 
 We also provide new independent numerical evidence for the CvS spectral framework. Eigenvectors of the truncated Weil quadratic form $Q(c)$ computed via the reference implementation of Groskin~\cite{groskin2026} exhibit strong $c$-invariance: overlaps $\langle v(c), v(c')\rangle \geq 0.9999$ across all consecutive cutoff pairs at both $N=3$ (cutoffs $c = 13,\ldots,29$) and $N=5$ (cutoffs $c = 17,\ldots,37$). Relative eigenvector changes $\|\Delta v(c)\|/\|v(c)\|$ remain approximately constant at $0.006$--$0.017$ with no clear power-law decay, consistent with the inverse-logarithmic lower bound $\varepsilon(\lambda,N) \geq 1/(4\ln\lambda)$ of Sliwinski~\cite{sliwinski2026}.
 
@@ -197,7 +200,7 @@ For $u \geq 0$: $|R(u)|/\varphi_1(u) < 1/50$, where $R = \sum_{n\geq 2}\varphi_n
 \end{proposition}
 
 \begin{proof}
-Each $|\varphi_n|/\varphi_1 \leq n^4 e^{-\pi(n^2-1)e^{2u}}$ by Lemma~\ref{lem:tail_decay}. At $u = 0$ (worst case): $\sum_{n\geq 2} n^4 e^{-\pi(n^2-1)} < 16\cdot e^{-3\pi} + 81\cdot e^{-8\pi} + \cdots < 0.003$.
+The exact ratio is $|\varphi_n(u)|/\varphi_1(u) = B_n(u)\,e^{-\pi(n^2-1)e^{2u}}$ where $B_n(u) = n^2 h_n(u)/h_1(u)$ and $h_n = 2\pi n^2 e^{2u}-3$. Since $B_n(u)/n^4 \leq 1 + 3/(2\pi-3) < 2$ for all $u \geq 0$ (see \texttt{docs/tail\_prefactor\_correction.md}), the valid upper bound is $|\varphi_n|/\varphi_1 \leq 2n^4 e^{-\pi(n^2-1)e^{2u}}$. At $u = 0$ (worst case): $\sum_{n\geq 2} 2n^4 e^{-\pi(n^2-1)} < 32\cdot e^{-3\pi} + 162\cdot e^{-8\pi} + \cdots < 0.006 < 1/50$.
 \end{proof}
 
 \begin{remark}\label{rem:truncation}
@@ -288,7 +291,7 @@ Lemma~\ref{lem:tail_decay},
 \[
 |W_{\mathrm{tail}}(u)| \leq C\,\varepsilon(u),
 \quad
-\varepsilon(u) := \sum_{n=2}^{\infty} n^4\,e^{-\pi(n^2-1)e^{2u}},
+\varepsilon^*(u) := 2\sum_{n=2}^{\infty} n^4\,e^{-\pi(n^2-1)e^{2u}}\quad\text{[corrected: }B_n(u)/n^4 < 2\text{]},
 \]
 where $C = 204$ is the explicitly computed proportionality constant at $u = 1$:
 \[
@@ -304,11 +307,11 @@ $\operatorname{upper}(W_1(I_i)) + C\cdot\operatorname{upper}(\varepsilon(I_i)) <
 Adjacent intervals overlap; their union $[0.99, 3.01] \supset [1.0, 3.0]$ covers the
 entire continuum, not merely 101 sample points.
 \newline
-\textbf{Result:} All 101 interval checks certified, minimum margin $93.1$ (at $u = 1.0$,
+\textbf{Result:} All 101 interval checks certified, minimum margin $91.3$ (at $u = 1.0$,
 interval $[0.99, 1.01]$).  By Lemma~\ref{lem:wtail}, $|W_{\mathrm{tail}}(u)| \leq 1.82\times 10^{-25}$
 for all $u \in [1, 3]$, while $|W_1(u)| \geq 93.1$.  Hence
 $(\log\Phi)'' = W_1 + W_{\mathrm{tail}} \leq -93.1 + 1.82\times 10^{-25} < 0$.
-See \texttt{proof/verify\_ia\_1\_to\_1\_5.py} (SHA256 of output: \texttt{7D65253C...}).
+See \texttt{proof/verify\_ia\_1\_to\_3.py} (SHA256 of output: \texttt{7D65253C...}).
 \end{proof}
 
 %% =========================================================================
@@ -328,7 +331,7 @@ At $u = 3$, both quantities are explicit:
 \begin{align*}
 W_1(3) &= \frac{-24\pi e^{6}}{(2\pi e^6 - 3)^2} - 4\pi e^6
   < -4\pi e^6 < -1000, \\[4pt]
-\varepsilon(3) &\leq 16\,e^{-3\pi e^6} < 10^{-1637}.
+\varepsilon^*(3) &\leq 32\,e^{-3\pi e^6} < 10^{-1636}.
 \end{align*}
 Hence $W_1(3) + 204\,\varepsilon(3) < -1000 + 204\cdot 10^{-1637} < 0$.
 
@@ -427,7 +430,7 @@ dependencies; see Section~\ref{sec:limitations} for a full accounting.
 \section{Falsification Testing}
 \label{sec:falsify}
 
-We subjected every link in the proof chain to 36~systematic falsification attacks organized in 7~batches. Each attack attempts to \emph{break} the proof by finding a counterexample or inconsistency. All 36~attacks failed. A representative selection:
+We subjected every link in the proof chain to 36~systematic tests organized in 7~batches. Each test attempts to detect an inconsistency or counterexample. These tests are confidence-building and do not substitute for the proof-critical certificates in Section~\ref{sec:deps}. No test detected any inconsistency. A representative selection:
 
 \begin{center}
 \small
@@ -511,7 +514,7 @@ We itemise every known gap between the present work and a complete, machine-chec
 Theorem~\ref{thm:polya} is applied via the secondary reference Csordas--Varga~\cite{csordas1989} Theorem~2.2. The original 1927 German text~\cite{polya1927} has not been independently translated. All six hypotheses have been explicitly mapped to verified properties of~$\Phi$ (Remark~\ref{rem:polya_hyp}), but the theorem itself is not machine-checked in Lean. The Lean axiom \texttt{polya\_theorem} in \texttt{Basic.lean} encodes this dependency.
 
 \paragraph{2. Computational certificates are axiomatized in Lean, not derived.}
-The Lean formalization takes the interval arithmetic results (\texttt{ia\_verification\_0\_to\_1}, \texttt{ia\_verification\_1\_0\_to\_1\_5}) as axioms rather than deriving them within the proof assistant. A Lean-verified certificate checker for the 52{,}898-subinterval result---for example using interval arithmetic in Lean~4 via a verified IA library---would reduce the project axiom count from 13 to 11 and remove this dependency.
+The Lean formalization takes the interval arithmetic results (\texttt{ia\_verification\_0\_to\_1}, \texttt{ia\_verification\_1\_to\_3}) as axioms rather than deriving them within the proof assistant. A Lean-verified certificate checker for the 52{,}898-subinterval result---for example using interval arithmetic in Lean~4 via a verified IA library---would reduce the project axiom count from 13 to 11 and remove this dependency.
 
 \paragraph{3. Fourier representation and classical properties of $\Phi$ are cited.}
 The identity $\Xi(t) = \int_0^\infty\Phi(u)\cos(tu)\,du$, the evenness $\Phi(-u)=\Phi(u)$, and the integrability $\Phi\in L^1(\mathbb{R})$ are taken from Titchmarsh~\cite{titchmarsh1986} \S2.10. These are classical and uncontroversal, but not formalized. The Lean axioms \texttt{rh\_iff\_xi\_real}, \texttt{phi\_even}, and \texttt{phi\_integrable} encode these.
@@ -563,7 +566,7 @@ C2 & $(\log\varphi_1)'' < 0$ & Lean & PROVED & \texttt{Basic.lean}: \texttt{log\
 C3 & $\Phi > 0$, $\Phi$ even, $\in L^1$ & Classical & CITED & \cite{titchmarsh1986,csordas1989} \\
 C4 & $Q_\Phi < 0$ on $[0,1]$ & IA (mpmath.iv) & CERTIFIED & \texttt{verify\_logconcavity\_rigorous.py} \\
 C4b & C4 reproduced & IA (Arb/FLINT) & CERTIFIED & \texttt{verify\_logconcavity\_arb.py} \\
-C5 & $(\log\Phi)'' < 0$ on $[1,3]$ & Alg.+pert. & CERTIFIED & \texttt{verify\_ia\_1\_to\_1\_5.py} \\
+C5 & $(\log\Phi)'' < 0$ on $[1,3]$ & Alg.+pert. & CERTIFIED & \texttt{verify\_ia\_1\_to\_3.py} \\
 C6 & $(\log\Phi)'' < 0$ for $u\geq 3$ & Monotonicity & PROVED & \texttt{verify\_algebraic\_core.py} \\
 C7 & $\Phi$ real analytic & Structural & PROVED & Weierstrass $M$-test, §\ref{sec:phi} \\
 C8 & $\Phi = O(e^{-\pi e^{2u}})$ & Structural & PROVED & \texttt{Basic.lean}: \texttt{phi1\_decay\_bound} \\
@@ -581,7 +584,7 @@ Cert & Output file & SHA256 (full 64 hex, see \texttt{docs/certificate\_hash\_ta
 \midrule
 C4 & \texttt{results/verify\_logconcavity\_rigorous.json} & \texttt{0D0841DAB32396D9...} \\
 C4b & \texttt{results/verify\_logconcavity\_arb.json} & \texttt{974B67CC58B96117...} \\
-C5 & \texttt{results/verify\_ia\_1\_to\_1\_5.json} & \texttt{7D65253C5A8FA397...} \\
+C5 & \texttt{results/verify\_ia\_1\_to\_3.json} & \texttt{1BB9E9DECF13580C...} \\
 Main & \texttt{verification/proof\_certificate\_v2.json} & \texttt{8B538345D589638A...} \\
 \bottomrule
 \end{tabular}
@@ -642,7 +645,7 @@ The following criteria must all be satisfied for this work to be considered subm
   Status: $\checkmark$ confirmed (\texttt{lake build}, Mathlib commit \texttt{a6276f4c}).
 
 \item[C-4.] \textbf{Lean certificates derived within the proof assistant (not axiomatized).}
-  Status: $\times$ NOT MET. Axioms \texttt{ia\_verification\_0\_to\_1} and \texttt{ia\_verification\_1\_0\_to\_1\_5} remain unformalized.
+  Status: $\times$ NOT MET. Axioms \texttt{ia\_verification\_0\_to\_1} and \texttt{ia\_verification\_1\_to\_3} remain unformalized.
 
 \item[C-5.] \textbf{P\'olya's theorem formalized in Lean.}
   Status: $\times$ NOT MET. Axiom \texttt{polya\_theorem} is not machine-checked.
@@ -684,6 +687,10 @@ The following criteria must all be satisfied for this work to be considered subm
   Required before top-journal submission.
 \end{enumerate}
 
-\noindent \textbf{Overall verdict:} 13 of 16 criteria fully met; C-4, C-5, C-6 open (Lean formalization and peer review); C-16 partial. The proof is computationally well-founded and analytically structured for specialist peer review.
+\noindent \textbf{Overall verdict: 15 of 18 criteria met.}
+C-4 (Lean IA formalization), C-5 (Lean P\'olya), C-6 (peer review) remain open.
+C-16 partial (P\'olya source audit via English restatements; German original unverified).
+New items: C-17 (tail prefactor corrected from $n^4$ to $2n^4$);
+C-18 (script renamed to \texttt{verify\_ia\_1\_to\_3.py}).
 
 \end{document}

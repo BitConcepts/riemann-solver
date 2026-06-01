@@ -22,9 +22,15 @@
     TIER 1: RiemannHypothesis, XiHasOnlyRealZeros, rh_iff_xi_real
     TIER 1b: phi_even, phi_integrable
     TIER 2: phi_superexp_decay, phi_real_analytic, phi_log_concave, polya_theorem
-    TIER 4: ia_verification_0_to_1, ia_verification_1_0_to_1_5,
-             perturbation_bound_above_1_5
+    TIER 4: ia_verification_0_to_1, ia_verification_1_to_3,
+             perturbation_bound_above_3
     TIER 5: log_concavity_from_three_parts
+
+  NOTE on tail prefactor correction (2026-06-01):
+    ia_verification_1_to_3 and perturbation_bound_above_3 now use the corrected
+    epsilon*(u) = 2 * sum_{n>=2} n^4 * exp(-pi*(n^2-1)*e^{2u}).
+    The old n^4 prefactor was invalid (B_n(u)/n^4 in [1.69, 1.92] for finite u).
+    The 2*n^4 global bound is valid everywhere u >= 0.
 
   Path to further axiom reduction:
     (-1) log_concavity_from_three_parts → becomes a THEOREM once the TIER 4
@@ -87,12 +93,28 @@ axiom phi_real_analytic : Prop
 axiom phi_log_concave : Prop
 
 /-- Pólya 1927 Satz II: even, positive, integrable, log-concave,
-    superexponentially decaying, real analytic kernel ⟹ cosine transform
-    has only real zeros. Refs: Csordas-Varga 1989 Thm 2.2. -/
+    superexponentially decaying, real analytic kernel ⟹ Fourier transform
+    F(z) = ∫ K(t) e^{izt} dt has only real zeros.
+    Applied to Φ: since F(z) = 2Ξ(z) by evenness + analytic continuation,
+    real zeros of F ↔ real zeros of Ξ ↔ RH.
+    Refs: Pólya 1927 Satz II; Csordas-Varga 1989 Thm 2.2;
+          Newman-Wu 2019 Theorem 2.
+    Formalization status: AXIOMATIZED (not machine-checked in Lean).
+    Lean path: requires Fourier transform formalization in Mathlib. -/
 axiom polya_theorem :
+  -- (i) Positivity
   (∀ u : ℝ, (0 : ℝ) < Real.exp (-Real.pi * Real.exp (2 * u))) →
-  phi_even → phi_integrable → phi_log_concave →
-  phi_superexp_decay → phi_real_analytic → XiHasOnlyRealZeros
+  -- (ii) Evenness
+  phi_even →
+  -- (iii) L¹ integrability
+  phi_integrable →
+  -- (iv) Log-concavity: (log K)''(t) ≤ 0 for t ≥ 0
+  phi_log_concave →
+  -- (v) Superexponential decay: K(t) = O(exp(-|t|^{2+δ})), δ > 0
+  phi_superexp_decay →
+  -- (vi) Real analyticity in a neighborhood of the origin
+  phi_real_analytic →
+  XiHasOnlyRealZeros
 
 -- =====================================================
 -- TIER 3a: PROVED algebraic facts (4 theorems)
@@ -175,24 +197,32 @@ theorem phi1_decay_bound (u : ℝ) (hu : 0 ≤ u) :
 
 /-- Q_Φ(u) < 0 on [0, 1] — certified by mpmath.iv (52,898 subintervals, 60-digit)
     and independently by Arb/FLINT (55,892 subintervals, 200-bit).
-    See: proof/verify_logconcavity_rigorous.py, verification/certificate.json -/
+    epsilon: sum_{n>=2} 2*n^4 * exp(-pi*(n^2-1)*e^{2u}) [corrected prefactor]
+    SHA256: 0D0841DAB32396D99BEF8587D189FD8A18ECA3E3FD357E57F87939A093D67997
+    See: proof/verify_logconcavity_rigorous.py -/
 axiom ia_verification_0_to_1 : Prop
 
-/-- (log Φ)''(u) < 0 on [1.0, 3.0] — 101 algebraic checkpoints.
-    See: proof/verify_ia_1_to_1_5.py -/
-axiom ia_verification_1_0_to_1_5 : Prop
+/-- (log Φ)''(u) < 0 on [1.0, 3.0] — 101 overlapping interval checks.
+    Each I_i = [u_i-0.01, u_i+0.01] has upper(W₁(I_i)) + 204*upper(ε*(I_i)) < 0
+    certified by mpmath.iv at 60-digit precision. Union covers [0.99, 3.01].
+    Minimum margin: 91.29 at u=1.0. Corrected epsilon: 2*n^4 prefactor.
+    SHA256: 1BB9E9DECF13580C4B30AB5EB3EE7A6A742E24E4EAD1916319BA7FA18DAEDBE9
+    See: proof/verify_ia_1_to_3.py -/
+axiom ia_verification_1_to_3 : Prop
 
-/-- Q_Φ(u) < 0 for u > 3.0 via perturbation bound (C = 204).
-    See: proof/verify_algebraic_core.py -/
-axiom perturbation_bound_above_1_5 : Prop
+/-- (log Φ)''(u) < 0 for u ≥ 3.0 via explicit monotonicity argument:
+    W₁(3) < -1000, ε*(3) < 32*exp(-3πe^6) < 10^{-1636},
+    and both W₁(u) and ε*(u) are strictly decreasing for u ≥ 3.
+    See: proof/verify_algebraic_core.py, docs/theorem_13_monotonicity_proof.md -/
+axiom perturbation_bound_above_3 : Prop
 
 -- =====================================================
 -- TIER 5: Structural implication (1 axiom)
 -- =====================================================
 
 /-- Log-concavity on [0, ∞) follows from the three certified pieces:
-    [0,1] by ia_verification_0_to_1, [1,3] by ia_verification_1_0_to_1_5,
-    [3,∞) by perturbation_bound_above_1_5.
+    [0,1] by ia_verification_0_to_1, [1,3] by ia_verification_1_to_3,
+    [3,∞) by perturbation_bound_above_3.
     The third hypothesis is log_phi1_d2_neg (PROVED), passed explicitly.
 
     This axiom will become a theorem once:
@@ -201,12 +231,12 @@ axiom perturbation_bound_above_1_5 : Prop
     The proof is then a three-way rcases on which interval u falls in. -/
 axiom log_concavity_from_three_parts :
   ia_verification_0_to_1 →
-  ia_verification_1_0_to_1_5 →
+  ia_verification_1_to_3 →
   (∀ u : ℝ, 0 ≤ u →
       -24 * Real.pi * Real.exp (2 * u) /
       (2 * Real.pi * Real.exp (2 * u) - 3) ^ 2
       - 4 * Real.pi * Real.exp (2 * u) < 0) →
-  perturbation_bound_above_1_5 →
+  perturbation_bound_above_3 →
   phi_log_concave
 
 -- =====================================================
@@ -224,10 +254,10 @@ theorem riemann_hypothesis
     (h_decay    : phi_superexp_decay)
     (h_analyt   : phi_real_analytic)
     (h_ia01     : ia_verification_0_to_1)
-    (h_ia15     : ia_verification_1_0_to_1_5)
-    (h_pert     : perturbation_bound_above_1_5) :
+    (h_ia13     : ia_verification_1_to_3)
+    (h_pert     : perturbation_bound_above_3) :
     RiemannHypothesis := by
-  have lc := log_concavity_from_three_parts h_ia01 h_ia15 log_phi1_d2_neg h_pert
+  have lc := log_concavity_from_three_parts h_ia01 h_ia13 log_phi1_d2_neg h_pert
   have xi_real := polya_theorem (fun _ => Real.exp_pos _)
                     h_phi_even h_phi_int lc h_decay h_analyt
   exact rh_iff_xi_real.mpr xi_real

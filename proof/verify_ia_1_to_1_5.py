@@ -108,8 +108,11 @@ def main():
 
     for i in range(N_CHECKS + 1):
         u = 1.0 + i * delta
-        # Use full interval width for interior points
-        u_hw = hw if 0 < i < N_CHECKS else 0.0  # endpoints: point check
+        # Use full interval width for ALL points (including endpoints) to
+        # guarantee complete tiling of [0.99, 3.01] ⊃ [1.0, 3.0].
+        # Previous code used u_hw=0 at endpoints, leaving gaps (1.0, 1.01)
+        # and (2.99, 3.0) uncovered by any interval check.
+        u_hw = hw
         ok, margin, w1_hi, eps_hi = certify_checkpoint(u, u_hw)
 
         if ok:

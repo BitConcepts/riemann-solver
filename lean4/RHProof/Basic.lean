@@ -48,6 +48,7 @@
 import Mathlib.Analysis.SpecialFunctions.Exp
 import Mathlib.Analysis.SpecialFunctions.Trigonometric.Basic
 import Mathlib.Analysis.SpecialFunctions.Log.Basic
+import Mathlib.Data.Real.Pi.Bounds
 
 open Real
 
@@ -103,7 +104,7 @@ theorem h_pos_for_nonneg (u : ℝ) (hu : 0 ≤ u) :
     2 * Real.pi * Real.exp (2 * u) - 3 > 0 := by
   have hexp : 1 ≤ Real.exp (2 * u) := by
     rw [← Real.exp_zero]; exact Real.exp_le_exp.mpr (by linarith)
-  have hpi : Real.pi > 3 / 2 := by linarith [Real.pi_gt_three]
+  have hpi : Real.pi > 3 / 2 := by linarith [pi_gt_three]
   nlinarith [Real.pi_pos, Real.exp_pos (2 * u)]
 
 /-- exp(-π e^{2u}) > 0 for all u ∈ ℝ. -/

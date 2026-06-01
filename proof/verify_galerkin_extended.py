@@ -124,7 +124,12 @@ def main() -> None:
     parser.add_argument(
         "--quick",
         action="store_true",
-        help="Quick mode: N=30, dps=50, cutoffs up to c=37 (matches STABILIZATION Run 1)",
+        help="Quick mode: N=3, dps=30, plateau shape test (~5 min)",
+    )
+    parser.add_argument(
+        "--medium",
+        action="store_true",
+        help="Medium mode: N=10, dps=40, cutoffs up to c=37 (~30-60 min)",
     )
     parser.add_argument(
         "--cutoff-max",
@@ -138,6 +143,10 @@ def main() -> None:
         N, dps = 3, 30
         cutoffs = CUTOFFS_STANDARD
         run_label = "Quick (N=3, dps=30) — plateau shape test (~5 min)"
+    elif args.medium:
+        N, dps = 10, 40
+        cutoffs = CUTOFFS_STANDARD
+        run_label = "Medium (N=10, dps=40) — sharpened plateau (~30-60 min)"
     else:
         N, dps = 30, 50
         cutoffs = CUTOFFS_STANDARD
@@ -184,7 +193,7 @@ def main() -> None:
         os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "results"
     )
     os.makedirs(out_dir, exist_ok=True)
-    label = "quick" if args.quick else "standard"
+    label = "quick" if args.quick else ("medium" if args.medium else "standard")
     out_path = os.path.join(out_dir, f"galerkin_extended_{label}_N{N}.json")
     with open(out_path, "w") as f:
         json.dump(

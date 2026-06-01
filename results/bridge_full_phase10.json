@@ -1,0 +1,56 @@
+{
+  "mode": "full",
+  "phases": {
+    "10": {
+      "phase": 10,
+      "N": 5,
+      "dps": 40,
+      "cutoffs": [
+        13,
+        17,
+        19,
+        23,
+        29,
+        37
+      ],
+      "convergence_data": [
+        {
+          "c_prev": 13,
+          "c_curr": 17,
+          "rel_change": 0.016622841172932234,
+          "log10_rel_change": -1.7792947446751854
+        },
+        {
+          "c_prev": 17,
+          "c_curr": 19,
+          "rel_change": 0.005500038969498795,
+          "log10_rel_change": -2.259634233382423
+        },
+        {
+          "c_prev": 19,
+          "c_curr": 23,
+          "rel_change": 0.007927007970838071,
+          "log10_rel_change": -2.100890705110593
+        },
+        {
+          "c_prev": 23,
+          "c_curr": 29,
+          "rel_change": 0.008718239005677246,
+          "log10_rel_change": -2.059571229213269
+        },
+        {
+          "c_prev": 29,
+          "c_curr": 37,
+          "rel_change": 0.00811644386376816,
+          "log10_rel_change": -2.090634210737485
+        }
+      ],
+      "alpha": 0.15459072495508094,
+      "r_squared": 0.07854771898767565,
+      "converging": true,
+      "passed": true,
+      "elapsed_s": 790.7007439136505
+    }
+  },
+  "all_passed": true
+}

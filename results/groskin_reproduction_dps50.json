@@ -1,0 +1,44 @@
+{
+  "run_label": "Standard (N=5, dps=50) \u2014 partial Groskin reproduction",
+  "N": 5,
+  "dps": 50,
+  "gamma1_result": {
+    "gamma_detected": null,
+    "error": null,
+    "log10_error": null,
+    "digits_correct": 0
+  },
+  "overlap_results": [
+    {
+      "c": 17,
+      "log10_lambda_min": -17.278826872612566,
+      "overlap_with_prev": null,
+      "meets_groskin_threshold": null
+    },
+    {
+      "c": 19,
+      "log10_lambda_min": -17.55314608124694,
+      "overlap_with_prev": 0.9999844698995816,
+      "meets_groskin_threshold": true
+    },
+    {
+      "c": 23,
+      "log10_lambda_min": -18.17251247535293,
+      "overlap_with_prev": 0.9999693414223482,
+      "meets_groskin_threshold": true
+    },
+    {
+      "c": 29,
+      "log10_lambda_min": -18.818759700195464,
+      "overlap_with_prev": 0.9999618883167534,
+      "meets_groskin_threshold": true
+    },
+    {
+      "c": 37,
+      "log10_lambda_min": -19.524962559450575,
+      "overlap_with_prev": 0.9999673657719654,
+      "meets_groskin_threshold": true
+    }
+  ],
+  "passed": false
+}

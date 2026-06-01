@@ -3,37 +3,37 @@
   "phases": {
     "8": {
       "phase": 8,
-      "n_zeros": 15,
+      "n_zeros": 30,
       "dps": 30,
       "n_consistent": 0,
       "n_total": 5,
       "passed": false,
-      "elapsed_s": 97.75135040283203,
+      "elapsed_s": 213.23035264015198,
       "results": [
         {
           "function": "gaussian_bump(\u03c3=0.2)",
-          "ratio": 0.9495574881774264,
-          "log10_residual": -1.2972032955422066
+          "ratio": 0.9495574881774164,
+          "log10_residual": -1.2972032955421204
         },
         {
           "function": "shifted_bump[0.1,0.9]",
-          "ratio": 5.36364164870591,
-          "log10_residual": 0.6398490782179175
+          "ratio": 5.353821032758701,
+          "log10_residual": 0.638870573055379
         },
         {
           "function": "hat[-0.8,0.8]",
-          "ratio": 4.484532692952845,
-          "log10_residual": 0.5421445435588614
+          "ratio": 4.484285522564098,
+          "log10_residual": 0.5421137364025694
         },
         {
           "function": "wide_bump[-1.5,1.5]",
-          "ratio": 578.5993573510233,
-          "log10_residual": 2.7616267013568394
+          "ratio": 578.5986361883699,
+          "log10_residual": 2.761626159117392
         },
         {
           "function": "bump[-0.5,0.5]",
-          "ratio": 0.07385617865601084,
-          "log10_residual": -0.03332156627050903
+          "ratio": 0.0738344833014747,
+          "log10_residual": -0.0333113928372008
         }
       ]
     }

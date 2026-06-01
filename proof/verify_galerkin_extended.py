@@ -6,7 +6,7 @@ Runs the CvS Proposition 4.1 Galerkin matrix Q(c) at successively larger
 prime cutoffs c and records the ground-state eigenvalue λ_min(c). Verifies
 the form-stabilization plateau predicted by STABILIZATION.md.
 
-STABILIZATION.md Run 1 (N=30, dps=50) entered a plateau at c≥17 with
+STABILIZATION.md Run 1 (N=30, dps=50) entered a plateau at c>=17 with
 |Δlog₁₀|λ_min|| < 1.23.  This run increases to N=100, dps=80 to sharpen
 the Galerkin approximation and narrow the plateau band.
 
@@ -54,7 +54,7 @@ def run_stabilization(
 
     if verbose:
         print(f"\nCvS Galerkin stabilization sweep  (N={N}, dps={dps})")
-        print(f"{'c':>5}  {'log₁₀|λ_min|':>14}  {'Δ from prev':>12}  {'Run1 ref':>10}  {'elapsed':>8}")
+        print(f"{'c':>5}  {'log10|lam_min|':>14}  {'delta':>12}  {'Run1 ref':>10}  {'elapsed':>8}")
         print("-" * 60)
 
     for c in cutoffs:
@@ -71,8 +71,8 @@ def run_stabilization(
         ref = _RUN1_REF.get(c, None)
 
         if verbose:
-            delta_str = f"{delta:12.2f}" if delta is not None else "          —"
-            ref_str = f"{ref:10.1f}" if ref is not None else "         —"
+            delta_str = f"{delta:12.2f}" if delta is not None else "          --"
+            ref_str = f"{ref:10.1f}" if ref is not None else "         --"
             print(f"{c:>5}  {log10_val:>14.2f}  {delta_str}  {ref_str}  {elapsed:7.1f}s")
 
         results.append({
@@ -142,15 +142,15 @@ def main() -> None:
     if args.quick:
         N, dps = 3, 30
         cutoffs = CUTOFFS_STANDARD
-        run_label = "Quick (N=3, dps=30) — plateau shape test (~5 min)"
+        run_label = "Quick (N=3, dps=30) -- plateau shape test (~5 min)"
     elif args.medium:
         N, dps = 10, 40
         cutoffs = CUTOFFS_STANDARD
-        run_label = "Medium (N=10, dps=40) — sharpened plateau (~30-60 min)"
+        run_label = "Medium (N=10, dps=40) -- sharpened plateau (~30-60 min)"
     else:
         N, dps = 30, 50
         cutoffs = CUTOFFS_STANDARD
-        run_label = "Standard (N=30, dps=50) — replicating STABILIZATION Run 1 (~hours)"
+        run_label = "Standard (N=30, dps=50) -- replicating STABILIZATION Run 1 (~hours)"
 
     if args.cutoff_max is not None:
         cutoffs = [c for c in cutoffs if c <= args.cutoff_max]
@@ -166,11 +166,11 @@ def main() -> None:
 
     print("\nSTABILIZATION ASSESSMENT:")
     if assessment["stable"]:
-        print(f"  STABLE  — plateau begins at c={assessment['plateau_starts_at_c']}")
-        print(f"  First Δ = {assessment['first_delta']:.2f}, threshold = {assessment['threshold']:.2f}")
+        print(f"  STABLE  -- plateau begins at c={assessment['plateau_starts_at_c']}")
+        print(f"  First delta = {assessment['first_delta']:.2f}, threshold = {assessment['threshold']:.2f}")
         print(f"  Plateau points: {assessment['n_plateau_points']}")
     else:
-        print(f"  NOT STABLE — {assessment.get('reason', 'plateau criterion not met')}")
+        print(f"  NOT STABLE -- {assessment.get('reason', 'plateau criterion not met')}")
 
     # Deviation from Run 1 (if available)
     run1_deviations = [
@@ -181,7 +181,7 @@ def main() -> None:
     if run1_deviations:
         print(f"\n  vs Run 1 (N=30, dps=50): max deviation = {max(run1_deviations):.3f} OOM")
         if args.quick:
-            print("  (Quick N=3: absolute values differ from N=30 — plateau shape is what matters)")
+            print("  (Quick N=3: absolute values differ from N=30 -- plateau shape is what matters)")
         else:
             print("  (Standard mode: should closely match Run 1 N=30 values)")
 

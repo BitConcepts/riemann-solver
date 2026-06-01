@@ -1,3 +1,5 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Tristen Kyle Pierson / BitConcepts Research
 """CvS 8-cutoff sweep at medium precision (Job B)."""
 import sys, json, time, math
 sys.path.insert(0, '.')

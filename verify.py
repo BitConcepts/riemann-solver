@@ -33,8 +33,12 @@ STEPS = [
 
 
 # Scripts that require extra flags when run via the pipeline
+# CI-specific: limit Galerkin to 3 cutoffs (c=7,11,13) for speed on the test matrix;
+# the full 9-cutoff quick run is preserved for local use via `python proof/verify_galerkin_extended.py --quick`
+import os as _os
+_GALERKIN_FLAGS = ["--quick", "--cutoff-max", "13"] if _os.getenv("CI") else ["--quick"]
 _SCRIPT_FLAGS = {
-    "verify_galerkin_extended.py": ["--quick"],
+    "verify_galerkin_extended.py": _GALERKIN_FLAGS,
 }
 
 
@@ -45,10 +49,13 @@ def run_step(script, desc, quiet=False):
         return False
 
     extra_flags = _SCRIPT_FLAGS.get(script, [])
+    # Propagate UTF-8 encoding to child processes (needed on Windows CI)
+    child_env = {**os.environ, "PYTHONUTF8": "1", "PYTHONIOENCODING": "utf-8"}
     result = subprocess.run(
         [sys.executable, path] + extra_flags,
         capture_output=True, text=True, timeout=1200,
         cwd=os.path.dirname(PROOF_DIR),
+        env=child_env,
     )
 
     if result.returncode != 0:

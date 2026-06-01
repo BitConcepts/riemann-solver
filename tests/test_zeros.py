@@ -6,7 +6,8 @@ import mpmath as mp
 
 
 def test_first_zero():
-    """Verify the first non-trivial zero."""
+    """Verify the first non-trivial zero.  # REQ-005 REQ-008"""
+    # REQ-005: residual |ζ(ρ)| < 1e-20; REQ-008: reproducibility
     from riemann.zeros import compute_zero
 
     z = compute_zero(1, dps=50)
@@ -17,7 +18,8 @@ def test_first_zero():
 
 
 def test_first_few_zeros():
-    """Compute and verify the first 5 zeros."""
+    """Compute and verify the first 5 zeros.  # REQ-005 REQ-008"""
+    # REQ-005: precision; REQ-008: reproducibility
     from riemann.zeros import compute_zeros
 
     zeros = compute_zeros(1, 5, dps=25)
@@ -29,7 +31,8 @@ def test_first_few_zeros():
 
 
 def test_spacing():
-    """Check that zero spacings are positive and reasonable."""
+    """Check that zero spacings are positive and reasonable.  # REQ-008"""
+    # REQ-008: GUE spacing reproducibility
     from riemann.zeros import compute_zeros, zero_spacing
 
     zeros = compute_zeros(1, 10, dps=25)

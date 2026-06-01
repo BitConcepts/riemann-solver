@@ -1,0 +1,82 @@
+[
+  {
+    "id": "REQ-001",
+    "title": "Interval Arithmetic Certification",
+    "description": "Q_Phi < 0 on [0,1] via IA with \u2265 50,000 subintervals, two independent libraries",
+    "source": "docs/REQUIREMENTS.md",
+    "status": "defined",
+    "test_ids": ["TEST-011", "TEST-012"]
+  },
+  {
+    "id": "REQ-002",
+    "title": "Algebraic Log-Concavity Certificate",
+    "description": "(log phi_1)'' < 0 for all u >= 0, certified at >= 50 checkpoints",
+    "source": "docs/REQUIREMENTS.md",
+    "status": "defined",
+    "test_ids": ["TEST-013"]
+  },
+  {
+    "id": "REQ-003",
+    "title": "Perturbation Tail Bound",
+    "description": "C = 204 tail bound computed and verified",
+    "source": "docs/REQUIREMENTS.md",
+    "status": "defined",
+    "test_ids": ["TEST-014"]
+  },
+  {
+    "id": "REQ-004",
+    "title": "Falsification Battery",
+    "description": "\u2265 32 distinct falsification attacks attempted and all survived; DH control verified",
+    "source": "docs/REQUIREMENTS.md",
+    "status": "defined",
+    "test_ids": ["TEST-015", "TEST-016"]
+  },
+  {
+    "id": "REQ-005",
+    "title": "Numerical Precision",
+    "description": "All critical computations meet minimum precision thresholds per AGENTS.md",
+    "source": "docs/REQUIREMENTS.md",
+    "status": "defined",
+    "test_ids": ["TEST-001", "TEST-002", "TEST-003", "TEST-004", "TEST-005", "TEST-006", "TEST-008", "TEST-009", "TEST-010"]
+  },
+  {
+    "id": "REQ-006",
+    "title": "Lean 4 Formal Verification",
+    "description": "Lean 4 with >= 10 axioms, >= 4 proved theorems, 0 sorry, CertificateFramework",
+    "source": "docs/REQUIREMENTS.md",
+    "status": "defined",
+    "test_ids": ["TEST-017", "TEST-018"]
+  },
+  {
+    "id": "REQ-007",
+    "title": "Manuscript Quality",
+    "description": "LaTeX compilable, <= 250 word abstract, consistent numbering, traceable references",
+    "source": "docs/REQUIREMENTS.md",
+    "status": "defined",
+    "test_ids": ["TEST-019", "TEST-020"]
+  },
+  {
+    "id": "REQ-008",
+    "title": "Reproducibility",
+    "description": "All results in results/*.json reproducible from clean environment",
+    "source": "docs/REQUIREMENTS.md",
+    "status": "defined",
+    "test_ids": ["TEST-002", "TEST-003", "TEST-005", "TEST-006", "TEST-007", "TEST-011", "TEST-013", "TEST-014"]
+  },
+  {
+    "id": "REQ-009",
+    "title": "Test Coverage",
+    "description": "Pytest suite achieves >= 80% line coverage across src/riemann/",
+    "source": "docs/REQUIREMENTS.md",
+    "status": "defined",
+    "test_ids": ["TEST-008", "TEST-009", "TEST-010"]
+  },
+  {
+    "id": "REQ-010",
+    "title": "Claim Language Integrity",
+    "description": "No agent or document may claim to have proved/disproved RH",
+    "source": "docs/REQUIREMENTS.md",
+    "status": "defined",
+    "test_ids": ["TEST-021", "TEST-022"]
+  }
+]

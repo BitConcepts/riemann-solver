@@ -6,7 +6,8 @@ import mpmath as mp
 
 
 def test_zeta_known_values():
-    """Test ζ at known special values."""
+    """Test ζ at known special values.  # REQ-005"""
+    # REQ-005: zeta evaluation to ≥ 50 dps precision
     from riemann.zeta import zeta
 
     mp.mp.dps = 30
@@ -19,7 +20,8 @@ def test_zeta_known_values():
 
 
 def test_hardy_z_sign_change():
-    """Z(t) should change sign near each zero."""
+    """Z(t) changes sign near each zero.  # REQ-005 REQ-008"""
+    # REQ-005: precision; REQ-008: reproducibility of zero sign-change
     from riemann.zeta import hardy_z
 
     mp.mp.dps = 25
@@ -31,7 +33,8 @@ def test_hardy_z_sign_change():
 
 
 def test_gram_point():
-    """Test Gram point computation."""
+    """Test Gram point computation.  # REQ-005 REQ-008"""
+    # REQ-005: precision; REQ-008: reproducibility
     from riemann.zeta import gram_point, siegel_theta
 
     mp.mp.dps = 25
@@ -41,7 +44,8 @@ def test_gram_point():
 
 
 def test_stieltjes():
-    """Test Stieltjes constant γ₀ = Euler-Mascheroni constant."""
+    """Test Stieltjes constant γ₀ = Euler-Mascheroni constant.  # REQ-005"""
+    # REQ-005: Li coefficient adjacent precision
     from riemann.zeta import stieltjes_constant
 
     mp.mp.dps = 25

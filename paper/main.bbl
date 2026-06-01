@@ -1,11 +1,5 @@
 \begin{thebibliography}{10}
 
-\bibitem{connes2026}
-Alain Connes.
-\newblock The {R}iemann {H}ypothesis: {P}ast, {P}resent and a {L}etter
-  {T}hrough {T}ime.
-\newblock {\em Journal of Open Mathematical Problems}, 2(1):1--52, 2026.
-
 \bibitem{csordas1986}
 George Csordas, Timothy~S. Norfolk, and Richard~S. Varga.
 \newblock The {R}iemann hypothesis and the {T}ur{\'a}n inequalities.
@@ -56,10 +50,6 @@ B.~Ja. Levin.
 Tristen~Kyle Pierson.
 \newblock specsmith: Applied epistemic engineering toolkit for ai-assisted
   development, 2026.
-
-\bibitem{specsmith_docs}
-Tristen~Kyle Pierson.
-\newblock specsmith documentation: epistemic library, 2026.
 
 \bibitem{polya1927}
 G.~P{\'o}lya.

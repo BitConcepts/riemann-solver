@@ -1,5 +1,11 @@
 \begin{thebibliography}{10}
 
+\bibitem{connes2026}
+Alain Connes.
+\newblock The {R}iemann {H}ypothesis: {P}ast, {P}resent and a {L}etter
+  {T}hrough {T}ime.
+\newblock {\em Journal of Open Mathematical Problems}, 2(1):1--52, 2026.
+
 \bibitem{csordas1986}
 George Csordas, Timothy~S. Norfolk, and Richard~S. Varga.
 \newblock The {R}iemann hypothesis and the {T}ur{\'a}n inequalities.
@@ -30,6 +36,12 @@ Michael Griffin, Ken Ono, Larry Rolen, and Don Zagier.
 \newblock {\em Proceedings of the National Academy of Sciences},
   116(23):11103--11110, 2019.
 
+\bibitem{groskin2026}
+Akiva Groskin.
+\newblock High-precision approximation of {R}iemann zeros via the truncated
+  {W}eil form.
+\newblock {\em arXiv preprint arXiv:2605.20224}, 2026.
+
 \bibitem{mpmath}
 Fredrik Johansson.
 \newblock mpmath: a {P}ython library for arbitrary-precision floating-point
@@ -39,6 +51,15 @@ Fredrik Johansson.
 B.~Ja. Levin.
 \newblock {\em Distribution of Zeros of Entire Functions}.
 \newblock American Mathematical Society, 1964.
+
+\bibitem{specsmith}
+Tristen~Kyle Pierson.
+\newblock specsmith: Applied epistemic engineering toolkit for ai-assisted
+  development, 2026.
+
+\bibitem{specsmith_docs}
+Tristen~Kyle Pierson.
+\newblock specsmith documentation: epistemic library, 2026.
 
 \bibitem{polya1927}
 G.~P{\'o}lya.
@@ -50,6 +71,11 @@ G.~P{\'o}lya.
 Brad Rodgers and Terence Tao.
 \newblock The de {B}ruijn--{N}ewman constant is non-negative.
 \newblock {\em Forum of Mathematics, Pi}, 8:e6, 2020.
+
+\bibitem{sliwinski2026}
+Dominik {\'S}liwi{\'n}ski.
+\newblock Spectral analysis of the $d^{(\lambda,N)}_{\log}$ operators.
+\newblock {\em arXiv preprint arXiv:2601.12133}, 2026.
 
 \bibitem{titchmarsh1986}
 E.~C. Titchmarsh.

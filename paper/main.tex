@@ -291,23 +291,41 @@ has only real zeros.
 
 \medskip\noindent\emph{Status: This theorem is not used as an unconditional result.
 The source audit (Section~\ref{sec:polya_audit_main}, Verdict~D) establishes that
-P\'{o}lya (1927) does not contain a matching statement.
-The formulation above matches Csordas--Varga (1989)~\cite[Theorem~2.2]{csordas1989}.}
+neither P\'{o}lya (1927) nor Csordas--Varga (1989) Theorem~2.2 contains a
+matching statement (see proof reference below for details).}
 \end{theorem}
 
-\begin{proof}[Proof reference]
-Csordas and Varga~\cite[Theorem~2.2]{csordas1989} state and prove this result,
-citing P\'{o}lya (1927)~\cite{polya1927}.
-Direct reading of Satz~I and Satz~II in~\cite{polya1927} reveals hypothesis mismatch
-(Section~\ref{sec:polya_audit_main}, Verdict~D).
-Five independent groups---Csordas--Varga~\cite{csordas1989},
-Levin~\cite{levin1964}, de~Bruijn~\cite{debruijn1950},
-Griffin--Ono--Rolen--Zagier~\cite{griffin2019}, and Rodgers--Tao~\cite{rodgers2020}---state
-conditions consistent with Theorem~\ref{thm:polya_star}, all citing P\'{o}lya (1927).
-Whether P\'{o}lya proved this in a different paper (e.g.\ Polya (1926)~\cite{polya1926}
-or Polya--Schur (1914)~\cite{polyaschur1914}) or in a passage of the 1927 paper not
-captured by Satz~I and Satz~II is an open source question.
-Pending resolution, the Csordas--Varga formulation is the primary English reference.
+\begin{proof}[Proof reference and source status]
+Direct reading of Satz~I and Satz~II in P\'{o}lya (1927)~\cite{polya1927} establishes
+hypothesis mismatch (Section~\ref{sec:polya_audit_main}, Verdict~D).
+
+A direct reading of Csordas--Varga (1989)~\cite{csordas1989} (PDF available at
+\url{https://www.math.kent.edu/~varga/pub/paper_169.pdf}) reveals that their
+\textbf{Theorem~2.2 is itself the Mellin--Fourier theorem (Pólya Satz~II)},
+not the log-concavity criterion.
+Specifically, Csordas--Varga Theorem~2.2 reads (paraphrase):
+\begin{quote}
+If the Mellin transform $H(z)=\int_0^\infty t^{z-1}K_1(t)\,dt$ has only real negative
+zeros, then $\int_{-\infty}^\infty K_1(t^q)e^{izt}\,dt$ has only real zeros.
+\end{quote}
+This is cited as ``[23, p.~7]'' in their paper, where [23] is P\'{o}lya (1927).
+The hypothesis is the same Mellin-transform condition as Satz~II; log-concavity of
+$K_1$ does not appear.
+
+Csordas--Varga \textbf{Theorem~2.3} (which follows immediately after) is de~Bruijn
+(1950)~\cite{debruijn1950} Theorem~1.  It states that if $K_h(t):=e^{-h(t)}$
+where $h$ is even, $h(t)\geq 0$ for $t\in\mathbb{R}$, and $h'(t)$ is a uniform
+limit (on compact subsets of~$\mathbb{C}$) of polynomials with zeros only on
+the imaginary axis, then $\int K_h(t)e^{izt}\,dt$ has only real zeros.
+This is closer to the log-concavity setting but requires the LP-class condition
+on $h'(t)=-({\log K})'(t)$, which is stronger than and not equivalent to
+$({\log K})''\leq 0$.
+
+Neither Csordas--Varga Theorem~2.2 nor Theorem~2.3 directly states the strong
+log-concavity criterion of Theorem~\ref{thm:polya_star}.  Theorem~\ref{thm:polya_star}
+as stated has not been matched to a primary source.  The nearest candidates are
+de~Bruijn (1950) and P\'{o}lya--Schur (1914)~\cite{polyaschur1914} or
+P\'{o}lya (1926)~\cite{polya1926}.
 \end{proof}
 
 \begin{remark}[Necessity of analyticity]
@@ -875,13 +893,24 @@ Conc: $\int f(t^{2q})e^{izt}dt$ has real zeros &
 \end{tabular}
 \end{center}
 
-\paragraph{Verdict~D.}
-The key hypothesis of Satz~II (Mellin transform has only real negative zeros)
-is materially different from the log-concavity hypothesis in Csordas--Varga (1989).
-Whether Csordas--Varga correctly trace this criterion to an earlier P\'{o}lya source
-(e.g.\ 1914 or 1926) remains to be determined.
-A multi-source citation chain is not sufficient to resolve this discrepancy;
-a direct reading of a primary source with matching hypotheses is required.
+\paragraph{Extended Verdict~D: Csordas--Varga Theorem~2.2 is also the Mellin--Fourier theorem.}
+Direct reading of Csordas--Varga (1989) reveals that their Theorem~2.2 is a
+restatement of P\'{o}lya Satz~II: the hypothesis is that the Mellin transform
+$H(z)=\int_0^\infty t^{z-1}K(t)\,dt$ has only real negative zeros, not
+log-concavity of~$K$.
+Csordas--Varga cite this as ``[23, p.~7]'' where [23] is P\'{o}lya (1927).
+Their Theorem~2.3 is de~Bruijn (1950) Theorem~1, which uses an LP-class
+condition on $h'(t)=-({\log K})'(t)$, not simply $({\log K})''\leq 0$.
+
+Therefore the citation chain is broken at \emph{both} ends:
+\begin{itemize}[leftmargin=1.4em,topsep=2pt,itemsep=0pt]
+\item P\'{o}lya (1927): Satz~I and Satz~II do not state the log-concavity criterion.
+\item Csordas--Varga (1989) Theorem~2.2: this is Pólya Satz~II (Mellin--Fourier),
+  not the log-concavity criterion.
+\end{itemize}
+The strong log-concavity criterion (positivity + log-concavity + analyticity + decay
+$\Rightarrow$ real zeros of Fourier transform) has not been matched to any primary
+source so far examined.
 
 %% =========================================================================
 \section{Acceptance Checklist}\label{sec:checklist}

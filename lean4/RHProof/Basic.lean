@@ -79,8 +79,10 @@ axiom phi_even : Prop
 axiom phi_integrable : Prop
 
 -- =====================================================
--- TIER 2: Pólya's theorem (4 axioms)
--- Ref: Pólya 1927 Satz II; Csordas-Varga 1989 Thm 2.2
+-- TIER 2: Pólya-type criterion (4 axioms)
+-- Ref: Csordas-Varga 1989 Thm 2.3 / de Bruijn 1950 Thm 1 (nearest match)
+-- NOTE: Pólya 1927 Satz I = preservation thm; Satz II = Mellin-Fourier.
+--       Log-concavity criterion not found in primary source. Verdict D.
 -- =====================================================
 
 /-- Φ decays as O(exp(-π e^{2u})). Reduction path: see phi1_decay_bound. -/
@@ -92,13 +94,18 @@ axiom phi_real_analytic : Prop
 /-- (log Φ)''(u) ≤ 0 for u ≥ 0. -/
 axiom phi_log_concave : Prop
 
-/-- Pólya 1927 Satz II: even, positive, integrable, log-concave,
+/-- Pólya-type criterion: even, positive, integrable, log-concave,
     superexponentially decaying, real analytic kernel ⟹ Fourier transform
     F(z) = ∫ K(t) e^{izt} dt has only real zeros.
     Applied to Φ: since F(z) = 2Ξ(z) by evenness + analytic continuation,
     real zeros of F ↔ real zeros of Ξ ↔ RH.
-    Refs: Pólya 1927 Satz II; Csordas-Varga 1989 Thm 2.2;
-          Newman-Wu 2019 Theorem 2.
+    SOURCE STATUS (Verdict D — Mismatch):
+      Pólya 1927 Satz I = preservation theorem (circular for RH).
+      Pólya 1927 Satz II = Mellin-Fourier theorem (different hypothesis).
+      Csordas-Varga 1989 Thm 2.2 = restatement of Pólya Satz II.
+      Log-concavity criterion not matched to any primary source yet.
+    Refs: Csordas-Varga 1989 Thm 2.3 (de Bruijn 1950 Thm 1) is closest;
+          see paper/main.tex Section 2 for full source audit.
     Formalization status: AXIOMATIZED (not machine-checked in Lean).
     Lean path: requires Fourier transform formalization in Mathlib. -/
 axiom polya_theorem :

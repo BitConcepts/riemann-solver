@@ -30,6 +30,15 @@ Michael Griffin, Ken Ono, Larry Rolen, and Don Zagier.
 \newblock {\em Proceedings of the National Academy of Sciences},
   116(23):11103--11110, 2019.
 
+\bibitem{newman1976}
+Charles~M. Newman.
+\newblock Fourier transforms with only real zeros.
+\newblock {\em Proceedings of the American Mathematical Society},
+  61(2):245--251, 1976.
+\newblock Proves $\\Lambda_{DN}>-\\infty$: the de~Bruijn--Newman constant is
+  finite. Also proves a closure/survival result for real zeros under Gaussian
+  perturbation. Foundation for the de~Bruijn--Newman constant.
+
 \bibitem{specsmith}
 Tristen~Kyle Pierson.
 \newblock specsmith: Applied epistemic engineering toolkit for ai-assisted
@@ -38,21 +47,27 @@ Tristen~Kyle Pierson.
 \bibitem{polya1926}
 G.~P{\'o}lya.
 \newblock Bemerkung {\"u}ber die {I}ntegraldarstellung der {R}iemannschen
-  $\xi$-{F}unktion.
+  $\\xi$-{F}unktion.
 \newblock {\em Acta Mathematica}, 48:305--317, 1926.
+\newblock English translation: T.~Hosgood,
+  \url{https://translations.thosgood.com/AM-48-1926-305.html}. Proves that a
+  modified $\\xi^*$ function has only real zeros via difference equation
+  methods for $\\mathfrak{G}(z;a)=\\int e^{-a(e^u+e^{-u})+zu}du$. Does NOT use
+  log-concavity of the kernel.
+
+\bibitem{polya1926jlms}
+G.~P{\'o}lya.
+\newblock On the zeros of certain trigonometric integrals.
+\newblock {\em Journal of the London Mathematical Society}, 1:98--99, 1926.
+\newblock A 2-page note. Content not yet directly verified; cited by de~Bruijn
+  (1950) as prior work on trigonometric integral zeros. Candidate primary
+  source for the log-concavity criterion (C-20 open item).
 
 \bibitem{polya1927}
 G.~P{\'o}lya.
 \newblock {\"U}ber trigonometrische {I}ntegrale mit nur reellen {N}ullstellen.
 \newblock {\em Journal f{\"u}r die reine und angewandte Mathematik}, 158:6--18,
   1927.
-
-\bibitem{polyaschur1914}
-G.~P{\'o}lya and J.~Schur.
-\newblock {\"U}ber zwei {A}rten von {F}aktorenfolgen in der {T}heorie der
-  algebraischen {G}leichungen.
-\newblock {\em Journal f{\"u}r die reine und angewandte Mathematik},
-  144:89--113, 1914.
 
 \bibitem{rodgers2020}
 Brad Rodgers and Terence Tao.

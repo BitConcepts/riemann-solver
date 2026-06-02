@@ -6,46 +6,46 @@ The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
 Warning--entry type for "specsmith" isn't style-file defined
---line 134 of file references.bib
-You've used 11 entries,
+--line 165 of file references.bib
+You've used 12 entries,
             2118 wiz_defined-function locations,
-            569 strings with 5600 characters,
-and the built_in function-call counts, 3366 in all, are:
-= -- 345
-> -- 128
+            576 strings with 6328 characters,
+and the built_in function-call counts, 3645 in all, are:
+= -- 379
+> -- 129
 < -- 0
-+ -- 55
++ -- 56
 - -- 40
-* -- 229
-:= -- 575
-add.period$ -- 33
-call.type$ -- 11
-change.case$ -- 53
+* -- 246
+:= -- 623
+add.period$ -- 39
+call.type$ -- 12
+change.case$ -- 56
 chr.to.int$ -- 0
-cite$ -- 11
-duplicate$ -- 118
-empty$ -- 278
+cite$ -- 12
+duplicate$ -- 129
+empty$ -- 304
 format.name$ -- 40
-if$ -- 685
+if$ -- 743
 int.to.chr$ -- 0
-int.to.str$ -- 11
-missing$ -- 11
-newline$ -- 58
-num.names$ -- 22
-pop$ -- 42
+int.to.str$ -- 12
+missing$ -- 12
+newline$ -- 66
+num.names$ -- 24
+pop$ -- 40
 preamble$ -- 1
-purify$ -- 42
+purify$ -- 44
 quote$ -- 0
-skip$ -- 80
+skip$ -- 86
 stack$ -- 0
-substring$ -- 271
-swap$ -- 11
+substring$ -- 298
+swap$ -- 12
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 42
+type$ -- 46
 warning$ -- 0
-while$ -- 39
-width$ -- 13
-write$ -- 122
+while$ -- 43
+width$ -- 14
+write$ -- 139
 (There was 1 warning)

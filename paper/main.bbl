@@ -30,17 +30,6 @@ Michael Griffin, Ken Ono, Larry Rolen, and Don Zagier.
 \newblock {\em Proceedings of the National Academy of Sciences},
   116(23):11103--11110, 2019.
 
-\bibitem{groskin2026}
-Akiva Groskin.
-\newblock High-precision approximation of {R}iemann zeros via the truncated
-  {W}eil form.
-\newblock {\em arXiv preprint arXiv:2605.20224}, 2026.
-
-\bibitem{mpmath}
-Fredrik Johansson.
-\newblock mpmath: a {P}ython library for arbitrary-precision floating-point
-  arithmetic, 2024.
-
 \bibitem{levin1964}
 B.~Ja. Levin.
 \newblock {\em Distribution of Zeros of Entire Functions}.
@@ -51,21 +40,29 @@ Tristen~Kyle Pierson.
 \newblock specsmith: Applied epistemic engineering toolkit for ai-assisted
   development, 2026.
 
+\bibitem{polya1926}
+G.~P{\'o}lya.
+\newblock Bemerkung {\"u}ber die {I}ntegraldarstellung der {R}iemannschen
+  $\xi$-{F}unktion.
+\newblock {\em Acta Mathematica}, 48:305--317, 1926.
+
 \bibitem{polya1927}
 G.~P{\'o}lya.
 \newblock {\"U}ber trigonometrische {I}ntegrale mit nur reellen {N}ullstellen.
 \newblock {\em Journal f{\"u}r die reine und angewandte Mathematik}, 158:6--18,
   1927.
 
+\bibitem{polyaschur1914}
+G.~P{\'o}lya and J.~Schur.
+\newblock {\"U}ber zwei {A}rten von {F}aktorenfolgen in der {T}heorie der
+  algebraischen {G}leichungen.
+\newblock {\em Journal f{\"u}r die reine und angewandte Mathematik},
+  144:89--113, 1914.
+
 \bibitem{rodgers2020}
 Brad Rodgers and Terence Tao.
 \newblock The de {B}ruijn--{N}ewman constant is non-negative.
 \newblock {\em Forum of Mathematics, Pi}, 8:e6, 2020.
-
-\bibitem{sliwinski2026}
-Dominik {\'S}liwi{\'n}ski.
-\newblock Spectral analysis of the $d^{(\lambda,N)}_{\log}$ operators.
-\newblock {\em arXiv preprint arXiv:2601.12133}, 2026.
 
 \bibitem{titchmarsh1986}
 E.~C. Titchmarsh.

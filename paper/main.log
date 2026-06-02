@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12 Portable) (preloaded format=pdflatex 2026.5.13)  1 JUN 2026 16:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12 Portable) (preloaded format=pdflatex 2026.5.13)  2 JUN 2026 06:20
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -421,7 +421,7 @@ y
 Package: xurl 2022/01/09 v 0.10 modify URL breaks
 )
 \c@theorem=\count318
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 32
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 33
 .
 
 (C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\t1lmr.fd
@@ -434,24 +434,24 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 32.
-LaTeX Font Info:    ... okay on input line 32.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -487,13 +487,13 @@ LaTeX Font Info:    ... okay on input line 32.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Info: Redefining \microtypecontext on input line 32.
-Package microtype Info: Applying patch `item' on input line 32.
-Package microtype Info: Applying patch `toc' on input line 32.
-Package microtype Info: Applying patch `eqnum' on input line 32.
-Package microtype Info: Applying patch `footnote' on input line 32.
-Package microtype Info: Applying patch `verbatim' on input line 32.
-LaTeX Info: Redefining \microtypesetup on input line 32.
+LaTeX Info: Redefining \microtypecontext on input line 33.
+Package microtype Info: Applying patch `item' on input line 33.
+Package microtype Info: Applying patch `toc' on input line 33.
+Package microtype Info: Applying patch `eqnum' on input line 33.
+Package microtype Info: Applying patch `footnote' on input line 33.
+Package microtype Info: Applying patch `verbatim' on input line 33.
+LaTeX Info: Redefining \microtypesetup on input line 33.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
@@ -510,44 +510,44 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring OFF on input line 32.
+Package hyperref Info: Link coloring OFF on input line 33.
  (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-4.
+5.
 
 (C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-4.
+5.
 
 (C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-34.
+35.
 
 (C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\omslmsy.f
 d
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-34.
+35.
 
 (C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\omxlmex.f
 d
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 34.
+(Font)              <12> on input line 35.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 34.
+(Font)              <8> on input line 35.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 34.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 34.
+(Font)              <6> on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
 
 
 (C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
@@ -558,7 +558,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 -msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 34.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
 
 
 (C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
@@ -570,13 +570,13 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 36.
+(Font)              <10> on input line 37.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 36.
+(Font)              <7> on input line 37.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 36.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
-2.
+(Font)              <5> on input line 37.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
+7.
 
 (C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -586,7 +586,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 54.
+(Font)              <10.95> on input line 78.
  [1
 
 {C:/Users/trist/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdftex.m
@@ -595,158 +595,166 @@ lm-ec.enc}{C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/enc/dv
 ips/lm/lm-rm.enc}{C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts
 /enc/dvips/lm/lm-mathit.enc}{C:/Users/trist/scoop/apps/miktex/current/texmfs/in
 stall/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Users/trist/scoop/apps/miktex/curren
-t/texmfs/install/fonts/enc/dvips/lm/lm-mathsy.enc}]
-Overfull \hbox (3.62859pt too wide) in paragraph at lines 100--109
-\T1/lmr/m/n/10.95 (-20) to $\OT1/lmr/m/n/10.95 (-20) ^^H$ \T1/lmr/m/n/10.95 (-2
-0) are ver-i-fied as fol-lows. For real $\OML/lmm/m/it/10.95 t$\T1/lmr/m/n/10.9
-5 (-20) , even-ness gives $\OML/lmm/m/it/10.95 F\OT1/lmr/m/n/10.95 (-20) (\OML/
-lmm/m/it/10.95 t\OT1/lmr/m/n/10.95 (-20) ) = [][] ^^H(\OML/lmm/m/it/10.95 u\OT1
-/lmr/m/n/10.95 (-20) )\OML/lmm/m/it/10.95 e[] du \OT1/lmr/m/n/10.95 (-20) = 2 [
-][] ^^H(\OML/lmm/m/it/10.95 u\OT1/lmr/m/n/10.95 (-20) ) [](\OML/lmm/m/it/10.95 
-tu\OT1/lmr/m/n/10.95 (-20) ) \OML/lmm/m/it/10.95 du \OT1/lmr/m/n/10.95 (-20) =
+t/texmfs/install/fonts/enc/dvips/lm/lm-mathsy.enc}] [2] [3]
+Underfull \hbox (badness 10000) in paragraph at lines 234--234
+\T1/lmr/m/n/10 (+20) log-concavity
  []
 
 
-Overfull \hbox (4.598pt too wide) in paragraph at lines 110--122
-[] 
+Underfull \hbox (badness 10000) in paragraph at lines 236--236
+[]\T1/lmr/m/n/10 (+20) Strong log-
  []
 
-[2]
+
+Underfull \hbox (badness 1264) in paragraph at lines 239--239
+[]\T1/lmr/bx/n/10 (+20) Not found
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 239--239
+\T1/lmr/bx/n/10 (+20) in Pólya
+ []
+
+
+Underfull \hbox (badness 1946) in paragraph at lines 241--242
+[]\T1/lmr/m/n/10 (+20) IF $[] \OML/lmm/m/it/10 Fe[]dt$ \T1/lmr/m/n/10 (+20) has
+ real ze-ros,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 243--243
+[]\T1/lmr/m/n/10 (+20) Confirmed
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 244--244
+[]\T1/lmr/m/n/10 (+20) Satz II: Mellin--
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--248
+[]\T1/lmr/m/n/10 (+20) Confirmed
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
+72.
+
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+) [4{C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/enc/dvips/lm
+/lm-ts1.enc}]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 127.
+(Font)              <14.4> on input line 358.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 127.
+(hyperref)                removing `math shift' on input line 358.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Phi' on input line 127.
+(hyperref)                removing `\Phi' on input line 358.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 127.
+(hyperref)                removing `math shift' on input line 358.
 
-[3]
-Overfull \hbox (57.51654pt too wide) in paragraph at lines 203--204
-\OML/lmm/m/it/10.95 h[] \OT1/lmr/m/n/10.95 (-20) = 2\OML/lmm/m/it/10.95 ^^Yn[]e
-[] \OMS/lmsy/m/n/10.95 ^^@ \OT1/lmr/m/n/10.95 (-20) 3$\T1/lmr/m/n/10.95 (-20) .
- Since $\OML/lmm/m/it/10.95 B[]\OT1/lmr/m/n/10.95 (-20) (\OML/lmm/m/it/10.95 u\
-OT1/lmr/m/n/10.95 (-20) )\OML/lmm/m/it/10.95 =n[] \OMS/lmsy/m/n/10.95 ^^T \OT1/
-lmr/m/n/10.95 (-20) 1 + 3\OML/lmm/m/it/10.95 =\OT1/lmr/m/n/10.95 (-20) (2\OML/l
-mm/m/it/10.95 ^^Y \OMS/lmsy/m/n/10.95 ^^@ \OT1/lmr/m/n/10.95 (-20) 3) \OML/lmm/
-m/it/10.95 < \OT1/lmr/m/n/10.95 (-20) 2$ \T1/lmr/m/n/10.95 (-20) for all $\OML/
-lmm/m/it/10.95 u \OMS/lmsy/m/n/10.95 ^^U \OT1/lmr/m/n/10.95 (-20) 0$ \T1/lmr/m/
-n/10.95 (-20) (see \T1/lmtt/m/n/10.95 docs/tail_prefactor_correction.md\T1/lmr/
-m/n/10.95 (-20) ),
+[5] [6]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 488.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 488.
+
+
+Overfull \hbox (51.93538pt too wide) in paragraph at lines 534--538
+\OMS/lmsy/m/n/10.95 j\OML/lmm/m/it/10.95 W[]\OMS/lmsy/m/n/10.95 j ^^T \OT1/lmr/
+m/n/10.95 (-20) 1\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 (-20) 82 \OMS/lmsy/m/n
+/10.95 ^^B \OT1/lmr/m/n/10.95 (-20) 10[]$ \T1/lmr/m/n/10.95 (-20) on $\OT1/lmr/
+m/n/10.95 (-20) [1\OML/lmm/m/it/10.95 ; \OT1/lmr/m/n/10.95 (-20) 3]$\T1/lmr/m/n
+/10.95 (-20) . Hence $\OT1/lmr/m/n/10.95 (-20) ([] ^^H)[] \OMS/lmsy/m/n/10.95 ^
+^T ^^@\OT1/lmr/m/n/10.95 (-20) 93\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 (-20) 
+1 + 1\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 (-20) 82 \OMS/lmsy/m/n/10.95 ^^B \
+OT1/lmr/m/n/10.95 (-20) 10[] \OML/lmm/m/it/10.95 < \OT1/lmr/m/n/10.95 (-20) 0$\
+T1/lmr/m/n/10.95 (-20) . Script: \T1/lmtt/m/n/10.95 proof/verify_ia_1_to_3.py
  []
 
-[4]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 257.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 257.
-
-[5]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 330.
+(hyperref)                removing `math shift' on input line 541.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\geq' on input line 330.
+(hyperref)                removing `\geq' on input line 541.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 330.
+(hyperref)                removing `math shift' on input line 541.
 
-[6] [7]
-Overfull \hbox (49.82784pt too wide) in paragraph at lines 482--500
- [] 
- []
-
-[8]
-Overfull \hbox (26.38976pt too wide) in paragraph at lines 504--505
- []\T1/lmr/bx/n/10.95 (-20) Formal cer-tifi-cate.[] \T1/lmr/m/n/10.95 (-20) A m
-achine-readable proof cer-tifi-cate \T1/lmtt/m/n/10.95 verification/proof_certi
-ficate_v2.json
- []
-
-[9] (main.bbl [10]) [11]
-Underfull \hbox (badness 10000) in paragraph at lines 576--577
+[7] [8] [9] [10] (main.bbl) [11]
+Underfull \hbox (badness 10000) in paragraph at lines 824--825
 []\T1/lmtt/m/n/10 Basic.lean\T1/lmr/m/n/10 (+20) :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 577--578
+Underfull \hbox (badness 10000) in paragraph at lines 825--826
 []\T1/lmtt/m/n/10 Basic.lean\T1/lmr/m/n/10 (+20) :
  []
 
 
-Overfull \hbox (62.90239pt too wide) in paragraph at lines 579--580
+Overfull \hbox (62.90239pt too wide) in paragraph at lines 827--828
 []\T1/lmtt/m/n/10 verify_logconcavity_rigorous.py| 
  []
 
 
-Overfull \hbox (36.65247pt too wide) in paragraph at lines 580--581
+Overfull \hbox (36.65247pt too wide) in paragraph at lines 828--829
 []\T1/lmtt/m/n/10 verify_logconcavity_arb.py| 
  []
 
 
-Overfull \hbox (26.1525pt too wide) in paragraph at lines 582--583
+Overfull \hbox (26.1525pt too wide) in paragraph at lines 830--831
 []\T1/lmtt/m/n/10 verify_algebraic_core.py| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 584--585
-[]\T1/lmtt/m/n/10 Basic.lean\T1/lmr/m/n/10 (+20) :
+Overfull \hbox (4.7327pt too wide) in paragraph at lines 871--872
+[]\T1/lmr/m/n/10 (-20) Theorems []11[],[]13[],[]14[]| 
  []
 
 
-Overfull \hbox (118.89973pt too wide) in paragraph at lines 593--603
- [] 
- []
-
-
-Overfull \hbox (28.44965pt too wide) in paragraph at lines 604--605
-\T1/lmr/m/n/10.95 (-20) Prefixes shown for read-abil-ity. Full 64-character SHA
-256 hashes are in \T1/lmtt/m/n/10.95 docs/certificate_hash_table.md\T1/lmr/m/n/
-10.95 (-20) .
- []
-
-
-Underfull \hbox (badness 1394) in paragraph at lines 617--617
-[]\T1/lmr/m/n/10 (+20) Kernel even, $\OML/lmm/m/it/10 K\OT1/lmr/m/n/10 (+20) (\
-OMS/lmsy/m/n/10 ^^@\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 (+20) ) =
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 620--620
-[]$[] \OML/lmm/m/it/10 K$ \T1/lmr/m/n/10 (+20) con-cave
+Underfull \hbox (badness 1859) in paragraph at lines 872--872
+[]\T1/lmr/m/n/10 (+20) Conc: $[] \OML/lmm/m/it/10 f\OT1/lmr/m/n/10 (+20) (\OML/
+lmm/m/it/10 t[]\OT1/lmr/m/n/10 (+20) )\OML/lmm/m/it/10 e[]dt$ \T1/lmr/m/n/10 (+
+20) has
  []
 
 [12]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 656.
- [13] [14] (main.aux)
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 898.
+
+Overfull \hbox (63.8483pt too wide) in paragraph at lines 901--904
+[]\T1/lmr/bx/n/10.95 (-20) Lean cer-tifi-cates de-rived within the proof as-sis
+-tant. $\OMS/lmsy/m/n/10.95 ^^B$ \T1/lmr/m/n/10.95 (-20) NOT MET. Ax-ioms \T1/l
+mtt/m/n/10.95 ia_verification_0_to_1
+ []
+
+[13] [14] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 740EF749A25F4DCA7516AC9167507A55;2654.
+(rerunfilecheck)             Checksum: 517858EF59D8C78495D50407C5A9BD4B;4169.
  ) 
 Here is how much of TeX's memory you used:
- 12672 strings out of 467871
- 200603 string characters out of 5413034
- 653524 words of memory out of 5000000
- 41052 multiletter control sequences out of 15000+600000
- 706798 words of font info for 215 fonts, out of 8000000 for 9000
+ 12783 strings out of 467871
+ 202662 string characters out of 5413034
+ 656004 words of memory out of 5000000
+ 41106 multiletter control sequences out of 15000+600000
+ 716704 words of font info for 241 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,1019b,682s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,1003b,772s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/l
 m/lmbx10.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/typ
 e1/public/lm/lmbx12.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/instal
@@ -775,9 +783,9 @@ x/current/texmfs/install/fonts/type1/public/lm/lmtk10.pfb><C:/Users/trist/scoop
 trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/symb
 ols/msam10.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/t
 ype1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (14 pages, 533903 bytes).
+Output written on main.pdf (14 pages, 533261 bytes).
 PDF statistics:
- 483 PDF objects out of 1000 (max. 8388607)
- 99 named destinations out of 1000 (max. 500000)
- 40593 words of extra memory for PDF output out of 42996 (max. 10000000)
+ 499 PDF objects out of 1000 (max. 8388607)
+ 105 named destinations out of 1000 (max. 500000)
+ 46785 words of extra memory for PDF output out of 51595 (max. 10000000)
 

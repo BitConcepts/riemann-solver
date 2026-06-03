@@ -59,9 +59,13 @@ G.~P{\'o}lya.
 G.~P{\'o}lya.
 \newblock On the zeros of certain trigonometric integrals.
 \newblock {\em Journal of the London Mathematical Society}, 1:98--99, 1926.
-\newblock A 2-page note. Content not yet directly verified; cited by de~Bruijn
-  (1950) as prior work on trigonometric integral zeros. Candidate primary
-  source for the log-concavity criterion (C-20 open item).
+\newblock A 2-page preliminary note. Not directly accessible without
+  institutional access. Contextual evidence (Cardon 2001, Pref. library
+  holdings at Trinity College Cambridge) suggests it is a brief announcement of
+  the results fully developed in the Acta Math. 1926 paper (the $\\xi^*$
+  real-zeros result via $\\mathfrak{G}(z;a)$), not a general log-concavity
+  criterion. At 2 pages, it cannot contain a general theorem with proof. C-20
+  open: requires institutional library access to verify directly.
 
 \bibitem{polya1927}
 G.~P{\'o}lya.

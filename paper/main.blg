@@ -6,10 +6,10 @@ The style file: plain.bst
 Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
 Warning--entry type for "specsmith" isn't style-file defined
---line 165 of file references.bib
+--line 167 of file references.bib
 You've used 12 entries,
             2118 wiz_defined-function locations,
-            576 strings with 6328 characters,
+            576 strings with 6621 characters,
 and the built_in function-call counts, 3645 in all, are:
 = -- 379
 > -- 129

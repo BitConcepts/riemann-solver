@@ -43,10 +43,16 @@ A direct reading of the scanned original P\'{o}lya (1927)---the G\"{o}ttingen
 digitisation (LOG\,Id: LOG\_0006)---reveals that Satz~I is a \emph{preservation
 theorem} (requiring prior real-rootedness of the input integral) and Satz~II is
 a \emph{Mellin--Fourier theorem} (requiring the Mellin transform to have only real
-negative zeros); neither theorem contains the strong log-concavity criterion used
-in Theorem~\ref{thm:polya_star}.
-The source audit yields \textbf{Verdict~D (mismatch)}, documented in
-Section~\ref{sec:polya_audit_main}.
+negative zeros); neither contains the log-concavity criterion.
+Peer-reviewed sources (Coffey--Csordas 2013; Csordas 2015, who explicitly states
+``no known N\&S conditions'') indicate this criterion is an open problem rather
+than a classical theorem; log-concavity alone is not sufficient (generalized
+Laguerre inequalities are additionally required per Csordas 2015).
+A 2026 non-peer-reviewed preprint attributes a simple version to P\'{o}lya (1927),
+but this cannot be verified against the primary text.
+The source audit yields \textbf{Verdict~D\textsuperscript{$\dagger$} (Satz~I/II mismatch;
+criterion is most likely an open conjecture per 2013--2015 peer-reviewed literature)},
+documented in Section~\ref{sec:polya_audit_main}.
 Accordingly, \textbf{no unconditional Riemann Hypothesis claim is made}.
 
 The unconditional contribution of this paper is \textbf{Theorem~\ref{thm:main}:
@@ -59,9 +65,10 @@ across 101 overlapping interval checks; and
 (4)~an explicit monotonicity tail bound ($C = 204$) covering $[3.0, \infty)$.
 
 Under a P\'{o}lya-type criterion matching the verified hypotheses
-(Theorem~\ref{thm:polya_star}, attributed to Csordas--Varga (1989)~\cite{csordas1989}
-pending direct primary-source verification), the RH follows as a conditional
-consequence (Remark~\ref{thm:rh_conditional}).
+(Theorem~\ref{thm:polya_star}; status: open conjecture per Coffey--Csordas 2013
+and Csordas 2015~\cite{csordas2015}, which establishes that log-concavity alone
+is not sufficient), the RH follows as a conditional consequence
+(Remark~\ref{thm:rh_conditional}).
 
 All 36~systematic tests detected no inconsistency.
 All results are reproducible at~\repourl.
@@ -253,21 +260,33 @@ Satz~II: Mellin--Fourier theorem &
 
 \begin{center}
 \fbox{\parbox{0.93\textwidth}{%
-\textbf{Verdict~D --- Mismatch.}\\[3pt]
-Neither Satz~I nor Satz~II of P\'{o}lya (1927)~\cite{polya1927} directly states
-the strong log-concavity criterion required to conclude that log-concavity of~$\Phi$
-implies real-rootedness of its Fourier transform.
+\textbf{Verdict~D\textsuperscript{$\dagger$} --- Mismatch with Satz~I/II; attributed in modern literature.}\\[3pt]
+Direct reading of Satz~I and Satz~II of P\'{o}lya (1927)~\cite{polya1927} confirms
+neither contains the log-concavity criterion.
+However, secondary literature attributes a simple log-concavity theorem to
+P\'{o}lya (1927), possibly residing in the Hilfss\"atze (auxiliary lemmas)
+not transcribed in this paper's direct-reading session.
 \begin{itemize}[leftmargin=1.4em,topsep=3pt,itemsep=1pt]
 \item Satz~I: \emph{preservation theorem}---requires the input Fourier integral to already
-  have only real zeros.
-\item Satz~II: \emph{Mellin--Fourier theorem}---requires the Mellin transform
-  $H(z)=\int_0^\infty t^{z-1}f(t)\,dt$ to have only real negative zeros.
-  Log-concavity of~$f$ does not appear.
-\item The strong log-concavity criterion does \textbf{not} appear in P\'{o}lya (1927).
+  have only real zeros.  Directly read and confirmed as mismatch.
+\item Satz~II: \emph{Mellin--Fourier theorem}---requires the Mellin transform to have only
+  real negative zeros; log-concavity does not appear.
+  Directly read and confirmed as mismatch.
+\item Hilfssatz~II (not transcribed): cited by Cardon (2002)~\cite{cardon2002} in the
+  context of log-concavity; Gershon (2026)~\cite{gershon2026} attributes the simple
+  log-concavity criterion directly to P\'{o}lya (1927) as ``Theorem~1 (P\'{o}lya, 1927)''.
 \end{itemize}
-\textbf{Consequence:} The RH conditional consequence (Remark~\ref{thm:rh_conditional})
-is not established from P\'{o}lya (1927) as cited.
-The \textbf{unconditional contribution} of this paper is
+\textbf{Consequence:} Peer-reviewed literature (Coffey--Csordas 2013, Csordas 2015)
+indicates the log-concavity criterion is most likely an \textbf{open conjecture}:
+Coffey--Csordas (2013) flags it explicitly as an Open Problem; Csordas (2015)
+proves that log-concavity alone is NOT sufficient (generalized Laguerre
+inequalities are additionally needed).  A 2026 preprint~\cite{gershon2026}
+attributes a simple version to P\'{o}lya (1927), but this cannot be verified
+against the primary text and is not supported by the peer-reviewed record.
+The RH conditional consequence (Remark~\ref{thm:rh_conditional}) remains
+conditioned on a source dependency that has not been matched to a
+peer-reviewed primary source.
+The \textbf{unconditional contribution} is
 \textbf{Theorem~\ref{thm:main}: certified strict log-concavity of~$\Phi$ on~$[0,\infty)$}.
 }}
 \end{center}
@@ -290,13 +309,15 @@ Then the entire function $F(z) = \int_{-\infty}^{\infty} K(t)\,e^{izt}\,dt$
 has only real zeros.
 
 \medskip\noindent\emph{Status: This theorem is not used as an unconditional result.
-The source audit (Section~\ref{sec:polya_audit_main}, Verdict~D) establishes that:
-(a) neither P\'olya (1927) nor Csordas--Varga (1989) Theorem~2.2 contains a
-matching statement; (b) the de~Bruijn--Ilieff theorem (jointly proved by
-de~Bruijn 1950 and Ilieff 1955) is the LP-class condition on $\phi'(t)$,
-which is categorically different from log-concavity of the kernel;
-(c) the log-concavity criterion as stated does not appear as a proven theorem
-in the examined literature.}
+The source audit (Section~\ref{sec:polya_audit_main}, Verdict~D\textsuperscript{$\dagger$})
+establishes: (a)~Satz~I and Satz~II of P\'olya (1927) do not contain the
+log-concavity criterion (directly read); (b)~the de~Bruijn--Ilieff theorem
+(LP-class condition on $\phi'(t)$) is categorically different from log-concavity;
+(c)~peer-reviewed literature (Coffey--Csordas 2013, Csordas 2015) indicates this
+is an \textbf{open problem}: Csordas (2015) explicitly states ``no known N\&S
+conditions'' and proves log-concavity alone is not sufficient;
+(d)~a 2026 preprint attributes the simple version to P\'olya (1927) but this is
+not supported by the peer-reviewed record.}
 \end{theorem}
 
 \begin{proof}[Proof reference and source status]
@@ -359,11 +380,76 @@ The following primary sources have been examined or identified as candidates:
 \item \textbf{Newman (1976)}~\cite{newman1976}: proves $\Lambda_{DN}>-\infty$;
   not the log-concavity criterion.
 \end{itemize}
-\textbf{Conclusion}: The de~Bruijn--Ilieff theorem (LP-class condition on $\phi'(t)$)
-is the primary source for sufficient conditions of this type.
-The log-concavity criterion of Theorem~\ref{thm:polya_star} is NEITHER de~Bruijn's
-theorem NOR Ilieff's theorem --- it requires a different (weaker) hypothesis.
-This criterion does not appear as a proven standalone theorem in the literature.
+\textbf{Additional sources searched and ruled out:}
+\begin{itemize}
+\item \textbf{P\'olya (1930), Quart.\ J.\ Math.\ Oxford 1, 21--34}
+  (``Some problems connected with Fourier's work on transcendental equations'').
+  This paper contains \emph{conjectures} about counting non-real zeros via
+  the behavior of derivatives on the real axis (the Fourier--P\'olya conjecture,
+  proved by Ki--Kim in 2000).  This is entirely unrelated to the log-concavity criterion.
+\item \textbf{de~Bruijn (1950) Theorem~13}: The entire function $\Xi_\lambda(z)$
+  has only real zeros for $\lambda\geq 1/8$ (Gaussian deformation of $\Phi$;
+  cited by Lagarias--Montague and Rodgers--Tao).  Not the log-concavity criterion.
+\item \textbf{de~Bruijn (1950) Theorem~20}: The \emph{final} theorem in the paper;
+  cited by Brand\'{e}n--Chass\'{e} (arXiv:1402.2795v2, Section~5,
+  ``Fourier transforms with only real zeros'') as ``[20, Theorem~20]''.
+  Crucially, Brand\'{e}n--Chass\'{e} state that they \emph{``prove a theorem of de~Bruijn''
+  [= Theorem~20, by elementary methods]} and separately
+  \emph{``extend a theorem of de~Bruijn and Ilieff''} [= Theorem~1].
+  This makes Theorem~20 a \textbf{distinct result} from Theorem~1 (the LP-class condition).
+  The full text of the paper is paywalled (Project Euclid, \$30); the exact statement
+  of Theorem~20 cannot be confirmed without access.
+  Based on contextual evidence it likely provides sufficient conditions for a kernel's
+  Fourier transform to have only real zeros, possibly including a log-concavity-type
+  criterion or the application $\Lambda_{DN}\leq 1/2$.
+\item \textbf{Csordas (2015)}~\cite{csordas2015}: Proves a \emph{new}
+  necessary and sufficient condition for strictly log-concave admissible kernels
+  to have Fourier transforms with only real zeros.  The N\&S condition involves
+  generalized Laguerre inequalities beyond log-concavity alone.  This confirms
+  that log-concavity alone is \emph{not sufficient} (even with all other conditions
+  in Theorem~\ref{thm:polya_star}) for the Fourier transform to have only real zeros.
+\end{itemize}
+\textbf{Conflicting evidence on the status of the log-concavity criterion
+(incorporated June 2026).}
+
+\medskip
+\noindent\textbf{In favour of a classical Pólya 1927 theorem:}
+\begin{itemize}
+\item \textbf{Gershon (2026)}~\cite{gershon2026} (non-peer-reviewed preprint):
+  states as ``\textbf{Theorem~1 (P\'{o}lya, 1927)}'': if $\Phi$ is even, positive,
+  integrable, and $(\log\Phi)''(u)\leq 0$ for all $u\geq 0$, then
+  $F(z) = \int_{-\infty}^{\infty}\Phi(u)e^{izu}\,du$ has only real zeros.
+  This is the \emph{simple} version without analyticity or decay conditions.
+\item \textbf{Cardon (2002)}~\cite{cardon2002}: discusses ``P\'{o}lya's
+  Hilfssatz~II'' in the context of Fourier transforms with only real zeros.
+\end{itemize}
+\textbf{Against (peer-reviewed, 2013--2015):}
+\begin{itemize}
+\item \textbf{Coffey--Csordas (2013)}~\cite{csordas2013}: the zbMATH review
+  (Zbl~1278.30028) explicitly flags as an \textbf{Open Problem}: whether a
+  log-concave admissible kernel's moment sequence satisfies the Tur\'{a}n
+  inequalities (a \emph{necessary} condition for only real zeros).
+  If this is open, the full implication (log-concavity $\Rightarrow$ real zeros
+  of Fourier transform) is a~fortiori open.
+\item \textbf{Csordas (2015)}~\cite{csordas2015}: states verbatim
+  ``\emph{Today, there are no known explicit necessary and sufficient conditions
+  that even a `nice' kernel $K(t)$ must satisfy in order that its Fourier
+  transform have only real zeros.}''  Csordas then proves a \emph{new}
+  N\&S condition for strictly log-concave admissible kernels, which requires
+  the \emph{generalized Laguerre inequalities} beyond log-concavity alone.
+  This establishes that log-concavity alone is \textbf{not sufficient}.
+\item Csordas (2015) also notes: log-concavity is \emph{necessary} for
+  $f\in\mathcal{LP}$ but \emph{not sufficient}
+  (counter-example: $f(x)=e^{-x^2}(1+x^2)$ is log-concave but $f\notin\mathcal{LP}$).
+\end{itemize}
+\textbf{Assessment}: The peer-reviewed record (Coffey--Csordas 2013, Csordas 2015)
+does not support Theorem~\ref{thm:polya_star} as a classical proven result.
+The Gershon (2026) preprint attribution to P\'{o}lya (1927) cannot be verified
+against the primary text and is contradicted by the peer-reviewed literature.
+The log-concavity criterion as stated is most likely \textbf{an open conjecture},
+not a classical theorem.  For the specific kernel~$\Phi$, the implication from
+the certified log-concavity (Theorem~\ref{thm:main}) to real zeros of~$\Xi$
+would additionally require verifying the generalized Laguerre inequalities of~$\Phi$.
 \end{proof}
 
 \begin{remark}[Necessity of analyticity]
@@ -653,14 +739,17 @@ Section~\ref{sec:deps}.
 
 The RH implication depends on which form of the P\'{o}lya-type criterion holds.
 
-\paragraph{Branch~A (Verdict~A hypothetical): Strong log-concavity criterion.}
-Assume: if $K$ is even, positive, integrable, real analytic near the origin,
+\paragraph{Branch~A (Verdict~D\textsuperscript{$\dagger$}): Strong log-concavity criterion.}
+If $K$ is even, positive, integrable, real analytic near the origin,
 superexponentially decaying, and log-concave on~$[0,\infty)$,
 then its Fourier transform has only real zeros.
-Under this assumption, properties (1)--(6) verified for~$\Phi$
+Under this criterion, properties (1)--(6) verified for~$\Phi$
 (Remark~\ref{rem:polya_hyp}) yield RH.
-\emph{This branch is conditional on locating a primary source supporting this criterion.
-Current source audit: Verdict~D.}
+\emph{This criterion is most likely an open conjecture: Csordas (2015) establishes
+log-concavity alone is not sufficient (generalized Laguerre inequalities required);
+Coffey--Csordas (2013) states the weaker implication (log-concavity $\Rightarrow$ Tur\'{a}n
+inequalities) as open.  A 2026 preprint attribution to P\'{o}lya 1927 is unverified
+in the peer-reviewed record.  Current source audit: Verdict~D\textsuperscript{$\dagger$}.}
 
 \paragraph{Branch~B (Satz~I reading): Preservation theorem.}
 Under the Satz~I reading, multiplying by an $\mathcal{LP}$-factor preserves

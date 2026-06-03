@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12 Portable) (preloaded format=pdflatex 2026.5.13)  3 JUN 2026 06:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12 Portable) (preloaded format=pdflatex 2026.5.13)  3 JUN 2026 07:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -575,8 +575,8 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <7> on input line 37.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <5> on input line 37.
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 6
-7.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 7
+4.
 
 (C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -586,7 +586,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 78.
+(Font)              <10.95> on input line 85.
  [1
 
 {C:/Users/trist/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdftex.m
@@ -596,79 +596,79 @@ ips/lm/lm-rm.enc}{C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts
 /enc/dvips/lm/lm-mathit.enc}{C:/Users/trist/scoop/apps/miktex/current/texmfs/in
 stall/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Users/trist/scoop/apps/miktex/curren
 t/texmfs/install/fonts/enc/dvips/lm/lm-mathsy.enc}] [2] [3]
-Underfull \hbox (badness 10000) in paragraph at lines 234--234
+Underfull \hbox (badness 10000) in paragraph at lines 241--241
 \T1/lmr/m/n/10 (+20) log-concavity
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 236--236
+Underfull \hbox (badness 10000) in paragraph at lines 243--243
 []\T1/lmr/m/n/10 (+20) Strong log-
  []
 
 
-Underfull \hbox (badness 1264) in paragraph at lines 239--239
+Underfull \hbox (badness 1264) in paragraph at lines 246--246
 []\T1/lmr/bx/n/10 (+20) Not found
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 239--239
+Underfull \hbox (badness 10000) in paragraph at lines 246--246
 \T1/lmr/bx/n/10 (+20) in Pólya
  []
 
 
-Underfull \hbox (badness 1946) in paragraph at lines 241--242
+Underfull \hbox (badness 1946) in paragraph at lines 248--249
 []\T1/lmr/m/n/10 (+20) IF $[] \OML/lmm/m/it/10 Fe[]dt$ \T1/lmr/m/n/10 (+20) has
  real ze-ros,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 243--243
+Underfull \hbox (badness 10000) in paragraph at lines 250--250
 []\T1/lmr/m/n/10 (+20) Confirmed
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 244--244
+Underfull \hbox (badness 10000) in paragraph at lines 251--251
 []\T1/lmr/m/n/10 (+20) Satz II: Mellin--
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 247--248
+Underfull \hbox (badness 10000) in paragraph at lines 254--255
 []\T1/lmr/m/n/10 (+20) Confirmed
  []
 
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 2
-72.
+91.
 
 (C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-) [4{C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/enc/dvips/lm
-/lm-ts1.enc}] [5]
+) [4] [5{C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/enc/dvip
+s/lm/lm-ts1.enc}] [6] [7]
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <14.4> on input line 414.
+(Font)              <14.4> on input line 500.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 414.
+(hyperref)                removing `math shift' on input line 500.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Phi' on input line 414.
+(hyperref)                removing `\Phi' on input line 500.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 414.
+(hyperref)                removing `math shift' on input line 500.
 
-[6] [7]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 544.
-
+[8]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 544.
+(hyperref)                removing `math shift' on input line 630.
 
 
-Overfull \hbox (51.93538pt too wide) in paragraph at lines 590--594
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 630.
+
+[9]
+Overfull \hbox (51.93538pt too wide) in paragraph at lines 676--680
 \OMS/lmsy/m/n/10.95 j\OML/lmm/m/it/10.95 W[]\OMS/lmsy/m/n/10.95 j ^^T \OT1/lmr/
 m/n/10.95 (-20) 1\OML/lmm/m/it/10.95 :\OT1/lmr/m/n/10.95 (-20) 82 \OMS/lmsy/m/n
 /10.95 ^^B \OT1/lmr/m/n/10.95 (-20) 10[]$ \T1/lmr/m/n/10.95 (-20) on $\OT1/lmr/
@@ -682,110 +682,71 @@ T1/lmr/m/n/10.95 (-20) . Script: \T1/lmtt/m/n/10.95 proof/verify_ia_1_to_3.py
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 597.
+(hyperref)                removing `math shift' on input line 683.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\geq' on input line 597.
+(hyperref)                removing `\geq' on input line 683.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 597.
+(hyperref)                removing `math shift' on input line 683.
 
-[8] [9] [10] [11] (main.bbl
-! Missing $ inserted.
-<inserted text> 
-                $
-l.15   of Theorem~\\ref{thm:polya_
-                                  star} does NOT match this theorem.
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Extra }, or forgotten $.
-l.15   of Theorem~\\ref{thm:polya_star}
-                                        does NOT match this theorem.
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.16 
-     
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.16 
-     
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 48--60
-\OML/lmm/m/it/10.95 phi[]\OT1/lmr/m/n/10.95 (+20) (\OML/lmm/m/it/10.95 t\OT1/lm
-r/m/n/10.95 (+20) )$\T1/lmr/m/n/10.95 (+20) , NOT the log-concavity cri-te-rion
-. Full text pay-walled; Springer DOI
+[10] [11] [12] [13] (main.bbl [14]
+Underfull \hbox (badness 1721) in paragraph at lines 75--85
+[]\T1/lmr/m/n/10.95 (+20) A. Ger-shon.  On the log-concavity of the Rie-mann Xi
+ ker-nel.  \T1/lmr/m/it/10.95 (+20) Preprints\T1/lmr/m/n/10.95 (+20) , 2026.
  []
 
-[12]) [13]
-Underfull \hbox (badness 10000) in paragraph at lines 891--892
+[15])
+Underfull \hbox (badness 10000) in paragraph at lines 980--981
 []\T1/lmtt/m/n/10 Basic.lean\T1/lmr/m/n/10 (+20) :
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 892--893
+Underfull \hbox (badness 10000) in paragraph at lines 981--982
 []\T1/lmtt/m/n/10 Basic.lean\T1/lmr/m/n/10 (+20) :
  []
 
 
-Overfull \hbox (62.90239pt too wide) in paragraph at lines 894--895
+Overfull \hbox (62.90239pt too wide) in paragraph at lines 983--984
 []\T1/lmtt/m/n/10 verify_logconcavity_rigorous.py| 
  []
 
 
-Overfull \hbox (36.65247pt too wide) in paragraph at lines 895--896
+Overfull \hbox (36.65247pt too wide) in paragraph at lines 984--985
 []\T1/lmtt/m/n/10 verify_logconcavity_arb.py| 
  []
 
 
-Overfull \hbox (26.1525pt too wide) in paragraph at lines 897--898
+Overfull \hbox (26.1525pt too wide) in paragraph at lines 986--987
 []\T1/lmtt/m/n/10 verify_algebraic_core.py| 
  []
 
-
-Overfull \hbox (4.7327pt too wide) in paragraph at lines 938--939
+[16]
+Overfull \hbox (4.7327pt too wide) in paragraph at lines 1027--1028
 []\T1/lmr/m/n/10 (-20) Theorems []11[],[]13[],[]14[]| 
  []
 
 
-Underfull \hbox (badness 1859) in paragraph at lines 939--939
+Underfull \hbox (badness 1859) in paragraph at lines 1028--1028
 []\T1/lmr/m/n/10 (+20) Conc: $[] \OML/lmm/m/it/10 f\OT1/lmr/m/n/10 (+20) (\OML/
 lmm/m/it/10 t[]\OT1/lmr/m/n/10 (+20) )\OML/lmm/m/it/10 e[]dt$ \T1/lmr/m/n/10 (+
 20) has
  []
 
-[14]
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 976.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 1065.
 
-Overfull \hbox (63.8483pt too wide) in paragraph at lines 979--982
+Overfull \hbox (63.8483pt too wide) in paragraph at lines 1068--1071
 []\T1/lmr/bx/n/10.95 (-20) Lean cer-tifi-cates de-rived within the proof as-sis
 -tant. $\OMS/lmsy/m/n/10.95 ^^B$ \T1/lmr/m/n/10.95 (-20) NOT MET. Ax-ioms \T1/l
 mtt/m/n/10.95 ia_verification_0_to_1
  []
 
-[15]
-LaTeX Font Info:    Trying to load font information for U+euf on input line 105
-0.
+[17]
+LaTeX Font Info:    Trying to load font information for U+euf on input line 113
+9.
 
 (C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ueu
 f.fd
@@ -795,7 +756,7 @@ File: ueuf.fd 2013/01/14 v3.01 Euler Fraktur
 -euf.cfg
 File: mt-euf.cfg 2006/07/03 v1.1 microtype config. file: AMS Euler Fraktur (RS)
 
-) [16] (main.aux)
+) [18] [19] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
@@ -804,13 +765,13 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 517858EF59D8C78495D50407C5A9BD4B;4169.
  ) 
 Here is how much of TeX's memory you used:
- 12830 strings out of 467871
- 203573 string characters out of 5413034
- 655079 words of memory out of 5000000
- 41127 multiletter control sequences out of 15000+600000
- 718051 words of font info for 251 fonts, out of 8000000 for 9000
+ 12886 strings out of 467871
+ 204227 string characters out of 5413034
+ 655223 words of memory out of 5000000
+ 41137 multiletter control sequences out of 15000+600000
+ 730118 words of font info for 272 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,79p,1003b,772s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,1003b,787s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/a
 msfonts/euler/eufm10.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/insta
 ll/fonts/type1/public/lm/lmbx10.pfb><C:/Users/trist/scoop/apps/miktex/current/t
@@ -833,17 +794,16 @@ public/lm/lmr7.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fon
 ts/type1/public/lm/lmr8.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/in
 stall/fonts/type1/public/lm/lmri10.pfb><C:/Users/trist/scoop/apps/miktex/curren
 t/texmfs/install/fonts/type1/public/lm/lmsy10.pfb><C:/Users/trist/scoop/apps/mi
-ktex/current/texmfs/install/fonts/type1/public/lm/lmsy6.pfb><C:/Users/trist/sco
-op/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmsy7.pfb><C:/Users
-/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmsy8.pfb
-><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm
-/lmtk10.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type
-1/public/lm/lmtt10.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install
-/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Users/trist/scoop/apps/mikt
-ex/current/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (16 pages, 561360 bytes).
+ktex/current/texmfs/install/fonts/type1/public/lm/lmsy7.pfb><C:/Users/trist/sco
+op/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmsy8.pfb><C:/Users
+/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmtk10.pf
+b><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/l
+m/lmtt10.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/typ
+e1/public/amsfonts/symbols/msam10.pfb><C:/Users/trist/scoop/apps/miktex/current
+/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (19 pages, 573712 bytes).
 PDF statistics:
- 532 PDF objects out of 1000 (max. 8388607)
- 109 named destinations out of 1000 (max. 500000)
- 46785 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 554 PDF objects out of 1000 (max. 8388607)
+ 116 named destinations out of 1000 (max. 500000)
+ 52929 words of extra memory for PDF output out of 61914 (max. 10000000)
 

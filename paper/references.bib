@@ -111,9 +111,8 @@
   pages   = {305--317},
   year    = {1926},
   note    = {English translation: T.~Hosgood, \url{https://translations.thosgood.com/AM-48-1926-305.html}.
-             Proves that a modified $\\xi^*$ function has only real zeros via difference
-             equation methods for $\\mathfrak{G}(z;a)=\\int e^{-a(e^u+e^{-u})+zu}du$.
-             Does NOT use log-concavity of the kernel.}
+             Proves that a modified $\xi^*$ function has only real zeros via difference
+             equation methods. Does NOT use log-concavity of the kernel.}
 }
 
 @article{polya1926jlms,
@@ -126,7 +125,7 @@
   doi     = {10.1112/jlms/s1-1.2.98},
   note    = {A 2-page preliminary note. Not directly accessible without institutional access.
              Contextual evidence suggests it announces the Acta Math.\ 1926 result
-             ($\\xi^*$ real zeros via $\\mathfrak{G}(z;a)$ difference equations),
+             ($\xi^*$ real zeros via difference equations),
              not the log-concavity criterion.}
 }
 
@@ -141,11 +140,11 @@
   doi     = {10.1007/BF02021274},
   note    = {Brand\'{e}n--Chass\'{e} (arXiv:1402.2795v2, Section~5) confirm:
              Ilieff independently proved the SAME result as de~Bruijn (1950) Theorem~1.
-             The theorem (de~Bruijn--Ilieff): if $\\phi(t)$ is even entire and
-             $\\phi'(t)\\in\\mathcal{LP}$ (Laguerre--P\'olya class), then the
-             Fourier transform of $e^{\\phi(it)}$ has only real zeros.
-             This is the LP-class condition on $\\phi'(t)$, NOT the log-concavity criterion.
-             Full text paywalled; Springer DOI 10.1007/BF02021274.}
+             The theorem (de~Bruijn--Ilieff): if $\phi(t)$ is even entire and
+             $\phi'(t)\in\mathcal{LP}$ (Laguerre--P\'{o}lya class), then the Fourier
+             transform of $e^{\phi(it)}$ has only real zeros. This is the LP-class
+             condition on $\phi'(t)$, NOT the log-concavity criterion. Full text
+             paywalled; Springer DOI 10.1007/BF02021274.}
 }
 
 @article{brandenchasse2016,
@@ -154,13 +153,13 @@
   journal = {arXiv preprint},
   year    = {2016},
   note    = {arXiv:1402.2795v2. Section~5 explicitly states the {\em de Bruijn--Ilieff theorem}:
-             {\em ``N.~G.\ de~Bruijn and L.~Ilieff independently proved that if $\\phi(t)$ is
-             an even entire function and $\\phi'(t)\\in\\mathcal{LP}$ (Laguerre--P\\'{o}lya class),
-             then the Fourier transform of $e^{\\phi(it)}$ will have only real zeros, provided
+             {\em ``N.~G.\ de~Bruijn and L.~Ilieff independently proved that if $\phi(t)$ is
+             an even entire function and $\phi'(t)\in\mathcal{LP}$ (Laguerre--P\'{o}lya class),
+             then the Fourier transform of $e^{\phi(it)}$ will have only real zeros, provided
              it exists'' (refs [20]=de~Bruijn 1950, [22]=Ilieff 1955).}
-             This is the LP-class condition on $\\phi'(t)$, which is DIFFERENT from and
-             generally stronger than log-concavity of the kernel $K(t)=e^{\\phi(it)}$.
-             The log-concavity criterion of Theorem~\\ref{thm:polya_star} does NOT match this theorem.}
+             This is the LP-class condition on $\phi'(t)$, which is DIFFERENT from and
+             generally stronger than log-concavity of the kernel $K(t)=e^{\phi(it)}$.
+                     The log-concavity criterion of Theorem~1* (strong log-concavity) does NOT match this theorem.}
 }
 
 @article{csordas2015,
@@ -174,9 +173,9 @@
   doi     = {10.1007/s40315-015-0115-3},
   note    = {Proves a NEW necessary and sufficient condition for the Fourier transform of a
              strictly logarithmically concave admissible kernel to possess only real zeros.
-             The N\&S condition involves the \emph{generalized real Laguerre inequalities},
+             The N\&S condition involves the {\em generalized real Laguerre inequalities},
              not log-concavity alone. This implies that log-concavity is necessary but
-             NOT sufficient (for $C^\\infty$ kernels) for real zeros of the Fourier transform.
+             NOT sufficient (for $C^{\infty}$ kernels) for real zeros of the Fourier transform.
              For strictly log-concave kernels, there exist admissible kernels whose Fourier
              transforms have complex zeros (those failing higher Laguerre inequalities).}
 }
@@ -189,7 +188,7 @@
   number  = {2},
   pages   = {245--251},
   year    = {1976},
-  note    = {Proves $\\Lambda_{DN}>-\\infty$: the de~Bruijn--Newman constant is finite.
+  note    = {Proves ${\Lambda}_{DN}>-\infty$: the de~Bruijn--Newman constant is finite.
              Also proves a closure/survival result for real zeros under Gaussian
              perturbation. Foundation for the de~Bruijn--Newman constant.}
 }
@@ -210,7 +209,12 @@
   volume  = {82},
   number  = {284},
   pages   = {2265--2272},
-  year    = {2013}
+  year    = {2013},
+  note    = {zbMATH Zbl~1278.30028. The zbMATH review (O. Katkova) explicitly states an
+             \textbf{Open Problem}: whether a log-concave admissible kernel's moment
+             sequence satisfies the Tur\'an inequalities (a necessary condition for
+             real zeros of the Fourier transform). This establishes that as of 2013,
+             the implication log-concavity $\Rightarrow$ real zeros is an open problem.}
 }
 
 @software{specsmith,
@@ -243,4 +247,30 @@
   title   = {mpmath: a {P}ython library for arbitrary-precision floating-point arithmetic},
   url     = {https://mpmath.org/},
   year    = {2024}
+}
+
+@article{gershon2026,
+  author  = {Gershon, A.},
+  title   = {On the Log-Concavity of the {R}iemann {X}i Kernel},
+  journal = {Preprints},
+  year    = {2026},
+  note    = {preprints.org/manuscript/202604.0159 (April 2026). Explicitly states as
+             ``Theorem~1 (P\'olya, 1927)'': if $\Phi$ is even, positive, integrable, and
+             $(\log\Phi)''(u)\leq 0$ for all $u\geq 0$, then
+             $F(z)=\int_{-\infty}^\infty\Phi(u)e^{izu}\,du$ has only real zeros.
+             This is the simple version without analyticity or decay conditions.
+             Secondary source; the exact location in P\'olya (1927) (Satz or Hilfssatz)
+             has not been independently verified from the primary text by this paper.}
+}
+
+@article{cardon2002,
+  author  = {Cardon, David A.},
+  title   = {Fourier transforms having only real zeros},
+  journal = {Proceedings of the American Mathematical Society},
+  volume  = {130},
+  number  = {6},
+  pages   = {1725--1734},
+  year    = {2002},
+  note    = {Discusses P\'olya's Hilfssatz~II in the context of Fourier transforms with only real zeros.
+             Cited by multiple sources for the log-concavity/Hilfssatz connection.}
 }

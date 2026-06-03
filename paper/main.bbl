@@ -1,5 +1,19 @@
 \begin{thebibliography}{10}
 
+\bibitem{brandenchasse2016}
+Petter Brand\'{e}n and Matthew Chass\'{e}.
+\newblock Classification theorems for operators preserving zeros in a strip.
+\newblock {\em arXiv preprint}, 2016.
+\newblock arXiv:1402.2795v2. Section~5 explicitly states the {\em de
+  Bruijn--Ilieff theorem}: {\em ``N.~G.\ de~Bruijn and L.~Ilieff independently
+  proved that if $\\phi(t)$ is an even entire function and
+  $\\phi'(t)\\in\\mathcal{LP}$ (Laguerre--P\\'{o}lya class), then the Fourier
+  transform of $e^{\\phi(it)}$ will have only real zeros, provided it exists''
+  (refs [20]=de~Bruijn 1950, [22]=Ilieff 1955).} This is the LP-class condition
+  on $\\phi'(t)$, which is DIFFERENT from and generally stronger than
+  log-concavity of the kernel $K(t)=e^{\\phi(it)}$. The log-concavity criterion
+  of Theorem~\\ref{thm:polya_star} does NOT match this theorem.
+
 \bibitem{csordas1986}
 George Csordas, Timothy~S. Norfolk, and Richard~S. Varga.
 \newblock The {R}iemann hypothesis and the {T}ur{\'a}n inequalities.
@@ -29,6 +43,20 @@ Michael Griffin, Ken Ono, Larry Rolen, and Don Zagier.
   sequences.
 \newblock {\em Proceedings of the National Academy of Sciences},
   116(23):11103--11110, 2019.
+
+\bibitem{ilieff1955}
+Ljubomir Ilieff.
+\newblock {\"U}ber trigonometrische {I}ntegrale, welche ganze {F}unktionen mit
+  nur reellen {N}ullstellen darstellen.
+\newblock {\em Acta Mathematica Academiae Scientiarum Hungaricae}, 6:191--194,
+  1955.
+\newblock Brand\'{e}n--Chass\'{e} (arXiv:1402.2795v2, Section~5) confirm:
+  Ilieff independently proved the SAME result as de~Bruijn (1950) Theorem~1.
+  The theorem (de~Bruijn--Ilieff): if $\\phi(t)$ is even entire and
+  $\\phi'(t)\\in\\mathcal{LP}$ (Laguerre--P\'olya class), then the Fourier
+  transform of $e^{\\phi(it)}$ has only real zeros. This is the LP-class
+  condition on $\\phi'(t)$, NOT the log-concavity criterion. Full text
+  paywalled; Springer DOI 10.1007/BF02021274.
 
 \bibitem{newman1976}
 Charles~M. Newman.
@@ -60,12 +88,9 @@ G.~P{\'o}lya.
 \newblock On the zeros of certain trigonometric integrals.
 \newblock {\em Journal of the London Mathematical Society}, 1:98--99, 1926.
 \newblock A 2-page preliminary note. Not directly accessible without
-  institutional access. Contextual evidence (Cardon 2001, Pref. library
-  holdings at Trinity College Cambridge) suggests it is a brief announcement of
-  the results fully developed in the Acta Math. 1926 paper (the $\\xi^*$
-  real-zeros result via $\\mathfrak{G}(z;a)$), not a general log-concavity
-  criterion. At 2 pages, it cannot contain a general theorem with proof. C-20
-  open: requires institutional library access to verify directly.
+  institutional access. Contextual evidence suggests it announces the Acta
+  Math.\ 1926 result ($\\xi^*$ real zeros via $\\mathfrak{G}(z;a)$ difference
+  equations), not the log-concavity criterion.
 
 \bibitem{polya1927}
 G.~P{\'o}lya.

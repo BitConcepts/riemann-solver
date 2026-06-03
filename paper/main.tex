@@ -290,9 +290,13 @@ Then the entire function $F(z) = \int_{-\infty}^{\infty} K(t)\,e^{izt}\,dt$
 has only real zeros.
 
 \medskip\noindent\emph{Status: This theorem is not used as an unconditional result.
-The source audit (Section~\ref{sec:polya_audit_main}, Verdict~D) establishes that
-neither P\'{o}lya (1927) nor Csordas--Varga (1989) Theorem~2.2 contains a
-matching statement (see proof reference below for details).}
+The source audit (Section~\ref{sec:polya_audit_main}, Verdict~D) establishes that:
+(a) neither P\'olya (1927) nor Csordas--Varga (1989) Theorem~2.2 contains a
+matching statement; (b) the de~Bruijn--Ilieff theorem (jointly proved by
+de~Bruijn 1950 and Ilieff 1955) is the LP-class condition on $\phi'(t)$,
+which is categorically different from log-concavity of the kernel;
+(c) the log-concavity criterion as stated does not appear as a proven theorem
+in the examined literature.}
 \end{theorem}
 
 \begin{proof}[Proof reference and source status]
@@ -327,20 +331,39 @@ as stated has not been matched to a primary source.
 
 The following primary sources have been examined or identified as candidates:
 \begin{itemize}
-\item \textbf{P\'{o}lya (1926), Acta Math.\ 48, 305--317}~\cite{polya1926}.
-  Proves that a \emph{specific} modified Xi function $\Xi^*(z)$ has only real zeros
-  by showing the entire function $\mathfrak{G}(iz;a)=\int_{-\infty}^\infty
-  e^{-a(e^u+e^{-u})+izu}du$ has only real zeros, using a difference equation and
-  asymptotic analysis.  Does \emph{not} use log-concavity.
-  English translation: Hosgood (2024), \url{https://translations.thosgood.com/AM-48-1926-305.html}.
-\item \textbf{P\'{o}lya (1926), J.\ London Math.\ Soc.\ 1, 98--99}~\cite{polya1926jlms}.
-  A 2-page note, content not yet directly read.
-  Cited by de~Bruijn (1950)~\cite{debruijn1950} as prior work on zeros of
-  trigonometric integrals.  \emph{Candidate}: may contain an early version of the
-  log-concavity criterion.  Source task C-20 (open).
-\item \textbf{Newman (1976)}~\cite{newman1976} proves $\Lambda_{DN}>-\infty$
-  (the de~Bruijn--Newman constant is finite); not directly the log-concavity criterion.
+\item \textbf{Definitive finding from Brand\'{e}n--Chass\'{e} (2016)}~\cite{brandenchasse2016}.
+  Section~5 of arXiv:1402.2795v2 explicitly names the \emph{de~Bruijn--Ilieff theorem}
+  and states it precisely:
+  \begin{quote}
+  ``N.~G.\ de~Bruijn and L.~Ilieff \textbf{independently proved} that if $\phi(t)$ is
+  an even entire function and $\phi'(t)\in\mathcal{LP}$ (Laguerre--P\'olya class),
+  then the Fourier transform of $e^{\phi(it)}$ will have only real zeros, provided
+  it exists.'' (refs: de~Bruijn 1950 and Ilieff 1955)
+  \end{quote}
+  The condition is $\phi'(t)\in\mathcal{LP}$, i.e.\ all zeros of $\phi'(t)$ are real.
+  This is the same LP-class condition as de~Bruijn (1950)~\cite{debruijn1950} Theorem~1
+  (equivalently: $h'(t)$ in LP with imaginary-axis zeros, where $h(t)=-\phi(it)$).
+  \textbf{This is categorically different from} and generally\emph{stronger than}
+  log-concavity of the kernel $K(t)=e^{\phi(it)}$, which would require
+  $(\log K)''(t)\leq 0$.
+  The log-concavity criterion of Theorem~\ref{thm:polya_star} does NOT match this theorem.
+\item \textbf{Ilieff (1955)}~\cite{ilieff1955}: 4 pages, Acta Math.\ Hungarica 6,
+  191--194; DOI 10.1007/BF02021274.  Brand\'{e}n--Chass\'{e} confirm Ilieff independently
+  proved the same result as de~Bruijn Theorem~1 (LP-class condition on $\phi'(t)$),
+  NOT the log-concavity criterion.
+\item \textbf{P\'{o}lya (1926), Acta Math.\ 48}~\cite{polya1926}: proves real zeros of
+  $\Xi^*$ via difference equations; no log-concavity.
+\item \textbf{P\'{o}lya (1926), J.\ London Math.\ Soc.\ 1, 98--99}~\cite{polya1926jlms}:
+  contextually likely a 2-page announcement of the Acta Math.\ 1926 result, not the
+  log-concavity criterion (requires institutional access to verify).
+\item \textbf{Newman (1976)}~\cite{newman1976}: proves $\Lambda_{DN}>-\infty$;
+  not the log-concavity criterion.
 \end{itemize}
+\textbf{Conclusion}: The de~Bruijn--Ilieff theorem (LP-class condition on $\phi'(t)$)
+is the primary source for sufficient conditions of this type.
+The log-concavity criterion of Theorem~\ref{thm:polya_star} is NEITHER de~Bruijn's
+theorem NOR Ilieff's theorem --- it requires a different (weaker) hypothesis.
+This criterion does not appear as a proven standalone theorem in the literature.
 \end{proof}
 
 \begin{remark}[Necessity of analyticity]

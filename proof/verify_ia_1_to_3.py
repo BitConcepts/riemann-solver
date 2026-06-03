@@ -288,7 +288,11 @@ def main():
             "[3.0,inf)": "monotonicity argument (verify_algebraic_core.py)",
         },
         "delta_Q_definition": "R''*phi1 + phi1''*R - 2*phi1'*R' + R''*R - (R')^2",
-        "n_tail_terms": 10,
+        "finite_terms": 10,
+        "finite_terms_DeltaQ": 10,
+        "finite_terms_eps_star": 15,
+        "tail_bound_n_gt_10": "< 1e-1000 at u=1 (n=11 term: ~n^4*exp(-pi*120*e^2) < 10^{-1200})",
+        "tail_bound_method": "analytic exponential majorant: for n>10, u>=1, n^4*exp(-pi*(n^2-1)*e^{2u}) < 10^{-1000}; DeltaQ tail contribution < 10^{-900}",
         "checkpoints": table,
     }
 

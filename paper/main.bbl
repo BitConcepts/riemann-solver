@@ -104,11 +104,6 @@ Ljubomir Ilieff.
   condition on $\phi'(t)$, NOT the log-concavity criterion. Full text
   paywalled; Springer DOI 10.1007/BF02021274.
 
-\bibitem{mpmath}
-Fredrik Johansson.
-\newblock mpmath: a {P}ython library for arbitrary-precision floating-point
-  arithmetic, 2024.
-
 \bibitem{specsmith}
 Tristen~Kyle Pierson.
 \newblock specsmith: Applied epistemic engineering toolkit for ai-assisted

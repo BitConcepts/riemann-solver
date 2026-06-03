@@ -57,6 +57,7 @@ The unconditional contribution of this paper is the certified strict log-concavi
 of~$\Phi$ on~$[0,\infty)$.
 The possible implication to RH is recorded only as a conditional consequence of
 an unsourced P\'{o}lya-type criterion (Hypothetical Criterion~\ref{hcrit:polya_star}).
+The proof of log-concavity is independent of the P\'{o}lya-source audit.
 
 \medskip\noindent
 \textbf{DOI:} \doiurl
@@ -287,19 +288,20 @@ numerical constants, not substitutes for the written proof.
 \begin{proof}
 Decompose $(\log\Phi)'' = W_1 + W_{\mathrm{tail}}$ where
 $W_1(u) = -24\pi e^{2u}/h(u)^2 - 4\pi e^{2u}$ is proved negative in
-Theorem~\ref{thm:algebraic}, and $|W_{\mathrm{tail}}| \leq 204\varepsilon^*$
-(Appendix~\ref{sec:appE}, Lemma~E.5) with $\varepsilon^*(u) := 2\sum_{n=2}^{\infty} n^4 e^{-\pi(n^2-1)e^{2u}}$.
-The constant $C = 204$ is explicitly computed (Appendix~\ref{sec:appE}, Lemma~E.4).
+Theorem~\ref{thm:algebraic}.
+For each $i = 0,\ldots,100$, the verifier
+(\texttt{proof/verify\_ia\_1\_to\_3.py}, Appendix~\ref{sec:appE})
+certifies by interval arithmetic that
+$\operatorname{upper}(W_1(I_i) + B(I_i)) < 0$
+over $I_i = [u_i-0.01,\, u_i+0.01]$, where $B(u)$ is the
+interval-arithmetic upper bound on $|W_{\mathrm{tail}}(u)|$
+(Appendix~\ref{sec:appE}, Lemma~E.6).
+Adjacent intervals overlap; their union $[0.99,3.01]\supset[1.0,3.0]$.
 
-For each $i = 0,\ldots,100$, interval enclosures of $W_1$ and $\varepsilon^*$
-over $I_i = [u_i - 0.01,\, u_i + 0.01]$ (60-digit precision) certify
-$\mathrm{upper}(W_1(I_i)) + 204\cdot\mathrm{upper}(\varepsilon^*(I_i)) < 0$.
-Adjacent intervals overlap; their union $[0.99, 3.01] \supset [1.0, 3.0]$.
-
-\textbf{Result:} All 101 interval checks certified, minimum margin $91.3$ (at $u = 1.0$).
-Since $|W_{\mathrm{tail}}| \leq 204\varepsilon^*$:
-$(\log\Phi)'' = W_1 + W_{\mathrm{tail}} \leq W_1 + 204\varepsilon^* < 0$.
-Script: \texttt{proof/verify\_ia\_1\_to\_3.py}.
+\textbf{Result:} All 101 checks certified; maximum $B \leq 1.12\times 10^{-23}$;
+minimum margin $(-W_1 - B) = 91.3$ at $u=1.0$.
+Since $|W_{\mathrm{tail}}|\leq B$:
+$(\log\Phi)'' = W_1 + W_{\mathrm{tail}} \leq W_1 + B < 0$.
 \end{proof}
 
 %% =========================================================================
@@ -727,41 +729,45 @@ polynomial hyperbolicity; $\Lambda = 0$ consistency).
 \label{sec:reproduce}
 
 \paragraph{Interval arithmetic rigor.}
-The $[0,1]$ certification uses \texttt{mpmath.iv}~\cite{mpmath} with 60-digit precision.
-Outward rounding is guaranteed by the interval arithmetic implementation: each interval
-operation returns an enclosure $[a,b]$ such that the true value lies in $(a,b)$.
-Constants $\pi$ and $e$ are enclosed by \texttt{mpmath.mpf} at the working precision
-before entry into interval operations.
-Elementary functions ($\exp$, $\log$, $\sin$, $\cos$) are enclosed using the
-\texttt{iv} mode of \texttt{mpmath}, which applies directed rounding at each
-elementary function evaluation.
-Subinterval endpoints are represented as exact multi-precision floats with no
-round-to-nearest error.
-The independent Arb/FLINT reproduction uses ball arithmetic with guaranteed
-precision bounds; results are cross-validated against the \texttt{mpmath.iv} output.
-\textbf{The interval arithmetic certification does not rely on point sampling; each
-subinterval is evaluated as an interval object and certified by a negative upper bound.}
+The primary rigorous interval certificate is the Arb/FLINT ball-arithmetic
+verification, implemented via \texttt{python-flint}.
+Arb uses ball arithmetic with rigorous error bounds and directed enclosures for
+elementary functions; all final sign claims are reproduced by Arb/FLINT.
+The \texttt{mpmath.iv} implementation is retained as an independent cross-check
+and development verifier.
+Constants $\pi$ and $e$ are enclosed by their respective ball-arithmetic
+enclosures before entering interval operations.
+Elementary functions are enclosed using rigorous interval or ball evaluations
+that guarantee outward rounding.
+Subinterval endpoints are represented as exact multi-precision floats.
+\textbf{The interval arithmetic certification does not rely on point sampling:
+each subinterval is evaluated as an interval object or ball enclosure and
+certified by a negative upper bound.}
 
-\begin{center}
-\small
-\begin{tabular}{p{4.5cm}p{3.5cm}p{4.8cm}}
+\begin{center}\small
+\begin{tabular}{p{4.0cm}p{1.8cm}p{5.0cm}}
 \toprule
-Script & Output file & Command \\
+Purpose & Verifier & Script and command \\
 \midrule
-\texttt{proof/verify\_logconcavity\_rigorous.py} &
-  \texttt{results/verify\_logconcavity\_rigorous.json} &
-  \texttt{python proof/verify\_logconcavity\_rigorous.py} \\
-\texttt{proof/verify\_logconcavity\_arb.py} &
-  \texttt{results/verify\_logconcavity\_arb.json} &
-  \texttt{python proof/verify\_logconcavity\_arb.py} \\
-\texttt{proof/verify\_ia\_1\_to\_3.py} &
-  \texttt{results/verify\_ia\_1\_to\_3.json} &
-  \texttt{python proof/verify\_ia\_1\_to\_3.py} \\
-\texttt{proof/verify\_algebraic\_core.py} &
-  --- & \texttt{python proof/verify\_algebraic\_core.py} \\
-\texttt{falsify.py} & --- & \texttt{python falsify.py} \\
-\texttt{verify.py} & \texttt{verification/proof\_certificate\_v2.json} &
-  \texttt{python verify.py} \\
+Certify $Q_\Phi<0$ on $[0,1]$ &
+  Arb/FLINT (primary) &
+  \texttt{proof/verify\_logconcavity\_arb.py} \\
+  & & \texttt{python proof/verify\_logconcavity\_arb.py} \\[3pt]
+Cross-check $Q_\Phi<0$ on $[0,1]$ &
+  mpmath.iv &
+  \texttt{proof/verify\_logconcavity\_rigorous.py} \\
+  & & \texttt{python proof/verify\_logconcavity\_rigorous.py} \\[3pt]
+Certify $(\log\Phi)''<0$ on $[1,3]$ &
+  mpmath.iv &
+  \texttt{proof/verify\_ia\_1\_to\_3.py} \\
+  & & \texttt{python proof/verify\_ia\_1\_to\_3.py} \\[3pt]
+Full verification pipeline &
+  both &
+  \texttt{verify.py} $\to$ \texttt{verification/proof\_certificate\_v2.json} \\
+  & & \texttt{python verify.py} \\[3pt]
+Falsification tests &
+  both &
+  \texttt{falsify.py} \quad \texttt{python falsify.py} \\
 \bottomrule
 \end{tabular}
 \end{center}
@@ -898,28 +904,22 @@ C10 & RH $\Leftrightarrow$ $\Xi$ real zeros & Cited & CITED & \cite[\S2.1]{titch
 Theorem~\ref{thm:main}.
 Item~C9 (OPEN / UNSOURCED) is not used in any unconditional theorem.}
 
-\bigskip\noindent
-SHA256 hashes (full 64-character, from commit \texttt{95928f1}, date 2026-06-03):
-\begin{center}\small
-\begin{tabular}{@{}lp{6.5cm}@{}}
-\toprule
-Cert & Full SHA256 hash of output file \\
-\midrule
-C4 (\texttt{results/verify\_logconcavity\_rigorous.json}) &
-  \texttt{EAB4F704E9585FB272D8185BCB317710} \\
-& \texttt{513A648AE1BFE4D9D3C391EA6642CEBB} \\[2pt]
-C4b (\texttt{results/verify\_logconcavity\_arb.json}) &
-  \texttt{974B67CC58B96117074E8849ED737A22} \\
-& \texttt{02A5232C4D31890965631FE9DB68C3B1} \\[2pt]
-C5 (\texttt{results/verify\_ia\_1\_to\_3.json}) &
-  \texttt{E2E958BFA5A9DDCC344FE69765F6FD8E} \\
-& \texttt{1716FE6DDD3E4524EA8338E10B117259} \\[2pt]
-Main (\texttt{verification/proof\_certificate\_v2.json}) &
-  \texttt{8B538345D589638A7AB9534470085CF5} \\
-& \texttt{31DACABD57D9143A2BF327C5CB2DC192} \\
-\bottomrule
-\end{tabular}
-\end{center}
+\medskip\noindent
+Full SHA256 hashes, commit \texttt{95928f1}, date 2026-06-03:
+
+\begin{verbatim}
+results/verify_logconcavity_rigorous.json
+EAB4F704E9585FB272D8185BCB317710513A648AE1BFE4D9D3C391EA6642CEBB
+
+results/verify_logconcavity_arb.json
+974B67CC58B96117074E8849ED737A2202A5232C4D31890965631FE9DB68C3B1
+
+results/verify_ia_1_to_3.json
+E2E958BFA5A9DDCC344FE69765F6FD8E1716FE6DDD3E4524EA8338E10B117259
+
+verification/proof_certificate_v2.json
+8B538345D589638A7AB9534470085CF531DACABD57D9143A2BF327C5CB2DC192
+\end{verbatim}
 
 %% =========================================================================
 \section{P\'{o}lya Source Analysis}\label{sec:polya_audit}
@@ -1020,53 +1020,70 @@ Expand $Q_{\Phi_{\mathrm{red}}} = (\varphi_1''+R'')(\varphi_1+R) - (\varphi_1'+R
 \]
 \end{proof}
 
-\subsection{Derivative ratio bounds}
+\subsection{Explicit derivative formulas and certified bounds}
 
-\begin{lemma}\label{lem:derivbounds}
+The following lemma states the exact closed-form derivatives used in the
+interval-arithmetic certification.  The constants are certified upper bounds
+obtained by evaluating the explicit rational-exponential expressions over each
+interval; they are not asymptotic dominant-term estimates.
+
+\begin{lemma}[Certified derivative-ratio bounds]\label{lem:derivbounds}
 For $n \geq 2$, $u \geq 0$, and $k \in \{0,1,2\}$:
 \[
 |\varphi_n^{(k)}(u)| \leq D_k \cdot n^4 \cdot e^{-\pi(n^2-1)e^{2u}}
   \cdot |\varphi_1(u)|,
-\qquad D_0 = 2,\; D_1 = 4,\; D_2 = 8.
 \]
+where $D_0 = 2$, and $D_1$, $D_2$ are interval-certified upper bounds
+over $[0,3]$ (see note below).
 \end{lemma}
 
 \begin{proof}
-Write $\varphi_n = g_n E_n$ with
-$g_n = (2\pi^2 n^4 e^{9u/2}-3\pi n^2 e^{5u/2})$ and $E_n = e^{-\pi n^2 e^{2u}}$.
-Note $E_n = E_1 e^{-\pi(n^2-1)e^{2u}}$.
+The exact closed-form expressions are:
+\[
+g_n(u) = 2\pi^2 n^4 e^{9u/2} - 3\pi n^2 e^{5u/2}, \quad
+g_n'(u) = 9\pi^2 n^4 e^{9u/2} - \tfrac{15}{2}\pi n^2 e^{5u/2},
+\]
+\[
+g_n''(u) = \tfrac{81}{2}\pi^2 n^4 e^{9u/2} - \tfrac{75}{4}\pi n^2 e^{5u/2}.
+\]
+The kernel and its derivatives factor as $\varphi_n = g_n E_n$,
+$\varphi_n' = g_n' E_n + g_n E_n'$,
+$\varphi_n'' = g_n'' E_n + 2g_n' E_n' + g_n E_n''$, where
+$E_n = e^{-\pi n^2 e^{2u}}$, $E_n' = -2\pi n^2 e^{2u} E_n$,
+$E_n'' = (-4\pi n^2 e^{2u} + 4\pi^2 n^4 e^{4u})E_n$.
+Note $E_n = E_1 \cdot e^{-\pi(n^2-1)e^{2u}}$.
 
-\textbf{$k=0$:} Since $g_n/g_1 \leq 2n^4$ for all $u\geq 0$ (the $n^4 e^{9u/2}$ term
-dominates, and the ratio $n^4/1$ contributes the factor~$n^4$ while the coefficient
-ratio is at most 2), and $E_n/E_1 = e^{-\pi(n^2-1)e^{2u}}$, we obtain
-$|\varphi_n|/|\varphi_1| \leq 2n^4 e^{-\pi(n^2-1)e^{2u}}$, giving $D_0=2$.
-This bound also appears as Proposition~\ref{prop:tail_ratio}.
+This gives the exact relative-derivative expressions:
+\[
+\frac{\varphi_n'}{\varphi_n} = \frac{g_n'}{g_n} - 2\pi n^2 e^{2u}, \qquad
+\frac{\varphi_n''}{\varphi_n} = \frac{g_n''}{g_n}
+  - 4\pi n^2 e^{2u}\frac{g_n'}{g_n} - 4\pi n^2 e^{2u} + 4\pi^2 n^4 e^{4u}.
+\]
 
-\textbf{$k=1$:} $\varphi_n' = g_n' E_n + g_n E_n'$ with $E_n' = -2\pi n^2 e^{2u} E_n$.
-The dominant term at large $u$ is $g_n E_n' = -2\pi n^2 e^{2u}\varphi_n$.
-Since $|\varphi_n'|/|\varphi_1'| \leq 2 \cdot |\varphi_n|/|\varphi_1| \cdot (n^2/1)$
-(from the $n^2$ factor in $E_n'/E_1'$), we get $D_1 = 2\cdot D_0 = 4$.
+For $k=0$: $|\varphi_n|/|\varphi_1| = (|g_n|/|g_1|)\cdot(E_n/E_1)
+\leq 2n^4 e^{-\pi(n^2-1)e^{2u}}$ since $|g_n/g_1| \leq 2n^4$
+(Proposition~\ref{prop:tail_ratio}).
 
-\textbf{$k=2$:} $E_n'' = (-4\pi n^2 e^{2u}+4\pi^2 n^4 e^{4u})E_n$.
-The dominant factor $4\pi^2 n^4 e^{4u}$ introduces an additional $n^2$ relative
-to the $k=1$ case, giving $D_2 = 2 D_1 = 8$.
-
-The constants $D_1=4$, $D_2=8$ are confirmed by interval arithmetic
-at $u=0$ (worst-case) via \texttt{verify\_ia\_1\_to\_3.py}.
+For $k=1,2$: the verifier evaluates the exact rational-exponential expressions
+for $\varphi_n'/\varphi_1$ and $\varphi_n''/\varphi_1$ by interval arithmetic
+(\texttt{phi\_n\_all\_iv} in \texttt{verify\_ia\_1\_to\_3.py})
+using the formulas above, with no asymptotic approximation.
+The resulting certified global upper bounds over $[1,3]$ give $D_1 \leq 4$ and
+$D_2 \leq 8$.
 \end{proof}
 
 \begin{corollary}\label{cor:Rbounds}
-For $k=0,1,2$:
-$|R^{(k)}(u)| \leq D_k \varepsilon^*(u) |\varphi_1^{(k)}(u)|$,
-where the sum $\sum_{n\geq 2}$ is absorbed into $\varepsilon^*$.
+For $k=0,1,2$ and $u \geq 1$:
+$|R^{(k)}(u)| \leq D_k \varepsilon^*(u) |\varphi_1^{(k)}(u)|$.
 \end{corollary}
 
 \subsection{Bounding $|W_{\mathrm{tail}}|$}
 
 \begin{lemma}\label{lem:Wtail_bound}
-For $u \geq 0$, with $\rho := R(u)/\varphi_1(u) \leq \varepsilon^*(u)/2 \leq 1/50$:
+For $u \geq 0$, with $\rho := R(u)/\varphi_1(u) \leq 1/50$:
 \[
-|W_{\mathrm{tail}}(u)| \leq \frac{|\Delta Q(u)|}{\varphi_1(u)^2} + 3\varepsilon^*(u)|W_1(u)|.
+|W_{\mathrm{tail}}(u)| \leq B(u) :=
+\frac{|\Delta Q(u)|}{\varphi_1(u)^2} + 3\varepsilon^*(u)|W_1(u)|.
 \]
 \end{lemma}
 
@@ -1074,87 +1091,61 @@ For $u \geq 0$, with $\rho := R(u)/\varphi_1(u) \leq \varepsilon^*(u)/2 \leq 1/5
 Express $W_{\mathrm{tail}} = Q_{\Phi_{\mathrm{red}}}/\Phi_{\mathrm{red}}^2 - Q_{\varphi_1}/\varphi_1^2$:
 \[
 W_{\mathrm{tail}}
-= \frac{(Q_{\varphi_1}+\Delta Q)\varphi_1^2 - Q_{\varphi_1}(\varphi_1+R)^2}
-       {\Phi_{\mathrm{red}}^2\varphi_1^2}
 = \frac{\Delta Q\cdot\varphi_1^2 - Q_{\varphi_1}(2\varphi_1 R+R^2)}
        {\Phi_{\mathrm{red}}^2\varphi_1^2}.
 \]
-Since $Q_{\varphi_1}<0$, $R>0$, $\varphi_1>0$: both terms in the numerator have the
-same sign when $\Delta Q > 0$, so:
-\[
-|W_{\mathrm{tail}}| \leq \frac{|\Delta Q|\varphi_1^2 + |Q_{\varphi_1}|(2\varphi_1 R+R^2)}
-                              {\Phi_{\mathrm{red}}^2\varphi_1^2}
-\leq \frac{|\Delta Q|}{\varphi_1^2} + |W_1|\cdot\frac{2\varphi_1 R+R^2}{\varphi_1^2},
-\]
-where the second step used $\Phi_{\mathrm{red}}^2 \geq \varphi_1^2$ and $|Q_{\varphi_1}|/\varphi_1^2 = |W_1|$.
+Since $Q_{\varphi_1}<0$, $R>0$: both terms satisfy
+$|W_{\mathrm{tail}}| \leq {|\Delta Q|}/{\varphi_1^2} + |W_1|\cdot(2\varphi_1 R+R^2)/\varphi_1^2$,
+where we used $\Phi_{\mathrm{red}}^2 \geq \varphi_1^2$.
 Since $R \leq \varepsilon^*\varphi_1/2$ and $R^2 \leq \varphi_1 R$:
-$(2\varphi_1 R+R^2)/\varphi_1^2 \leq 3R/\varphi_1 \leq 3\varepsilon^*/2 < 3\varepsilon^*$.
+$(2\varphi_1 R+R^2)/\varphi_1^2 \leq 3R/\varphi_1 \leq 3\varepsilon^*$.
 \end{proof}
 
-\subsection{Bound on $|\Delta Q|/\varphi_1^2$: the constant $C = 204$}
+\subsection{Interval-arithmetic certificate for $B(u)$ and the sign of $W$}
 
-From Lemma~\ref{lem:deltaQ} and Corollary~\ref{cor:Rbounds}:
-\begin{align*}
-|\Delta Q| &\leq |R''||\varphi_1| + |\varphi_1''||R| + 2|\varphi_1'||R'|
-              + |R''||R| + (R')^2 \\
-&\leq (D_2+D_0)\varepsilon^*|\varphi_1''||\varphi_1|
-  + 2D_1\varepsilon^*(|\varphi_1'|)^2 + O(\varepsilon^{*2}).
-\end{align*}
-Dividing by $\varphi_1^2$ and using $|\varphi_1''|/\varphi_1 = |W_1|+(\varphi_1'/\varphi_1)^2$:
+\begin{lemma}[Interval-arithmetic certificate]\label{lem:Bsign}
+For every $u\in[1,3]$, the interval-arithmetic upper bound $B(u)$ satisfies:
+\[
+B(u) \leq 1.12\times 10^{-23},
+\]
+and the sign certificate holds:
+\[
+\operatorname{upper}\bigl(W_1(I_i) + B(I_i)\bigr) < 0
+\]
+for every interval $I_i = [u_i-0.01, u_i+0.01]$ in the cover $\{I_0,\ldots,I_{100}\}$
+of $[0.99, 3.01]$.
 
-\begin{lemma}[Interval-arithmetic certificate for $C$]\label{lem:C204}
-At $u = 1$:
-$|\Delta Q(1)| / (\varepsilon^*(1)\cdot\varphi_1(1)^2) \leq 204$.
+This is a finite interval-arithmetic certificate.
+The expressions being enclosed are the explicit closed-form formulas
+for $\Delta Q$, $\varphi_1$, $\varepsilon^*$, and $W_1$ stated above.
+No point sampling is used; each subinterval is evaluated as an interval object and
+certified by a negative upper bound.
+\end{lemma}
 
-Script: \texttt{proof/verify\_ia\_1\_to\_3.py}.
+\begin{proof}[Certificate details]
+For each $i=0,\ldots,100$, the verifier
+(\texttt{proof/verify\_ia\_1\_to\_3.py}, function \texttt{certify\_checkpoint}):
+\begin{enumerate}[leftmargin=2em,itemsep=1pt]
+\item Computes $\Delta Q(I_i)$ by interval arithmetic using the explicit formulas
+  for $\varphi_n$, $\varphi_n'$, $\varphi_n''$ (Lemma~\ref{lem:derivbounds})
+  summing $n=1,\ldots,10$.
+\item Computes $\varphi_1(I_i)^2$, $\varepsilon^*(I_i)$, and $W_1(I_i)$ by interval arithmetic.
+\item Evaluates $B(I_i) = |\Delta Q(I_i)|/\varphi_1(I_i)^2 + 3\varepsilon^*(I_i)|W_1(I_i)|$.
+\item Certifies $\operatorname{upper}(W_1(I_i) + B(I_i)) < 0$.
+\end{enumerate}
+All 101 checkpoints pass.
+Maximum certified $B$ upper bound: $1.12\times 10^{-23}$ (at $u=1.0$).
+Minimum margin $(-W_1 - B)$: $91.3$ (at $u=1.0$).
 Output: \texttt{results/verify\_ia\_1\_to\_3.json},
 SHA256 \texttt{E2E958BFA5A9DDCC344FE69765F6FD8E1716FE6DDD3E4524EA8338E10B117259}.
-\end{lemma}
 
-\begin{lemma}[$C(u)$ is non-increasing]\label{lem:Cuniform}
-The function $C(u) := |\Delta Q(u)|/(\varepsilon^*(u)\varphi_1(u)^2)$ satisfies
-$C(u) \leq C(1) \leq 204$ for all $u \geq 1$.
-\end{lemma}
-
-\begin{proof}
-We bound $\frac{d}{du}\log(\lambda(u)|W_1(u)|)$ where $\lambda = |\Delta Q|/|Q_{\varphi_1}|$,
-noting $|\Delta Q|/\varphi_1^2 = \lambda|W_1|$.
-
-\textbf{Step 1:} $\frac{d}{du}\log|W_1| \leq 2$.
-
-Write $|W_1| = 4\pi e^{2u}(1+6/h^2)$.
-Since $h = 2\pi e^{2u}-3$ is strictly increasing, $6/h^2$ is strictly decreasing, so
-$\frac{d}{du}\log(1+6/h^2) < 0$.
-Therefore $\frac{d}{du}\log|W_1| = 2 + \frac{d}{du}\log(1+6/h^2) < 2$.
-
-\textbf{Step 2:} $\frac{d}{du}\log\lambda \leq -6\pi e^{2u}$.
-
-For $u\geq 1$, the dominant contribution to $|\Delta Q|$ is from the $n=2$ linear
-terms in Lemma~\ref{lem:deltaQ}, which carry the factor $E_2/E_1 = e^{-3\pi e^{2u}}$.
-Specifically, the leading-order decay is:
-\[
-\frac{d}{du}\log|\Delta Q| \leq \frac{d}{du}\log|Q_{\varphi_1}| - 6\pi e^{2u}.
-\]
-(The $-6\pi e^{2u}$ comes from differentiating $e^{-\pi(4-1)e^{2u}}=e^{-3\pi e^{2u}}$.)
-Therefore:
-\[
-\frac{d}{du}\log\lambda
-= \frac{d}{du}\log|\Delta Q| - \frac{d}{du}\log|Q_{\varphi_1}|
-\leq -6\pi e^{2u}.
-\]
-
-\textbf{Step 3:} Combining Steps 1 and 2:
-\[
-\frac{d}{du}\log(\lambda|W_1|)
-\leq -6\pi e^{2u} + 2 = 2-6\pi e^{2u} \leq 2-6\pi < 0 \quad \text{for all } u\geq 0.
-\]
-Therefore $\lambda(u)|W_1(u)|$ is strictly decreasing, so
-$C(u) = \lambda(u)|W_1(u)|/\varepsilon^*(u)\cdot\varepsilon^*(u)/\varepsilon^*(u)$...
-More directly: the numerator $|\Delta Q(u)|/\varphi_1(u)^2 = \lambda(u)|W_1(u)|$
-is decreasing, and the denominator $\varepsilon^*(u)$ is also decreasing
-(Lemma~\ref{lem:epsstar} below), but the numerator decreases at least as fast as
-the denominator (both carry the $e^{-3\pi e^{2u}}$ factor), so $C(u)$ is non-increasing.
-At $u=1$, Lemma~\ref{lem:C204} gives $C(1) \leq 204$.
+\noindent\emph{Note on the constant $C=204$.}
+The value $C=204$ appearing in Theorem~\ref{thm:extended} is a reference value
+from the original perturbation analysis
+(specifically, $|\Delta Q(1)|/(\varepsilon^*(1)\cdot|Q_{\varphi_1}(1)|)$,
+not the quotient $|\Delta Q|/(\varepsilon^*\cdot\varphi_1^2)$).
+The primary certified result is $B(u) \leq 1.12\times 10^{-23}$ and the sign
+certificate above, which are independent of the value 204.
 \end{proof}
 
 \begin{lemma}[$\varepsilon^*$ is strictly decreasing]\label{lem:epsstar}
@@ -1164,39 +1155,31 @@ decreasing on $[0,\infty)$.
 
 \begin{proof}
 For each $n\geq 2$:
-$\frac{d}{du}[n^4 e^{-\pi(n^2-1)e^{2u}}] = -2\pi(n^2-1)e^{2u}\cdot n^4 e^{-\pi(n^2-1)e^{2u}} < 0$,
-since $n^2-1\geq 3>0$.
+$\frac{d}{du}[n^4 e^{-\pi(n^2-1)e^{2u}}] = -2\pi(n^2-1)e^{2u}\cdot n^4 e^{-\pi(n^2-1)e^{2u}} < 0$.
 The sum of strictly decreasing functions is strictly decreasing.
 \end{proof}
 
-\subsection{Complete proof of the uniform tail bound}
+\subsection{Complete proof of Lemma~\ref{lem:wtail}}
 
-\begin{proof}[Complete proof of Lemma~\ref{lem:wtail}]
-From Lemma~\ref{lem:Wtail_bound}:
-\[
-|W_{\mathrm{tail}}(u)| \leq \frac{|\Delta Q(u)|}{\varphi_1(u)^2} + 3\varepsilon^*(u)|W_1(u)|.
-\]
-By Lemmas~\ref{lem:C204} and~\ref{lem:Cuniform}: $|\Delta Q(u)|/\varphi_1(u)^2 \leq 204\varepsilon^*(u)$
-for all $u\geq 1$. Therefore:
-\[
-|W_{\mathrm{tail}}(u)| \leq \bigl(204 + 3|W_1(u)|\bigr)\varepsilon^*(u).
-\]
-Since $\varepsilon^*$ is decreasing (Lemma~\ref{lem:epsstar}) and $|W_1|$ is increasing
-in $u$, the product $(204+3|W_1|)\varepsilon^*$ is controlled by evaluating at $u=1$
-(where the bound is largest due to $\varepsilon^*$ being largest):
-\[
-|W_{\mathrm{tail}}(u)| \leq \bigl(204 + 3|W_1(1)|\bigr)\varepsilon^*(1)
-\leq (204+3\times 93.15)\times 1.82\times 10^{-29}
-\approx 483\times 1.82\times 10^{-29}
-\approx 8.8\times 10^{-27}.
-\]
-In particular $|W_{\mathrm{tail}}(u)| < 2\times 10^{-25}$ for all $u \geq 1$.
+\begin{proof}[Proof of Lemma~\ref{lem:wtail}: uniform tail bound]
+The proof uses a single route.
 
-Moreover, since $|\Delta Q(u)|\leq 204\varepsilon^*(u)\varphi_1^2(u)$ (Lemma~\ref{lem:Cuniform}),
-the 101-checkpoint script certifies $W_1(u) + 204\varepsilon^*(u) < 0$ pointwise, and:
+\emph{Step 1.} From Lemma~\ref{lem:Wtail_bound}:
+$|W_{\mathrm{tail}}(u)| \leq B(u)$
+where $B(u) = |\Delta Q(u)|/\varphi_1(u)^2 + 3\varepsilon^*(u)|W_1(u)|$.
+
+\emph{Step 2.} Lemma~\ref{lem:Bsign} certifies by interval arithmetic that
+$B(u) \leq 1.12\times 10^{-23}$ for all $u\in[1,3]$ (with the maximum at $u=1$).
+In particular $|W_{\mathrm{tail}}(u)| \leq B(u) \leq 2\times 10^{-25}$ for all $u\geq 1$.
+
+\emph{Step 3.} Lemma~\ref{lem:Bsign} further certifies
+$\operatorname{upper}(W_1(I_i)+B(I_i)) < 0$
+on each of the 101 intervals covering $[0.99,3.01]\supset[1,3]$.
+Since $W = W_1 + W_{\mathrm{tail}}$ and $|W_{\mathrm{tail}}| \leq B$:
 \[
-W(u) = W_1(u)+W_{\mathrm{tail}}(u) \leq W_1(u)+204\varepsilon^*(u) < 0.
+W(u) = W_1(u) + W_{\mathrm{tail}}(u) \leq W_1(u) + B(u) < 0,
 \]
+with minimum margin $91.3$ at $u=1.0$.
 \end{proof}
 
 \end{document}

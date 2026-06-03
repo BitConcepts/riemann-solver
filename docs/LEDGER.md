@@ -11,3 +11,9 @@
 - **Type**: task
 - **Status**: complete
 - **Chain hash**: `bef65c5131e67ba8...`
+
+## 2026-06-03T09:40 — specsmith migration: 0.11.8 → 0.12.0
+- **Author**: specsmith
+- **Type**: migration
+- **Status**: complete
+- **Chain hash**: `ea4fe59cc7c4bb0c...`

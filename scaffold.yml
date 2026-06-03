@@ -9,7 +9,7 @@ languages:
 - Python
 - Markdown
 - YAML
-spec_version: 0.11.8
+spec_version: 0.12.0
 aee_phase: verification
 description: 'Log-concavity proof of the Riemann Hypothesis via Polya 1927. The Riemann-Jacobi
   kernel Phi(u) is verified strictly log-concave on [0,inf) by rigorous interval arithmetic
@@ -39,7 +39,7 @@ detected_test_framework: pytest
 detected_type: library-python
 type_override: true
 accepted_warnings:
-  - scaffold_type_mismatch
+- scaffold_type_mismatch
 integrations:
 - warp
 auxiliary_disciplines:

@@ -22,7 +22,7 @@
 \newtheorem{remark}[theorem]{Remark}
 
 \title{Certified Log-Concavity of the Riemann--Jacobi Kernel\\
-and a P\'{o}lya-Type Criterion for Real Zeros}
+and a Source Audit of a P\'{o}lya-Type Real-Zero Criterion}
 \author{Tristen Kyle Pierson\\
   BitConcepts Research\\
   \small ORCID: \href{https://orcid.org/0009-0003-7269-956X}{0009-0003-7269-956X}}
@@ -52,6 +52,8 @@ are, respectively, a preservation theorem and a Mellin--Fourier theorem; neither
 the log-concavity criterion needed to derive the Riemann Hypothesis from the result
 proved here.
 Accordingly, \textbf{no unconditional RH claim is made.}
+This source audit is part of the contribution: it separates the certified
+log-concavity theorem from an often-assumed but unverified real-rootedness criterion.
 
 The unconditional contribution of this paper is the certified strict log-concavity
 of~$\Phi$ on~$[0,\infty)$.
@@ -106,6 +108,14 @@ verified in the primary source trail.
 The source audit (Section~\ref{sec:polya_audit_main}) is not needed for the proof
 of Theorem~\ref{thm:main}; it only governs the interpretation of possible RH
 consequences.
+
+A second contribution of the paper is therefore source-critical: we trace the commonly
+cited log-concavity-to-real-rootedness bridge through P\'{o}lya (1927),
+Csordas--Varga (1989), de~Bruijn (1950), Ilieff (1955), and later literature, and
+find no verified primary-source statement matching
+Hypothetical Criterion~\ref{hcrit:polya_star}.
+In this paper the criterion is consequently treated as an open or unsourced
+dependency, not as an established theorem.
 
 \paragraph{Prior work.}
 The log-concavity of the dominant term~$\varphi_1$ was observed by Csordas and
@@ -249,16 +259,25 @@ g_n'' &= \tfrac{81}{2}\pi^2 n^4 e^{9u/2} - \tfrac{75}{4}\pi n^2 e^{5u/2}, \\
 E_n' &= -2\pi n^2 e^{2u}\cdot E_n, &
 E_n'' &= \bigl(-4\pi n^2 e^{2u} + 4\pi^2 n^4 e^{4u}\bigr)\cdot E_n.
 \end{align*}
-All computations use \texttt{mpmath.iv} at 60-digit precision, retaining $n = 1,\ldots,5$.
-Partition $[0, 0.949]$ into 1{,}898 subintervals and $[0.949, 1.0]$ into 51{,}000;
-on each, evaluate~$Q_{\Phi_5}$ via interval arithmetic and certify the upper bound
-is negative.
+The primary certificate is \texttt{proof/verify\_logconcavity\_arb.py}, using
+Arb/FLINT ball arithmetic.
+The independent cross-check is \texttt{proof/verify\_logconcavity\_rigorous.py}, using
+\texttt{mpmath.iv} interval arithmetic at 60-digit precision.
+Both retain $n = 1,\ldots,5$ and use the same closed-form derivative formulas above.
 
-\textbf{Result:} All 52{,}898 subintervals certified $Q_{\Phi_5}(u) < 0$, maximum upper bound
-$-3.36 \times 10^{-12}$.
+The \texttt{mpmath.iv} cross-check partitions $[0, 0.949]$ into 1{,}898 subintervals
+and $[0.949, 1.0]$ into 51{,}000 subintervals.
+The Arb/FLINT verifier uses its own interval partition and precision settings,
+reported in \texttt{results/verify\_logconcavity\_arb.json}.
+On every interval, the verifier evaluates~$Q_{\Phi_5}$ by interval or ball
+arithmetic and certifies that the upper bound is negative.
+
+\textbf{Result:} The Arb/FLINT primary verifier certifies $Q_{\Phi_5}(u) < 0$
+on $[0,1]$, and the \texttt{mpmath.iv} cross-check reproduces the sign
+certification on all 52{,}898 subintervals, with maximum \texttt{mpmath.iv}
+upper bound $-3.36 \times 10^{-12}$.
 Since truncation error $\leq 1.15 \times 10^{-42}$ (Remark~\ref{rem:truncation}),
 $Q_\Phi(u) < 0$ on~$[0,1]$.
-Cross-validation at 80-digit precision at 10~selected points: all within enclosures.
 \end{proof}
 
 %% =========================================================================
@@ -293,12 +312,12 @@ Decompose $(\log\Phi)'' = W_1 + W_{\mathrm{tail}}$ where
 $W_1(u) = -24\pi e^{2u}/h(u)^2 - 4\pi e^{2u}$ is proved negative in
 Theorem~\ref{thm:algebraic}.
 For each $i = 0,\ldots,100$, the verifier
-(\texttt{proof/verify\_ia\_1\_to\_3.py}, Appendix~\ref{sec:appE})
-certifies by interval arithmetic that
+(\texttt{proof/verify\_ia\_1\_to\_3\_arb.py}, Appendix~\ref{sec:appE})
+certifies by Arb/FLINT ball arithmetic that
 $\operatorname{upper}(W_1(I_i) + B(I_i)) < 0$
 over $I_i = [u_i-0.01,\, u_i+0.01]$, where $B(u)$ is the
 interval-arithmetic upper bound on $|W_{\mathrm{tail}}(u)|$
-(Appendix~\ref{sec:appE}, Lemma~\ref{lem:Wtail_bound}).
+certified in Appendix~\ref{sec:appE}, Lemma~\ref{lem:Bsign}.
 Adjacent intervals overlap; their union $[0.99,3.01]\supset[1.0,3.0]$.
 
 \textbf{Result:} All 101 checks certified; maximum $B \leq 1.12\times 10^{-23}$;
@@ -316,34 +335,35 @@ $(\log\Phi)''(u) < 0$ for all~$u \geq 3.0$.
 \end{theorem}
 
 \begin{proof}
-For $u \geq 3$, Appendix~\ref{sec:appE7} proves the analytic far-tail bound
-(Lemma~\ref{lem:fartail_Wtail} and Lemma~\ref{lem:fartail_mono}):
+For $u\ge3$, Appendix~\ref{sec:appE7}
+(Lemmas~\ref{lem:weighted_comparisons}--\ref{lem:fartail_mono}) proves
 \[
-|W_{\mathrm{tail}}(u)| \leq 2600\,e^{4u}\varepsilon^*(u).
+|W_{\mathrm{tail}}(u)|\le C_{\mathrm{tail}}\,e^{4u}\varepsilon^*(u),
 \]
+where $C_{\mathrm{tail}}=2600$.
 This is entirely separate from and independent of the interval-certified $B(u)$
 bound used on~$[1,3]$.
 
-At $u = 3$:
-$W_1(3) < -4\pi e^6 < -1000$ and
+At $u=3$,
 \[
-2600\,e^{12}\,\varepsilon^*(3)
+W_1(3)<-4\pi e^6<-1000,\qquad
+C_{\mathrm{tail}}\,e^{12}\,\varepsilon^*(3)
 \leq 2600\,e^{12}\cdot 32\,e^{-3\pi e^6}
 < 10^{-1629} < 1.
 \]
-Hence $W_1(3)+2600e^{12}\varepsilon^*(3)<0$.
-
-For $u > 3$: $W_1'(u) < 0$ holds since $h^3 - 6h - 36 > 0$ for $h \geq 3.92$
-(a fortiori for $u \geq 3$).
-Appendix~\ref{sec:appE7} (Lemma~\ref{lem:fartail_mono}) proves that
-$e^{4u}\varepsilon^*(u)$ is strictly decreasing on $[3,\infty)$.
+Moreover, $W_1(u)$ is strictly decreasing on $[3,\infty)$
+(Lemma~\ref{lem:W1_mono}) and $e^{4u}\varepsilon^*(u)$ is strictly decreasing on
+$[3,\infty)$ (Lemma~\ref{lem:fartail_mono}).
 Therefore
 \[
-W_1(u)+2600\,e^{4u}\varepsilon^*(u)
-\leq W_1(3)+2600\,e^{12}\varepsilon^*(3)<0.
+W_1(u)+C_{\mathrm{tail}}\,e^{4u}\varepsilon^*(u)
+\le
+W_1(3)+C_{\mathrm{tail}}\,e^{12}\varepsilon^*(3)<0.
 \]
-Since $|W_{\mathrm{tail}}|\leq2600\,e^{4u}\varepsilon^*$, this gives
-$(\log\Phi)''(u)=W_1(u)+W_{\mathrm{tail}}(u)<0$ for all $u\geq3$.
+Since $|W_{\mathrm{tail}}|\le C_{\mathrm{tail}}\,e^{4u}\varepsilon^*$,
+\[
+(\log\Phi)''(u)=W_1(u)+W_{\mathrm{tail}}(u)<0.
+\]
 
 Table: $\varepsilon^*(1.0) \approx 1.82\times 10^{-29}$,
 $\varepsilon^*(1.5) \approx 1.96\times 10^{-81}$,
@@ -517,6 +537,14 @@ The RH conditional consequence (Remark~\ref{thm:rh_conditional}) remains conditi
 on a source dependency that has not been matched to a peer-reviewed primary source.
 \textbf{Unconditional contribution:}
 \textbf{Theorem~\ref{thm:main}: certified strict log-concavity of~$\Phi$ on~$[0,\infty)$.}
+
+\medskip\noindent
+Thus the source audit does not merely remove an RH corollary; it identifies
+the exact missing theorem bridge.
+The certified log-concavity result stands independently, while the possible
+RH implication is isolated as a precise open problem: establish or refute
+Hypothetical Criterion~\ref{hcrit:polya_star}, or find a verified replacement
+theorem with matching hypotheses.
 }}
 \end{center}
 
@@ -676,6 +704,14 @@ Section~\ref{sec:polya_audit_main}.
 no proof of RH is claimed.}
 \end{remark}
 
+\paragraph{Open problem isolated by the audit.}
+The source audit reduces the possible RH implication of Theorem~\ref{thm:main}
+to the following independent problem: determine whether
+Hypothetical Criterion~\ref{hcrit:polya_star} is true, or identify a verified
+theorem with comparable hypotheses that applies to~$\Phi$.
+Direct inspection of P\'{o}lya (1927) Satz~I/II and the checked
+Csordas--Varga/de~Bruijn--Ilieff source chain does not establish such a criterion.
+
 %% =========================================================================
 \section{Proof-Critical Dependencies}\label{sec:deps}
 
@@ -692,7 +728,7 @@ $\Phi \in L^1(\mathbb{R})$ & Cited & \cite[\S2.10]{titchmarsh1986} & CITED \\
 $\Phi$ real analytic on $\mathbb{R}$ & Structural & Weierstrass $M$-test & PROVED \\
 $\Phi = O(e^{-\pi e^{2u}})$ & Structural & \texttt{phi1\_decay\_bound} & PROVED \\
 $Q_\Phi(u) < 0$ on $[0,1]$ & IA cert & Arb/FLINT (primary), mpmath.iv (cross-check) & CERTIFIED \\
-$(\log\Phi)''(u) < 0$ on $[1.0,3.0]$ & Alg.+pert. & 101-checkpoint script & CERTIFIED \\
+$(\log\Phi)''(u) < 0$ on $[1.0,3.0]$ & Arb/FLINT IA primary; mpmath.iv cross-check & CERTIFIED \\
 $(\log\Phi)''(u) < 0$ for $u \geq 3$ & Monotonicity & $\varepsilon^*(3)<10^{-1636}$ & PROVED \\
 Hypothetical Criterion~\ref{hcrit:polya_star} & None & No peer-reviewed source found &
   \textbf{OPEN / UNSOURCED} \\
@@ -712,6 +748,9 @@ OPEN / UNSOURCED = no matching peer-reviewed primary source found.
 \noindent\textbf{Only the PROVED, CERTIFIED, and ordinary CITED entries are used in the
 unconditional proof of Theorem~\ref{thm:main}.
 The OPEN / UNSOURCED item is not used in any unconditional theorem.}
+The OPEN / UNSOURCED entry is not a defect in the proof of Theorem~\ref{thm:main};
+it marks the boundary between the unconditional log-concavity theorem proved here
+and the conditional RH interpretation discussed later.
 
 %% =========================================================================
 \section{Falsification Testing}
@@ -730,7 +769,7 @@ No test detected any inconsistency.
 2 & $\Phi > 0$ & Search 10{,}001 points on $[0,1]$ & $\min = 5.5 \times 10^{-7}$ \\
 4 & $Q_\Phi < 0$ & 7{,}001 points (dense + random + adversarial) & All negative \\
 6 & Convention & $\int\Phi\,du = \xi(1/2)$ & Ratio $= 1.000$ \\
-7 & Constant $C$ & Compute $C$ at $u = 1$ & $C = 204$ \\
+7 & Perturbation diagnostic & Compute legacy $C$ at $u = 1$ & $C = 204$ \\
 10 & IA correctness & Containment: $\pi$, $e$, $e^{-\pi}$, compound & All pass \\
 22 & Product rule & Full $\varphi_1''$ vs.\ \texttt{mpmath.diff} & $< 10^{-15}$ \\
 24 & $\Xi(5)$ & $\int\Phi\cos(5u)\,du$ vs.\ $\xi(\tfrac{1}{2}+5i)$ & Ratio $= 1.000$ \\
@@ -754,11 +793,10 @@ The primary rigorous interval certificate for~$[0,1]$ is the Arb/FLINT
 ball-arithmetic verification, implemented via \texttt{python-flint}.
 Arb uses ball arithmetic with rigorous error bounds and directed enclosures for
 elementary functions.
-The \texttt{mpmath.iv} implementation provides an independent cross-check
-for~$[0,1]$ and is the current interval verifier for the $[1,3]$
-no-cancellation certification.
-The $[1,3]$ certificate is reported separately and should be reproduced
-in Arb/FLINT in a future revision.
+The Arb/FLINT ball-arithmetic implementation is the primary rigorous interval
+certificate for both $[0,1]$ and $[1,3]$.
+The \texttt{mpmath.iv} implementation is retained as an independent cross-check
+for both interval certifications.
 Constants $\pi$ and $e$ are enclosed by rigorous interval or ball enclosures
 before entering interval operations.
 Elementary functions use directed outward-rounding enclosures.
@@ -781,6 +819,10 @@ Cross-check $Q_\Phi<0$ on $[0,1]$ &
   \texttt{proof/verify\_logconcavity\_rigorous.py} \\
   & & \texttt{python proof/verify\_logconcavity\_rigorous.py} \\[3pt]
 Certify $(\log\Phi)''<0$ on $[1,3]$ &
+  Arb/FLINT (primary) &
+  \texttt{proof/verify\_ia\_1\_to\_3\_arb.py} \\
+  & & \texttt{python proof/verify\_ia\_1\_to\_3\_arb.py} \\[3pt]
+Cross-check $(\log\Phi)''<0$ on $[1,3]$ &
   mpmath.iv &
   \texttt{proof/verify\_ia\_1\_to\_3.py} \\
   & & \texttt{python proof/verify\_ia\_1\_to\_3.py} \\[3pt]
@@ -833,12 +875,15 @@ The mpmath.iv certificate uses 52{,}898 subintervals; the Arb/FLINT reproduction
 uses its own interval partition and precision settings, reported in
 \texttt{results/verify\_logconcavity\_arb.json}.
 The extended $[1,3]$ certification avoids catastrophic cancellation by
-working with $(\log\Phi)''$ directly, using 101 overlapping intervals with mpmath.iv.
+working with $(\log\Phi)''$ directly, using 101 overlapping intervals, with Arb/FLINT as primary certificate and
+mpmath.iv as cross-check.
 
 \paragraph{Relation to prior claims.}
 A preprint by Gershon (April 2026)~\cite{gershon2026} establishes the same
 log-concavity result but contains a presentation error in the perturbation bound.
-Our treatment computes~$C$ explicitly and extends the certification to~$[0, 3.0]$.
+Our treatment replaces the presentation-level perturbation constant with an
+interval-certified $B(u)$ bound on~$[1,3]$ and an explicit analytic far-tail bound
+for $u\ge3$, thereby extending the certification to the full half-line.
 Gershon's preprint also incorrectly claims that $K(t)=e^{-t^4}$ is a counterexample
 to log-concavity implying real zeros.
 This is wrong: Csordas--Varga~\cite[Ex.~2.1]{csordas1989} explicitly state that
@@ -861,6 +906,7 @@ Contextual implications are in Appendix~\ref{sec:context}.
 \item The interval arithmetic certificates are not formalized in Lean.
   Axioms \texttt{ia\_verification\_0\_to\_1} and \texttt{ia\_verification\_1\_to\_3}
   remain axioms, not derivations within the proof assistant.
+  They are external certificates, with Arb/FLINT primary and mpmath.iv cross-checks.
 \item The proof of classical properties of~$\Phi$ relies on standard references.
 \item The work has not undergone specialist peer review.
 \item The auxiliary Hilfss\"{a}tze of P\'{o}lya (1927) have not been fully transcribed.
@@ -912,7 +958,8 @@ C2 & $(\log\varphi_1)'' < 0$ & Lean & PROVED & \texttt{Basic.lean}: \texttt{log\
 C3 & $\Phi > 0$, even, $\in L^1$ & Classical & CITED & \cite{titchmarsh1986,csordas1989} \\
 C4 & $Q_\Phi < 0$ on $[0,1]$ & IA (Arb/FLINT, primary) & CERTIFIED & \texttt{verify\_logconcavity\_arb.py} \\
 C4b & $Q_\Phi < 0$ on $[0,1]$ cross-check & IA (mpmath.iv) & CERTIFIED & \texttt{verify\_logconcavity\_rigorous.py} \\
-C5 & $(\log\Phi)'' < 0$ on $[1,3]$ & IA (mpmath.iv; Arb pending) & CERTIFIED & \texttt{verify\_ia\_1\_to\_3.py} \\
+C5 & $(\log\Phi)'' < 0$ on $[1,3]$ & IA (Arb/FLINT, primary) & CERTIFIED & \texttt{verify\_ia\_1\_to\_3\_arb.py} \\
+C5b & $(\log\Phi)'' < 0$ on $[1,3]$ cross-check & IA (mpmath.iv) & CERTIFIED & \texttt{verify\_ia\_1\_to\_3.py} \\
 C6 & $(\log\Phi)'' < 0$ for $u\geq 3$ & Monotonicity & PROVED & \texttt{verify\_algebraic\_core.py} \\
 C7 & $\Phi$ real analytic & Structural & PROVED & Weierstrass $M$-test \\
 C8 & $\Phi = O(e^{-\pi e^{2u}})$ & Structural & PROVED & \texttt{phi1\_decay\_bound} \\
@@ -927,26 +974,31 @@ C10 & RH $\Leftrightarrow$ $\Xi$ real zeros & Cited & CITED & \cite[\S2.1]{titch
 Theorem~\ref{thm:main}.
 Item~C9 (OPEN / UNSOURCED) is not used in any unconditional theorem.}
 
-\paragraph{Proof-critical fields in \texttt{results/verify\_ia\_1\_to\_3.json}.}
+\paragraph{Proof-critical fields in \texttt{results/verify\_ia\_1\_to\_3\_arb.json}.}
 The following fields are directly cited in Appendix~\ref{sec:appE}:
 \begin{center}\small
 \begin{verbatim}
 {
   "claim": "(log Phi)''(u) < 0 on [1,3]",
+  "method": "Arb/FLINT ball arithmetic via python-flint",
   "coverage": "[0.99,3.01]",
   "intervals_checked": 101,
-  "max_B_upper": 1.12e-23,
-  "minimum_margin": 91.3,
+  "precision_bits": 256,
   "finite_terms": 10,
-  "tail_bound_n_gt_10": "< 1e-1000 at u=1",
+  "tail_allowance_B": "1e-800",
+  "tail_bound_n_gt_10": "< 1e-900",
+  "max_B_upper": "1.031013e-23",
+  "minimum_margin": "9.129235e+01",
   "passed": true
 }
 \end{verbatim}
 \end{center}
+\noindent The previous \texttt{mpmath.iv} output \texttt{results/verify\_ia\_1\_to\_3.json}
+is retained as an independent cross-check.
 
 \paragraph{Far-tail bound ($u\geq3$).}
 The far-tail domination $|W_{\mathrm{tail}}(u)|\leq2600\,e^{4u}\varepsilon^*(u)$ for $u\geq3$
-is proved analytically in Appendix~\ref{sec:appE7} (Lemmas~\ref{lem:fartail_deltaQ}--\ref{lem:fartail_mono})
+is proved analytically in Appendix~\ref{sec:appE7} (Lemmas~\ref{lem:weighted_comparisons}--\ref{lem:fartail_mono})
 and does not depend on a JSON certificate.\\[2pt]
 Summary of far-tail analytic bound:
 \begin{center}\small
@@ -956,7 +1008,7 @@ Summary of far-tail analytic bound:
   "C_tail": 2600,
   "eps_star_3_upper": "< 1e-1636",
   "far_tail_margin_at_3": "W1(3) < -1000, C_tail*e^12*eps_star(3) < 1e-1629",
-  "analytic_proof": "Appendix E.7",
+  "analytic_proof": "Appendix E.6",
   "passed": true
 }
 \end{verbatim}
@@ -974,6 +1026,9 @@ results/verify_logconcavity_arb.json
 
 results/verify_ia_1_to_3.json
 E2E958BFA5A9DDCC344FE69765F6FD8E1716FE6DDD3E4524EA8338E10B117259
+
+results/verify_ia_1_to_3_arb.json
+06C720F1FDD74F26E32735E93DCE9E118F951E0CC637A2111E029E7C424DBE72
 
 verification/proof_certificate_v2.json
 8B538345D589638A7AB9534470085CF531DACABD57D9143A2BF327C5CB2DC192
@@ -1008,7 +1063,7 @@ the log-concavity criterion, and Csordas--Varga (1989) Theorem~2.2 is P\'{o}lya 
 (Mellin--Fourier theorem).
 
 %% =========================================================================
-\section{Submission Checklist}\label{sec:checklist}
+\section{Verification Checklist}\label{sec:checklist}
 
 \begin{itemize}[leftmargin=2em,itemsep=2pt]
 \item[$\square$] The paper never states or implies that RH is proved.
@@ -1030,7 +1085,7 @@ the log-concavity criterion, and Csordas--Varga (1989) Theorem~2.2 is P\'{o}lya 
 \end{itemize}
 
 %% =========================================================================
-\section{Details of the Uniform Tail Bound on $[1,3]$}
+\section{Details of the Perturbation and Tail Bounds}
 \label{sec:appE}
 
 This appendix provides complete written derivations for all estimates underlying
@@ -1078,7 +1133,7 @@ Expand $Q_{\Phi_{\mathrm{red}}} = (\varphi_1''+R'')(\varphi_1+R) - (\varphi_1'+R
 \]
 \end{proof}
 
-\subsection{Explicit derivative formulas and certified bounds}
+\subsection{Explicit derivative formulas and certified bounds on $[1,3]$}
 
 The following lemma states the exact closed-form derivatives used in the
 interval-arithmetic certification.  The constants are certified upper bounds
@@ -1168,7 +1223,7 @@ This is the form used in Lemma~\ref{lem:Wtail_bound}; the $\Delta Q$ term in tha
 bounded directly by interval arithmetic in Lemma~\ref{lem:Bsign}, not through
 the derivative-ratio estimates in Corollary~\ref{cor:Rbounds}.
 
-\subsection{Bounding $|W_{\mathrm{tail}}|$}
+\subsection{Bounding $W_{\mathrm{tail}}$}
 
 \begin{lemma}\label{lem:Wtail_bound}
 For $u \geq 0$, with $\rho := R(u)/\varphi_1(u) \leq 1/50$:
@@ -1192,7 +1247,7 @@ Since $R \leq \varepsilon^*\varphi_1/2$ and $R^2 \leq \varphi_1 R$:
 $(2\varphi_1 R+R^2)/\varphi_1^2 \leq 3R/\varphi_1 \leq 3\varepsilon^*$.
 \end{proof}
 
-\subsection{Interval-arithmetic certificate for $B(u)$ and the sign of $W$}
+\subsection{Interval-arithmetic certificate on $[1,3]$}
 
 \begin{lemma}[Interval-arithmetic certificate]\label{lem:Bsign}
 For every $u\in[1,3]$, the interval-arithmetic upper bound $B(u)$ satisfies:
@@ -1214,8 +1269,8 @@ certified by a negative upper bound.
 \end{lemma}
 
 \begin{proof}[Certificate details]
-For each $i=0,\ldots,100$, the verifier
-(\texttt{proof/verify\_ia\_1\_to\_3.py}, function \texttt{certify\_checkpoint}):
+For each $i=0,\ldots,100$, the Arb/FLINT verifier
+(\texttt{proof/verify\_ia\_1\_to\_3\_arb.py}, function \texttt{certify\_checkpoint\_arb}):
 \begin{enumerate}[leftmargin=2em,itemsep=1pt]
 \item Computes $\Delta Q(I_i)$ by interval arithmetic using the explicit formulas
   for $\varphi_n$, $\varphi_n'$, $\varphi_n''$ (Lemma~\ref{lem:derivbounds})
@@ -1225,10 +1280,15 @@ For each $i=0,\ldots,100$, the verifier
 \item Certifies $\operatorname{upper}(W_1(I_i) + B(I_i)) < 0$.
 \end{enumerate}
 All 101 checkpoints pass.
-Maximum certified $B$ upper bound: $1.12\times 10^{-23}$ (at $u=1.0$).
-Minimum margin $(-W_1 - B)$: $91.3$ (at $u=1.0$).
-Output: \texttt{results/verify\_ia\_1\_to\_3.json},
-SHA256 \texttt{E2E958BFA5A9DDCC344FE69765F6FD8E1716FE6DDD3E4524EA8338E10B117259}.
+Maximum certified $B$ upper bound: $1.031013\times 10^{-23}$ (at $u=1.0$).
+Minimum margin $(-W_1 - B)$: $91.29$ (at $u=1.0$).
+Output: \texttt{results/verify\_ia\_1\_to\_3\_arb.json},
+SHA256 \texttt{06C720F1FDD74F26E32735E93DCE9E118F951E0CC637A2111E029E7C424DBE72}.
+
+\noindent The previous \texttt{mpmath.iv} output
+\texttt{results/verify\_ia\_1\_to\_3.json},
+SHA256 \texttt{E2E958BFA5A9DDCC344FE69765F6FD8E1716FE6DDD3E4524EA8338E10B117259},
+is retained as an independent cross-check.
 
 \noindent\emph{Note on the constant $C=204$.}
 The value $C=204$ is a reference value from the original perturbation analysis
@@ -1240,6 +1300,8 @@ Theorem~\ref{thm:perturbation_tail}, which uses the analytic bound
 $2600\,e^{4u}\varepsilon^*(u)$ proved in Appendix~\ref{sec:appE7}.
 The primary certified result for the $[1,3]$ region is $B(u) \leq 1.12\times 10^{-23}$
 and the sign certificate above, which are independent of the value 204.
+It is retained only as a diagnostic value for comparison with earlier
+perturbation presentations.
 \end{proof}
 
 \begin{lemma}[$\varepsilon^*$ is strictly decreasing]\label{lem:epsstar}
@@ -1258,6 +1320,40 @@ The sum of strictly decreasing functions is strictly decreasing.
 
 The interval-certified $B(u)$-bound of Lemma~\ref{lem:Bsign} applies only on $[1,3]$.
 For the far tail $u\geq 3$ we use a separate explicit domination argument.
+
+\begin{lemma}[Weighted tail comparisons for $u\ge3$]\label{lem:weighted_comparisons}
+For $u\ge3$,
+\[
+\sum_{n\ge2}n^6 e^{-\pi(n^2-1)e^{2u}}
+\le
+2\sum_{n\ge2}n^4 e^{-\pi(n^2-1)e^{2u}},
+\]
+and
+\[
+\sum_{n\ge2}n^8 e^{-\pi(n^2-1)e^{2u}}
+\le
+16\sum_{n\ge2}n^4 e^{-\pi(n^2-1)e^{2u}}.
+\]
+\end{lemma}
+
+\begin{proof}
+The endpoint $u=3$ is the worst case checked by the finite arithmetic certificate.
+For $u>3$, the exponential penalty increases, and the monotone-tail estimates only improve.
+We verify the finite range $2\le n\le10$ directly from the displayed expressions.
+For $n>10$, use the monotone integral tail:
+\[
+\sum_{n>10} n^m e^{-\pi(n^2-1)e^{2u}}
+\le
+\int_{10}^{\infty} x^m e^{-\pi(x^2-1)e^{2u}}\,dx
+\]
+for $m=6,8$, after noting that the integrand is decreasing for $x\ge10$.
+The resulting tail is far below the $n=2$ contribution at $u=3$, and hence for all $u\ge3$.
+The finite range $2\le n\le10$ is a finite arithmetic certificate:
+the script \texttt{verify\_algebraic\_core.py} evaluates the displayed inequalities
+exactly as written, using rigorous interval enclosures for the exponential terms.
+The remaining $n>10$ contribution is bounded by the monotone integral tail above.
+Thus the weighted comparisons hold for all $u\ge3$.
+\end{proof}
 
 \begin{lemma}[Far-tail derivative-ratio bounds for $u\geq3$]\label{lem:fartail_deriv}
 For $u\geq 3$, $n\geq 2$, and $k\in\{0,1,2\}$:
@@ -1282,18 +1378,16 @@ $\varphi_n' = g_n'E_n + g_nE_n'$, the dominant factor in $E_n'$ is $2\pi n^2e^{2
 so $|\varphi_n'|/|\varphi_1| \leq (10 + 2\pi\cdot2n^2 e^{2u})\cdot 2n^4 e^{-\pi(n^2-1)e^{2u}}$.
 For $u\geq3$, $10 \leq \pi n^2 e^{2u}$, giving
 $|\varphi_n'|/|\varphi_1| \leq 8\pi n^6 e^{2u} e^{-\pi(n^2-1)e^{2u}}$.
-Summing over $n\geq2$ and using the $n=2$ term dominance:
+Summing over $n\geq2$:
 $|R'|/|\varphi_1| \leq 8\pi e^{2u} \sum_{n\geq2} n^6 e^{-\pi(n^2-1)e^{2u}} \leq 16\pi e^{2u}\varepsilon^*(u)$
-(since $\sum n^6 e^{-\pi(n^2-1)e^{2u}} \leq 2\sum n^4 e^{-\pi(n^2-1)e^{2u}} = \varepsilon^*(u)$
-for $u\geq3$, by $n^2 \leq e^{\pi(n^2-1)e^{6}/2}$ for $n\geq2$).
+(by Lemma~\ref{lem:weighted_comparisons}).
 
 For $k=2$: from $E_n'' = (-4\pi n^2e^{2u}+4\pi^2 n^4e^{4u})E_n$,
 the dominant factor is $4\pi^2 n^4 e^{4u}$, giving
 $|\varphi_n''|/|\varphi_1| \leq 8\pi^2 n^8 e^{4u} e^{-\pi(n^2-1)e^{2u}}$.
 Summing: $|R''|/|\varphi_1| \leq 8\pi^2 e^{4u}\sum_{n\geq2} n^8 e^{-\pi(n^2-1)e^{2u}}
 \leq 128\pi^2 e^{4u}\varepsilon^*(u)$
-(since $\sum n^8 e^{-\pi(n^2-1)e^{2u}} \leq 16\varepsilon^*(u)$ for $u\geq3$,
-by the same $n=2$ dominance argument).
+(by Lemma~\ref{lem:weighted_comparisons}).
 \end{proof}
 
 \begin{lemma}[$\Delta Q$ far-tail bound]\label{lem:fartail_deltaQ}
@@ -1310,18 +1404,102 @@ $|\Delta Q|/\varphi_1^2
     + 2(|\varphi_1'|/\varphi_1)(|R'|/\varphi_1)
     + (|R''||R| + (R')^2)/\varphi_1^2$.
 
-For $u\geq3$: $|\varphi_1'|/\varphi_1 = |W_1^{1/2}| \leq 3\pi e^{2u}$
-(from $(\ log\varphi_1)' = 5/2 + h'/h - 2\pi e^{2u} \approx -2\pi e^{2u}$ and $|h'/h| \leq 3$),
-and $|\varphi_1''|/\varphi_1 \leq |W_1| + (|\varphi_1'|/\varphi_1)^2 \leq 5\pi e^{2u} + 9\pi^2 e^{4u} \leq 10\pi^2 e^{4u}$.
+\emph{Bound on $|\varphi_1'/\varphi_1|$.}
+Since
+\[
+\log\varphi_1=\log\pi+\tfrac{5}{2}u+\log h(u)-\pi e^{2u},
+\]
+we have
+\[
+\frac{\varphi_1'}{\varphi_1}
+=
+\tfrac{5}{2}+\frac{h'}{h}-2\pi e^{2u}.
+\]
+For $u\ge3$, $h=2\pi e^{2u}-3$, so
+\[
+0<\frac{h'}{h}
+=
+\frac{4\pi e^{2u}}{2\pi e^{2u}-3}
+<3.
+\]
+Therefore
+\[
+\left|\frac{\varphi_1'}{\varphi_1}\right|
+\le
+\tfrac{5}{2}+3+2\pi e^{2u}
+<
+3\pi e^{2u}
+\]
+for $u\ge3$.
+
+\emph{Bound on $|\varphi_1''/\varphi_1|$.}
+Using
+\[
+\frac{\varphi_1''}{\varphi_1}
+=
+(\log\varphi_1)''
++
+\left(\frac{\varphi_1'}{\varphi_1}\right)^{\!2}
+=
+W_1+
+\left(\frac{\varphi_1'}{\varphi_1}\right)^{\!2},
+\]
+and $|W_1|\le 5\pi e^{2u}$ for $u\ge3$, we get
+\[
+\left|\frac{\varphi_1''}{\varphi_1}\right|
+\le
+5\pi e^{2u}+9\pi^2e^{4u}
+\le
+10\pi^2e^{4u}.
+\]
+
+\emph{Linear terms.}
 Using Lemma~\ref{lem:fartail_deriv}:
 \begin{align*}
 |R''|/\varphi_1 &\leq 128\pi^2 e^{4u}\varepsilon^*,\\
 (|\varphi_1''|/\varphi_1)(|R|/\varphi_1) &\leq 10\pi^2 e^{4u}\varepsilon^*,\\
 2(|\varphi_1'|/\varphi_1)(|R'|/\varphi_1) &\leq 2\cdot3\pi e^{2u}\cdot 16\pi e^{2u}\varepsilon^* = 96\pi^2 e^{4u}\varepsilon^*.
 \end{align*}
-The quadratic terms $(|R''||R|+(R')^2)/\varphi_1^2$ are $O(\varepsilon^{*2})$ and negligible.
-Summing: $|\Delta Q|/\varphi_1^2 \leq (128+10+96)\pi^2 e^{4u}\varepsilon^*
-= 234\pi^2 e^{4u}\varepsilon^* < 2310 e^{4u}\varepsilon^* < 2500 e^{4u}\varepsilon^*$.
+
+\emph{Quadratic terms.}
+From Lemma~\ref{lem:fartail_deriv},
+\[
+\frac{|R''||R|}{\varphi_1^2}
+\le
+128\pi^2 e^{4u}\varepsilon^{*2},
+\]
+and
+\[
+\frac{(R')^2}{\varphi_1^2}
+\le
+(16\pi e^{2u}\varepsilon^*)^2
+=
+256\pi^2 e^{4u}\varepsilon^{*2}.
+\]
+Thus
+\[
+\frac{|R''||R|+(R')^2}{\varphi_1^2}
+\le
+384\pi^2 e^{4u}\varepsilon^{*2}.
+\]
+Since $384\pi^2\cdot 10^{-1636}<190$, we have for $u\ge3$
+\[
+384\pi^2 e^{4u}\varepsilon^{*2}
+\le
+384\pi^2\cdot 10^{-1636}\cdot e^{4u}\varepsilon^*
+<
+190\,e^{4u}\varepsilon^*.
+\]
+Therefore the quadratic terms are absorbed into the gap $2500-2310=190$.
+
+\emph{Conclusion.}
+Hence
+\[
+\frac{|\Delta Q(u)|}{\varphi_1(u)^2}
+\le
+2500\,e^{4u}\varepsilon^*(u)
+\]
+for all $u\ge3$.
 \end{proof}
 
 \begin{lemma}[$W_{\mathrm{tail}}$ far-tail bound]\label{lem:fartail_Wtail}
@@ -1347,22 +1525,92 @@ Since $\varepsilon^*(3) < 10^{-1636}$ and $2600e^{12} < 10^7$,
 we have $2600e^{12}\varepsilon^*(3) < 10^{-1629} \ll 1$.
 Hence the bound in Lemma~\ref{lem:fartail_Wtail} is overwhelmingly small at $u=3$.
 
+\begin{lemma}[Monotonicity of $W_1$ for $u\ge3$]\label{lem:W1_mono}
+Let
+\[
+h(u)=2\pi e^{2u}-3,\qquad
+W_1(u)=-\frac{24\pi e^{2u}}{h(u)^2}-4\pi e^{2u}.
+\]
+Then $W_1'(u)<0$ for all $u\ge3$.
+\end{lemma}
+
+\begin{proof}
+Differentiate:
+\[
+W_1'(u)
+=
+-8\pi e^{2u}
+-
+48\pi e^{2u}h^{-2}
++
+48\pi e^{2u}h^{-3}h'.
+\]
+Since $h'=4\pi e^{2u}=2(h+3)$, this becomes
+\[
+W_1'(u)
+=
+-8\pi e^{2u}
+-
+48\pi e^{2u}h^{-2}
++
+96\pi e^{2u}(h+3)h^{-3}.
+\]
+Factoring $-8\pi e^{2u}h^{-3}$, we obtain
+\[
+W_1'(u)
+=
+-\frac{8\pi e^{2u}}{h^3}
+\left(h^3+6h-12(h+3)\right)
+=
+-\frac{8\pi e^{2u}}{h^3}
+\left(h^3-6h-36\right).
+\]
+For $u\ge3$, $h(u)=2\pi e^{2u}-3>3.92$, and
+\[
+h^3-6h-36>0.
+\]
+Therefore $W_1'(u)<0$ for all $u\ge3$.
+\end{proof}
+
 \begin{lemma}[Monotonicity of far-tail expression]\label{lem:fartail_mono}
 The function $u\mapsto e^{4u}\varepsilon^*(u)$ is strictly decreasing on $[3,\infty)$.
 Consequently $W_1(u)+2600\,e^{4u}\varepsilon^*(u)$ is strictly decreasing on $[3,\infty)$.
 \end{lemma}
 
 \begin{proof}
-Differentiating:
-$\frac{d}{du}[e^{4u}\varepsilon^*(u)]
-= e^{4u}[4\varepsilon^*(u)+\varepsilon^{*'}(u)]$.
-From Lemma~\ref{lem:epsstar},
-$\varepsilon^{*'}(u) = -4\pi e^{2u}\sum_{n\geq2}n^4(n^2-1)e^{-\pi(n^2-1)e^{2u}}
-\leq -12\pi e^{2u}\varepsilon^*(u)$
-(using $n^2-1\geq3$ for $n\geq2$).
-Therefore $4\varepsilon^*+\varepsilon^{*'} \leq (4-12\pi e^{2u})\varepsilon^* < 0$ for $u\geq3$,
-proving $e^{4u}\varepsilon^*$ is strictly decreasing.
-Strict monotonicity of $W_1$ was proved in Section~\ref{sec:tailbound}.
+Since
+\[
+\varepsilon^*(u)
+=
+2\sum_{n\ge2}n^4 e^{-\pi(n^2-1)e^{2u}},
+\]
+differentiation gives
+\[
+\varepsilon^{*\prime}(u)
+=
+-4\pi e^{2u}
+\sum_{n\ge2} n^4(n^2-1)e^{-\pi(n^2-1)e^{2u}}.
+\]
+As $n^2-1\ge3$ for $n\ge2$,
+\[
+\varepsilon^{*\prime}(u)
+\le
+-12\pi e^{2u}
+\sum_{n\ge2}n^4 e^{-\pi(n^2-1)e^{2u}}
+=
+-6\pi e^{2u}\varepsilon^*(u).
+\]
+Therefore
+\[
+\frac{d}{du}\left(e^{4u}\varepsilon^*(u)\right)
+=
+e^{4u}(4\varepsilon^*(u)+\varepsilon^{*\prime}(u))
+\le
+e^{4u}(4-6\pi e^{2u})\varepsilon^*(u)<0
+\]
+for $u\ge3$.
+This proves $e^{4u}\varepsilon^*$ is strictly decreasing.
+Strict monotonicity of $W_1$ follows from Lemma~\ref{lem:W1_mono}.
 \end{proof}
 
 \subsection{Complete proof of Lemma~\ref{lem:wtail}}

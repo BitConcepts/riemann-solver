@@ -27,7 +27,8 @@ STEPS = [
     ("verify_algebraic_core.py",        "Algebraic core + perturbation bound (C=204)"),
     ("verify_truncation_and_crosscheck.py", "Truncation error + cross-validation"),
     ("verify_debruijn_condition.py",    "Polya/de Bruijn condition check"),
-    ("verify_ia_1_to_1_5.py",           "Extended cert: (log Phi)'' < 0 on [1.0, 3.0] (101 algebraic checkpoints)"),
+    ("verify_ia_1_to_3_arb.py",          "Arb/FLINT primary cert: (log Phi)'' < 0 on [1.0, 3.0] (101 ball-arithmetic checkpoints)"),
+    ("verify_ia_1_to_1_5.py",           "mpmath.iv cross-check: (log Phi)'' < 0 on [1.0, 3.0] (101 algebraic checkpoints)"),
     ("verify_galerkin_extended.py",     "Galerkin stabilization: CvS form plateau, eigenvector c-invariance (--quick)"),
 ]
 

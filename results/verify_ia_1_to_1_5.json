@@ -10,10 +10,10 @@
   "perturbation_C": 204,
   "certified": 101,
   "failed": 0,
-  "min_margin": 93.14903358816888,
+  "min_margin": 91.29244549652482,
   "worst_u": 1.0,
   "all_certified": true,
-  "time_s": 0.41,
+  "time_s": 0.05,
   "combined_coverage": {
     "[0,1.0]": "IA 52898 subintervals (verify_logconcavity_rigorous.py)",
     "[1.0,3.0]": "algebraic+perturbation (this script, 101 checkpoints)",
@@ -23,9 +23,9 @@
   "checkpoints": [
     {
       "u": 1.0,
-      "W_1_upper": -93.14903358816888,
-      "C_eps_upper": 1.8594730754718548e-27,
-      "margin": 93.14903358816888,
+      "W_1_upper": -91.29244549652482,
+      "C_eps_upper": 7.383603251061743e-27,
+      "margin": 91.29244549652482,
       "ok": true
     },
     {
@@ -723,9 +723,9 @@
     },
     {
       "u": 3.0,
-      "W_1_upper": -5069.640480827045,
+      "W_1_upper": -4969.254690857914,
       "C_eps_upper": 0.0,
-      "margin": 5069.640480827045,
+      "margin": 4969.254690857914,
       "ok": true
     }
   ]

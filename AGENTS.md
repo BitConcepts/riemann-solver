@@ -104,4 +104,18 @@ until reviewed.
 
 ---
 
+## 7. Paper Build Rules
+
+After every LaTeX compilation of `paper/main.tex`, agents MUST copy the
+output PDF to the canonical filename:
+
+```
+cp paper/main.pdf paper/Pierson_LogConcavity_RiemannJacobi_2026.pdf
+```
+
+This is the submission-ready filename. Never leave `main.pdf` as the only
+copy. Do this automatically — do not wait to be asked.
+
+---
+
 *Riemann Hypothesis Solver — Research Project*

@@ -85,7 +85,11 @@ print(f"  Phi decays super-exponentially, so L^1 is satisfied.")
 # Test 7: Does the claim's formula match the STANDARD Xi kernel?
 # Standard: Xi(t) = xi(1/2 + it) where xi(s) = s(s-1)/2 * pi^{-s/2} * Gamma(s/2) * zeta(s)
 print("\nTest 7: Cross-check Phi against mpmath xi function")
-xi_direct = mp.re(mp.xi(mp.mpc(0.5, g1)))
+# Riemann xi: xi(s) = (1/2)*s*(s-1)*pi^{-s/2}*Gamma(s/2)*zeta(s)
+# mpmath.xi() was removed; use manual formula
+def xi_func(s):
+    return mp.mpf('0.5') * s * (s-1) * mp.power(mp.pi, -s/2) * mp.gamma(s/2) * mp.zeta(s)
+xi_direct = mp.re(xi_func(mp.mpc(0.5, g1)))
 xi_fourier = float(xi1) * 8  # H_0(z) = (1/8)*xi(1/2 + iz/2), so Xi(t) = 8*H_0(2t) ... normalization
 print(f"  xi(1/2 + i*gamma_1) = {float(xi_direct):.6e}")
 print(f"  This should be 0 by definition of gamma_1.")

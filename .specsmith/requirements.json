@@ -1,0 +1,71 @@
+{
+  "version": "0.11.7",
+  "project": "riemann-solver",
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "title": "Rigorous log-concavity certificate",
+      "status": "implemented",
+      "tests": ["test_first_zero", "test_first_few_zeros", "test_spacing"]
+    },
+    {
+      "id": "REQ-002",
+      "title": "Independent IA verification",
+      "status": "implemented",
+      "tests": ["test_first_zero", "test_first_few_zeros"]
+    },
+    {
+      "id": "REQ-003",
+      "title": "Algebraic core proof",
+      "status": "implemented",
+      "tests": ["test_first_zero", "test_first_few_zeros"]
+    },
+    {
+      "id": "REQ-004",
+      "title": "Falsification harness",
+      "status": "implemented",
+      "tests": ["test_hardy_z_sign_change", "test_gram_point"]
+    },
+    {
+      "id": "REQ-005",
+      "title": "External claim audit",
+      "status": "implemented",
+      "tests": ["test_hardy_z_sign_change"]
+    },
+    {
+      "id": "REQ-006",
+      "title": "Precision requirements",
+      "status": "implemented",
+      "tests": ["test_zeta_known_values", "test_stieltjes", "test_lambda_1", "test_first_few_positive", "test_growth_check"]
+    },
+    {
+      "id": "REQ-007",
+      "title": "Claim language discipline",
+      "status": "implemented",
+      "tests": ["test_zeta_known_values"]
+    },
+    {
+      "id": "REQ-008",
+      "title": "Reproducibility",
+      "status": "implemented",
+      "tests": ["test_zeta_known_values", "test_lambda_1", "test_first_zero"]
+    },
+    {
+      "id": "REQ-009",
+      "title": "H13 bridge investigation",
+      "status": "partial",
+      "tests": ["test_first_zero", "test_hardy_z_sign_change"]
+    },
+    {
+      "id": "REQ-010",
+      "title": "Generalized Laguerre certifications",
+      "status": "partial",
+      "tests": ["test_first_zero"]
+    }
+  ],
+  "total_requirements": 10,
+  "implemented": 8,
+  "partial": 2,
+  "planned": 0,
+  "last_sync": "2026-06-04T18:25:00Z"
+}

@@ -1,0 +1,766 @@
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12 Portable) (preloaded format=pdflatex.fmt)
+ restricted \write18 enabled.
+entering extended mode
+(main.tex
+LaTeX2e <2025-11-01>
+L3 programming layer <2025-12-24>
+
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/base\article
+.cls
+Document Class: article 2025/01/22 v1.4n Standard LaTeX document class
+
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/base\size11.
+clo))
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/base\fontenc
+.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/base\inputen
+c.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/geometry\geo
+metry.sty
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/graphics\key
+val.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/generic/iftex\ifvt
+ex.sty
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/generic/iftex\ifte
+x.sty))
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/geometry\geo
+metry.cfg))
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\lmodern.s
+ty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mi
+crotype.sty
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/etoolbox\eto
+olbox.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mi
+crotype-pdftex.def)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mi
+crotype.cfg))
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amsm
+ath.sty
+For additional information on amsmath, use the `?' option.
+
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amst
+ext.sty
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amsg
+en.sty))
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amsb
+sy.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/amsmath\amso
+pn.sty))
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ams
+symb.sty
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ams
+fonts.sty))
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/amscls\amsth
+m.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\hyp
+erref.sty
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/kvsetkeys\kv
+setkeys.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/generic/kvdefineke
+ys\kvdefinekeys.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/generic/pdfescape\
+pdfescape.sty
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/generic/ltxcmds\lt
+xcmds.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/generic/pdftexcmds
+\pdftexcmds.sty
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/generic/infwarerr\
+infwarerr.sty)))
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/hycolor\hyco
+lor.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\nam
+eref.sty
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/refcount\ref
+count.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/generic/gettitlest
+ring\gettitlestring.sty
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/kvoptions\kv
+options.sty)))
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/generic/stringenc\
+stringenc.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\pd1
+enc.def)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/generic/intcalc\in
+tcalc.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\pue
+nc.def)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/url\url.sty)
+
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/generic/bitset\bit
+set.sty
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/generic/bigintcalc
+\bigintcalc.sty)))
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/hyperref\hpd
+ftex.def
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/rerunfileche
+ck\rerunfilecheck.sty
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/generic/uniquecoun
+ter\uniquecounter.sty)))
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/booktabs\boo
+ktabs.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/enumitem\enu
+mitem.sty)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/xurl\xurl.st
+y)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\t1lmr.fd)
+
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/l3backend\l3
+backend-pdftex.def) (main.aux)
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mt
+-cmr.cfg) (main.out) (main.out)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\ot1lmr.fd
+)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\omllmm.fd
+)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\omslmsy.f
+d)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\omxlmex.f
+d)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
+a.fd)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mt
+-msa.cfg)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/amsfonts\ums
+b.fd)
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/microtype\mt
+-msb.cfg)
+
+LaTeX Warning: Reference `hcrit:polya_star' on page 1 undefined on input line 5
+9.
+
+
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\t1lmtt.fd
+)
+
+LaTeX Warning: Citation `titchmarsh1986' on page 1 undefined on input line 79.
+
+[1{C:/Users/trist/scoop/apps/miktex/current/texmfs/data/fonts/map/pdftex/pdftex
+.map}{C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/enc/dvips/l
+m/lm-ec.enc}{C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/enc/
+dvips/lm/lm-rm.enc}{C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fon
+ts/enc/dvips/lm/lm-mathit.enc}{C:/Users/trist/scoop/apps/miktex/current/texmfs/
+install/fonts/enc/dvips/lm/lm-mathex.enc}{C:/Users/trist/scoop/apps/miktex/curr
+ent/texmfs/install/fonts/enc/dvips/lm/lm-mathsy.enc}]
+
+LaTeX Warning: Reference `thm:rh_conditional' on page 2 undefined on input line
+ 104.
+
+
+LaTeX Warning: Reference `sec:polya_audit_main' on page 2 undefined on input li
+ne 106.
+
+
+LaTeX Warning: Citation `csordas1989' on page 2 undefined on input line 112.
+
+
+LaTeX Warning: Citation `csordas1986' on page 2 undefined on input line 114.
+
+
+LaTeX Warning: Citation `dimitrov2011' on page 2 undefined on input line 115.
+
+
+LaTeX Warning: Citation `griffin2019' on page 2 undefined on input line 116.
+
+
+LaTeX Warning: Citation `debruijn1950' on page 2 undefined on input line 118.
+
+
+LaTeX Warning: Citation `rodgers2020' on page 2 undefined on input line 118.
+
+
+LaTeX Warning: Reference `hcrit:polya_star' on page 2 undefined on input line 1
+30.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 135.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Phi' on input line 135.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 135.
+
+
+LaTeX Warning: Citation `titchmarsh1986' on page 2 undefined on input line 150.
+
+
+
+LaTeX Warning: Citation `csordas1989' on page 2 undefined on input line 151.
+
+
+LaTeX Warning: Reference `hcrit:polya_star' on page 2 undefined on input line 1
+60.
+
+[2]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 265.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 265.
+
+[3]
+
+LaTeX Warning: Reference `sec:appE' on page 4 undefined on input line 275.
+
+
+LaTeX Warning: Reference `sec:appE' on page 4 undefined on input line 280.
+
+
+LaTeX Warning: Reference `sec:appE' on page 4 undefined on input line 287.
+
+
+LaTeX Warning: Reference `sec:appE' on page 4 undefined on input line 296.
+
+
+LaTeX Warning: Reference `sec:appE' on page 4 undefined on input line 301.
+
+
+LaTeX Warning: Reference `lem:Wtail_bound' on page 4 undefined on input line 30
+1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 311.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\geq' on input line 311.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 311.
+
+
+LaTeX Warning: Reference `sec:appE7' on page 4 undefined on input line 319.
+
+
+LaTeX Warning: Reference `lem:fartail_Wtail' on page 4 undefined on input line 
+320.
+
+
+LaTeX Warning: Reference `lem:fartail_mono' on page 4 undefined on input line 3
+20.
+
+
+LaTeX Warning: Reference `sec:appE7' on page 4 undefined on input line 338.
+
+
+LaTeX Warning: Reference `lem:fartail_mono' on page 4 undefined on input line 3
+38.
+
+
+LaTeX Warning: Citation `polya1927' on page 4 undefined on input line 373.
+
+[4] [5]
+Underfull \hbox (badness 10000) in paragraph at lines 465--465
+\T1/lmr/m/n/10 (+20) log-concavity
+
+Underfull \hbox (badness 10000) in paragraph at lines 467--467
+[]\T1/lmr/m/n/10 (+20) Strong log-
+
+Underfull \hbox (badness 1264) in paragraph at lines 470--470
+[]\T1/lmr/bx/n/10 (+20) Not found
+
+Underfull \hbox (badness 10000) in paragraph at lines 470--470
+\T1/lmr/bx/n/10 (+20) in P�lya
+
+Underfull \hbox (badness 1946) in paragraph at lines 472--473
+[]\T1/lmr/m/n/10 (+20) IF $[] \OML/lmm/m/it/10 Fe[]dt$ \T1/lmr/m/n/10 (+20) has
+ real ze-ros,
+
+Underfull \hbox (badness 10000) in paragraph at lines 474--474
+[]\T1/lmr/m/n/10 (+20) Confirmed
+
+Underfull \hbox (badness 10000) in paragraph at lines 475--475
+[]\T1/lmr/m/n/10 (+20) Satz II: Mellin--
+
+Underfull \hbox (badness 10000) in paragraph at lines 478--479
+[]\T1/lmr/m/n/10 (+20) Confirmed
+
+LaTeX Warning: Citation `polya1927' on page 6 undefined on input line 520.
+
+
+(C:\Users\trist\scoop\apps\miktex\current\texmfs\install\tex/latex/lm\ts1lmr.fd
+)
+
+LaTeX Warning: Citation `cardon2002' on page 6 undefined on input line 520.
+
+
+LaTeX Warning: Citation `csordas2013' on page 6 undefined on input line 520.
+
+
+LaTeX Warning: Citation `csordas2015' on page 6 undefined on input line 520.
+
+
+LaTeX Warning: Citation `gershon2026' on page 6 undefined on input line 520.
+
+
+LaTeX Warning: Reference `thm:rh_conditional' on page 6 undefined on input line
+ 520.
+
+[6]
+
+LaTeX Warning: Citation `brandenchasse2016' on page 7 undefined on input line 5
+28.
+
+
+LaTeX Warning: Citation `ilieff1955' on page 7 undefined on input line 535.
+
+
+LaTeX Warning: Citation `debruijn1950' on page 7 undefined on input line 538.
+
+
+LaTeX Warning: Citation `csordas2013' on page 7 undefined on input line 549.
+
+[7{C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/enc/dvips/lm/l
+m-ts1.enc}]
+
+LaTeX Warning: Citation `csordas2015' on page 8 undefined on input line 554.
+
+
+LaTeX Warning: Citation `csordas1989' on page 8 undefined on input line 562.
+
+
+LaTeX Warning: Citation `csordas1989' on page 8 undefined on input line 608.
+
+
+LaTeX Warning: Reference `sec:falsify' on page 8 undefined on input line 609.
+
+
+LaTeX Warning: Reference `hcrit:polya_star' on page 8 undefined on input line 6
+14.
+
+
+LaTeX Warning: Reference `hcrit:polya_star' on page 8 undefined on input line 6
+16.
+
+
+LaTeX Warning: Reference `hcrit:polya_star' on page 8 undefined on input line 6
+21.
+
+
+LaTeX Warning: Citation `csordas1989' on page 8 undefined on input line 624.
+
+
+LaTeX Warning: Citation `titchmarsh1986' on page 8 undefined on input line 626.
+
+
+
+LaTeX Warning: Citation `titchmarsh1986' on page 8 undefined on input line 634.
+
+
+[8]
+
+LaTeX Warning: Reference `sec:polya_audit' on page 9 undefined on input line 63
+9.
+
+
+LaTeX Warning: Reference `hcrit:polya_star' on page 9 undefined on input line 6
+48.
+
+
+LaTeX Warning: Reference `rem:polya_hyp' on page 9 undefined on input line 648.
+
+
+
+LaTeX Warning: Reference `hcrit:polya_star' on page 9 undefined on input line 6
+63.
+
+
+LaTeX Warning: Reference `hcrit:polya_star' on page 9 undefined on input line 6
+68.
+
+
+LaTeX Warning: Reference `rem:polya_hyp' on page 9 undefined on input line 670.
+
+
+
+LaTeX Warning: Citation `titchmarsh1986' on page 9 undefined on input line 672.
+
+
+
+LaTeX Warning: Reference `sec:polya_audit_main' on page 9 undefined on input li
+ne 674.
+
+
+LaTeX Warning: Reference `hcrit:polya_star' on page 9 undefined on input line 6
+76.
+
+
+LaTeX Warning: Citation `csordas1989' on page 9 undefined on input line 689.
+
+
+LaTeX Warning: Citation `titchmarsh1986' on page 9 undefined on input line 690.
+
+
+
+LaTeX Warning: Citation `titchmarsh1986' on page 9 undefined on input line 691.
+
+
+
+LaTeX Warning: Reference `hcrit:polya_star' on page 9 undefined on input line 6
+97.
+
+
+LaTeX Warning: Citation `titchmarsh1986' on page 9 undefined on input line 699.
+
+
+
+Overfull \hbox (105.32443pt too wide) in paragraph at lines 683--702
+ [] 
+[9] [10]
+Overfull \hbox (25.73573pt too wide) in paragraph at lines 777--778
+[]\T1/lmtt/m/n/10 proof/verify_logconcavity_arb.py| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 778--778
+[]\T1/lmtt/m/n/10 python
+
+Overfull \hbox (25.73573pt too wide) in paragraph at lines 778--778
+\T1/lmtt/m/n/10 proof/verify_logconcavity_arb.py|| 
+
+Overfull \hbox (51.98566pt too wide) in paragraph at lines 781--782
+[]\T1/lmtt/m/n/10 proof/verify_logconcavity_rigorous.py| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 782--782
+[]\T1/lmtt/m/n/10 python
+
+Overfull \hbox (51.98566pt too wide) in paragraph at lines 782--782
+\T1/lmtt/m/n/10 proof/verify_logconcavity_rigorous.py|| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 786--786
+[]\T1/lmtt/m/n/10 python
+
+Underfull \hbox (badness 10000) in paragraph at lines 789--790
+[]\T1/lmtt/m/n/10 verify.py $\OMS/lmsy/m/n/10 !$
+
+Overfull \hbox (56.97314pt too wide) in paragraph at lines 789--790
+\T1/lmtt/m/n/10 verification/proof_certificate_v2.json| 
+
+Underfull \hbox (badness 10000) in paragraph at lines 793--794
+[]\T1/lmtt/m/n/10 falsify.py  python
+
+LaTeX Warning: Citation `titchmarsh1986' on page 11 undefined on input line 820
+.
+
+
+Overfull \hbox (75.5333pt too wide) in paragraph at lines 809--823
+ [] 
+[11]
+
+LaTeX Warning: Citation `gershon2026' on page 12 undefined on input line 839.
+
+
+LaTeX Warning: Citation `csordas1989' on page 12 undefined on input line 844.
+
+
+LaTeX Warning: Reference `hcrit:polya_star' on page 12 undefined on input line 
+848.
+
+
+LaTeX Warning: Reference `sec:context' on page 12 undefined on input line 850.
+
+
+Overfull \hbox (4.86513pt too wide) in paragraph at lines 861--864
+[]\T1/lmr/m/n/10.95 (-20) The in-ter-val arith-metic cer-tifi-cates are not for
+-mal-ized in Lean. Ax-ioms \T1/lmtt/m/n/10.95 ia_verification_0_to_1
+(main.bbl [12]
+Underfull \hbox (badness 1721) in paragraph at lines 75--85
+[]\T1/lmr/m/n/10.95 (+20) A. Ger-shon.  On the log-concavity of the Rie-mann Xi
+ ker-nel.  \T1/lmr/m/it/10.95 (+20) Preprints\T1/lmr/m/n/10.95 (+20) , 2026.
+[13])
+
+LaTeX Warning: Reference `sec:deps' on page 14 undefined on input line 882.
+
+
+LaTeX Warning: Citation `griffin2019' on page 14 undefined on input line 885.
+
+
+LaTeX Warning: Reference `thm:rh_conditional' on page 14 undefined on input lin
+e 886.
+
+
+LaTeX Warning: Citation `rodgers2020' on page 14 undefined on input line 891.
+
+
+LaTeX Warning: Citation `specsmith' on page 14 undefined on input line 899.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 910--911
+[]\T1/lmtt/m/n/10 Basic.lean\T1/lmr/m/n/10 (+20) :
+
+Underfull \hbox (badness 10000) in paragraph at lines 911--912
+[]\T1/lmtt/m/n/10 Basic.lean\T1/lmr/m/n/10 (+20) :
+
+LaTeX Warning: Citation `titchmarsh1986' on page 14 undefined on input line 912
+.
+
+
+LaTeX Warning: Citation `csordas1989' on page 14 undefined on input line 912.
+
+
+Overfull \hbox (36.65247pt too wide) in paragraph at lines 913--914
+[]\T1/lmtt/m/n/10 verify_logconcavity_arb.py| 
+
+Overfull \hbox (62.90239pt too wide) in paragraph at lines 914--915
+[]\T1/lmtt/m/n/10 verify_logconcavity_rigorous.py| 
+
+Overfull \hbox (26.1525pt too wide) in paragraph at lines 916--917
+[]\T1/lmtt/m/n/10 verify_algebraic_core.py| 
+
+LaTeX Warning: Reference `hcrit:polya_star' on page 14 undefined on input line 
+919.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 920--921
+[]\T1/lmr/m/n/10 (+20) No peer-reviewed
+
+LaTeX Warning: Citation `titchmarsh1986' on page 14 undefined on input line 921
+.
+
+
+Overfull \hbox (70.56224pt too wide) in paragraph at lines 906--924
+ [] 
+
+LaTeX Warning: Reference `sec:appE' on page 14 undefined on input line 931.
+
+[14]
+
+LaTeX Warning: Reference `sec:appE7' on page 15 undefined on input line 949.
+
+
+LaTeX Warning: Reference `lem:fartail_deltaQ' on page 15 undefined on input lin
+e 949.
+
+
+LaTeX Warning: Reference `lem:fartail_mono' on page 15 undefined on input line 
+949.
+
+
+LaTeX Warning: Reference `sec:polya_audit_main' on page 15 undefined on input l
+ine 985.
+
+
+Underfull \hbox (badness 1859) in paragraph at lines 1000--1000
+[]\T1/lmr/m/n/10 (+20) Conc: $[] \OML/lmm/m/it/10 f\OT1/lmr/m/n/10 (+20) (\OML/
+lmm/m/it/10 t[]\OT1/lmr/m/n/10 (+20) )\OML/lmm/m/it/10 e[]dt$ \T1/lmr/m/n/10 (+
+20) has
+[15]
+
+LaTeX Warning: Reference `hcrit:polya_star' on page 16 undefined on input line 
+1018.
+
+
+LaTeX Warning: Reference `sec:polya_audit_main' on page 16 undefined on input l
+ine 1020.
+
+
+LaTeX Warning: Reference `sec:verdict' on page 16 undefined on input line 1022.
+
+
+
+LaTeX Warning: Reference `sec:appE' on page 16 undefined on input line 1023.
+
+
+LaTeX Warning: Reference `sec:cert' on page 16 undefined on input line 1024.
+
+
+LaTeX Warning: Reference `sec:reproduce' on page 16 undefined on input line 102
+6.
+
+
+LaTeX Warning: Reference `sec:reproduce' on page 16 undefined on input line 102
+8.
+
+
+LaTeX Warning: Reference `thm:rh_conditional' on page 16 undefined on input lin
+e 1029.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1033.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1033.
+
+[16]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1065.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\Delta' on input line 1065.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1065.
+
+[17]
+
+LaTeX Warning: Reference `cor:Rbounds' on page 18 undefined on input line 1166.
+
+
+
+LaTeX Warning: Reference `lem:Wtail_bound' on page 18 undefined on input line 1
+167.
+
+
+LaTeX Warning: Reference `lem:Bsign' on page 18 undefined on input line 1168.
+
+
+LaTeX Warning: Reference `cor:Rbounds' on page 18 undefined on input line 1169.
+
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1171.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `subscript' on input line 1171.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1171.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1195.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1195.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1195.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1195.
+
+[18]
+
+LaTeX Warning: Reference `lem:derivbounds' on page 19 undefined on input line 1
+221.
+
+
+LaTeX Warning: Reference `sec:appE7' on page 19 undefined on input line 1240.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1256.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\geq' on input line 1256.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1256.
+
+
+LaTeX Warning: Reference `lem:Bsign' on page 19 undefined on input line 1259.
+
+[19]
+
+LaTeX Warning: Reference `lem:deltaQ' on page 20 undefined on input line 1307.
+
+
+LaTeX Warning: Reference `lem:fartail_deriv' on page 20 undefined on input line
+ 1316.
+
+
+LaTeX Warning: Reference `lem:Wtail_bound' on page 20 undefined on input line 1
+335.
+
+
+LaTeX Warning: Reference `lem:fartail_deltaQ' on page 20 undefined on input lin
+e 1336.
+
+
+LaTeX Warning: Reference `lem:fartail_Wtail' on page 20 undefined on input line
+ 1348.
+
+
+LaTeX Warning: Reference `lem:epsstar' on page 20 undefined on input line 1359.
+
+
+
+Overfull \hbox (29.27853pt too wide) in paragraph at lines 1356--1366
+[]\T1/lmr/m/n/10.95 (-20) Differentiating: $[]\OT1/lmr/m/n/10.95 (-20) [\OML/lm
+m/m/it/10.95 e[]"[]\OT1/lmr/m/n/10.95 (-20) (\OML/lmm/m/it/10.95 u\OT1/lmr/m/n/
+10.95 (-20) )] = \OML/lmm/m/it/10.95 e[]\OT1/lmr/m/n/10.95 (-20) [4\OML/lmm/m/i
+t/10.95 "[]\OT1/lmr/m/n/10.95 (-20) (\OML/lmm/m/it/10.95 u\OT1/lmr/m/n/10.95 (-
+20) ) + \OML/lmm/m/it/10.95 "[]\OT1/lmr/m/n/10.95 (-20) (\OML/lmm/m/it/10.95 u\
+OT1/lmr/m/n/10.95 (-20) )]$\T1/lmr/m/n/10.95 (-20) . From Lemma [], $\OML/lmm/m
+/it/10.95 "[]\OT1/lmr/m/n/10.95 (-20) (\OML/lmm/m/it/10.95 u\OT1/lmr/m/n/10.95 
+(-20) ) = \OMS/lmsy/m/n/10.95 ^^@\OT1/lmr/m/n/10.95 (-20) 4\OML/lmm/m/it/10.95 
+^^Ye[] [][] n[]\OT1/lmr/m/n/10.95 (-20) (\OML/lmm/m/it/10.95 n[] \OMS/lmsy/m/n/
+10.95 ^^@
+
+LaTeX Warning: Reference `lem:Wtail_bound' on page 20 undefined on input line 1
+373.
+
+
+LaTeX Warning: Reference `lem:Bsign' on page 20 undefined on input line 1377.
+
+
+LaTeX Warning: Reference `lem:Bsign' on page 20 undefined on input line 1381.
+
+[20] [21] (main.aux)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `main.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+ )
+(see the transcript file for additional information)<C:/Users/trist/scoop/apps/
+miktex/current/texmfs/install/fonts/type1/public/lm/lmbx10.pfb><C:/Users/trist/
+scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmbx12.pfb><C:/U
+sers/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmex1
+0.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/publ
+ic/lm/lmmi10.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts
+/type1/public/lm/lmmi12.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/in
+stall/fonts/type1/public/lm/lmmi5.pfb><C:/Users/trist/scoop/apps/miktex/current
+/texmfs/install/fonts/type1/public/lm/lmmi6.pfb><C:/Users/trist/scoop/apps/mikt
+ex/current/texmfs/install/fonts/type1/public/lm/lmmi7.pfb><C:/Users/trist/scoop
+/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmmi8.pfb><C:/Users/t
+rist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmr10.pfb><
+C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/l
+mr12.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/p
+ublic/lm/lmr17.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fon
+ts/type1/public/lm/lmr5.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/in
+stall/fonts/type1/public/lm/lmr6.pfb><C:/Users/trist/scoop/apps/miktex/current/
+texmfs/install/fonts/type1/public/lm/lmr7.pfb><C:/Users/trist/scoop/apps/miktex
+/current/texmfs/install/fonts/type1/public/lm/lmr8.pfb><C:/Users/trist/scoop/ap
+ps/miktex/current/texmfs/install/fonts/type1/public/lm/lmri10.pfb><C:/Users/tri
+st/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmsy10.pfb><C
+:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lm
+sy6.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/pu
+blic/lm/lmsy7.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/font
+s/type1/public/lm/lmsy8.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/in
+stall/fonts/type1/public/lm/lmtk10.pfb><C:/Users/trist/scoop/apps/miktex/curren
+t/texmfs/install/fonts/type1/public/lm/lmtt10.pfb><C:/Users/trist/scoop/apps/mi
+ktex/current/texmfs/install/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/
+Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfont
+s/symbols/msbm10.pfb>
+Output written on main.pdf (21 pages, 565432 bytes).
+Transcript written on main.log.
+pdflatex: major issue: So far, you have not checked for MiKTeX updates.

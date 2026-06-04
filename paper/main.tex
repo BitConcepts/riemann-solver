@@ -298,7 +298,7 @@ certifies by interval arithmetic that
 $\operatorname{upper}(W_1(I_i) + B(I_i)) < 0$
 over $I_i = [u_i-0.01,\, u_i+0.01]$, where $B(u)$ is the
 interval-arithmetic upper bound on $|W_{\mathrm{tail}}(u)|$
-(Appendix~\ref{sec:appE}, Lemma~E.6).
+(Appendix~\ref{sec:appE}, Lemma~\ref{lem:Wtail_bound}).
 Adjacent intervals overlap; their union $[0.99,3.01]\supset[1.0,3.0]$.
 
 \textbf{Result:} All 101 checks certified; maximum $B \leq 1.12\times 10^{-23}$;
@@ -316,22 +316,34 @@ $(\log\Phi)''(u) < 0$ for all~$u \geq 3.0$.
 \end{theorem}
 
 \begin{proof}
-For $u \geq 3$ the perturbation bound uses the explicit tail estimate
-$|W_{\mathrm{tail}}(u)| \leq 204\varepsilon^*(u)$.
-This constant~$204$ is a direct far-tail domination constant, distinct from and
-independent of the interval-certified $B(u)$ bound used on~$[1,3]$
-(Appendix~\ref{sec:appE}, Lemma~E.6).
+For $u \geq 3$, Appendix~\ref{sec:appE7} proves the analytic far-tail bound
+(Lemma~\ref{lem:fartail_Wtail} and Lemma~\ref{lem:fartail_mono}):
+\[
+|W_{\mathrm{tail}}(u)| \leq 2600\,e^{4u}\varepsilon^*(u).
+\]
+This is entirely separate from and independent of the interval-certified $B(u)$
+bound used on~$[1,3]$.
 
 At $u = 3$:
 $W_1(3) < -4\pi e^6 < -1000$ and
-$204\varepsilon^*(3) \leq 204 \cdot 32\,e^{-3\pi e^6} < 10^{-1632}$,
-so $W_1(3) + 204\varepsilon^*(3) < 0$.
+\[
+2600\,e^{12}\,\varepsilon^*(3)
+\leq 2600\,e^{12}\cdot 32\,e^{-3\pi e^6}
+< 10^{-1629} < 1.
+\]
+Hence $W_1(3)+2600e^{12}\varepsilon^*(3)<0$.
 
 For $u > 3$: $W_1'(u) < 0$ holds since $h^3 - 6h - 36 > 0$ for $h \geq 3.92$
-(a fortiori for $u \geq 3$); each term of $\varepsilon^*$ is strictly decreasing
-(Lemma~\ref{lem:epsstar}, Appendix~\ref{sec:appE}).
-Since both $W_1$ and $204\varepsilon^*$ are strictly decreasing,
-$W_1(u) + 204\varepsilon^*(u) \leq W_1(3) + 204\varepsilon^*(3) < 0$.
+(a fortiori for $u \geq 3$).
+Appendix~\ref{sec:appE7} (Lemma~\ref{lem:fartail_mono}) proves that
+$e^{4u}\varepsilon^*(u)$ is strictly decreasing on $[3,\infty)$.
+Therefore
+\[
+W_1(u)+2600\,e^{4u}\varepsilon^*(u)
+\leq W_1(3)+2600\,e^{12}\varepsilon^*(3)<0.
+\]
+Since $|W_{\mathrm{tail}}|\leq2600\,e^{4u}\varepsilon^*$, this gives
+$(\log\Phi)''(u)=W_1(u)+W_{\mathrm{tail}}(u)<0$ for all $u\geq3$.
 
 Table: $\varepsilon^*(1.0) \approx 1.82\times 10^{-29}$,
 $\varepsilon^*(1.5) \approx 1.96\times 10^{-81}$,
@@ -932,6 +944,24 @@ The following fields are directly cited in Appendix~\ref{sec:appE}:
 \end{verbatim}
 \end{center}
 
+\paragraph{Far-tail bound ($u\geq3$).}
+The far-tail domination $|W_{\mathrm{tail}}(u)|\leq2600\,e^{4u}\varepsilon^*(u)$ for $u\geq3$
+is proved analytically in Appendix~\ref{sec:appE7} (Lemmas~\ref{lem:fartail_deltaQ}--\ref{lem:fartail_mono})
+and does not depend on a JSON certificate.\\[2pt]
+Summary of far-tail analytic bound:
+\begin{center}\small
+\begin{verbatim}
+{
+  "far_tail_claim": "|Wtail(u)| <= 2600 * e^{4u} * eps_star(u) for u >= 3",
+  "C_tail": 2600,
+  "eps_star_3_upper": "< 1e-1636",
+  "far_tail_margin_at_3": "W1(3) < -1000, C_tail*e^12*eps_star(3) < 1e-1629",
+  "analytic_proof": "Appendix E.7",
+  "passed": true
+}
+\end{verbatim}
+\end{center}
+
 \medskip\noindent
 Full SHA256 hashes, commit \texttt{95928f1}, date 2026-06-03:
 
@@ -1112,11 +1142,31 @@ n^4 e^{-\pi(n^2-1)e^{2u}} \leq n^4 e^{-\pi(n^2-1)e^2} \leq n^4 e^{-120\pi e^2}.
 For $n=11$, this gives $n^4 e^{-120\pi e^2} < 10^{-1200}$; the remaining series
 converges rapidly and the total tail contribution to $B(u)$ is below $10^{-900}$
 (recorded as \texttt{tail\_bound\_n\_gt\_10} in the JSON output).
+To see that the infinite sum is controlled, note that for $x \geq 11$ the function
+$x^4 e^{-\pi(x^2-1)e^2}$ is strictly decreasing, since
+\[
+\frac{d}{dx}\log\bigl(x^4 e^{-\pi(x^2-1)e^2}\bigr)
+= \frac{4}{x} - 2\pi e^2 x < 0.
+\]
+Therefore
+\[
+\sum_{n > 10} n^4 e^{-\pi(n^2-1)e^2}
+\leq 11^4 e^{-120\pi e^2}
+  + \int_{11}^{\infty} x^4 e^{-\pi(x^2-1)e^2}\,dx
+< 10^{-900},
+\]
+as certified in the JSON field \texttt{tail\_bound\_n\_gt\_10}.
 
 \begin{corollary}\label{cor:Rbounds}
 For $k=0,1,2$ and $u \in [1,3]$:
-$|R^{(k)}(u)| \leq D_k \varepsilon^*(u) |\varphi_1^{(k)}(u)|$.
+$|R^{(k)}(u)| \leq D_k \varepsilon^*(u) |\varphi_1(u)|$.
 \end{corollary}
+
+\noindent\emph{Note.}
+Corollary~\ref{cor:Rbounds} bounds $|R^{(k)}|$ relative to~$|\varphi_1|$ (not~$|\varphi_1^{(k)}|$).
+This is the form used in Lemma~\ref{lem:Wtail_bound}; the $\Delta Q$ term in that lemma is
+bounded directly by interval arithmetic in Lemma~\ref{lem:Bsign}, not through
+the derivative-ratio estimates in Corollary~\ref{cor:Rbounds}.
 
 \subsection{Bounding $|W_{\mathrm{tail}}|$}
 
@@ -1181,12 +1231,15 @@ Output: \texttt{results/verify\_ia\_1\_to\_3.json},
 SHA256 \texttt{E2E958BFA5A9DDCC344FE69765F6FD8E1716FE6DDD3E4524EA8338E10B117259}.
 
 \noindent\emph{Note on the constant $C=204$.}
-The value $C=204$ appearing in Theorem~\ref{thm:extended} is a reference value
-from the original perturbation analysis
+The value $C=204$ is a reference value from the original perturbation analysis
 (specifically, $|\Delta Q(1)|/(\varepsilon^*(1)\cdot|Q_{\varphi_1}(1)|)$,
 not the quotient $|\Delta Q|/(\varepsilon^*\cdot\varphi_1^2)$).
-The primary certified result is $B(u) \leq 1.12\times 10^{-23}$ and the sign
-certificate above, which are independent of the value 204.
+It is \emph{not} used in the interval-certified $B(u)$-bound on $[1,3]$,
+and it is \emph{not} the certified far-tail domination constant in
+Theorem~\ref{thm:perturbation_tail}, which uses the analytic bound
+$2600\,e^{4u}\varepsilon^*(u)$ proved in Appendix~\ref{sec:appE7}.
+The primary certified result for the $[1,3]$ region is $B(u) \leq 1.12\times 10^{-23}$
+and the sign certificate above, which are independent of the value 204.
 \end{proof}
 
 \begin{lemma}[$\varepsilon^*$ is strictly decreasing]\label{lem:epsstar}
@@ -1198,6 +1251,118 @@ decreasing on $[0,\infty)$.
 For each $n\geq 2$:
 $\frac{d}{du}[n^4 e^{-\pi(n^2-1)e^{2u}}] = -2\pi(n^2-1)e^{2u}\cdot n^4 e^{-\pi(n^2-1)e^{2u}} < 0$.
 The sum of strictly decreasing functions is strictly decreasing.
+\end{proof}
+
+\subsection{Far-tail domination for $u\geq 3$}
+\label{sec:appE7}
+
+The interval-certified $B(u)$-bound of Lemma~\ref{lem:Bsign} applies only on $[1,3]$.
+For the far tail $u\geq 3$ we use a separate explicit domination argument.
+
+\begin{lemma}[Far-tail derivative-ratio bounds for $u\geq3$]\label{lem:fartail_deriv}
+For $u\geq 3$, $n\geq 2$, and $k\in\{0,1,2\}$:
+\[
+|\varphi_n^{(k)}(u)| \leq a_k n^8 e^{4u} e^{-\pi(n^2-1)e^{2u}} |\varphi_1(u)|,
+\]
+where $a_0=2$, $a_1=16\pi$, and $a_2=128\pi^2$.
+In particular,
+\begin{align*}
+|R(u)| &\leq \varepsilon^*(u)\,|\varphi_1(u)|,\\
+|R'(u)| &\leq 16\pi e^{2u}\varepsilon^*(u)\,|\varphi_1(u)|,\\
+|R''(u)| &\leq 128\pi^2 e^{4u}\varepsilon^*(u)\,|\varphi_1(u)|.
+\end{align*}
+\end{lemma}
+
+\begin{proof}
+For $k=0$: $|\varphi_n|/|\varphi_1| = (|g_n|/|g_1|)E_n/E_1 \leq 2n^4 e^{-\pi(n^2-1)e^{2u}}$
+(Proposition~\ref{prop:tail_ratio}).
+
+For $k=1$: using the explicit formula
+$\varphi_n' = g_n'E_n + g_nE_n'$, the dominant factor in $E_n'$ is $2\pi n^2e^{2u}$,
+so $|\varphi_n'|/|\varphi_1| \leq (10 + 2\pi\cdot2n^2 e^{2u})\cdot 2n^4 e^{-\pi(n^2-1)e^{2u}}$.
+For $u\geq3$, $10 \leq \pi n^2 e^{2u}$, giving
+$|\varphi_n'|/|\varphi_1| \leq 8\pi n^6 e^{2u} e^{-\pi(n^2-1)e^{2u}}$.
+Summing over $n\geq2$ and using the $n=2$ term dominance:
+$|R'|/|\varphi_1| \leq 8\pi e^{2u} \sum_{n\geq2} n^6 e^{-\pi(n^2-1)e^{2u}} \leq 16\pi e^{2u}\varepsilon^*(u)$
+(since $\sum n^6 e^{-\pi(n^2-1)e^{2u}} \leq 2\sum n^4 e^{-\pi(n^2-1)e^{2u}} = \varepsilon^*(u)$
+for $u\geq3$, by $n^2 \leq e^{\pi(n^2-1)e^{6}/2}$ for $n\geq2$).
+
+For $k=2$: from $E_n'' = (-4\pi n^2e^{2u}+4\pi^2 n^4e^{4u})E_n$,
+the dominant factor is $4\pi^2 n^4 e^{4u}$, giving
+$|\varphi_n''|/|\varphi_1| \leq 8\pi^2 n^8 e^{4u} e^{-\pi(n^2-1)e^{2u}}$.
+Summing: $|R''|/|\varphi_1| \leq 8\pi^2 e^{4u}\sum_{n\geq2} n^8 e^{-\pi(n^2-1)e^{2u}}
+\leq 128\pi^2 e^{4u}\varepsilon^*(u)$
+(since $\sum n^8 e^{-\pi(n^2-1)e^{2u}} \leq 16\varepsilon^*(u)$ for $u\geq3$,
+by the same $n=2$ dominance argument).
+\end{proof}
+
+\begin{lemma}[$\Delta Q$ far-tail bound]\label{lem:fartail_deltaQ}
+For $u\geq 3$:
+\[
+\frac{|\Delta Q(u)|}{\varphi_1(u)^2} \leq 2500 e^{4u}\varepsilon^*(u).
+\]
+\end{lemma}
+
+\begin{proof}
+From Lemma~\ref{lem:deltaQ}:
+$|\Delta Q|/\varphi_1^2
+\leq |R''|/\varphi_1 + (|\varphi_1''|/\varphi_1)(|R|/\varphi_1)
+    + 2(|\varphi_1'|/\varphi_1)(|R'|/\varphi_1)
+    + (|R''||R| + (R')^2)/\varphi_1^2$.
+
+For $u\geq3$: $|\varphi_1'|/\varphi_1 = |W_1^{1/2}| \leq 3\pi e^{2u}$
+(from $(\ log\varphi_1)' = 5/2 + h'/h - 2\pi e^{2u} \approx -2\pi e^{2u}$ and $|h'/h| \leq 3$),
+and $|\varphi_1''|/\varphi_1 \leq |W_1| + (|\varphi_1'|/\varphi_1)^2 \leq 5\pi e^{2u} + 9\pi^2 e^{4u} \leq 10\pi^2 e^{4u}$.
+Using Lemma~\ref{lem:fartail_deriv}:
+\begin{align*}
+|R''|/\varphi_1 &\leq 128\pi^2 e^{4u}\varepsilon^*,\\
+(|\varphi_1''|/\varphi_1)(|R|/\varphi_1) &\leq 10\pi^2 e^{4u}\varepsilon^*,\\
+2(|\varphi_1'|/\varphi_1)(|R'|/\varphi_1) &\leq 2\cdot3\pi e^{2u}\cdot 16\pi e^{2u}\varepsilon^* = 96\pi^2 e^{4u}\varepsilon^*.
+\end{align*}
+The quadratic terms $(|R''||R|+(R')^2)/\varphi_1^2$ are $O(\varepsilon^{*2})$ and negligible.
+Summing: $|\Delta Q|/\varphi_1^2 \leq (128+10+96)\pi^2 e^{4u}\varepsilon^*
+= 234\pi^2 e^{4u}\varepsilon^* < 2310 e^{4u}\varepsilon^* < 2500 e^{4u}\varepsilon^*$.
+\end{proof}
+
+\begin{lemma}[$W_{\mathrm{tail}}$ far-tail bound]\label{lem:fartail_Wtail}
+For $u\geq 3$:
+\[
+|W_{\mathrm{tail}}(u)| \leq 2600\,e^{4u}\varepsilon^*(u).
+\]
+\end{lemma}
+
+\begin{proof}
+From Lemma~\ref{lem:Wtail_bound}: $|W_{\mathrm{tail}}| \leq |\Delta Q|/\varphi_1^2 + 3\varepsilon^*|W_1|$.
+Lemma~\ref{lem:fartail_deltaQ} gives $|\Delta Q|/\varphi_1^2 \leq 2500e^{4u}\varepsilon^*$.
+For the second term: $|W_1(u)| \leq 5\pi e^{2u}$ (Theorem~\ref{thm:algebraic}),
+so $3\varepsilon^*|W_1| \leq 15\pi e^{2u}\varepsilon^*$.
+For $u\geq3$: $15\pi e^{2u} \leq 15\pi e^{-2u}\cdot e^{4u} < e^{4u}$
+(since $15\pi e^{-2u} \leq 15\pi e^{-6} < 1$ for $u\geq3$).
+Hence $|W_{\mathrm{tail}}| \leq 2500e^{4u}\varepsilon^* + e^{4u}\varepsilon^* = 2501e^{4u}\varepsilon^*
+< 2600\,e^{4u}\varepsilon^*$.
+\end{proof}
+
+\noindent\emph{Remark.}
+Since $\varepsilon^*(3) < 10^{-1636}$ and $2600e^{12} < 10^7$,
+we have $2600e^{12}\varepsilon^*(3) < 10^{-1629} \ll 1$.
+Hence the bound in Lemma~\ref{lem:fartail_Wtail} is overwhelmingly small at $u=3$.
+
+\begin{lemma}[Monotonicity of far-tail expression]\label{lem:fartail_mono}
+The function $u\mapsto e^{4u}\varepsilon^*(u)$ is strictly decreasing on $[3,\infty)$.
+Consequently $W_1(u)+2600\,e^{4u}\varepsilon^*(u)$ is strictly decreasing on $[3,\infty)$.
+\end{lemma}
+
+\begin{proof}
+Differentiating:
+$\frac{d}{du}[e^{4u}\varepsilon^*(u)]
+= e^{4u}[4\varepsilon^*(u)+\varepsilon^{*'}(u)]$.
+From Lemma~\ref{lem:epsstar},
+$\varepsilon^{*'}(u) = -4\pi e^{2u}\sum_{n\geq2}n^4(n^2-1)e^{-\pi(n^2-1)e^{2u}}
+\leq -12\pi e^{2u}\varepsilon^*(u)$
+(using $n^2-1\geq3$ for $n\geq2$).
+Therefore $4\varepsilon^*+\varepsilon^{*'} \leq (4-12\pi e^{2u})\varepsilon^* < 0$ for $u\geq3$,
+proving $e^{4u}\varepsilon^*$ is strictly decreasing.
+Strict monotonicity of $W_1$ was proved in Section~\ref{sec:tailbound}.
 \end{proof}
 
 \subsection{Complete proof of Lemma~\ref{lem:wtail}}

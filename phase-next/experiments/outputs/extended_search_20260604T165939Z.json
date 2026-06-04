@@ -1,0 +1,94 @@
+{
+  "script": "extended_search.py",
+  "iteration": "2c",
+  "timestamp": "20260604T165939Z",
+  "mp_dps": 55,
+  "deep": false,
+  "claim_discipline": "COMPUTATION class only. Status 'NO COUNTEREXAMPLE' does NOT prove H13. Status 'COUNTEREXAMPLE CANDIDATE' requires argument_principle_box.py confirmation AND verification of all H1-H6 hypotheses before ANY disproof claim.",
+  "summary": {
+    "total_kernels_tested": 2,
+    "counterexample_candidates": 0,
+    "H5_necessity_evidence": false,
+    "H6_necessity_evidence": false
+  },
+  "results": [
+    {
+      "kernel_name": "gauss_rational",
+      "kernel_label": "exp(-t^2)/(1+0.01*t^2) [Class 6b, slower decay]",
+      "kernel_class": "6b_drop_H5",
+      "hypotheses": {
+        "H1_even": true,
+        "H2_positive": true,
+        "H3_integrable": true,
+        "H4_analytic": true,
+        "H5_superexp_decay": true,
+        "H6_log_concave": true,
+        "H6_max_violation": -2.0,
+        "H6_worst_t": 10.0,
+        "H6_n_violations": 0
+      },
+      "all_hypotheses_satisfied": true,
+      "real_axis_scan": {
+        "zeros_found": 0,
+        "sign_changes": []
+      },
+      "complex_strip_scan": {
+        "region": {
+          "xi_re": [
+            0,
+            20.0
+          ],
+          "xi_im": [
+            0.01,
+            5.0
+          ]
+        },
+        "grid": "30x15",
+        "cells_scanned": 450,
+        "candidates_found": 0,
+        "candidates": []
+      },
+      "status": "NO COUNTEREXAMPLE",
+      "notes": "All H1-H6 satisfied. No complex zeros in scanned region."
+    },
+    {
+      "kernel_name": "poly_decay",
+      "kernel_label": "(1+t^2)^{-2} [Class 6b, polynomial decay]",
+      "kernel_class": "6b_drop_H5",
+      "hypotheses": {
+        "H1_even": true,
+        "H2_positive": true,
+        "H3_integrable": true,
+        "H4_analytic": true,
+        "H5_superexp_decay": false,
+        "H6_log_concave": false,
+        "H6_max_violation": 0.4996001876804938,
+        "H6_worst_t": 1.7,
+        "H6_n_violations": 45
+      },
+      "all_hypotheses_satisfied": false,
+      "real_axis_scan": {
+        "zeros_found": 0,
+        "sign_changes": []
+      },
+      "complex_strip_scan": {
+        "region": {
+          "xi_re": [
+            0,
+            20.0
+          ],
+          "xi_im": [
+            0.01,
+            5.0
+          ]
+        },
+        "grid": "30x15",
+        "cells_scanned": 450,
+        "candidates_found": 0,
+        "candidates": []
+      },
+      "status": "INVALID CANDIDATE",
+      "notes": "Fails: H5_superexp_decay, H6_log_concave. No complex zeros found despite hypothesis failure."
+    }
+  ]
+}

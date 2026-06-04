@@ -100,14 +100,30 @@ integrable, fast decay, but NOT analytic at 0.
 
 ### 6b — Drop H5 (superexponential decay)
 
-$K(t) = e^{-t^2}/(1+t^2)$ — modifies decay rate. Verify whether log-concavity holds.
+$K(t) = e^{-t^2}/(1+0.01 t^2)$ — modifies decay rate.
+**Result (Iter 2c):** exp(-t^2) dominates, so H5 still holds. All H1-H6 ✓. No complex zeros.
+
+$K(t) = (1+t^2)^{-2}$ — polynomial decay, FAILS H5.
+**Result (Iter 2c):** Also fails H6 ((log K)'' > 0 for t>1). FT has no zeros at all.
+Does NOT confirm H5 necessity (no complex zeros despite failure).
 
 ### 6c — Drop H6 (log-concavity)
 
-$K(t) = e^{-t^2 + \sin(t^2)}$ — potentially non-log-concave.
+$K(t) = e^{-t^2}(1+0.5\cos 2t)$ — cosine modulation breaks log-concavity.
+**Result (Iter 2c):** H6 fails. No Fourier zeros found (real or complex).
 
-**Purpose:** If complex Fourier zeros are found when H6 is dropped, confirms log-concavity
-plays a necessary role.
+$K(t) = e^{-t^2 + 0.1\sin(t^2)}$ — sin oscillation breaks log-concavity.
+**Result (Iter 2c):** H6 fails. 9 real zeros, 0 complex.
+
+**H6 necessity:** UNCLEAR — no H6-failing kernel produced complex Fourier zeros.
+
+---
+
+## Near-counterexample probes (Iter 2c)
+
+$K(t) = e^{-t^4}\cos^2(0.1t)$ — all H1-H6 ✓. 7 real zeros, 0 complex. No CX.
+
+$K(t) = e^{-5t^2}|\cos(0.5t)|$ — fails H4 (|cos| not analytic). Control. No zeros.
 
 ---
 
@@ -116,7 +132,19 @@ plays a necessary role.
 | Kernel | m / ε / params | All H1-H6? | Complex zeros found | Status |
 |--------|----------------|-----------|---------------------|--------|
 | $e^{-t^2}$ | m=1 | ✓ | No (Gaussian, trivial) | INVALID (trivial) |
-| $e^{-t^4}$ | m=2 | Check H6 at 0 | TBD | CANDIDATE |
-| $e^{-t^6}$ | m=3 | Check H6 at 0 | TBD | CANDIDATE |
-| $e^{-t^2-0.1t^4}$ | ε=0.1 | ✓ | TBD | CANDIDATE |
-| $e^{-\|t\|^3}$ | — | H4 fails | TBD | CONTROL |
+| $e^{-t^4}$ | m=2 | ✓ (H6 at 0 marginal) | No (6 real, 0 complex) | NO CX |
+| $e^{-t^6}$ | m=3 | ✓ (H6 at 0 marginal) | No (6 real, 0 complex) | NO CX |
+| $e^{-t^8}$ | m=4 | ✓ (H6 at 0 marginal) | No (6 real, 0 complex) | NO CX |
+| $e^{-t^{10}}$ | m=5 | ✓ (H6 at 0 marginal) | No (6 real, 0 complex) | NO CX |
+| $e^{-t^2-0.1t^4}$ | ε=0.1 | ✓ | No (real only, 0 complex) | NO CX |
+| $e^{-t^2-t^4}$ | ε=1 | ✓ | No (6 real, 0 complex) | NO CX |
+| $e^{-t^2-5t^4}$ | ε=5 | ✓ | No (4 real, 0 complex) | NO CX |
+| $e^{-t^2-10t^4}$ | ε=10 | ✓ | No (3 real, 0 complex) | NO CX |
+| $e^{-t^2-50t^4}$ | ε=50 | ✓ | No (2 real, 0 complex) | NO CX |
+| $e^{-t^2}/(1+0.01t^2)$ | 6b | ✓ | No (0 zeros) | NO CX |
+| $(1+t^2)^{-2}$ | 6b ctrl | ✗ (H5,H6) | No (0 zeros) | INVALID |
+| $e^{-t^2}(1+0.5\cos 2t)$ | 6c | ✗ (H6) | No (0 zeros) | INVALID |
+| $e^{-t^2+0.1\sin t^2}$ | 6c | ✗ (H6) | No (9 real, 0 complex) | INVALID |
+| $e^{-t^4}\cos^2(0.1t)$ | probe | ✓ | No (7 real, 0 complex) | NO CX |
+| $e^{-5t^2}|\cos 0.5t|$ | probe ctrl | ✗ (H4) | No (0 zeros) | INVALID |
+| $e^{-\|t\|^3}$ | — | ✗ (H4) | TBD | CONTROL |

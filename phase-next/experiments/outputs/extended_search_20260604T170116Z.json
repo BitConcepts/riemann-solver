@@ -1,0 +1,158 @@
+{
+  "script": "extended_search.py",
+  "iteration": "2c",
+  "timestamp": "20260604T170116Z",
+  "mp_dps": 55,
+  "deep": false,
+  "claim_discipline": "COMPUTATION class only. Status 'NO COUNTEREXAMPLE' does NOT prove H13. Status 'COUNTEREXAMPLE CANDIDATE' requires argument_principle_box.py confirmation AND verification of all H1-H6 hypotheses before ANY disproof claim.",
+  "summary": {
+    "total_kernels_tested": 2,
+    "counterexample_candidates": 0,
+    "H5_necessity_evidence": false,
+    "H6_necessity_evidence": false
+  },
+  "results": [
+    {
+      "kernel_name": "gauss_cos_mod",
+      "kernel_label": "exp(-t^2)*(1+0.5*cos(2t)) [Class 6c, H6 check needed]",
+      "kernel_class": "6c_drop_H6",
+      "hypotheses": {
+        "H1_even": true,
+        "H2_positive": true,
+        "H3_integrable": true,
+        "H4_analytic": true,
+        "H5_superexp_decay": true,
+        "H6_log_concave": false,
+        "H6_max_violation": 1.9950913096562428,
+        "H6_worst_t": 4.7,
+        "H6_n_violations": 13
+      },
+      "all_hypotheses_satisfied": false,
+      "real_axis_scan": {
+        "zeros_found": 0,
+        "sign_changes": []
+      },
+      "complex_strip_scan": {
+        "region": {
+          "xi_re": [
+            0,
+            20.0
+          ],
+          "xi_im": [
+            0.01,
+            5.0
+          ]
+        },
+        "grid": "30x15",
+        "cells_scanned": 450,
+        "candidates_found": 0,
+        "candidates": []
+      },
+      "status": "INVALID CANDIDATE",
+      "notes": "Fails: H6_log_concave. No complex zeros found despite hypothesis failure."
+    },
+    {
+      "kernel_name": "gauss_sin_mod",
+      "kernel_label": "exp(-t^2+0.1*sin(t^2)) [Class 6c, likely fails H6]",
+      "kernel_class": "6c_drop_H6",
+      "hypotheses": {
+        "H1_even": true,
+        "H2_positive": true,
+        "H3_integrable": true,
+        "H4_analytic": true,
+        "H5_superexp_decay": true,
+        "H6_log_concave": false,
+        "H6_max_violation": 18.563708210896632,
+        "H6_worst_t": 9.0,
+        "H6_n_violations": 12
+      },
+      "all_hypotheses_satisfied": false,
+      "real_axis_scan": {
+        "zeros_found": 9,
+        "sign_changes": [
+          {
+            "xi_approx": 7.28643216080402,
+            "bracket": [
+              7.236180904522613,
+              7.336683417085427
+            ]
+          },
+          {
+            "xi_approx": 9.195979899497488,
+            "bracket": [
+              9.145728643216081,
+              9.246231155778895
+            ]
+          },
+          {
+            "xi_approx": 10.904522613065328,
+            "bracket": [
+              10.85427135678392,
+              10.954773869346734
+            ]
+          },
+          {
+            "xi_approx": 12.412060301507537,
+            "bracket": [
+              12.361809045226131,
+              12.462311557788945
+            ]
+          },
+          {
+            "xi_approx": 14.92462311557789,
+            "bracket": [
+              14.874371859296483,
+              14.974874371859297
+            ]
+          },
+          {
+            "xi_approx": 16.231155778894475,
+            "bracket": [
+              16.180904522613066,
+              16.28140703517588
+            ]
+          },
+          {
+            "xi_approx": 17.33668341708543,
+            "bracket": [
+              17.286432160804022,
+              17.386934673366834
+            ]
+          },
+          {
+            "xi_approx": 18.44221105527638,
+            "bracket": [
+              18.391959798994975,
+              18.49246231155779
+            ]
+          },
+          {
+            "xi_approx": 19.447236180904525,
+            "bracket": [
+              19.396984924623116,
+              19.49748743718593
+            ]
+          }
+        ]
+      },
+      "complex_strip_scan": {
+        "region": {
+          "xi_re": [
+            0,
+            20.0
+          ],
+          "xi_im": [
+            0.01,
+            5.0
+          ]
+        },
+        "grid": "30x15",
+        "cells_scanned": 450,
+        "candidates_found": 0,
+        "candidates": []
+      },
+      "status": "INVALID CANDIDATE",
+      "notes": "Fails: H6_log_concave. No complex zeros found despite hypothesis failure."
+    }
+  ]
+}

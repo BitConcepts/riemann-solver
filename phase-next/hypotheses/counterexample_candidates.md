@@ -77,8 +77,21 @@ Test necessity of each hypothesis by dropping it:
 | Kernel | Hypotheses satisfied | Fourier zero test | Status |
 |--------|---------------------|-------------------|--------|
 | $e^{-t^2}$ | H1-H6 all | No zeros | TRIVIAL (no zeros) |
-| $e^{-t^4}$ | H1-H6 check needed | TBD | CANDIDATE |
-| $e^{-t^2 - 0.1t^4}$ | H1-H6 likely | TBD | CANDIDATE |
+| $e^{-t^4}$ | H1-H6 ✓ | 6 real, 0 complex | NO CX (Iter 1) |
+| $e^{-t^6}$ | H1-H6 ✓ | 6 real, 0 complex | NO CX (Iter 2c) |
+| $e^{-t^8}$ | H1-H6 ✓ | 6 real, 0 complex | NO CX (Iter 2c) |
+| $e^{-t^{10}}$ | H1-H6 ✓ | 6 real, 0 complex | NO CX (Iter 2c) |
+| $e^{-t^2 - 0.1t^4}$ | H1-H6 ✓ | real only, 0 complex | NO CX (Iter 1) |
+| $e^{-t^2 - t^4}$ | H1-H6 ✓ | 6 real, 0 complex | NO CX (Iter 2c) |
+| $e^{-t^2 - 5t^4}$ | H1-H6 ✓ | 4 real, 0 complex | NO CX (Iter 2c) |
+| $e^{-t^2 - 10t^4}$ | H1-H6 ✓ | 3 real, 0 complex | NO CX (Iter 2c) |
+| $e^{-t^2 - 50t^4}$ | H1-H6 ✓ | 2 real, 0 complex | NO CX (Iter 2c) |
+| $e^{-t^2}/(1+0.01t^2)$ | H1-H6 ✓ | 0 real, 0 complex | NO CX (Iter 2c, 6b) |
+| $(1+t^2)^{-2}$ | H5,H6 fail | 0 real, 0 complex | INVALID (6b ctrl) |
+| $e^{-t^2}(1+0.5\cos 2t)$ | H6 fails | 0 real, 0 complex | INVALID (6c) |
+| $e^{-t^2+0.1\sin t^2}$ | H6 fails | 9 real, 0 complex | INVALID (6c) |
+| $e^{-t^4}\cos^2(0.1t)$ | H1-H6 ✓ | 7 real, 0 complex | NO CX (near-CX) |
+| $e^{-5t^2}|\cos(0.5t)|$ | H4 fails | 0 real, 0 complex | INVALID (near-CX ctrl) |
 | $e^{-\|t\|^{1.5}}$ | H4 fails | TBD | CONTROL |
 
 ---

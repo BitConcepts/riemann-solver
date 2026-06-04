@@ -287,3 +287,76 @@ but proving it for ALL n requires either:
 (b) finding an analytic proof that L_n ≥ 0 for all n for Φ.
 
 ---
+
+## Iteration 2c — Expanded counterexample search (2026-06-04)
+
+**Status:** COMPLETE
+
+**Route:** Path 3 (find counterexample or rule out)
+
+**Objective:** Expand H13 counterexample search from 3 kernels (Iter 1) to 16 total.
+Test whether dropping individual hypotheses (H5, H6) produces complex Fourier zeros.
+
+**Script created:** `phase-next/experiments/scripts/extended_search.py`
+
+**Kernels tested (13 new, 16 total including Iter 1):**
+
+### Class 2 extended — exp(-t^{2m}), m=3,4,5
+- All satisfy H1-H6 (weakly log-concave, = 0 at t=0 for m≥2).
+- Each has 6 real Fourier zeros in [0,20].
+- 0 complex zeros found in strip Re∈[0,20], Im∈[0.01,5].
+- COMPUTATION: Consistent with Pólya's known result that exp(-t^{2m}) FT has only real zeros.
+
+### Class 3 extended — exp(-t^2-εt^4), ε∈{1,5,10,50}
+- All strictly log-concave: (log K)'' = -2 - 12ε t^2 < 0.
+- Real zeros decrease as ε grows (6,4,3,2 respectively in [0,20]).
+- 0 complex zeros in all cases.
+- COMPUTATION: Gaussian-perturbed kernels remain well-behaved for all tested ε.
+
+### Class 6b — Drop H5 (superexponential decay)
+- exp(-t^2)/(1+0.01t^2): exp(-t^2) dominates, H5 still holds. All H1-H6 ✓. No zeros.
+- (1+t^2)^{-2}: Fails H5 AND H6 ((log K)'' > 0 for t>1). FT = (π/2)(1+|ξ|)e^{-|ξ|},
+  no zeros at all. Does NOT confirm H5 necessity.
+- COMPUTATION: H5 necessity remains UNCLEAR. Need a kernel that fails ONLY H5.
+
+### Class 6c — Drop H6 (log-concavity)
+- exp(-t^2)(1+0.5cos2t): H6 fails (cosine modulation breaks log-concavity). No complex zeros.
+- exp(-t^2+0.1sin(t^2)): H6 fails (sin oscillation). 9 real zeros, 0 complex.
+- COMPUTATION: H6 necessity remains UNCLEAR. No complex zeros found despite H6 failure.
+
+### Near-counterexample probes
+- exp(-t^4)cos^2(0.1t): All H1-H6 ✓ (log-concave confirmed). 7 real, 0 complex. No CX.
+- exp(-5t^2)|cos(0.5t)|: Fails H4 (|cos| not analytic). Control case. No zeros.
+
+**Key observations:**
+1. COMPUTATION: All 10 kernels satisfying H1-H6 have only real Fourier zeros in scanned region.
+2. COMPUTATION: 4 kernels failing H5 or H6 also showed no complex zeros in searched region.
+3. The 6b/6c tests are inconclusive for necessity: absence of complex zeros in a finite
+   search region does NOT prove they don't exist elsewhere.
+4. The (1+t^2)^{-2} case fails H5 AND H6 but FT has no zeros at all, so cannot produce
+   a counterexample by any extension of search.
+5. The number of real Fourier zeros decreases with increasing ε in Class 3 (interesting
+   but not directly relevant to H13).
+
+**Claim status:**
+```
+PROVED:      Certified strict log-concavity of Φ on [0, ∞).
+PROVED:      L_2(u) ≥ 0 for all u ∈ [0, 1] (IA certificate).
+COMPUTATION: 16 kernels tested, 0 counterexample candidates for H13.
+OPEN:        H13 — log-concavity-to-real-rootedness bridge.
+CONDITIONAL: RH under H13.
+```
+
+**Iteration verdict:**
+```
+Route: Path 3 (find counterexample or rule out)
+New evidence: 13 new kernels tested, 0 counterexample candidates
+Counterexample found: NO
+H5 necessity confirmed: UNCLEAR (no H5-only-failing kernel produced complex zeros)
+H6 necessity confirmed: UNCLEAR (no H6-failing kernel produced complex zeros)
+Next action: (1) Find a kernel that fails ONLY H5 (not H6) and HAS complex FT zeros;
+             (2) Find a kernel that fails ONLY H6 (not H5) and HAS complex FT zeros;
+             (3) Alternatively, pursue L_3 certification or Route C (h' ∈ LP).
+```
+
+---

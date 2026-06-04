@@ -88,6 +88,29 @@ all $n$ for $\Phi$, which would complete the Csordas-Vishnyakova criterion. Wort
 
 ---
 
+## Iteration 2c findings (2026-06-04)
+
+**Expanded counterexample search: 13 new kernels tested (16 total), 0 counterexample candidates.**
+
+Kernels satisfying all H1-H6 with no complex Fourier zeros found:
+- Class 2 extended: exp(-t^6), exp(-t^8), exp(-t^10) — each has 6 real zeros, 0 complex
+- Class 3 extended: exp(-t^2-εt^4) for ε∈{1,5,10,50} — strictly log-concave, 0 complex
+- Near-CX probes: exp(-t^4)cos²(0.1t) — all H1-H6, 7 real zeros, 0 complex
+
+Kernels failing hypotheses (no complex zeros found either):
+- (1+t^2)^{-2}: fails H5, H6. FT has no zeros at all.
+- exp(-t^2)(1+0.5cos2t): fails H6. No Fourier zeros.
+- exp(-t^2+0.1sin(t^2)): fails H6. 9 real zeros, 0 complex.
+- exp(-5t^2)|cos(0.5t)|: fails H4. No zeros.
+
+**H5 necessity:** UNCLEAR — no H5-failing kernel produced complex zeros.
+**H6 necessity:** UNCLEAR — no H6-failing kernel produced complex zeros.
+**Counterexample status:** None found. H13 consistent with all 16 tested kernels.
+
+Complex strip scanned: Re∈[0,20], Im∈[0.01,5], 30×15 grid. All COMPUTATION class.
+
+---
+
 ## Hard constraints for any valid bridge
 
 A bridge theorem is valid for this project ONLY if it:

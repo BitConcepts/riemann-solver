@@ -1,0 +1,144 @@
+{
+  "script": "extended_search.py",
+  "iteration": "2c",
+  "timestamp": "20260604T170256Z",
+  "mp_dps": 55,
+  "deep": false,
+  "claim_discipline": "COMPUTATION class only. Status 'NO COUNTEREXAMPLE' does NOT prove H13. Status 'COUNTEREXAMPLE CANDIDATE' requires argument_principle_box.py confirmation AND verification of all H1-H6 hypotheses before ANY disproof claim.",
+  "summary": {
+    "total_kernels_tested": 2,
+    "counterexample_candidates": 0,
+    "H5_necessity_evidence": false,
+    "H6_necessity_evidence": false
+  },
+  "results": [
+    {
+      "kernel_name": "exp_t4_cos2",
+      "kernel_label": "exp(-t^4)*cos^2(0.1*t) [near-CX probe]",
+      "kernel_class": "near_cx",
+      "hypotheses": {
+        "H1_even": true,
+        "H2_positive": true,
+        "H3_integrable": true,
+        "H4_analytic": true,
+        "H5_superexp_decay": true,
+        "H6_log_concave": true,
+        "H6_max_violation": -0.02,
+        "H6_worst_t": 0.0,
+        "H6_n_violations": 0
+      },
+      "all_hypotheses_satisfied": true,
+      "real_axis_scan": {
+        "zeros_found": 7,
+        "sign_changes": [
+          {
+            "xi_approx": 3.4673366834170856,
+            "bracket": [
+              3.4170854271356785,
+              3.5175879396984926
+            ]
+          },
+          {
+            "xi_approx": 6.78391959798995,
+            "bracket": [
+              6.733668341708543,
+              6.834170854271357
+            ]
+          },
+          {
+            "xi_approx": 9.69849246231156,
+            "bracket": [
+              9.648241206030152,
+              9.748743718592966
+            ]
+          },
+          {
+            "xi_approx": 12.21105527638191,
+            "bracket": [
+              12.160804020100503,
+              12.261306532663317
+            ]
+          },
+          {
+            "xi_approx": 14.623115577889447,
+            "bracket": [
+              14.57286432160804,
+              14.673366834170855
+            ]
+          },
+          {
+            "xi_approx": 16.934673366834172,
+            "bracket": [
+              16.884422110552766,
+              16.984924623115578
+            ]
+          },
+          {
+            "xi_approx": 19.14572864321608,
+            "bracket": [
+              19.095477386934675,
+              19.195979899497488
+            ]
+          }
+        ]
+      },
+      "complex_strip_scan": {
+        "region": {
+          "xi_re": [
+            0,
+            20.0
+          ],
+          "xi_im": [
+            0.01,
+            5.0
+          ]
+        },
+        "grid": "30x15",
+        "cells_scanned": 450,
+        "candidates_found": 0,
+        "candidates": []
+      },
+      "status": "NO COUNTEREXAMPLE",
+      "notes": "All H1-H6 satisfied. No complex zeros in scanned region."
+    },
+    {
+      "kernel_name": "gauss_abscos",
+      "kernel_label": "exp(-5*t^2)*|cos(0.5*t)| [near-CX probe, H4 check]",
+      "kernel_class": "near_cx",
+      "hypotheses": {
+        "H1_even": true,
+        "H2_positive": true,
+        "H3_integrable": true,
+        "H4_analytic": false,
+        "H5_superexp_decay": true,
+        "H6_log_concave": true,
+        "H6_max_violation": -10.25,
+        "H6_worst_t": 0.0,
+        "H6_n_violations": 0
+      },
+      "all_hypotheses_satisfied": false,
+      "real_axis_scan": {
+        "zeros_found": 0,
+        "sign_changes": []
+      },
+      "complex_strip_scan": {
+        "region": {
+          "xi_re": [
+            0,
+            20.0
+          ],
+          "xi_im": [
+            0.01,
+            5.0
+          ]
+        },
+        "grid": "30x15",
+        "cells_scanned": 450,
+        "candidates_found": 0,
+        "candidates": []
+      },
+      "status": "INVALID CANDIDATE",
+      "notes": "Fails: H4_analytic. No complex zeros found despite hypothesis failure."
+    }
+  ]
+}

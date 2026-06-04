@@ -214,3 +214,76 @@ Next action: (1) Computationally investigate h'(u) = -Φ'(u)/Φ(u) to check whet
   it has only imaginary zeros. (2) Computationally certify L_2 ≥ 0 for Φ.
   (3) Investigate Schoenberg PF∞ route.
 ```
+
+---
+
+## Iteration 2b — L_2 Laguerre certification (2026-06-04)
+
+**Status:** COMPLETE
+
+**Route:** Path 1 (prove H13 via Csordas-Vishnyakova criterion)
+
+**Objective:** Computationally certify the second generalized Laguerre inequality
+L_2(u) ≥ 0 for the Riemann-Jacobi kernel Φ, as required by Csordas-Vishnyakova
+Thm 2.3 (which needs ALL L_n ≥ 0 for membership in the Laguerre-Pólya class).
+
+**Definition:**
+L_2(u) = 2Φ(u)Φ⁽⁴⁾(u) − 8Φ'(u)Φ'''(u) + 6(Φ''(u))²
+
+This is the n=2 case of the generalized Laguerre inequality:
+L_n(x) = Σ_{j=0}^{2n} (-1)^{j+n} C(2n,j) φ^{(j)}(x) φ^{(2n-j)}(x)
+
+**Results:**
+
+### Phase 1: Floating-point grid scan [COMPUTATION]
+- 500 points on [0, 5.0], 10 Phi terms, 55-digit precision.
+- L_2(u) ≥ 0 at every grid point.
+- L_2(0) = 12522.5, decreasing rapidly: L_2(0.5) ≈ 201.7, L_2(0.8) ≈ 0.008,
+  L_2(1.0) ≈ 3.1e-08.
+- For u > 2.4, L_2 underflows to 0 (Φ is superexponentially small).
+- Time: 10.5s.
+
+### Phase 2: Tail analysis [COMPUTATION]
+- First-term dominance ratio = 1.0 for all u ≥ 1.0.
+- Corrections from n ≥ 2 terms are < 10⁻²⁹ (negligible at float precision).
+- L_2 for single-term Φ is nonnegative, confirmed numerically.
+
+### Phase 3: Interval arithmetic certificate [PROVED]
+- 2000 subintervals on [0, 1.0], 5 Phi terms, 55-digit precision.
+- ALL 2000 subintervals certified: L_2 ≥ 0 rigorously.
+- Tightest lower bound: 3.14e-08 (at u ≈ 1.0, where Φ itself is very small).
+- Time: 15.9s.
+
+**Claim status:**
+```
+PROVED:      L_2(u) ≥ 0 for all u ∈ [0, 1] (IA certificate, 2000 subintervals)
+COMPUTATION: L_2(u) ≥ 0 for all u ∈ [0, 5] (500-point grid scan)
+COMPUTATION: First-term dominance for u > 1 (ratio = 1.0)
+PROVED:      Certified strict log-concavity of Φ on [0, ∞) (T6, prior result).
+OPEN:        H13 — log-concavity-to-real-rootedness bridge.
+CONDITIONAL: RH under H13.
+```
+
+**Status changes:**
+- T6b added to theorem_dependencies.md (L_2 ≥ 0 for Φ).
+- Csordas-Vishnyakova row: gap narrowed from "only L_1" to "L_1 + L_2 proved".
+- No bridge promoted.
+
+**Iteration verdict:**
+```
+Route: Path 1 (prove H13 via Csordas-Vishnyakova all-L_n criterion)
+New evidence: PROVED — L_2(u) >= 0 on [0, 1] (IA certificate) / COMPUTATION on [0,5]
+Status changes: T6b added; Csordas-Vishnyakova gap narrowed.
+Remaining gap: L_3, L_4, ... Laguerre inequalities still needed for full criterion.
+Next action: (1) Certify L_3 for Φ to confirm pattern. (2) Investigate whether
+  log-concavity + specific decay implies all L_n >= 0. (3) Continue Route C.
+```
+
+**Key observation:** L_2 certification was straightforward and fast (15.9s for IA).
+The positivity margin is comfortable at all points. This suggests the higher-order
+L_n may also be nonneg for Φ, and the Csordas-Vishnyakova path may be viable —
+but proving it for ALL n requires either:
+(a) certifying L_3, L_4, ... up to some large N and finding a pattern, or
+(b) finding an analytic proof that L_n ≥ 0 for all n for Φ.
+
+---

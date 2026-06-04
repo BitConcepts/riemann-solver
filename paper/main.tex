@@ -715,8 +715,8 @@ Csordas--Varga/de~Bruijn--Ilieff source chain does not establish such a criterio
 %% =========================================================================
 \section{Proof-Critical Dependencies}\label{sec:deps}
 
-\begin{center}\small
-\begin{tabular}{@{}p{5.2cm}lll@{}}
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{4.0cm}p{2.2cm}p{3.8cm}l@{}}
 \toprule
 Claim & Type & Primary source & Status \\
 \midrule
@@ -728,10 +728,10 @@ $\Phi \in L^1(\mathbb{R})$ & Cited & \cite[\S2.10]{titchmarsh1986} & CITED \\
 $\Phi$ real analytic on $\mathbb{R}$ & Structural & Weierstrass $M$-test & PROVED \\
 $\Phi = O(e^{-\pi e^{2u}})$ & Structural & \texttt{phi1\_decay\_bound} & PROVED \\
 $Q_\Phi(u) < 0$ on $[0,1]$ & IA cert & Arb/FLINT (primary), mpmath.iv (cross-check) & CERTIFIED \\
-$(\log\Phi)''(u) < 0$ on $[1.0,3.0]$ & Arb/FLINT IA primary; mpmath.iv cross-check & CERTIFIED \\
-$(\log\Phi)''(u) < 0$ for $u \geq 3$ & Monotonicity & $\varepsilon^*(3)<10^{-1636}$ & PROVED \\
-Hypothetical Criterion~\ref{hcrit:polya_star} & None & No peer-reviewed source found &
-  \textbf{OPEN / UNSOURCED} \\
+$(\log\Phi)'' < 0$ on $[1,3]$ & IA cert & Arb/FLINT (primary), mpmath.iv (cross-check) & CERTIFIED \\
+$(\log\Phi)'' < 0$ for $u \geq 3$ & Monotonicity & $\varepsilon^*(3)<10^{-1636}$ & PROVED \\
+Hyp.\ Crit.~\ref{hcrit:polya_star} & None & No peer-reviewed source &
+  \textbf{OPEN} \\
 RH $\Leftrightarrow$ $\Xi$ real zeros & Cited & \cite[\S2.1]{titchmarsh1986} & CITED \\
 \bottomrule
 \end{tabular}
@@ -805,8 +805,8 @@ Subinterval endpoints are represented as exact multi-precision floats.
 each subinterval is evaluated as an interval object or ball enclosure and
 certified by a negative upper bound.}
 
-\begin{center}\small
-\begin{tabular}{p{4.0cm}p{1.8cm}p{5.0cm}}
+\begin{center}\footnotesize
+\begin{tabular}{@{}p{3.5cm}p{1.6cm}p{4.5cm}@{}}
 \toprule
 Purpose & Verifier & Script and command \\
 \midrule
@@ -847,8 +847,8 @@ the hypothetical P\'{o}lya-type criterion as explicit axioms.
 13~project-specific axioms, 6~proved theorems, 0~\texttt{sorry}.
 Machine-checked against Mathlib commit \texttt{a6276f4c} (0~errors, 0~correctness warnings).
 
-\begin{center}\small
-\begin{tabular}{llll}
+\begin{center}\footnotesize
+\begin{tabular}{@{}lp{3.0cm}p{2.5cm}p{3.5cm}@{}}
 \toprule
 Statement & Lean status & Role & Note \\
 \midrule
@@ -858,7 +858,7 @@ Statement & Lean status & Role & Note \\
 \texttt{ia\_verification\_1\_to\_3} & axiom & computational cert & certifies $(\log\Phi)'' < 0$ on $[1,3]$ \\
 \texttt{polya\_theorem} & axiom, OPEN / UNSOURCED & hypothetical criterion &
   not used unconditionally \\
-\texttt{rh\_iff\_xi\_real} & axiom / cited & conditional discussion only &
+\texttt{rh\_iff\_xi\_real} & axiom / cited & conditional only &
   \cite[\S2.1]{titchmarsh1986} \\
 \bottomrule
 \end{tabular}
@@ -948,27 +948,29 @@ certificates not derived within Lean, no peer review, Verdict~D source mismatch)
 %% =========================================================================
 \section{Proof Certificate Table}\label{sec:cert}
 
-\begin{center}\small
-\begin{tabular}{@{}llllp{3.5cm}@{}}
+\begin{center}\footnotesize
+\begin{tabular}{@{}lp{2.8cm}p{2.4cm}lp{2.8cm}@{}}
 \toprule
-Step & Claim & Type & Status & Script / Source \\
+Step & Claim & Type & Status & Script \\
 \midrule
-C1 & $\varphi_1 > 0$ & Lean & PROVED & \texttt{Basic.lean}: \texttt{phi1\_pos} \\
-C2 & $(\log\varphi_1)'' < 0$ & Lean & PROVED & \texttt{Basic.lean}: \texttt{log\_phi1\_d2\_neg} \\
+C1 & $\varphi_1 > 0$ & Lean & PROVED & \texttt{phi1\_pos} \\
+C2 & $(\log\varphi_1)'' < 0$ & Lean & PROVED & \texttt{log\_phi1\_d2\_neg} \\
 C3 & $\Phi > 0$, even, $\in L^1$ & Classical & CITED & \cite{titchmarsh1986,csordas1989} \\
-C4 & $Q_\Phi < 0$ on $[0,1]$ & IA (Arb/FLINT, primary) & CERTIFIED & \texttt{verify\_logconcavity\_arb.py} \\
-C4b & $Q_\Phi < 0$ on $[0,1]$ cross-check & IA (mpmath.iv) & CERTIFIED & \texttt{verify\_logconcavity\_rigorous.py} \\
-C5 & $(\log\Phi)'' < 0$ on $[1,3]$ & IA (Arb/FLINT, primary) & CERTIFIED & \texttt{verify\_ia\_1\_to\_3\_arb.py} \\
-C5b & $(\log\Phi)'' < 0$ on $[1,3]$ cross-check & IA (mpmath.iv) & CERTIFIED & \texttt{verify\_ia\_1\_to\_3.py} \\
-C6 & $(\log\Phi)'' < 0$ for $u\geq 3$ & Monotonicity & PROVED & \texttt{verify\_algebraic\_core.py} \\
+C4 & $Q_\Phi < 0$ on $[0,1]$ & IA (Arb/FLINT) & CERT & \texttt{verify\_logconcavity\_arb.py} \\
+C4b & $Q_\Phi < 0$ on $[0,1]$ & IA (mpmath.iv) & CERT & \texttt{verify\_logconcavity\_rigorous.py} \\
+C5 & $(\log\Phi)'' < 0$ on $[1,3]$ & IA (Arb/FLINT) & CERT & \texttt{verify\_ia\_1\_to\_3\_arb.py} \\
+C5b & $(\log\Phi)'' < 0$ on $[1,3]$ & IA (mpmath.iv) & CERT & \texttt{verify\_ia\_1\_to\_3.py} \\
+C6 & $(\log\Phi)'' < 0$, $u\geq 3$ & Monotonicity & PROVED & \texttt{verify\_algebraic\_core.py} \\
 C7 & $\Phi$ real analytic & Structural & PROVED & Weierstrass $M$-test \\
 C8 & $\Phi = O(e^{-\pi e^{2u}})$ & Structural & PROVED & \texttt{phi1\_decay\_bound} \\
-C9 & Hypothetical Criterion~\ref{hcrit:polya_star} & None &
-  \textbf{OPEN / UNSOURCED} & No peer-reviewed source found \\
+C9 & Hyp.\ Crit.~\ref{hcrit:polya_star} & None &
+  \textbf{OPEN} & No peer-reviewed source \\
 C10 & RH $\Leftrightarrow$ $\Xi$ real zeros & Cited & CITED & \cite[\S2.1]{titchmarsh1986} \\
 \bottomrule
 \end{tabular}
 \end{center}
+\noindent\footnotesize CERT = CERTIFIED (rigorous computational certificate);
+C4/C5 are primary, C4b/C5b are cross-checks.\normalsize
 
 \noindent\textbf{Only C1--C8 and C10 are used in the unconditional proof of
 Theorem~\ref{thm:main}.
@@ -1283,12 +1285,14 @@ All 101 checkpoints pass.
 Maximum certified $B$ upper bound: $1.031013\times 10^{-23}$ (at $u=1.0$).
 Minimum margin $(-W_1 - B)$: $91.29$ (at $u=1.0$).
 Output: \texttt{results/verify\_ia\_1\_to\_3\_arb.json},
-SHA256 \texttt{06C720F1FDD74F26E32735E93DCE9E118F951E0CC637A2111E029E7C424DBE72}.
+SHA256:
+
+{\small\verb|06C720F1FDD74F26E32735E93DCE9E118F951E0CC637A2111E029E7C424DBE72|}
 
 \noindent The previous \texttt{mpmath.iv} output
-\texttt{results/verify\_ia\_1\_to\_3.json},
-SHA256 \texttt{E2E958BFA5A9DDCC344FE69765F6FD8E1716FE6DDD3E4524EA8338E10B117259},
-is retained as an independent cross-check.
+\texttt{results/verify\_ia\_1\_to\_3.json}
+is retained as an independent cross-check
+(SHA256 in Appendix~\ref{sec:cert}).
 
 \noindent\emph{Note on the constant $C=204$.}
 The value $C=204$ is a reference value from the original perturbation analysis

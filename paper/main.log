@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12 Portable) (preloaded format=pdflatex 2026.5.13)  3 JUN 2026 23:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12 Portable) (preloaded format=pdflatex 2026.5.13)  3 JUN 2026 23:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -681,78 +681,91 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 5
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [7{C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/enc/dvips/lm
 /lm-ts1.enc}] [8] [9]
-Overfull \hbox (258.04538pt too wide) in paragraph at lines 719--738
- [] 
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <9> on input line 719.
+ [10]
+Overfull \hbox (1.90979pt too wide) in paragraph at lines 814--814
+[]\T1/lmr/m/n/9 (-20) Arb/FLINT
  []
 
-[10]
-Overfull \hbox (25.73573pt too wide) in paragraph at lines 815--816
-[]\T1/lmtt/m/n/10 proof/verify_logconcavity_arb.py| 
+
+Overfull \hbox (23.16231pt too wide) in paragraph at lines 815--816
+[]\T1/lmtt/m/n/9 proof/verify_logconcavity_arb.py| 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 816--816
-[]\T1/lmtt/m/n/10 python
+[]\T1/lmtt/m/n/9 python
  []
 
 
-Overfull \hbox (25.73573pt too wide) in paragraph at lines 816--816
-\T1/lmtt/m/n/10 proof/verify_logconcavity_arb.py|| 
+Overfull \hbox (23.16231pt too wide) in paragraph at lines 816--816
+\T1/lmtt/m/n/9 proof/verify_logconcavity_arb.py|| 
  []
 
 
-Overfull \hbox (51.98566pt too wide) in paragraph at lines 819--820
-[]\T1/lmtt/m/n/10 proof/verify_logconcavity_rigorous.py| 
+Overfull \hbox (46.78726pt too wide) in paragraph at lines 819--820
+[]\T1/lmtt/m/n/9 proof/verify_logconcavity_rigorous.py| 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 820--820
-[]\T1/lmtt/m/n/10 python
+[]\T1/lmtt/m/n/9 python
  []
 
 
-Overfull \hbox (51.98566pt too wide) in paragraph at lines 820--820
-\T1/lmtt/m/n/10 proof/verify_logconcavity_rigorous.py|| 
+Overfull \hbox (46.78726pt too wide) in paragraph at lines 820--820
+\T1/lmtt/m/n/9 proof/verify_logconcavity_rigorous.py|| 
  []
 
 
-Overfull \hbox (9.98578pt too wide) in paragraph at lines 823--824
-[]\T1/lmtt/m/n/10 proof/verify_ia_1_to_3_arb.py| 
+Overfull \hbox (1.90979pt too wide) in paragraph at lines 822--822
+[]\T1/lmr/m/n/9 (-20) Arb/FLINT
+ []
+
+
+Overfull \hbox (8.98734pt too wide) in paragraph at lines 823--824
+[]\T1/lmtt/m/n/9 proof/verify_ia_1_to_3_arb.py| 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 824--824
-[]\T1/lmtt/m/n/10 python
+[]\T1/lmtt/m/n/9 python
  []
 
 
-Overfull \hbox (9.98578pt too wide) in paragraph at lines 824--824
-\T1/lmtt/m/n/10 proof/verify_ia_1_to_3_arb.py|| 
+Overfull \hbox (8.98734pt too wide) in paragraph at lines 824--824
+\T1/lmtt/m/n/9 proof/verify_ia_1_to_3_arb.py|| 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 828--828
-[]\T1/lmtt/m/n/10 python
+[]\T1/lmtt/m/n/9 python
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 831--832
-[]\T1/lmtt/m/n/10 verify.py $\OMS/lmsy/m/n/10 !$
+[]\T1/lmtt/m/n/9 verify.py $\OMS/lmsy/m/n/9 !$
  []
 
 
-Overfull \hbox (56.97314pt too wide) in paragraph at lines 831--832
-\T1/lmtt/m/n/10 verification/proof_certificate_v2.json| 
+Overfull \hbox (51.276pt too wide) in paragraph at lines 831--832
+\T1/lmtt/m/n/9 verification/proof_certificate_v2.json| 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 835--836
-[]\T1/lmtt/m/n/10 falsify.py  python
+[]\T1/lmtt/m/n/9 falsify.py  python
  []
 
 [11]
-Overfull \hbox (75.5333pt too wide) in paragraph at lines 851--865
- [] 
+Underfull \hbox (badness 10000) in paragraph at lines 857--857
+[]\T1/lmr/m/n/9 (+20) computational
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 858--858
+[]\T1/lmr/m/n/9 (+20) computational
  []
 
 [12]
@@ -768,49 +781,39 @@ Underfull \hbox (badness 1721) in paragraph at lines 75--85
  []
 
 [14])
-Underfull \hbox (badness 10000) in paragraph at lines 956--957
-[]\T1/lmtt/m/n/10 Basic.lean\T1/lmr/m/n/10 (+20) :
+Overfull \hbox (42.94571pt too wide) in paragraph at lines 959--960
+[]\T1/lmtt/m/n/9 verify_logconcavity_arb.py| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 957--958
-[]\T1/lmtt/m/n/10 Basic.lean\T1/lmr/m/n/10 (+20) :
+Overfull \hbox (66.57066pt too wide) in paragraph at lines 960--961
+[]\T1/lmtt/m/n/9 verify_logconcavity_rigorous.py| 
  []
 
 
-Overfull \hbox (36.65247pt too wide) in paragraph at lines 959--960
-[]\T1/lmtt/m/n/10 verify_logconcavity_arb.py| 
+Overfull \hbox (28.77074pt too wide) in paragraph at lines 961--962
+[]\T1/lmtt/m/n/9 verify_ia_1_to_3_arb.py| 
  []
 
 
-Overfull \hbox (62.90239pt too wide) in paragraph at lines 960--961
-[]\T1/lmtt/m/n/10 verify_logconcavity_rigorous.py| 
+Overfull \hbox (9.87077pt too wide) in paragraph at lines 962--963
+[]\T1/lmtt/m/n/9 verify_ia_1_to_3.py| 
  []
 
 
-Overfull \hbox (20.90251pt too wide) in paragraph at lines 961--962
-[]\T1/lmtt/m/n/10 verify_ia_1_to_3_arb.py| 
- []
-
-
-Overfull \hbox (26.1525pt too wide) in paragraph at lines 963--964
-[]\T1/lmtt/m/n/10 verify_algebraic_core.py| 
+Overfull \hbox (33.49573pt too wide) in paragraph at lines 963--964
+[]\T1/lmtt/m/n/9 verify_algebraic_core.py| 
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 967--968
-[]\T1/lmr/m/n/10 (+20) No peer-reviewed
- []
-
-
-Overfull \hbox (76.4652pt too wide) in paragraph at lines 952--971
- [] 
+[]\T1/lmr/m/n/9 (+20) No peer-reviewed
  []
 
 LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 978.
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 980.
 [15]
-Underfull \hbox (badness 1859) in paragraph at lines 1055--1055
+Underfull \hbox (badness 1859) in paragraph at lines 1057--1057
 []\T1/lmr/m/n/10 (+20) Conc: $[] \OML/lmm/m/it/10 f\OT1/lmr/m/n/10 (+20) (\OML/
 lmm/m/it/10 t[]\OT1/lmr/m/n/10 (+20) )\OML/lmm/m/it/10 e[]dt$ \T1/lmr/m/n/10 (+
 20) has
@@ -819,47 +822,47 @@ lmm/m/it/10 t[]\OT1/lmr/m/n/10 (+20) )\OML/lmm/m/it/10 e[]dt$ \T1/lmr/m/n/10 (+
 [16] [17]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1120.
+(hyperref)                removing `math shift' on input line 1122.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Delta' on input line 1120.
+(hyperref)                removing `\Delta' on input line 1122.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1120.
+(hyperref)                removing `math shift' on input line 1122.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1136.
+(hyperref)                removing `math shift' on input line 1138.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1136.
+(hyperref)                removing `math shift' on input line 1138.
 
 [18]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1226.
+(hyperref)                removing `math shift' on input line 1228.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 1226.
+(hyperref)                removing `subscript' on input line 1228.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1226.
+(hyperref)                removing `math shift' on input line 1228.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1250.
+(hyperref)                removing `math shift' on input line 1252.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1250.
+(hyperref)                removing `math shift' on input line 1252.
 
 [19]
-Overfull \hbox (17.3903pt too wide) in paragraph at lines 1272--1274
+Overfull \hbox (17.3903pt too wide) in paragraph at lines 1274--1276
 []\T1/lmr/m/n/10.95 (-20) For each $\OML/lmm/m/it/10.95 i \OT1/lmr/m/n/10.95 (-
 20) = 0\OML/lmm/m/it/10.95 ; [] ; \OT1/lmr/m/n/10.95 (-20) 100$\T1/lmr/m/n/10.9
 5 (-20) , the Arb/FLINT ver-i-fier (\T1/lmtt/m/n/10.95 proof/verify_ia_1_to_3_a
@@ -867,24 +870,16 @@ rb.py\T1/lmr/m/n/10.95 (-20) ,
  []
 
 
-Overfull \hbox (262.87532pt too wide) in paragraph at lines 1288--1292
-\T1/lmr/m/n/10.95 (-20) The pre-vi-ous \T1/lmtt/m/n/10.95 mpmath.iv \T1/lmr/m/n
-/10.95 (-20) out-put \T1/lmtt/m/n/10.95 results/verify_ia_1_to_3.json\T1/lmr/m/
-n/10.95 (-20) , SHA256 \T1/lmtt/m/n/10.95 E2E958BFA5A9DDCC344FE69765F6FD8E1716F
-E6DDD3E4524EA8338E10B117259\T1/lmr/m/n/10.95 (-20) ,
- []
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 1322.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1318.
+(hyperref)                removing `\geq' on input line 1322.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\geq' on input line 1318.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 1318.
+(hyperref)                removing `math shift' on input line 1322.
 
 [20] [21] [22] [23] [24] (main.aux)
  ***********
@@ -895,45 +890,52 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 8DC30E43E52A7CB0A9E369A182322D4F;5844.
  ) 
 Here is how much of TeX's memory you used:
- 12896 strings out of 467871
- 204287 string characters out of 5413034
- 654966 words of memory out of 5000000
- 41139 multiletter control sequences out of 15000+600000
- 713994 words of font info for 256 fonts, out of 8000000 for 9000
+ 12938 strings out of 467871
+ 204816 string characters out of 5413034
+ 657966 words of memory out of 5000000
+ 41157 multiletter control sequences out of 15000+600000
+ 725124 words of font info for 273 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,12n,79p,1049b,774s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/l
 m/lmbx10.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/typ
 e1/public/lm/lmbx12.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/instal
-l/fonts/type1/public/lm/lmex10.pfb><C:/Users/trist/scoop/apps/miktex/current/te
-xmfs/install/fonts/type1/public/lm/lmmi10.pfb><C:/Users/trist/scoop/apps/miktex
-/current/texmfs/install/fonts/type1/public/lm/lmmi12.pfb><C:/Users/trist/scoop/
-apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmmi5.pfb><C:/Users/tr
-ist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmmi6.pfb><C
+l/fonts/type1/public/lm/lmbx9.pfb><C:/Users/trist/scoop/apps/miktex/current/tex
+mfs/install/fonts/type1/public/lm/lmex10.pfb><C:/Users/trist/scoop/apps/miktex/
+current/texmfs/install/fonts/type1/public/lm/lmmi10.pfb><C:/Users/trist/scoop/a
+pps/miktex/current/texmfs/install/fonts/type1/public/lm/lmmi12.pfb><C:/Users/tr
+ist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmmi5.pfb><C
 :/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lm
-mi7.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/pu
-blic/lm/lmmi8.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/font
-s/type1/public/lm/lmr10.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/in
-stall/fonts/type1/public/lm/lmr12.pfb><C:/Users/trist/scoop/apps/miktex/current
-/texmfs/install/fonts/type1/public/lm/lmr17.pfb><C:/Users/trist/scoop/apps/mikt
-ex/current/texmfs/install/fonts/type1/public/lm/lmr5.pfb><C:/Users/trist/scoop/
-apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmr6.pfb><C:/Users/tri
-st/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmr7.pfb><C:/
-Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmr8
-.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/publi
-c/lm/lmri10.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/
-type1/public/lm/lmsy10.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/ins
-tall/fonts/type1/public/lm/lmsy7.pfb><C:/Users/trist/scoop/apps/miktex/current/
-texmfs/install/fonts/type1/public/lm/lmsy8.pfb><C:/Users/trist/scoop/apps/mikte
-x/current/texmfs/install/fonts/type1/public/lm/lmtk10.pfb><C:/Users/trist/scoop
-/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmtt10.pfb><C:/Users/
-trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts/symb
-ols/msam10.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/t
-ype1/public/amsfonts/symbols/msbm10.pfb>
+mi6.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/pu
+blic/lm/lmmi7.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/font
+s/type1/public/lm/lmmi8.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/in
+stall/fonts/type1/public/lm/lmmi9.pfb><C:/Users/trist/scoop/apps/miktex/current
+/texmfs/install/fonts/type1/public/lm/lmr10.pfb><C:/Users/trist/scoop/apps/mikt
+ex/current/texmfs/install/fonts/type1/public/lm/lmr12.pfb><C:/Users/trist/scoop
+/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmr17.pfb><C:/Users/t
+rist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmr5.pfb><C
+:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lm
+r6.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/pub
+lic/lm/lmr7.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/
+type1/public/lm/lmr8.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/insta
+ll/fonts/type1/public/lm/lmr9.pfb><C:/Users/trist/scoop/apps/miktex/current/tex
+mfs/install/fonts/type1/public/lm/lmri10.pfb><C:/Users/trist/scoop/apps/miktex/
+current/texmfs/install/fonts/type1/public/lm/lmsy10.pfb><C:/Users/trist/scoop/a
+pps/miktex/current/texmfs/install/fonts/type1/public/lm/lmsy6.pfb><C:/Users/tri
+st/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lmsy7.pfb><C:
+/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/lm/lms
+y8.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/pub
+lic/lm/lmsy9.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/install/fonts
+/type1/public/lm/lmtk10.pfb><C:/Users/trist/scoop/apps/miktex/current/texmfs/in
+stall/fonts/type1/public/lm/lmtt10.pfb><C:/Users/trist/scoop/apps/miktex/curren
+t/texmfs/install/fonts/type1/public/lm/lmtt9.pfb><C:/Users/trist/scoop/apps/mik
+tex/current/texmfs/install/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/U
+sers/trist/scoop/apps/miktex/current/texmfs/install/fonts/type1/public/amsfonts
+/symbols/msbm10.pfb>
 Output written on C:\Users\trist\Development\riemann-solver\paper\main.pdf (24 
-pages, 601319 bytes).
+pages, 698240 bytes).
 PDF statistics:
- 649 PDF objects out of 1000 (max. 8388607)
+ 683 PDF objects out of 1000 (max. 8388607)
  151 named destinations out of 1000 (max. 500000)
- 44809 words of extra memory for PDF output out of 51595 (max. 10000000)
+ 51465 words of extra memory for PDF output out of 51595 (max. 10000000)
 

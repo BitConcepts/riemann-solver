@@ -1,0 +1,262 @@
+{
+  "script": "extended_search.py",
+  "iteration": "2c",
+  "timestamp": "20260604T165624Z",
+  "mp_dps": 55,
+  "deep": false,
+  "claim_discipline": "COMPUTATION class only. Status 'NO COUNTEREXAMPLE' does NOT prove H13. Status 'COUNTEREXAMPLE CANDIDATE' requires argument_principle_box.py confirmation AND verification of all H1-H6 hypotheses before ANY disproof claim.",
+  "summary": {
+    "total_kernels_tested": 3,
+    "counterexample_candidates": 0,
+    "H5_necessity_evidence": false,
+    "H6_necessity_evidence": false
+  },
+  "results": [
+    {
+      "kernel_name": "exp_t6",
+      "kernel_label": "exp(-t^6) [Class 2, m=3]",
+      "kernel_class": "2_extended",
+      "hypotheses": {
+        "H1_even": true,
+        "H2_positive": true,
+        "H3_integrable": true,
+        "H4_analytic": true,
+        "H5_superexp_decay": true,
+        "H6_log_concave": true,
+        "H6_max_violation": 0.0,
+        "H6_worst_t": 0.0,
+        "H6_n_violations": 0
+      },
+      "all_hypotheses_satisfied": true,
+      "real_axis_scan": {
+        "zeros_found": 6,
+        "sign_changes": [
+          {
+            "xi_approx": 3.3668341708542715,
+            "bracket": [
+              3.3165829145728645,
+              3.4170854271356785
+            ]
+          },
+          {
+            "xi_approx": 6.683417085427136,
+            "bracket": [
+              6.633165829145729,
+              6.733668341708543
+            ]
+          },
+          {
+            "xi_approx": 9.798994974874372,
+            "bracket": [
+              9.748743718592966,
+              9.84924623115578
+            ]
+          },
+          {
+            "xi_approx": 12.613065326633166,
+            "bracket": [
+              12.56281407035176,
+              12.663316582914574
+            ]
+          },
+          {
+            "xi_approx": 15.42713567839196,
+            "bracket": [
+              15.376884422110553,
+              15.477386934673367
+            ]
+          },
+          {
+            "xi_approx": 18.14070351758794,
+            "bracket": [
+              18.090452261306535,
+              18.190954773869347
+            ]
+          }
+        ]
+      },
+      "complex_strip_scan": {
+        "region": {
+          "xi_re": [
+            0,
+            20.0
+          ],
+          "xi_im": [
+            0.01,
+            5.0
+          ]
+        },
+        "grid": "30x15",
+        "cells_scanned": 450,
+        "candidates_found": 0,
+        "candidates": []
+      },
+      "status": "NO COUNTEREXAMPLE",
+      "notes": "All H1-H6 satisfied. No complex zeros in scanned region."
+    },
+    {
+      "kernel_name": "exp_t8",
+      "kernel_label": "exp(-t^8) [Class 2, m=4]",
+      "kernel_class": "2_extended",
+      "hypotheses": {
+        "H1_even": true,
+        "H2_positive": true,
+        "H3_integrable": true,
+        "H4_analytic": true,
+        "H5_superexp_decay": true,
+        "H6_log_concave": true,
+        "H6_max_violation": 0.0,
+        "H6_worst_t": 0.0,
+        "H6_n_violations": 0
+      },
+      "all_hypotheses_satisfied": true,
+      "real_axis_scan": {
+        "zeros_found": 6,
+        "sign_changes": [
+          {
+            "xi_approx": 3.3668341708542715,
+            "bracket": [
+              3.3165829145728645,
+              3.4170854271356785
+            ]
+          },
+          {
+            "xi_approx": 6.582914572864322,
+            "bracket": [
+              6.532663316582915,
+              6.633165829145729
+            ]
+          },
+          {
+            "xi_approx": 9.798994974874372,
+            "bracket": [
+              9.748743718592966,
+              9.84924623115578
+            ]
+          },
+          {
+            "xi_approx": 12.814070351758794,
+            "bracket": [
+              12.763819095477388,
+              12.864321608040202
+            ]
+          },
+          {
+            "xi_approx": 15.829145728643216,
+            "bracket": [
+              15.77889447236181,
+              15.879396984924623
+            ]
+          },
+          {
+            "xi_approx": 18.643216080402013,
+            "bracket": [
+              18.592964824120603,
+              18.69346733668342
+            ]
+          }
+        ]
+      },
+      "complex_strip_scan": {
+        "region": {
+          "xi_re": [
+            0,
+            20.0
+          ],
+          "xi_im": [
+            0.01,
+            5.0
+          ]
+        },
+        "grid": "30x15",
+        "cells_scanned": 450,
+        "candidates_found": 0,
+        "candidates": []
+      },
+      "status": "NO COUNTEREXAMPLE",
+      "notes": "All H1-H6 satisfied. No complex zeros in scanned region."
+    },
+    {
+      "kernel_name": "exp_t10",
+      "kernel_label": "exp(-t^10) [Class 2, m=5]",
+      "kernel_class": "2_extended",
+      "hypotheses": {
+        "H1_even": true,
+        "H2_positive": true,
+        "H3_integrable": true,
+        "H4_analytic": true,
+        "H5_superexp_decay": true,
+        "H6_log_concave": true,
+        "H6_max_violation": 0.0,
+        "H6_worst_t": 0.0,
+        "H6_n_violations": 0
+      },
+      "all_hypotheses_satisfied": true,
+      "real_axis_scan": {
+        "zeros_found": 6,
+        "sign_changes": [
+          {
+            "xi_approx": 3.2663316582914574,
+            "bracket": [
+              3.2160804020100504,
+              3.3165829145728645
+            ]
+          },
+          {
+            "xi_approx": 6.582914572864322,
+            "bracket": [
+              6.532663316582915,
+              6.633165829145729
+            ]
+          },
+          {
+            "xi_approx": 9.798994974874372,
+            "bracket": [
+              9.748743718592966,
+              9.84924623115578
+            ]
+          },
+          {
+            "xi_approx": 12.91457286432161,
+            "bracket": [
+              12.864321608040202,
+              12.964824120603016
+            ]
+          },
+          {
+            "xi_approx": 15.929648241206031,
+            "bracket": [
+              15.879396984924623,
+              15.979899497487438
+            ]
+          },
+          {
+            "xi_approx": 18.944723618090453,
+            "bracket": [
+              18.894472361809047,
+              18.99497487437186
+            ]
+          }
+        ]
+      },
+      "complex_strip_scan": {
+        "region": {
+          "xi_re": [
+            0,
+            20.0
+          ],
+          "xi_im": [
+            0.01,
+            5.0
+          ]
+        },
+        "grid": "30x15",
+        "cells_scanned": 450,
+        "candidates_found": 0,
+        "candidates": []
+      },
+      "status": "NO COUNTEREXAMPLE",
+      "notes": "All H1-H6 satisfied. No complex zeros in scanned region."
+    }
+  ]
+}

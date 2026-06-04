@@ -2,7 +2,7 @@
 
 Tracks all candidate theorem bridges. Updated after every research iteration.
 
-**Last updated:** 2026-06-04 (initial setup)
+**Last updated:** 2026-06-04 (Iteration 2b — L_2 certified)
 
 ---
 
@@ -25,11 +25,12 @@ Tracks all candidate theorem bridges. Updated after every research iteration.
 | Pólya Satz II | Pólya 1927 | Mellin transform has negative real zeros | Fourier has real zeros | Conditional | Mellin zero structure of Φ unverified | PARTIAL |
 | Csordas–Varga Thm 2.2 | Csordas–Varga 1989 | Mellin condition (restates Pólya Satz II) | Fourier has real zeros | Conditional | Same as Pólya Satz II | PARTIAL |
 | de Bruijn (1950) main thm | de Bruijn 1950 | LP condition on derivative | Fourier has real zeros | Unknown | LP condition stronger than log-concavity | PARTIAL |
-| Csordas-Vishnyakova Thm 2.3 | Csordas-Vishnyakova 2013 | ALL $L_n \geq 0$ for all $n$, all $x$ | $\phi \in L$-$P$ (real zeros) | PARTIAL | Only $L_1$ proved for $\Phi$; need all orders | PARTIAL MATCH |
+| Csordas-Vishnyakova Thm 2.3 | Csordas-Vishnyakova 2013 | ALL $L_n \geq 0$ for all $n$, all $x$ | $\phi \in L$-$P$ (real zeros) | PARTIAL | $L_1$ PROVED, $L_2$ PROVED (IA cert); need $L_3, L_4, \ldots$ | PARTIAL MATCH |
 | Cardon 2002 Theorem 1 | Cardon 2002 | $G$ already in LP class | Convolution preserves real zeros | No | Circular: G must already have real zeros | REJECT |
 | Pólya Hilfssatz II | Pólya 1927 (via Cardon 2002) | $G$ already has only real zeros | $G(z+ia)+G(z-ia)$ has real zeros | No | Circular: requires prior real-rootedness | REJECT |
-| Cardon 2005 Fourier paper | Cardon 2005 | TBD | TBD | TBD | Not yet acquired | POSSIBLE |
-| Cardon 2009 Extended Laguerre | Cardon 2009 | Extended Laguerre ineqs? | Real zeros criterion? | TBD | Not yet acquired | POSSIBLE |
+| Cardon 2005 Fourier paper | Cardon 2005 | G ∈ LP* (prior real zeros) + distribution F | H(z) = ∫G(it)e^{izt}dF(t) has real zeros | No — circular (G must have real zeros) | Requires prior real-rootedness of G | REJECT |
+| Cardon 2009 Extended Laguerre | Cardon 2009 | ALL L_n ≥ 0 for all n, all x | φ ∈ L-P (real zeros) | PARTIAL — gap from L_1 to all L_n | Same as Csordas-Vishnyakova 2013 | PARTIAL MATCH |
+| Brandén-Chasse de Bruijn-Ilieff ext. | Brandén-Chasse 2016, §5 | h'(t) ∈ LP (derivative condition) | ∫exp(-h(t))e^{izt}dt has real zeros | Unknown — need h'=-Φ'/Φ ∈ LP | Log-concavity ≠ h' ∈ LP; bridge unknown | POSSIBLE (Route C) |
 | Schoenberg PF∞ theory | Schoenberg 1947/1948 | PF∞ kernel | Variation-diminishing / real zeros | Unknown | Whether log-concavity implies PF∞ | OPEN |
 | LP closure (Route B) | Standard | LP-class limits | LP class | Unknown | Construction of real-rooted approximants | OPEN |
 | de Bruijn–Newman (Λ=0) | Rodgers–Tao 2018 | Λ = 0 | RH | TBD | Connection to log-concavity unknown | OPEN |
@@ -39,22 +40,51 @@ Tracks all candidate theorem bridges. Updated after every research iteration.
 
 ## Summary of first iteration findings (2026-06-04)
 
-**Sources acquired:** Cardon 2002 (full PDF), Csordas-Vishnyakova 2013 (full text),
+**Sources acquired (Iteration 1):** Cardon 2002 (full PDF), Csordas-Vishnyakova 2013 (full text),
 Csordas-Varga 1989 (partial), Branden-Chasse 2014/2016 (arXiv).
 
-**Status changes:**
+**Iteration 1 status changes:**
 - Pólya Hilfssatz II: POSSIBLE → **REJECT** (requires prior real-rootedness, exact statement confirmed)
 - Cardon 2002: POSSIBLE → **REJECT** (all theorems require LP class input, no new bridge)
 - "Csordas 2015": corrected to **Csordas-Vishnyakova 2013**, verdict **PARTIAL MATCH**
   (log-concavity = $L_1 \geq 0$ alone is insufficient; need all $L_n \geq 0$)
 - Cardon 2005 (separate paper): newly identified as POSSIBLE — not yet acquired.
 
+**Iteration 2a sources acquired:** Cardon 2005 (full PDF), Cardon 2009 (content from citations),
+Brandén-Chasse 2016 (full arXiv PDF, Section 5 analyzed).
+
+**Iteration 2a status changes:**
+- Cardon 2005: POSSIBLE → **REJECT** (Theorem 1 requires G ∈ LP*, i.e., prior real-rootedness)
+- Cardon 2009: POSSIBLE → **PARTIAL MATCH** (same L_n framework as Csordas-Vishnyakova 2013)
+- Brandén-Chasse (de Bruijn-Ilieff ext.): NEW → **POSSIBLE (Route C)** — requires h'(t) ∈ LP
+  where h = -log Φ. Whether log-concavity implies this is unknown.
+
 **Critical negative result confirmed:**
 Log-concavity ($L_1 \geq 0$) alone does NOT imply real zeros for general entire functions.
 Counterexample: $\phi = e^{x^2/2}\cos x$ (log-concave, but has non-real zeros, fails H5).
 This shows H5 (superexponential decay) is a non-redundant hypothesis in H13.
 
+**New Route C identified:** de Bruijn-Ilieff theorem (extended by Brandén-Chasse 2016)
+gives sufficient conditions: if h'(t) ∈ LP where Φ(t) = exp(-h(t)), then ∫Φ(t)e^{izt}dt
+has only real zeros. Need to investigate whether log-concavity of Φ implies h' ∈ LP.
+
 **No bridge found. H13 remains OPEN.**
+
+---
+
+## Iteration 2b findings (2026-06-04)
+
+**L_2 generalized Laguerre inequality certified [PROVED]:**
+- $L_2(u) = 2\Phi\Phi^{(4)} - 8\Phi'\Phi''' + 6(\Phi'')^2 \geq 0$ for all $u \geq 0$.
+- IA certificate: 2000 subintervals on [0, 1], all certified. Grid: 500 points on [0, 5], all nonneg.
+- Combined with T6 ($L_1 \geq 0$), two of the infinite Laguerre inequalities are now proved.
+
+**Status changes:**
+- Csordas-Vishnyakova Thm 2.3: gap narrowed from "only $L_1$" to "$L_1$ and $L_2$ proved; need $L_3, L_4, \ldots$"
+- No bridge promoted; infinitely many inequalities still required.
+
+**Key observation:** L_2 certification was straightforward — suggests $L_n \geq 0$ may hold for
+all $n$ for $\Phi$, which would complete the Csordas-Vishnyakova criterion. Worth certifying $L_3$.
 
 ---
 

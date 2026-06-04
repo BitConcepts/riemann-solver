@@ -112,4 +112,105 @@ This paper may have results more directly relevant than Cardon 2002. Targeted fo
 
 ---
 
----
+## Iteration 2a — Cardon 2005/2009 and Brandén-Chasse literature scan (2026-06-04)
+
+**Status:** COMPLETE
+
+**Sources acquired:**
+1. Cardon 2005 (full PDF from AMS): "Fourier transforms having only real zeros,"
+   Proc. Amer. Math. Soc. 133 (2005), 1349–1356.
+2. Cardon 2009 (content from Csordas-Vishnyakova 2013 citations): "Extended Laguerre
+   inequalities and a criterion for real zeros," Progress in Analysis and its
+   Applications (2010), pp. 143–149.
+3. Brandén-Chasse 2016 (arXiv:1402.2795v2): "Classification theorems for operators
+   preserving zeros in a strip," J. Anal. Math. (2017). Section 5 analyzed.
+
+**Key findings:**
+
+### Finding 1: Cardon 2005 — REJECT
+
+Theorem 1 (exact statement extracted from AMS PDF):
+> Suppose G is an entire function of order < 2 that is real on the real axis and
+> has only real zeros. Let {a_k} be a nonincreasing sequence of positive reals,
+> [...] F_n the distribution function of Y_n = (a_1 X_1 + ... + a_n X_n)/s_n.
+> [...] H(z) = ∫G(it)e^{izt}dF(t). If H is not identically zero, then H has
+> only real zeros.
+
+Verdict: PRESERVATION theorem. G must ALREADY have only real zeros (G ∈ LP*).
+Applying to RH would be circular. Log-concavity is NOT a hypothesis.
+Status change: POSSIBLE → REJECT.
+
+Also extracted Theorem 3: variant for Fourier kernels, again requiring G real-rooted.
+Pólya's Proposition 1 (quoted): preservation theorem for LP-class multipliers.
+All results in this paper are zero-preservation, not zero-creation.
+
+### Finding 2: Cardon 2009 — PARTIAL MATCH
+
+Content reconstructed from Csordas-Vishnyakova 2013 (reference [2]) and MaRDI portal:
+Cardon extends the generalized Laguerre inequality framework. Csordas-Vishnyakova 2013
+call this an "ingenious extension of the Laguerre-type inequalities."
+
+The criterion remains fundamentally the same as Csordas-Varga 1989 Theorem 2.9 /
+Csordas-Vishnyakova 2013 Theorem 2.3: ALL L_n ≥ 0 for ALL n ≥ 0 and ALL x ∈ ℝ
+implies φ ∈ L-P. Cardon's extension provides alternative formulations but does NOT
+reduce the "all L_n" requirement to "L_1 alone."
+
+Csordas-Vishnyakova 2013 Conjecture 3.3 (based on Cardon's work): under suitable
+conditions, L_1 ≥ 0 might imply all L_n ≥ 0. This is UNPROVED.
+
+Status change: POSSIBLE → PARTIAL MATCH (same gap as Csordas-Vishnyakova 2013).
+
+### Finding 3: Brandén-Chasse 2016 Section 5 — NEW ROUTE C IDENTIFIED
+
+Section 5 extends the de Bruijn (1950) and de Bruijn-Ilieff theorems:
+
+De Bruijn's Theorem (1950, Theorem 1, as stated in Csordas-Varga 1989):
+> Let h(t) be entire such that h'(t) is the uniform limit, on compact subsets
+> of C, of polynomials all of whose zeros lie on the imaginary axis. If h(t) is
+> non-constant with h(t) = h(-t), and h(t) ≥ 0 (t ∈ ℝ), then
+> F(z) = ∫exp(-h(t))e^{izt}dt has only real zeros.
+
+Brandén-Chasse extend this: Theorems 4.5, 4.7 give new differential operators
+that contract zeros toward the real axis (property (I) of strong universal factors).
+They prove sharp sufficient conditions via elementary methods.
+
+APPLICABILITY TO Φ: Write Φ(u) = exp(-h(u)) where h(u) = -log Φ(u).
+De Bruijn's theorem would give Ξ having only real zeros IF h'(u) ∈ LP
+(h' is a uniform limit of polynomials with purely imaginary zeros).
+
+But: log-concavity of Φ says (Φ')² - ΦΦ'' ≥ 0, equivalently (h')² - h'' ≥ 0.
+This is a DIFFERENT condition from h' ∈ LP. The relationship between
+"h' has only imaginary zeros" and "(h')² - h'' ≥ 0" is non-trivial and unknown.
+
+This identifies a new potential route (Route C: de Bruijn-Ilieff) with a new
+specific gap: does log-concavity of exp(-h) imply h' ∈ LP? If so, H13 follows
+from de Bruijn's theorem.
+
+Status: NEW — POSSIBLE (Route C).
+
+### Finding 4: Comprehensive negative assessment
+
+All three papers confirm the pattern from Iteration 1:
+- Zero-PRESERVATION theorems (Cardon 2002, 2005): require prior real-rootedness → REJECT
+- Laguerre inequality criteria (Cardon 2009, Csordas-Vishnyakova 2013): need ALL L_n,
+  not just L_1 → PARTIAL MATCH with identified gap
+- LP-derivative conditions (de Bruijn, Brandén-Chasse): need h' ∈ LP → NEW ROUTE
+  with different gap from log-concavity
+
+No known theorem bridges from {log-concavity + decay + analyticity} directly to
+{Fourier transform has only real zeros}. H13 remains genuinely open.
+
+**Iteration verdict:**
+```
+Route: Path 2 (find existing theorem)
+New evidence: Cardon 2005 REJECTED (preservation only). Cardon 2009 confirms
+  L_n framework gap. NEW Route C identified via de Bruijn-Ilieff/Brandén-Chasse:
+  log-concavity → h' ∈ LP? is a new, more specific gap to investigate.
+Status changes: Cardon 2005 POSSIBLE→REJECT; Cardon 2009 POSSIBLE→PARTIAL MATCH;
+  Brandén-Chasse de Bruijn-Ilieff NEW→POSSIBLE (Route C).
+Remaining gap: Either prove all L_n ≥ 0 for Φ (Route A), or prove h'=-Φ'/Φ ∈ LP
+  (Route C), or find entirely new theorem (Route B).
+Next action: (1) Computationally investigate h'(u) = -Φ'(u)/Φ(u) to check whether
+  it has only imaginary zeros. (2) Computationally certify L_2 ≥ 0 for Φ.
+  (3) Investigate Schoenberg PF∞ route.
+```

@@ -134,3 +134,113 @@ This is a different paper and has not yet been acquired. Still a candidate.
 - **Does it apply to Φ?** Possibly — first iteration target
 - **Verdict:** TBD — first iteration target
 - **Follow-up needed:** Acquire exact theorem statements for 3.5–3.7; map to H13 hypotheses.
+
+---
+
+## Source: Cardon 2005 — Fourier transforms having only real zeros — ACQUIRED
+
+- **Citation:** D.A. Cardon, "Fourier transforms having only real zeros,"
+  Proc. Amer. Math. Soc. 133 (2005), no. 5, 1349–1356.
+- **URL / DOI:** https://doi.org/10.1090/s0002-9939-04-07677-4
+- **Full text:** https://www.ams.org/journals/proc/2005-133-05/S0002-9939-04-07677-4/
+- **Full text acquired?** Yes — AMS PDF retrieved and read.
+- **Theorem numbers inspected:** Theorem 1 (main), Theorem 3, Proposition 1 (Pólya quoted)
+- **Does it mention log-concavity?** No.
+- **Does it mention Laguerre–Pólya?** Yes — LP* class (LP of order < 2) is central.
+- **Does it mention Fourier transforms with only real zeros?** Yes — central topic.
+- **Does it require prior real-rootedness?** YES — Theorem 1 requires G ∈ LP*,
+  i.e., G must already be a real entire function of order < 2 with only real zeros.
+- **Does it require a Mellin transform with negative real zeros?** No.
+- **Does it apply to Φ?** No — to use this theorem for Φ, one would need to decompose
+  the Fourier integral as H(z) = ∫G(it)e^{izt}dF(t) where G already has only real zeros.
+  This is a preservation/construction theorem, not a bridge from log-concavity.
+- **Verdict:** PRESERVATION ONLY — REJECT as bridge.
+- **Key finding (Theorem 1, verbatim):**
+  > "Suppose G is an entire function of order < 2 that is real on the real axis and
+  > has only real zeros. Let {a_k} be a nonincreasing sequence of positive real numbers,
+  > let {X_k} be the sequence of independent random variables such that X_k takes
+  > values ±1 with equal probability, and let F_n be the distribution function of the
+  > normalized sum Y_n = (a_1 X_1 + ... + a_n X_n)/s_n where s²_n = a²_1 + ... + a²_n.
+  > The functions F_n converge pointwise to a continuous distribution F. Let H be the
+  > Fourier transform of G(it) with respect to the measure dF. [...] If H is not
+  > identically zero, then H has only real zeros."
+- **Key finding (Theorem 3):** If G ∈ LP* with only real zeros, and K is integrable with
+  K(t) = O(e^{-|t|^{2+ε}}), and L(t) = ∫cosh(ts)dF(s), then H(z) = ∫K(t)L(t)e^{izt}dt
+  has only real zeros. Requires G already real-rooted.
+- **Applicability assessment:** All theorems require the input function G to already
+  have only real zeros. For RH this is circular: applying to Ξ requires Ξ to already
+  have real zeros.
+- **Follow-up needed:** None — verdict is clear.
+
+---
+
+## Source: Cardon 2009 — Extended Laguerre inequalities and a criterion for real zeros
+
+- **Citation:** D.A. Cardon, "Extended Laguerre inequalities and a criterion for
+  real zeros," in *Progress in Analysis and its Applications*, Proceedings of the
+  7th International ISAAC Congress (London, July 13–18, 2009), World Scientific,
+  Hackensack, 2010, pp. 143–149.
+- **URL / DOI:** Zbl 1262.30004
+- **Full text acquired?** No — conference proceedings; content reconstructed from
+  Csordas-Vishnyakova 2013 citations and Cardon's BYU publications page.
+- **Theorem numbers inspected:** Main theorem (criterion for real zeros)
+- **Does it mention log-concavity?** Indirectly — L_1 ≥ 0 is log-concavity.
+- **Does it mention Laguerre–Pólya?** Yes — criterion for LP class membership.
+- **Does it mention Fourier transforms with only real zeros?** No — about entire
+  functions directly (LP class membership).
+- **Does it require prior real-rootedness?** No — this is a CRITERION (sufficient
+  conditions for real zeros).
+- **Does it require a Mellin transform with negative real zeros?** No.
+- **Does it apply to Φ?** PARTIAL — see verdict.
+- **Verdict:** PARTIAL MATCH — extends the Laguerre inequality framework.
+- **Key content (from Csordas-Vishnyakova 2013 reference):**
+  Cardon extends the generalized Laguerre operators L_n to a broader framework.
+  The Csordas-Vishnyakova 2013 paper's Conjecture 3.3 is described as "based on
+  Cardon's recent, ingenious extension of the Laguerre-type inequalities."
+  The criterion remains: ALL L_n ≥ 0 (not just L_1) implies LP class membership.
+  Log-concavity alone (L_1 ≥ 0) is insufficient.
+- **Key insight:** Cardon's extension does NOT weaken the requirement from
+  "all L_n ≥ 0" to "L_1 ≥ 0 alone." The gap between L_1 and all L_n remains.
+- **Follow-up needed:** (1) Acquire full text to verify exact theorem statement.
+  (2) Computationally certify L_2 ≥ 0 for Φ (would narrow the gap).
+
+---
+
+## Source: Brandén–Chasse 2016 — Classification theorems for operators preserving zeros in a strip — ACQUIRED
+
+- **Citation:** P. Brandén, M. Chasse, "Classification theorems for operators
+  preserving zeros in a strip," J. Anal. Math. (2017). arXiv:1402.2795v2 (2016).
+- **URL / DOI:** https://arxiv.org/abs/1402.2795
+- **Full text acquired?** Yes — arXiv PDF retrieved and read.
+- **Theorem numbers inspected:** Theorems 1.1, 1.2, 4.5, 4.7, Section 5 (Fourier
+  transforms with only real zeros)
+- **Does it mention log-concavity?** No — not a hypothesis in any theorem.
+- **Does it mention Laguerre–Pólya?** Yes — LP class and strip-preserving operators.
+- **Does it mention Fourier transforms with only real zeros?** Yes — Section 5
+  extends de Bruijn and de Bruijn–Ilieff theorems.
+- **Does it require prior real-rootedness?** For strip-preservation results (Thm 1.1,
+  1.2): requires input to have zeros in a strip. For Section 5 (Fourier real zeros):
+  extends de Bruijn's theorem which requires h'(t) ∈ LP (derivative in LP class).
+- **Does it apply to Φ?** Indirectly — the de Bruijn–Ilieff extension (Section 5)
+  gives sufficient conditions for K(t) = exp(-h(t)) to have a Fourier transform
+  with only real zeros, but requires h'(t) to be a uniform limit of polynomials
+  with purely imaginary zeros. This is the LP condition on the derivative.
+- **Verdict:** LP CONDITION ON DERIVATIVE — not a direct bridge from log-concavity.
+- **Key finding (Section 5, extending de Bruijn Theorem 1):**
+  > De Bruijn (1950): Let h(t) be entire such that h'(t) is the uniform limit,
+  > on compact subsets of C, of polynomials all of whose zeros lie on the imaginary
+  > axis. If h(t) is non-constant with h(t) = h(-t), and h(t) ≥ 0 (t ∈ R), then
+  > F(z) = ∫exp(-h(t))e^{izt}dt has only real zeros.
+  Brandén–Chasse extend this with new classes of differential operators that
+  contract zeros toward the real axis (property (I) of strong universal factors,
+  Theorems 4.5, 4.7). They also prove new sufficient conditions via elementary
+  methods.
+- **Key finding (strip contraction):** Theorems 4.5 and 4.7 give sharp sufficient
+  conditions for differential operators to have property (I) of strong universal
+  factors. But property (II) remains open for these new operators.
+- **Applicability to H13:** The de Bruijn–Ilieff condition requires h'(t) ∈ LP
+  (or analogous). For Φ(u) = exp(-h(u)), we would need h(u) = -log Φ(u)
+  and h'(u) to have only purely imaginary zeros. This is a DIFFERENT condition
+  from log-concavity of Φ. The bridge from log-concavity to h' ∈ LP is unknown.
+- **Follow-up needed:** (1) Investigate whether log-concavity of Φ implies h'(-log Φ)'
+  has imaginary zeros. (2) Check if new strip-contracting operators apply to Ξ.

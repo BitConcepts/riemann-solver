@@ -65,6 +65,11 @@ def run_step(script, desc, quiet=False):
             print(result.stderr[-500:])
         return False
 
+    # Check for SKIP (optional dependency not available)
+    if result.stdout and result.stdout.strip().startswith("SKIP:"):
+        print("  " + result.stdout.strip().split("\n")[0])
+        return True  # Treat skip as pass (optional step)
+
     if not quiet:
         # Print last few meaningful lines
         lines = [l for l in result.stdout.strip().split("\n") if l.strip()]

@@ -6,26 +6,26 @@
 [![License: CC BY 4.0](https://img.shields.io/badge/Paper-CC%20BY%204.0-lightgrey.svg)](LICENSE-PAPER)
 [![AEE Score](https://img.shields.io/badge/AEE%20Score-0.169%2F1.000-informational)](papers/LEADERBOARD.md)
 
-**Paper**: [Pierson (2026) — *Log-Concavity of the Riemann Xi Kernel and the Riemann Hypothesis*](https://doi.org/10.5281/zenodo.20465036)
+**Paper**: [Pierson (2026) — *Certified Log-Concavity of the Riemann–Jacobi Kernel and a Source Audit of a Pólya-Type Real-Zero Criterion*](https://doi.org/10.5281/zenodo.20465036)
 
-**Status**: Preprint — Clay Millennium Prize target ($1M). Not yet peer-reviewed.
+**Status**: Preprint — not yet peer-reviewed. **No unconditional RH claim is made.**
 
 ---
 
 ## What This Is
 
-We verify that the Riemann–Jacobi kernel Φ(u) is strictly log-concave on [0,∞), and apply Pólya’s 1927 theorem (Satz II) to conclude that all zeros of the Xi function are real — equivalent to the Riemann Hypothesis.
+We certify that the Riemann–Jacobi kernel Φ(u) is strictly log-concave on [0,∞). We also audit the commonly cited Pólya-type bridge from kernel log-concavity to real-rootedness of the Fourier transform, finding no verified primary-source statement matching the needed criterion. The RH implication is therefore conditional on an open/unsourced dependency (Hypothetical Criterion 13).
 
-**Proof chain:**
-1. **Algebraic core** — (`log φ₁)′′(u) < 0` for all `u ≥ 0` by explicit computation
-2. **Rigorous IA on [0, 1.0]** — 52,898 subintervals (mpmath.iv, 60-digit) + independent Arb/FLINT (55,892 subintervals, 200-bit)
-3. **Extended cert [1.0, 3.0]** — algebraic approach (avoids catastrophic cancellation: 40× cancellation in direct IA), 101 checkpoints
-4. **Perturbation bound [3.0, ∞)** — `C = 204` explicit constant, doubly-exp small ε
+**Proof chain (unconditional log-concavity):**
+1. **Algebraic core** — `(log φ₁)′′(u) < 0` for all `u ≥ 0` by explicit computation
+2. **Rigorous IA on [0, 1.0]** — Arb/FLINT primary (ball arithmetic), mpmath.iv cross-check (52,898 subintervals)
+3. **Extended cert [1.0, 3.0]** — Arb/FLINT primary (101 ball-arithmetic checkpoints), mpmath.iv cross-check; avoids 40× catastrophic cancellation
+4. **Far-tail bound [3.0, ∞)** — analytic monotonicity argument with `C_tail = 2600`, doubly-exp small ε*(u)
 
-**Corollaries** (from our log-concavity result):
-- ξ(t) has only real zeros ⇒ Jensen polynomial `Jᵈ_n(X)` hyperbolic for **all** `d ≥ 0`, **all** `n ≥ 0` — strict strengthening of Griffin–Ono–Rolen–Zagier (2019)
-- Λ = 0 (de Bruijn–Newman constant) — closes Rodgers–Tao [Λ ≥ 0] + Polymath15 [Λ ≤ 0.22] gap
-- Robin’s criterion σ(n) < e^γ n ln(ln n) for all n ≥ 5041 (subsumes Chua 2026)
+**Conditional corollaries** (require Hypothetical Criterion 13):
+- ξ(t) has only real zeros ⇒ Jensen polynomial `Jᵈ_n(X)` hyperbolic for **all** `d ≥ 0`, **all** `n ≥ 0`
+- Λ = 0 (de Bruijn–Newman constant)
+- Robin's criterion σ(n) < e^γ n ln(ln n) for all n ≥ 5041
 
 **Lean 4**: 12 axioms, 4 proved theorems (`h_pos_for_nonneg`, `log_h_d2_neg`, `log_phi1_d2_neg`; `phi_positive` via `Real.exp_pos`), 0 sorry
 
@@ -70,14 +70,14 @@ python falsification/check_higher_ranked.py # attacks on papers ranked above us
 python verify.py   # full pipeline: ~70s (IA step is slow)
 ```
 
-5 verification steps:
-1. Rigorous IA: 52,898 subintervals on [0, 1.0] — 60-digit mpmath.iv
-2. Algebraic core + perturbation bound C=204
+7 verification steps:
+1. Rigorous IA on [0, 1.0] — Arb/FLINT primary + mpmath.iv cross-check
+2. Algebraic core + perturbation bound
 3. Truncation error + cross-validation
 4. Pólya/de Bruijn condition check
-5. Extended cert: (log Φ)′′ < 0 on [1.0, 3.0] — 101 algebraic checkpoints
-
-Independently reproduced via Arb/FLINT (`proof/verify_logconcavity_arb.py`): 55,892 subintervals, 200-bit, <3s.
+5. Arb/FLINT cert: (log Φ)′′ < 0 on [1.0, 3.0] — 101 ball-arithmetic checkpoints
+6. mpmath.iv cross-check: (log Φ)′′ < 0 on [1.0, 3.0] — 101 algebraic checkpoints
+7. Galerkin stabilization
 
 ---
 
@@ -120,10 +120,11 @@ falsify.py                     36 falsification attacks + external audit
 
 proof/
   verify_logconcavity_rigorous.py   Rigorous IA [0,1.0] — mpmath.iv (52,898 subintervals)
-  verify_logconcavity_arb.py        Independent IA — Arb/FLINT (55,892 subintervals)
-  verify_algebraic_core.py          Algebraic core + perturbation bound (C=204)
+  verify_logconcavity_arb.py        Primary IA [0,1] — Arb/FLINT ball arithmetic
+  verify_ia_1_to_3_arb.py           Primary IA [1,3] — Arb/FLINT ball arithmetic (101 checkpoints)
+  verify_algebraic_core.py          Algebraic core + far-tail bound
   verify_truncation_and_crosscheck.py  Truncation error + cross-validation
-  verify_ia_1_to_1_5.py             Extended cert [1.0,3.0] — algebraic (101 checkpoints)
+  verify_ia_1_to_1_5.py             Cross-check [1.0,3.0] — mpmath.iv (101 checkpoints)
 
 falsification/
   run_all.py              Run all 36 attacks (7 batches)
@@ -150,8 +151,8 @@ papers/
   LEADERBOARD.md     AEE-ranked leaderboard (0.204 to 0.100)
 
 paper/
-  main.tex                LaTeX manuscript (9 sections)
-  Pierson_2026_LogConcavity_RH.pdf  Preprint PDF
+  main.tex                LaTeX manuscript
+  Pierson_LogConcavity_RiemannJacobi_2026.pdf  Preprint PDF
 
 docs/
   APPROACH.md    Mathematical approach + AEE methodology
@@ -266,7 +267,8 @@ pytest tests/        # 10 unit tests
 ```bibtex
 @misc{pierson2026logconcavity,
   author = {Pierson, Tristen Kyle},
-  title  = {Log-Concavity of the {R}iemann {X}i Kernel and the {R}iemann {H}ypothesis},
+  title  = {Certified Log-Concavity of the {R}iemann--{J}acobi Kernel
+            and a Source Audit of a {P}\'{o}lya-Type Real-Zero Criterion},
   year   = {2026},
   doi    = {10.5281/zenodo.20465036},
   url    = {https://github.com/BitConcepts/riemann-solver}

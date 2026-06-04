@@ -17,7 +17,12 @@ import time
 import sys
 import os
 
-from flint import arb, ctx
+try:
+    from flint import arb, ctx
+except ImportError:
+    print("SKIP: python-flint not installed. Install with: pip install python-flint")
+    print("The Arb/FLINT [1,3] certificate requires python-flint.")
+    sys.exit(0)
 
 PREC = 256          # bits of precision
 N_CHECKS = 100      # 101 checkpoints on [1.0, 3.0] (inclusive)

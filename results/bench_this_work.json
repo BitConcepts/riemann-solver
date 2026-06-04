@@ -1,0 +1,37 @@
+{
+  "paper_id": "this-work",
+  "title": "Log-concavity of Riemann-Jacobi Kernel via Polya 1927",
+  "run_date": "2026-05-31",
+  "elapsed_s": 394.08,
+  "dh_control": {
+    "valid": true,
+    "off_line_candidates": 159
+  },
+  "li_criterion": {
+    "all_positive": true,
+    "violations": []
+  },
+  "off_line_search": {
+    "candidates": []
+  },
+  "gram_violations": {
+    "count": 0,
+    "rate": 0.0
+  },
+  "lehmer_pairs": {
+    "count": 6
+  },
+  "attacks_32": {
+    "all_survived": true,
+    "n_issues": 0
+  },
+  "verify_quick": {
+    "passed": true,
+    "returncode": 0
+  },
+  "self_audit": {
+    "passed": true,
+    "n_failed": 0
+  },
+  "aee_certainty": null
+}

@@ -125,6 +125,15 @@ cd paper
 pdflatex main.tex && bibtex main && pdflatex main.tex && pdflatex main.tex
 ```
 
+## Phase-next Branch
+
+The `phase-next` branch investigates possible theorem bridges from certified log-concavity of the
+Riemann–Jacobi kernel to real-rootedness of its Fourier transform. This is exploratory and does
+not alter the current manuscript's unconditional claim.
+
+See [`phase-next/README.md`](phase-next/README.md) and
+[`phase-next/reports/clay_path_tracker.md`](phase-next/reports/clay_path_tracker.md) for details.
+
 ## License
 
 This repository uses a split license:

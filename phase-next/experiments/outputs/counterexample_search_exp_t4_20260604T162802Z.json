@@ -1,0 +1,39 @@
+{
+  "script": "search_counterexamples.py",
+  "timestamp": "20260604T162802Z",
+  "mp_dps": 55,
+  "deep": false,
+  "claim_discipline": "COMPUTATION class only. Status 'no counterexample' does NOT prove H13. Status 'counterexample candidate' requires argument_principle_box.py confirmation AND verification of all H1-H6 hypotheses before ANY disproof claim.",
+  "results": [
+    {
+      "kernel": "exp(-t^4) [m=2]",
+      "parameters": {
+        "name": "exp_t4"
+      },
+      "hypotheses_checked": {
+        "even": true,
+        "positive": true,
+        "integrable": true,
+        "analytic_origin": true,
+        "superexponential_decay": true,
+        "log_concave_halfline": true
+      },
+      "fourier_zero_test": {
+        "real_axis": {
+          "zeros_found": 7,
+          "scan_range": [
+            0,
+            20
+          ]
+        },
+        "complex_strip": {
+          "box": "Re \u2208 [0,20], Im \u2208 [1e-4,5]",
+          "complex_zeros_found": 0,
+          "candidates": []
+        }
+      },
+      "status": "no counterexample",
+      "notes": "No complex zeros found in scanned region. Does NOT prove H13; only rules out zeros in the tested box."
+    }
+  ]
+}

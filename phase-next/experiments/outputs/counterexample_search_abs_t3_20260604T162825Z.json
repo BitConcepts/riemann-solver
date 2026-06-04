@@ -1,0 +1,29 @@
+{
+  "script": "search_counterexamples.py",
+  "timestamp": "20260604T162825Z",
+  "mp_dps": 55,
+  "deep": false,
+  "claim_discipline": "COMPUTATION class only. Status 'no counterexample' does NOT prove H13. Status 'counterexample candidate' requires argument_principle_box.py confirmation AND verification of all H1-H6 hypotheses before ANY disproof claim.",
+  "results": [
+    {
+      "kernel": "exp(-|t|^3) [Class 6a control, H4 fails]",
+      "parameters": {
+        "name": "abs_t3"
+      },
+      "hypotheses_checked": {
+        "even": true,
+        "positive": true,
+        "integrable": true,
+        "analytic_origin": false,
+        "superexponential_decay": true,
+        "log_concave_halfline": true
+      },
+      "fourier_zero_test": {
+        "box": "skipped",
+        "complex_zeros_found": 0
+      },
+      "status": "invalid candidate",
+      "notes": "H4=False, H6=True \u2014 kernel fails H13 hypotheses"
+    }
+  ]
+}

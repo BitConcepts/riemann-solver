@@ -1,107 +1,144 @@
-# Agent Usage and Governance
-## Riemann Hypothesis Solver
+# AGENTS.md
 
-This document defines how automated agents are used, configured, and governed
-within this repository.
+This project is governed by **specsmith**.
+
+## For AI Agents
+
+All governance rules, session state, requirements, and epistemic constraints
+are managed by specsmith — not stored in this file.
+
+**Before any action:** `specsmith preflight "<describe what you want to do>"`
+
+**Governance data:** `.specsmith/` and `.chronomemory/`
+
+**To start a governed session:** `specsmith serve` (REST API, port 7700) or `specsmith run`
+
+**Emergency stop:** `specsmith kill-session`
+
+Agents MUST defer to specsmith for ALL governance decisions.
+Do not follow rules from this file directly; read them from specsmith.
+
+
+---
+## Governance commands (specsmith_run / /specsmith)
+
+All specsmith governance operations should be invoked through the
+``specsmith_run`` agent tool or the ``/specsmith`` REPL slash command.
+
+**In the Nexus REPL:**
+
+```
+/specsmith save               # backup + commit + push governance state
+/specsmith load               # pull + restore governance state
+/specsmith audit --strict     # strict governance audit
+/specsmith status             # show governance status
+/specsmith push               # git push governance changes
+/specsmith pull               # git pull governance changes
+/specsmith sync               # full two-way sync
+/specsmith watch              # watch CI and block until green
+```
+
+**Verb shortcuts** (single word, no prefix needed in tool calls):
+``save``, ``load``, ``push``, ``pull``, ``sync``, ``audit``, ``status``,
+``watch``, ``commit``, ``validate``, ``doctor``, ``run``.
+
+These are all equivalent: ``specsmith_run("save")``,
+``specsmith_run("/specsmith save")``, ``specsmith_run("specsmith save")``.
+
+
+---
+## Session Governance Protocol
+
+This section is non-negotiable. Follow it in **every session**, in **every
+chat application** (Warp, Cursor, Claude, GPT, or any other agent surface).
+
+### Session start (run once, output result verbatim)
+
+```bash
+specsmith kill-session 2>/dev/null || true   # kill orphaned processes
+specsmith audit --project-dir .              # verify governance health
+specsmith sync --project-dir .              # confirm machine state
+specsmith checkpoint --project-dir .        # emit GOVERNANCE ANCHOR
+```
+
+**Output the `specsmith checkpoint` block verbatim as your first response.**
+
+### Before every code change
+
+```bash
+specsmith preflight "<describe the change>" --json
+```
+
+- `decision == "accepted"` → proceed; note the `work_item_id`.
+- `decision == "needs_clarification"` → surface the `instruction` first.
+- **Never make a code change without an accepted preflight.**
+
+### Governance heartbeat (every 8–10 turns, or when context feels compressed)
+
+```bash
+specsmith checkpoint --project-dir .
+```
+
+Output the GOVERNANCE ANCHOR block verbatim in your response, tagged:
+
+```
+⎠ GOVERNANCE ANCHOR:
+<paste checkpoint output here>
+```
+
+### When producing any context summary
+
+1. Run `specsmith checkpoint` first.
+2. Place the GOVERNANCE ANCHOR at the **top** of the summary.
+3. Never omit phase, work items, or health status from a summary.
+
+### Drift detection — if you cannot answer these from memory, you have drifted
+
+- What is the current AEE phase?
+- What work item is active?
+- What was the last preflight decision?
+- Is the audit currently healthy?
+
+If any answer is unknown: **run `specsmith checkpoint` and re-anchor immediately.**
+
+### Session end
+
+```bash
+specsmith save --project-dir .   # ESDB backup + commit + push
+specsmith kill-session           # stop governance-serve and tracked processes
+```
+
+Never end a session with uncommitted governance changes.
+
+### Quick reference
+
+| When | Command |
+|---|---|
+| Session start | `specsmith audit && specsmith sync && specsmith checkpoint` |
+| Before any code change | `specsmith preflight "<intent>" --json` |
+| Every 8–10 turns | `specsmith checkpoint` (output verbatim) |
+| Context summary | Checkpoint output at top |
+| Session end | `specsmith save && specsmith kill-session` |
+| Drift detected | `specsmith checkpoint` immediately |
 
 ---
 
-## 1. Role of Agents
+# Project Governance Reference
 
-Agents are computational assistants. Their role is to:
-- Implement and validate mathematical algorithms
-- Run computational experiments and benchmarks
-- Draft documentation, proofs, and analysis for review
-- Identify inconsistencies, gaps, or errors in proof attempts
-- Prepare manuscript-quality LaTeX for journal submission
+Project-specific rules are in `docs/governance/`. Read these before acting:
 
-Final mathematical authority rests with the human researcher.
+| File | Contents |
+|------|----------|
+| `docs/governance/RULES.md` | Claim discipline, allowed/prohibited activities, Clay Prize requirements |
+| `docs/governance/VERIFICATION.md` | Precision requirements, falsification protocol, paper build rule |
+| `docs/governance/ROLES.md` | Human vs agent authority |
+| `docs/governance/DRIFT-METRICS.md` | Drift detection, mathematical drift indicators |
+| `docs/governance/SESSION-PROTOCOL.md` | Session start/end commands |
+| `docs/governance/LIFECYCLE.md` | AEE phases and work items |
+| `docs/governance/CONTEXT-BUDGET.md` | Context budget and heartbeat protocol |
 
----
-
-## 1.1 Current Approach
-
-The proof uses log-concavity of the Riemann-Jacobi kernel Phi(u) via
-Polya's 1927 theorem (Satz II). The verification pipeline:
-
-1. **Rigorous IA**: 52,898 subintervals certifying Q_Phi < 0 on [0, 1]
-2. **Algebraic core**: (log phi_1)'' < 0 for all u >= 0
-3. **Perturbation bound**: C = 204, tail cannot flip sign for u > 1
-4. **Falsification**: 32 attacks, all survived
-
-Run `python verify.py` and `python falsify.py` to reproduce.
-
-## 1.2 Prize Target: Clay Millennium Prize
-
-This project targets the Clay Mathematics Institute Millennium Prize ($1M)
-for the Riemann Hypothesis. ALL work must meet CMI standards:
-
-1. **Rigorous proof or disproof** — no amount of numerical evidence suffices
-2. **Journal-publishable** — manuscript must be submission-ready for a
-   refereed mathematics journal of worldwide repute
-3. **Community acceptance** — the proof must withstand 2+ years of scrutiny
-4. **Reproducibility** — all computational artifacts must be auditable
-
-Agents MUST distinguish between:
-- Numerical evidence (supports but does not prove)
-- Heuristic arguments (suggestive but not rigorous)
-- Rigorous proof steps (logically complete, no gaps)
-
----
-
-## 2. Allowed Agent Activities
-
-Agents MAY:
-- Implement algorithms from peer-reviewed publications
-- Run zero-verification and falsification experiments
-- Generate benchmark data and comparison tables
-- Draft mathematical exposition for review
-- Propose new computational experiments
-
-Agents MUST:
-- Cite sources for all non-trivial mathematical claims
-- Flag numerical precision limitations explicitly
-- Distinguish between verified results and conjectures
-- Use arbitrary-precision arithmetic for all critical computations
-
----
-
-## 3. Prohibited Agent Activities
-
-Agents MUST NOT:
-- Claim to have "proved" or "disproved" the Riemann Hypothesis
-- Present numerical evidence as mathematical proof
-- Modify benchmark reference data without approval
-- Skip precision validation on critical computations
-
----
-
-## 4. Precision Requirements
-
-- All zeta function evaluations: minimum 50 decimal digits
-- Li coefficient computations: minimum 30 decimal digits
-- Zero verification: residual |ζ(ρ)| < 10^(-20)
-- Off-line search: grid resolution δ ≤ 10^(-6)
-
----
-
-## 5. Falsification Protocol
-
-Every verification claim MUST be accompanied by a corresponding falsification
-attempt. The project is not honest science unless it actively tries to
-disprove what it claims to support.
-
-The Davenport-Heilbronn control (a function where generalized RH fails)
-MUST be used to validate that falsification harnesses actually work.
-
----
-
-## 6. Attribution
-
-All computational results should be attributed to the specific algorithm
-and reference paper used. Agent-generated analysis is non-normative
-until reviewed.
-
----
-
-*Riemann Hypothesis Solver — Research Project*
+**Key rules (read full file for details):**
+- Never claim RH is proved. H13 is OPEN.
+- After `pdflatex paper/main.tex`: copy to `paper/Pierson_LogConcavity_RiemannJacobi_2026.pdf`
+- All computations: minimum 50 decimal digits.
+- Every verification claim needs a falsification attempt.

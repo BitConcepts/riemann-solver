@@ -80,3 +80,9 @@ Investigation scheduled for next iteration.
 ---
 
 *All entries above are append-only. Do not modify existing entries.*
+
+## 2026-06-04T14:28 — specsmith migration: 0.11.7 → 0.13.0
+- **Author**: specsmith
+- **Type**: migration
+- **Status**: complete
+- **Chain hash**: `667c5548e106dc10...`

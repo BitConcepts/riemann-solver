@@ -9,14 +9,13 @@ languages:
 - Python
 - Markdown
 - YAML
-spec_version: 0.11.7
+spec_version: 0.13.0
 aee_phase: verification
-description: >-
-  Rigorous proof or disproof of the Riemann Hypothesis, targeting the
-  Clay Mathematics Institute Millennium Prize ($1M). Multiple independent
-  verification criteria (Li, Weil/CvS, spectral, de Bruijn-Newman),
-  falsification harnesses, and Connes spectral program integration.
-  All work must meet CMI publication and peer-review standards.
+description: Rigorous proof or disproof of the Riemann Hypothesis, targeting the Clay
+  Mathematics Institute Millennium Prize ($1M). Multiple independent verification
+  criteria (Li, Weil/CvS, spectral, de Bruijn-Newman), falsification harnesses, and
+  Connes spectral program integration. All work must meet CMI publication and peer-review
+  standards.
 services: false
 shell_wrappers: false
 exec_shims: false
@@ -34,6 +33,12 @@ verification_tools:
   lint: ruff
 detected_build_system: pyproject
 detected_test_framework: pytest
+# type_override: suppress specsmith heuristic that classifies this project as
+# library-python because pyproject.toml uses setuptools conventions for dependency
+# management. This is a research-mathematics project that uses pyproject.toml
+# pragmatically for reproducible envs, NOT as a library/SDK.
+# See: https://github.com/BitConcepts/specsmith/issues (type-mismatch false-positive)
+type_override: research-mathematics
 integrations:
 - warp
 auxiliary_disciplines:
@@ -41,58 +46,52 @@ auxiliary_disciplines:
 attack_vectors:
 - id: LI
   name: Keiper-Li Criterion
-  description: >-
-    RH <=> lambda_n >= 0 for all positive integers n.
-    Direct zero-sum computation, growth asymptotics monitoring.
+  description: RH <=> lambda_n >= 0 for all positive integers n. Direct zero-sum computation,
+    growth asymptotics monitoring.
   status: implemented-tested
   references:
-  - 'Li (1997) J. Number Theory 65(2):325-333'
-  - 'Coffey (2005) math-ph/0505052'
-  - 'Voros (2004) math/0506326'
+  - Li (1997) J. Number Theory 65(2):325-333
+  - Coffey (2005) math-ph/0505052
+  - Voros (2004) math/0506326
 - id: CVS
   name: Connes-van Suijlekom Galerkin
-  description: >-
-    Build truncated Weil operator Q(c) from restricted Euler products.
+  description: Build truncated Weil operator Q(c) from restricted Euler products.
     Ground-state eigenvalue encodes proximity to Weil positivity.
   status: scaffold
   references:
-  - 'Connes-Consani-Moscovici (2025) arXiv:2511.22755'
-  - 'Groskin (2026) Zenodo 10.5281/zenodo.19546515'
+  - Connes-Consani-Moscovici (2025) arXiv:2511.22755
+  - Groskin (2026) Zenodo 10.5281/zenodo.19546515
 - id: ZEROS
   name: Zero Verification & Off-Line Search
-  description: >-
-    High-precision zero computation via mpmath. Hardy Z-function
-    sign-change detection. Off-critical-line grid search.
+  description: High-precision zero computation via mpmath. Hardy Z-function sign-change
+    detection. Off-critical-line grid search.
   status: implemented-tested
   references:
-  - 'Odlyzko (2000) zero tables'
-  - 'Gourdon (2004) first 10^13 zeros'
+  - Odlyzko (2000) zero tables
+  - Gourdon (2004) first 10^13 zeros
 - id: DBN
   name: De Bruijn-Newman Constant
-  description: >-
-    Lambda = 0 <=> RH. Rodgers-Tao proved Lambda >= 0.
-    Lehmer pair method for bounds.
+  description: Lambda = 0 <=> RH. Rodgers-Tao proved Lambda >= 0. Lehmer pair method
+    for bounds.
   status: scaffold
   references:
-  - 'Rodgers-Tao (2018) arXiv:1801.05914'
-  - 'Polymath15 (2019) Lambda <= 0.22'
+  - Rodgers-Tao (2018) arXiv:1801.05914
+  - Polymath15 (2019) Lambda <= 0.22
 - id: GUE
   name: Random Matrix Theory / GUE Statistics
-  description: >-
-    Zero spacing should match GUE pair correlation.
-    Montgomery conjecture, Odlyzko verification.
+  description: Zero spacing should match GUE pair correlation. Montgomery conjecture,
+    Odlyzko verification.
   status: scaffold
   references:
-  - 'Montgomery (1973) pair correlation'
-  - 'Odlyzko (1987) spacing statistics'
+  - Montgomery (1973) pair correlation
+  - Odlyzko (1987) spacing statistics
 - id: SPECTRAL
   name: Spectral Operator Construction
-  description: >-
-    Connes zeta spectral triples. Self-adjoint operators whose
-    spectra approximate zeta zeros with extraordinary precision.
+  description: Connes zeta spectral triples. Self-adjoint operators whose spectra
+    approximate zeta zeros with extraordinary precision.
   status: scaffold
   references:
-  - 'Connes-Consani-Moscovici (2025) arXiv:2511.22755'
+  - Connes-Consani-Moscovici (2025) arXiv:2511.22755
 falsification:
   strategy: multi-prong
   methods:
@@ -110,9 +109,8 @@ falsification:
     description: Pattern analysis of Gram's law exceptions
   - id: DH_CONTROL
     name: Davenport-Heilbronn control
-    description: >-
-      Verify falsification methods work correctly on functions
-      where the generalized RH is KNOWN TO FAIL.
+    description: Verify falsification methods work correctly on functions where the
+      generalized RH is KNOWN TO FAIL.
 prize_target:
   name: Clay Mathematics Institute Millennium Prize
   url: https://www.claymath.org/millennium-problems/riemann-hypothesis
@@ -142,7 +140,7 @@ benchmarks:
   name: Odlyzko zero tables
   description: First known zeros verified to high precision
 - id: MASLANKA
-  name: Maślanka Li coefficients
+  name: "Ma\u015Blanka Li coefficients"
   description: lambda_n for n <= 3300
 - id: GROSKIN
   name: Groskin CvS eigenvalues

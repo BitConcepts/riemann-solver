@@ -22,6 +22,9 @@ import json
 PROOF_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "proof")
 RESULTS_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), "results")
 
+# Steps skipped because an optional dependency was missing (filled by run_step)
+SKIPPED_STEPS = []
+
 STEPS = [
     ("verify_logconcavity_rigorous.py", "Rigorous IA: 52,898 subintervals on [0, 1.0]"),
     ("verify_algebraic_core.py",        "Algebraic core + perturbation bound (C=204)"),
@@ -68,6 +71,7 @@ def run_step(script, desc, quiet=False):
     # Check for SKIP (optional dependency not available)
     if result.stdout and result.stdout.strip().startswith("SKIP:"):
         print("  " + result.stdout.strip().split("\n")[0])
+        SKIPPED_STEPS.append(script)
         return True  # Treat skip as pass (optional step)
 
     if not quiet:
@@ -119,8 +123,17 @@ def main():
                 ia = json.load(f)
             print("  IA certified: %d/%d subintervals" % (ia["certified"], ia["n_subintervals"]))
 
+    if SKIPPED_STEPS:
+        print("  SKIPPED (optional dependency missing): %s" % ", ".join(SKIPPED_STEPS))
+
     print("=" * 72)
-    sys.exit(0 if passed == len(steps) else 1)
+    ok = passed == len(steps)
+    if SKIPPED_STEPS and os.getenv("CI"):
+        # In CI every dependency is installed on purpose; a skip there means
+        # the environment regressed and a step silently verified nothing.
+        print("  ERROR: steps were skipped in CI (see above)")
+        ok = False
+    sys.exit(0 if ok else 1)
 
 
 if __name__ == "__main__":

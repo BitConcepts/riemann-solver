@@ -30,6 +30,9 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           pip install -e ".[dev]"
+          # The Arb certificate step (verify_ia_1_to_3_arb.py) needs python-flint,
+          # which lives in the optional "fast" extra; install it so the step runs.
+          pip install "python-flint>=0.5"
 
       - name: Lint
         run: ruff check src/ tests/ --select E,F,W --ignore E501

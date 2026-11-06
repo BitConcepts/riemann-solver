@@ -27,14 +27,17 @@
     {"phase": "verification", "entered": "2026-05-29T13:20:00Z", "exited": null}
   ],
   "audit": {
-    "timestamp": "2026-05-30T12:05:00Z",
+    "timestamp": "2026-06-01T18:21:00Z",
     "tests": "10/10 passing",
     "lint": "clean",
     "preflight": "8/8 passing",
     "cpsc_removed": true,
     "research_iterations": 53,
-    "run_scripts": ["run.py (7 phases)", "run_extended.py (3 tasks)", "run_bridge.py (3 phases)", "verify_logconcavity.py", "verify_algebraic_core.py"],
+    "run_scripts": ["run.py (7 phases)", "run_extended.py (3 tasks)", "run_bridge.py (3 phases)", "verify_logconcavity.py", "verify_algebraic_core.py", "verify_ia_1_to_3.py"],
     "commits_on_main": 15,
+    "paper_version": "v7",
+    "aee_score": "0.169 (4/5 beliefs accepted; EXPERT_REVIEW not accepted)",
+    "checklist": "14/18 met, 3 not met (C-4 C-5 C-6), 1 partial (C-16)",
     "modules": ["zeta", "zeros", "xi", "li_criterion", "even_dominance", "davenport_heilbronn", "weil_positivity", "spectral", "dbn_constant", "resources", "gpu", "suzuki", "shannon"],
     "key_findings": [
       "Log-concavity of Xi kernel Phi verified: Q_Phi < 0 on [0,1.0] by IA + [1.0,inf) by algebra",
@@ -44,7 +47,8 @@
       "Suzuki norm equality implementation corrected: needs screw function operator, not Fourier bandlimit",
       "Shannon number does NOT predict mode count; eigenvector restructures while eigenvalue stabilizes",
       "OpenAI disproved Erdos unit distance conjecture (May 20 2026) - AI can solve major open problems",
-      "Geiger even-dominance proof still under review at Communications in Mathematics"
+      "Geiger even-dominance proof still under review at Communications in Mathematics",
+      "v7 hardening: Sublemma (decay of lambda) self-contained; B_n/n^4<2 in-text; C_old/C* explained; margin -91.3 consistent; eps* monotonicity corrected; 14/18 checklist criteria"
     ]
   }
 }

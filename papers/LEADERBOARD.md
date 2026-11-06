@@ -1,5 +1,5 @@
-# RH Proof Landscape Leaderboard
-## Applied Epistemic Engineering Analysis — June 2026 (updated 2026-06-01)
+## RH Proof Landscape Leaderboard
+## Applied Epistemic Engineering Analysis — June 2026 (updated 2026-06-01, v7 audit)
 
 **AGENTS.md disclaimer**: AEE certainty scores measure *epistemic quality* — the rigour,
 falsifiability, internal consistency, and expert engagement of each work. They do NOT
@@ -64,8 +64,12 @@ Rank  Paper ID                       Tier  Certainty  Crit  Accepted  Claims RH
   19  ladjeroud-2025                 4       0.1000     1    0/5       YES
 ```
 
-* this-work score as of 2026-06-01 after final hardening pass (conditional RH language,
-  Lemma W proved, epsilon* corrected, 18/18 acceptance criteria tracked).
+* this-work score as of 2026-06-01 v7 audit pass. v7 changes: Sublemma (decay of
+  lambda) self-contained in paper; B_n/n^4<2 derived in-text; C_old=204 vs C*=102
+  conservatism explained; margin -91.3 (IA-certified) used consistently; eps*
+  monotonicity factor-of-2 corrected; C3 split in cert table; 14/18 criteria
+  (corrected from 15/18). Score unchanged at 0.169 — EXPERT_REVIEW still not
+  accepted; submit for peer review to reach ~0.204.
 
 Certainty threshold: 0.700 | Papers above threshold: 0/19
 
@@ -104,9 +108,11 @@ with this work and ERURH because the analytic J_inf closure gap is significant.
 
 This work (0.169): 4/5 beliefs accepted. PROOF_CLAIM, FALSIFIABILITY, CONSISTENCY, and
 SCOPE_CALIBRATION are accepted. EXPERT_REVIEW is NOT accepted (preprint not yet
-submitted). Failure modes: partial Lean scaffold (medium), no peer review (medium).
-The 32 falsification attacks, DH control, and IA [0,1.0] certification are the key
-differentiators vs other Tier 3 papers.
+submitted). Failure modes: partial Lean scaffold (13 axioms, medium), no peer review
+(medium). v7: all proof-critical bounds are now self-contained in the paper text —
+no inequality deferred to external docs/. B_n ratio derived in-text. C_old/C*
+consistency explained. Margin and epsilon* notation corrected. 36 falsification
+attacks, DH control, and IA [0,1.0] are the key differentiators vs other Tier 3 papers.
 
 ERURH-2026 (0.169): 4/5 accepted. The most honest framing — explicitly conditional,
 explicit assumption list. Lean proof is genuine for the implication (no sorry in main

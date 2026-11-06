@@ -483,27 +483,30 @@
   },
   {
     "id": "this-work",
-    "title": "Log-concavity of the Riemann-Jacobi Kernel Phi(u) and the Riemann Hypothesis",
+    "title": "Log-concavity of the Riemann-Jacobi Kernel Phi(u) and the Riemann Hypothesis (v7)",
     "author": "Tristen Kyle Pierson / BitConcepts Research",
     "year": 2026,
-    "source": "BitConcepts/riemann-solver; paper/Pierson_2026_LogConcavity_RH.pdf",
-    "approach": "Log-concavity of Xi kernel Phi(u) via Polya 1927 (Satz II); 52,898 IA subintervals; C=204 perturbation bound; 36 falsification attacks (7 batches)",
+    "source": "BitConcepts/riemann-solver; paper/Pierson_2026_LogConcavity_RH(7).pdf",
+    "approach": "Log-concavity of Xi kernel Phi(u) via Polya 1927 (Satz II); 52,898 IA subintervals; C_old=204/C*=102 perturbation bound (conservative); Sublemma (decay of lambda) self-contained; 36 falsification attacks (7 batches)",
     "tier": 3,
     "claims_rh": true,
     "lean_code": true,
     "lean_complete": false,
     "peer_reviewed": false,
-    "status": "preprint (not submitted); Lean scaffold partial",
+    "status": "preprint (not submitted); v7 hardening complete; Lean scaffold partial (13 axioms)",
     "critical_gaps": [
       "Lean4 formalization: 13 axioms remain (3 problem-statement, 2 classical Phi props, 4 Polya conditions, 3 computational certs, 1 structural glue)",
-      "Not yet submitted for peer review"
+      "Not yet submitted for peer review",
+      "Polya 1927 Satz II source audit partial (five English restatements; German original paywalled)"
     ],
     "lessons": [
       "Our falsification protocol (36 attacks, 7 batches + external audit) is the core differentiator",
-      "Internal consistency is enforced by running falsify.py against our own proof",
-      "IA coverage [0, 1.0] with 52,898 subintervals distinguishes us from partial-coverage preprints"
+      "All proof-critical bounds must be derived in the paper body — no inequality should reference docs/ only",
+      "C_old vs C* consistency: always explain whether C was computed with old or corrected prefactor",
+      "IA coverage [0, 1.0] with 52,898 subintervals distinguishes us from partial-coverage preprints",
+      "Acceptance checklist (C-1..C-18) tracks all outstanding gaps explicitly"
     ],
-    "our_verification": "Self: g'' coefficient verified (81/2), C=204 perturbation bound correct direction, IA [0,1.0] complete, cross-validation passed",
+    "our_verification": "Self (v7): g'' coefficient verified (81/2); C_old=204 conservative with eps*; IA [0,1.0] complete; Sublemma (decay of lambda) self-contained; margin -91.3 (IA-certified) consistent; eps* monotonicity corrected; 14/18 checklist criteria met",
     "benchmark_script": null,
     "audit_id": "self"
   },

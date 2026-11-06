@@ -269,33 +269,39 @@ def aee_geiger_2026() -> PaperAEEResult:
 def aee_this_work() -> PaperAEEResult:
     _, c = _make_session(
         "this-work",
-        claim_propositions=["(log Phi)''(u) < 0 for all u >= 0 (Q_Phi < 0 on [0,1] by IA; [1,inf) by algebra).",
+        claim_propositions=[("(log Phi)''(u) < 0 for all u >= 0 (Q_Phi < 0 on [0,1] by IA; [1,inf) by algebra)."),
                             "By Polya 1927, this implies all zeros of Xi(t) are real, equivalent to RH."],
-        claim_boundary=["Polya 1927 Satz II applies; IA covers [0,1.0]; C=204 perturbation bound holds"],
+        claim_boundary=["Polya 1927 Satz II applies; IA covers [0,1.0]; C=204 perturbation bound holds "
+                        "(conservative: C_old=204 with eps_old; C*=102 with eps*=2*eps_old)"],
         claim_confidence=ConfidenceLevel.MEDIUM,
         claim_accept=True,
         claim_failures=[
-            ("Lean4 formalization is partial — 12 axioms remain (Polya theorem, IA certificates)",
+            ("Lean4 formalization is partial — 13 axioms remain (Polya theorem, IA certificates)",
              "Polya 1927 Satz II, phi_even, phi_integrable, phi_superexp_decay, phi_real_analytic, "
              "tail_decay, and the 3 computational certs remain axiomatic. "
-             "Zero sorry. 4 algebraic theorems proved: h_pos_for_nonneg, log_h_d2_neg, "
-             "log_phi1_d2_neg, and phi_positive eliminated via Real.exp_pos.",
+             "Zero sorry. 6 algebraic theorems proved: phi1_pos, phi1_decay_bound, "
+             "log_phi1_d2_neg, and supporting lemmas machine-checked in Lean 4 (Mathlib a6276f4c).",
              FailureSeverity.MEDIUM),
             ("Not yet submitted for peer review",
-             "No independent expert review conducted as of 2026-05",
+             "No independent expert review conducted as of 2026-06",
              FailureSeverity.MEDIUM),
         ],
         has_falsification=True,
         falsification_note="36 attacks survived (7 batches incl. extended attacks 33-36); "
                            "DH control valid (159 off-line DH candidates); Li criterion all positive.",
         is_consistent=True,
-        consistency_note="g'' bug found and fixed by falsification. IA [0,1.0] certified.",
+        consistency_note="v7 hardening: Sublemma (decay of lambda) self-contained in paper (no external "
+                         "doc reference); B_n/n^4<2 derived in-text; C_old vs C* conservatism "
+                         "explained; margin -91.3 (IA-certified) consistent throughout; "
+                         "eps* monotonicity corrected with factor-of-2 derivative. "
+                         "Acceptance checklist: 14/18 met, 3 not met, 1 partial.",
         has_expert_review=False,
         review_note="Preprint not submitted. No independent review.",
         scope_ok=True,
-        scope_note="Claims proof. Acknowledges partial Lean and no peer review.",
+        scope_note="Claims conditional proof. Acknowledges partial Lean, no peer review, and "
+                   "Polya source dependency. Acceptance checklist explicit about open items.",
     )
-    return PaperAEEResult("this-work", "Pierson 2026 log-concavity via Polya",
+    return PaperAEEResult("this-work", "Pierson 2026 log-concavity via Polya (v7)",
                           c, True, 0, 2, 4, 5, 3, True)
 
 
@@ -736,7 +742,7 @@ if __name__ == "__main__":
     out = {
         "aee_version": "0.3.0",
         "specsmith_version": "0.11.8",
-        "run_date": "2026-05-31",
+        "run_date": "2026-06-01",
         "elapsed_s": round(time.time() - t0, 2),
         "papers": [
             {

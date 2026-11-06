@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12 Portable) (preloaded format=pdflatex 2026.6.1)  1 JUN 2026 10:34
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (MiKTeX 25.12 Portable) (preloaded format=pdflatex 2026.6.1)  1 JUN 2026 14:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -69,10 +69,84 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/geom
 etry\geometry.cfg))
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/lm\l
+modern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
+LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
+(Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
+(Font)                  OML/cmm/m/it --> OML/lmm/m/it on input line 23.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
+(Font)                  OMS/cmsy/m/n --> OMS/lmsy/m/n on input line 24.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 25.
+LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 26.
+LaTeX Font Info:    Overwriting symbol font `letters' in version `bold'
+(Font)                  OML/cmm/b/it --> OML/lmm/b/it on input line 27.
+LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
+(Font)                  OMS/cmsy/b/n --> OMS/lmsy/b/n on input line 28.
+LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
+(Font)                  OMX/cmex/m/n --> OMX/lmex/m/n on input line 29.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 31.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
+(Font)                  OT1/cmss/m/n --> OT1/lmss/m/n on input line 32.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  OT1/cmr/m/it --> OT1/lmr/m/it on input line 33.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 34.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `bold'
+(Font)                  OT1/cmr/bx/n --> OT1/lmr/bx/n on input line 35.
+LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
+(Font)                  OT1/cmss/bx/n --> OT1/lmss/bx/n on input line 36.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
+(Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
+LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
+(Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
+)
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/micr
+otype\microtype.sty
+Package: microtype 2026/03/01 v3.2d Micro-typographical refinements (RS)
+
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/etoo
+lbox\etoolbox.sty
+Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count286
+)
+\MT@toks=\toks21
+\MT@tempbox=\box53
+\MT@count=\count287
+LaTeX Info: Redefining \noprotrusionifhmode on input line 1084.
+LaTeX Info: Redefining \leftprotrusion on input line 1085.
+\MT@prot@toks=\toks22
+LaTeX Info: Redefining \rightprotrusion on input line 1104.
+LaTeX Info: Redefining \textls on input line 1449.
+\MT@outer@kern=\dimen157
+LaTeX Info: Redefining \microtypecontext on input line 2053.
+LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
+\MT@listname@count=\count288
+
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/micr
+otype\microtype-pdftex.def
+File: microtype-pdftex.def 2026/03/01 v3.2d Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 944.
+LaTeX Info: Redefining \lslig on input line 944.
+\MT@outer@space=\skip51
+)
+Package microtype Info: Loading configuration file microtype.cfg.
+
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/micr
+otype\microtype.cfg
+File: microtype.cfg 2026/03/01 v3.2d microtype main configuration file (RS)
+)
+LaTeX Info: Redefining \microtypesetup on input line 3065.
+)
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/amsm
 ath\amsmath.sty
 Package: amsmath 2025/07/09 v2.17z AMS math features
-\@mathmargin=\skip51
+\@mathmargin=\skip52
 
 For additional information on amsmath, use the `?' option.
 
@@ -83,63 +157,63 @@ Package: amstext 2024/11/17 v2.01 AMS text
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/amsm
 ath\amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks21
-\ex@=\dimen157
+\@emptytoks=\toks23
+\ex@=\dimen158
 ))
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/amsm
 ath\amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
-\pmbraise@=\dimen158
+\pmbraise@=\dimen159
 )
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/amsm
 ath\amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count286
+\inf@bad=\count289
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count287
-\leftroot@=\count288
+\uproot@=\count290
+\leftroot@=\count291
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count289
-\DOTSCASE@=\count290
+\classnum@=\count292
+\DOTSCASE@=\count293
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
-\Mathstrutbox@=\box53
-\strutbox@=\box54
+\Mathstrutbox@=\box54
+\strutbox@=\box55
 LaTeX Info: Redefining \big on input line 721.
 LaTeX Info: Redefining \Big on input line 722.
 LaTeX Info: Redefining \bigg on input line 723.
 LaTeX Info: Redefining \Bigg on input line 724.
-\big@size=\dimen159
+\big@size=\dimen160
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count291
+\macc@depth=\count294
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count292
+\c@MaxMatrixCols=\count295
 \dotsspace@=\muskip17
-\c@parentequation=\count293
-\dspbrk@lvl=\count294
-\tag@help=\toks22
-\row@=\count295
-\column@=\count296
-\maxfields@=\count297
-\andhelp@=\toks23
-\eqnshift@=\dimen160
-\alignsep@=\dimen161
-\tagshift@=\dimen162
-\tagwidth@=\dimen163
-\totwidth@=\dimen164
-\lineht@=\dimen165
-\@envbody=\toks24
-\multlinegap=\skip52
-\multlinetaggap=\skip53
-\mathdisplay@stack=\toks25
+\c@parentequation=\count296
+\dspbrk@lvl=\count297
+\tag@help=\toks24
+\row@=\count298
+\column@=\count299
+\maxfields@=\count300
+\andhelp@=\toks25
+\eqnshift@=\dimen161
+\alignsep@=\dimen162
+\tagshift@=\dimen163
+\tagwidth@=\dimen164
+\totwidth@=\dimen165
+\lineht@=\dimen166
+\@envbody=\toks26
+\multlinegap=\skip53
+\multlinetaggap=\skip54
+\mathdisplay@stack=\toks27
 LaTeX Info: Redefining \[ on input line 2950.
 LaTeX Info: Redefining \] on input line 2951.
 )
@@ -159,15 +233,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/amsc
 ls\amsthm.sty
 Package: amsthm 2020/05/29 v2.20.6
-\thm@style=\toks26
-\thm@bodyfont=\toks27
-\thm@headfont=\toks28
-\thm@notefont=\toks29
-\thm@headpunct=\toks30
-\thm@preskip=\skip54
-\thm@postskip=\skip55
-\thm@headsep=\skip56
-\dth@everypar=\toks31
+\thm@style=\toks28
+\thm@bodyfont=\toks29
+\thm@headfont=\toks30
+\thm@notefont=\toks31
+\thm@headpunct=\toks32
+\thm@preskip=\skip55
+\thm@postskip=\skip56
+\thm@headsep=\skip57
+\dth@everypar=\toks33
 )
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/hype
 rref\hyperref.sty
@@ -222,21 +296,16 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 tions\kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count298
-)
-(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/etoo
-lbox\etoolbox.sty
-Package: etoolbox 2025/10/02 v2.5m e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count299
+\c@section@level=\count301
 )
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/generic/st
 ringenc\stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
-\@linkdim=\dimen166
-\Hy@linkcounter=\count300
-\Hy@pagecounter=\count301
+\@linkdim=\dimen167
+\Hy@linkcounter=\count302
+\Hy@pagecounter=\count303
 
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/hype
 rref\pd1enc.def
@@ -248,7 +317,7 @@ Now handling font encoding PD1 ...
 tcalc\intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count302
+\Hy@SavedSpaceFactor=\count304
 
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/hype
 rref\puenc.def
@@ -263,7 +332,7 @@ Package hyperref Info: Plain pages OFF on input line 4210.
 Package hyperref Info: Backreferencing OFF on input line 4215.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4462.
-\c@Hy@tempcnt=\count303
+\c@Hy@tempcnt=\count305
 
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/url\
 url.sty
@@ -271,7 +340,7 @@ url.sty
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4801.
-\XeTeXLinkMargin=\dimen167
+\XeTeXLinkMargin=\dimen168
 
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/generic/bi
 tset\bitset.sty
@@ -282,9 +351,9 @@ gintcalc\bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count304
-\Field@Width=\dimen168
-\Fld@charsize=\dimen169
+\Fld@menulength=\count306
+\Field@Width=\dimen169
+\Fld@charsize=\dimen170
 Package hyperref Info: Hyper figures OFF on input line 6078.
 Package hyperref Info: Link nesting OFF on input line 6083.
 Package hyperref Info: Hyper index ON on input line 6086.
@@ -292,17 +361,17 @@ Package hyperref Info: backreferencing OFF on input line 6093.
 Package hyperref Info: Link coloring OFF on input line 6098.
 Package hyperref Info: Link coloring with OCG OFF on input line 6103.
 Package hyperref Info: PDF/A mode OFF on input line 6108.
-\Hy@abspage=\count305
-\c@Item=\count306
-\c@Hfootnote=\count307
+\Hy@abspage=\count307
+\c@Item=\count308
+\c@Hfootnote=\count309
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
 
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/hype
 rref\hpdftex.def
 File: hpdftex.def 2025-07-12 v7.01o Hyperref driver for pdfTeX
-\Fld@listcount=\count308
-\c@bookmark@seq@number=\count309
+\Fld@listcount=\count310
+\c@bookmark@seq@number=\count311
 
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/reru
 nfilecheck\rerunfilecheck.sty
@@ -315,66 +384,99 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 84.
 )
-\Hy@SectionHShift=\skip57
+\Hy@SectionHShift=\skip58
 )
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/book
 tabs\booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen170
-\lightrulewidth=\dimen171
-\cmidrulewidth=\dimen172
-\belowrulesep=\dimen173
-\belowbottomsep=\dimen174
-\aboverulesep=\dimen175
-\abovetopsep=\dimen176
-\cmidrulesep=\dimen177
-\cmidrulekern=\dimen178
-\defaultaddspace=\dimen179
-\@cmidla=\count310
-\@cmidlb=\count311
-\@aboverulesep=\dimen180
-\@belowrulesep=\dimen181
-\@thisruleclass=\count312
-\@lastruleclass=\count313
-\@thisrulewidth=\dimen182
+\heavyrulewidth=\dimen171
+\lightrulewidth=\dimen172
+\cmidrulewidth=\dimen173
+\belowrulesep=\dimen174
+\belowbottomsep=\dimen175
+\aboverulesep=\dimen176
+\abovetopsep=\dimen177
+\cmidrulesep=\dimen178
+\cmidrulekern=\dimen179
+\defaultaddspace=\dimen180
+\@cmidla=\count312
+\@cmidlb=\count313
+\@aboverulesep=\dimen181
+\@belowrulesep=\dimen182
+\@thisruleclass=\count314
+\@lastruleclass=\count315
+\@thisrulewidth=\dimen183
+)
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/tool
+s\tabularx.sty
+Package: tabularx 2023/12/11 v2.12a `tabularx' package (DPC)
+
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/tool
+s\array.sty
+Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
+\col@sep=\dimen184
+\ar@mcellbox=\box56
+\extrarowheight=\dimen185
+\NC@list=\toks34
+\extratabsurround=\skip59
+\backup@length=\skip60
+\ar@cellbox=\box57
+)
+\TX@col@width=\dimen186
+\TX@old@table=\dimen187
+\TX@old@col=\dimen188
+\TX@target=\dimen189
+\TX@delta=\dimen190
+\TX@cols=\count316
+\TX@ftn=\toks35
 )
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/enum
 item\enumitem.sty
 Package: enumitem 2025/02/06 v3.11 Customized lists
-\labelindent=\skip58
-\enit@outerparindent=\dimen183
-\enit@toks=\toks32
-\enit@inbox=\box55
-\enit@count@id=\count314
-\enitdp@description=\count315
+\labelindent=\skip61
+\enit@outerparindent=\dimen191
+\enit@toks=\toks36
+\enit@inbox=\box58
+\enit@count@id=\count317
+\enitdp@description=\count318
 )
-\c@theorem=\count316
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/xurl
+\xurl.sty
+Package: xurl 2022/01/09 v 0.10 modify URL breaks
+)
+\c@theorem=\count319
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 33
+.
 
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/lm\t
+1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/l3ba
 ckend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count317
+\l__color_backend_stack_int=\count320
 ) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 29.
-LaTeX Font Info:    ... okay on input line 29.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 33.
+LaTeX Font Info:    ... okay on input line 33.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -410,131 +512,298 @@ LaTeX Font Info:    ... okay on input line 29.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 29.
-(main.out) (main.out)
+LaTeX Info: Redefining \microtypecontext on input line 33.
+Package microtype Info: Applying patch `item' on input line 33.
+Package microtype Info: Applying patch `toc' on input line 33.
+Package microtype Info: Applying patch `eqnum' on input line 33.
+Package microtype Info: Applying patch `footnote' on input line 33.
+Package microtype Info: Applying patch `verbatim' on input line 33.
+LaTeX Info: Redefining \microtypesetup on input line 33.
+Package microtype Info: Generating PDF output.
+Package microtype Info: Character protrusion enabled (level 2).
+Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+Package microtype Info: Patching command `\showhyphens'.
+Package microtype Info: No adjustment of tracking.
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/micr
+otype\mt-cmr.cfg
+File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
+(RS)
+)
+Package hyperref Info: Link coloring OFF on input line 33.
+ (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 31.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
+5.
+
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/lm\o
+t1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
+5.
+
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/lm\o
+mllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
+35.
+
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/lm\o
+mslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
+35.
+
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/lm\o
+mxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <12> on input line 35.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <8> on input line 35.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <6> on input line 35.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 35.
 
 
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/amsf
 onts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 31.
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/micr
+otype\mt-msa.cfg
+File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 35.
 
 
 (C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/amsf
 onts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Overfull \hbox (20.4341pt too wide) in paragraph at lines 39--40
-\T1/cmtt/m/n/10 github . com / BitConcepts / riemann-[]solver$[]\T1/cmr/m/n/10 
-. A Lean 4 for-mal-iza-tion (\T1/cmtt/m/n/10 lean4/RHProof/Basic.lean\T1/cmr/m/
-n/10 )
- []
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/micr
+otype\mt-msb.cfg
+File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
+)
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 37.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 37.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 37.
+LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 4
+3.
 
-
-Overfull \hbox (11.2717pt too wide) in paragraph at lines 39--40
-\T1/cmr/m/n/10 and \T1/cmtt/m/n/10 phi1_decay_bound \T1/cmr/m/n/10 ($\OML/cmm/m
-/it/10 '[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 u\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10
- ^^T \OT1/cmr/m/n/10 2\OML/cmm/m/it/10 ^^Ye[]e[]$ \T1/cmr/m/n/10 for $\OML/cmm/
-m/it/10 u \OMS/cmsy/m/n/10 ^^U \OT1/cmr/m/n/10 0$\T1/cmr/m/n/10 ). The main the
--o-rem \T1/cmtt/m/n/10 riemann_hypothesis
- []
-
-
-Overfull \hbox (47.74321pt too wide) in paragraph at lines 39--40
-\T1/cmr/m/n/10 de-pends on 13 project-specific ax-ioms and the 3 uni-ver-sal Le
-an ker-nel ax-ioms (\T1/cmtt/m/n/10 propext\T1/cmr/m/n/10 , \T1/cmtt/m/n/10 Cla
-ssical.choice\T1/cmr/m/n/10 ,
- []
-
-[1
+(C:\Users\TristenPierson\scoop\apps\latex\current\texmfs\install\tex/latex/lm\t
+1lmtt.fd
+File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `lmtt' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10.95> on input line 55.
+ [1
 
 {C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/data/fonts/map/pdftex/
-pdftex.map}] [2]
+pdftex.map}{C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/install/fon
+ts/enc/dvips/lm/lm-ec.enc}{C:/Users/TristenPierson/scoop/apps/latex/current/tex
+mfs/install/fonts/enc/dvips/lm/lm-rm.enc}{C:/Users/TristenPierson/scoop/apps/la
+tex/current/texmfs/install/fonts/enc/dvips/lm/lm-mathit.enc}{C:/Users/TristenPi
+erson/scoop/apps/latex/current/texmfs/install/fonts/enc/dvips/lm/lm-mathex.enc}
+{C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/install/fonts/enc/dvip
+s/lm/lm-mathsy.enc}]
+Overfull \hbox (3.62859pt too wide) in paragraph at lines 101--110
+\T1/lmr/m/n/10.95 (-20) to $\OT1/lmr/m/n/10.95 (-20) ^^H$ \T1/lmr/m/n/10.95 (-2
+0) are ver-i-fied as fol-lows. For real $\OML/lmm/m/it/10.95 t$\T1/lmr/m/n/10.9
+5 (-20) , even-ness gives $\OML/lmm/m/it/10.95 F\OT1/lmr/m/n/10.95 (-20) (\OML/
+lmm/m/it/10.95 t\OT1/lmr/m/n/10.95 (-20) ) = [][] ^^H(\OML/lmm/m/it/10.95 u\OT1
+/lmr/m/n/10.95 (-20) )\OML/lmm/m/it/10.95 e[] du \OT1/lmr/m/n/10.95 (-20) = 2 [
+][] ^^H(\OML/lmm/m/it/10.95 u\OT1/lmr/m/n/10.95 (-20) ) [](\OML/lmm/m/it/10.95 
+tu\OT1/lmr/m/n/10.95 (-20) ) \OML/lmm/m/it/10.95 du \OT1/lmr/m/n/10.95 (-20) =
+ []
+
+
+Overfull \hbox (4.598pt too wide) in paragraph at lines 111--123
+[] 
+ []
+
+[2]
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <14.4> on input line 128.
+
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 97.
+(hyperref)                removing `math shift' on input line 128.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\Phi' on input line 97.
+(hyperref)                removing `\Phi' on input line 128.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 97.
+(hyperref)                removing `math shift' on input line 128.
 
-[3] [4] [5]
-Overfull \hbox (49.70735pt too wide) in paragraph at lines 315--333
+[3]
+Overfull \hbox (57.51654pt too wide) in paragraph at lines 204--205
+\OML/lmm/m/it/10.95 h[] \OT1/lmr/m/n/10.95 (-20) = 2\OML/lmm/m/it/10.95 ^^Yn[]e
+[] \OMS/lmsy/m/n/10.95 ^^@ \OT1/lmr/m/n/10.95 (-20) 3$\T1/lmr/m/n/10.95 (-20) .
+ Since $\OML/lmm/m/it/10.95 B[]\OT1/lmr/m/n/10.95 (-20) (\OML/lmm/m/it/10.95 u\
+OT1/lmr/m/n/10.95 (-20) )\OML/lmm/m/it/10.95 =n[] \OMS/lmsy/m/n/10.95 ^^T \OT1/
+lmr/m/n/10.95 (-20) 1 + 3\OML/lmm/m/it/10.95 =\OT1/lmr/m/n/10.95 (-20) (2\OML/l
+mm/m/it/10.95 ^^Y \OMS/lmsy/m/n/10.95 ^^@ \OT1/lmr/m/n/10.95 (-20) 3) \OML/lmm/
+m/it/10.95 < \OT1/lmr/m/n/10.95 (-20) 2$ \T1/lmr/m/n/10.95 (-20) for all $\OML/
+lmm/m/it/10.95 u \OMS/lmsy/m/n/10.95 ^^U \OT1/lmr/m/n/10.95 (-20) 0$ \T1/lmr/m/
+n/10.95 (-20) (see \T1/lmtt/m/n/10.95 docs/tail_prefactor_correction.md\T1/lmr/
+m/n/10.95 (-20) ),
+ []
+
+[4]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 258.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 258.
+
+[5]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 372.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\geq' on input line 372.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `math shift' on input line 372.
+
+[6] [7] [8]
+Overfull \hbox (49.82784pt too wide) in paragraph at lines 525--543
  [] 
  []
 
-[6]
-Overfull \hbox (85.12582pt too wide) in paragraph at lines 337--338
- []\T1/cmr/bx/n/10.95 Formal cer-tifi-cate.[] \T1/cmr/m/n/10.95 A machine-reada
-ble Geiger-style proof cer-tifi-cate \T1/cmtt/m/n/10.95 verification/proof_cert
-ificate_v2.json
+
+Overfull \hbox (26.38976pt too wide) in paragraph at lines 547--548
+ []\T1/lmr/bx/n/10.95 (-20) Formal cer-tifi-cate.[] \T1/lmr/m/n/10.95 (-20) A m
+achine-readable proof cer-tifi-cate \T1/lmtt/m/n/10.95 verification/proof_certi
+ficate_v2.json
  []
 
-[7] [8] (main.bbl [9]) [10] (main.aux)
+[9] [10] (main.bbl) [11]
+Underfull \hbox (badness 10000) in paragraph at lines 633--633
+[]|\T1/lmtt/m/n/10 Basic.lean\T1/lmr/m/n/10 (+20) :
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 633--633
+[]|\T1/lmtt/m/n/10 Basic.lean\T1/lmr/m/n/10 (+20) :
+ []
+
+
+Overfull \hbox (77.39127pt too wide) in paragraph at lines 633--633
+[]|\T1/lmtt/m/n/10 verify_logconcavity_rigorous.py| 
+ []
+
+
+Overfull \hbox (51.14134pt too wide) in paragraph at lines 633--633
+[]|\T1/lmtt/m/n/10 verify_logconcavity_arb.py| 
+ []
+
+
+Overfull \hbox (14.39145pt too wide) in paragraph at lines 633--633
+[]|\T1/lmtt/m/n/10 verify_ia_1_to_3.py| 
+ []
+
+
+Overfull \hbox (40.64137pt too wide) in paragraph at lines 633--633
+[]|\T1/lmtt/m/n/10 verify_algebraic_core.py| 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 633--633
+[]|\T1/lmtt/m/n/10 Basic.lean\T1/lmr/m/n/10 (+20) :
+ []
+
+[12]
+Overfull \hbox (28.44965pt too wide) in paragraph at lines 649--650
+\T1/lmr/m/n/10.95 (-20) Prefixes shown for read-abil-ity. Full 64-character SHA
+256 hashes are in \T1/lmtt/m/n/10.95 docs/certificate_hash_table.md\T1/lmr/m/n/
+10.95 (-20) .
+ []
+
+
+Underfull \hbox (badness 1394) in paragraph at lines 662--662
+[]|\T1/lmr/m/n/10 (+20) Kernel even, $\OML/lmm/m/it/10 K\OT1/lmr/m/n/10 (+20) (
+\OMS/lmsy/m/n/10 ^^@\OML/lmm/m/it/10 t\OT1/lmr/m/n/10 (+20) ) =
+ []
+
+[13]
+LaTeX Font Info:    Font shape `T1/lmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `T1/lmtt/b/n' tried instead on input line 701.
+ [14] [15] (main.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: E91E05B3C3803ECE0A2809764287CF07;1385.
+(rerunfilecheck)             Checksum: 740EF749A25F4DCA7516AC9167507A55;2654.
  ) 
 Here is how much of TeX's memory you used:
- 10231 strings out of 467871
- 157646 string characters out of 5409163
- 581188 words of memory out of 5000000
- 38918 multiletter control sequences out of 15000+600000
- 646551 words of font info for 92 fonts, out of 8000000 for 9000
+ 12816 strings out of 467871
+ 204160 string characters out of 5409163
+ 659155 words of memory out of 5000000
+ 41183 multiletter control sequences out of 15000+600000
+ 709990 words of font info for 218 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,12n,79p,1249b,681s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\TristenPierson\scoop\apps\latex\current\texmfs/data\fonts/pk/ljfou
-r/jknappen/ec/dpi600\tcti1095.pk> <C:\Users\TristenPierson\scoop\apps\latex\cur
-rent\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1095.pk> <C:\Users\Tris
-tenPierson\scoop\apps\latex\current\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi
-600\ecbx1095.pk> <C:\Users\TristenPierson\scoop\apps\latex\current\texmfs/data\
-fonts/pk/ljfour/jknappen/ec/dpi600\ecti1095.pk> <C:\Users\TristenPierson\scoop\
-apps\latex\current\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\ecbx1440.pk> 
-<C:\Users\TristenPierson\scoop\apps\latex\current\texmfs/data\fonts/pk/ljfour/j
-knappen/ec/dpi600\ecrm1095.pk> <C:\Users\TristenPierson\scoop\apps\latex\curren
-t\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\ectt1000.pk> <C:\Users\Tristen
-Pierson\scoop\apps\latex\current\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600
-\ecbx1000.pk> <C:\Users\TristenPierson\scoop\apps\latex\current\texmfs/data\fon
-ts/pk/ljfour/jknappen/ec/dpi600\ecrm1000.pk> <C:\Users\TristenPierson\scoop\app
-s\latex\current\texmfs/data\fonts/pk/ljfour/jknappen/ec/dpi600\ecrm1200.pk> <C:
-\Users\TristenPierson\scoop\apps\latex\current\texmfs/data\fonts/pk/ljfour/jkna
-ppen/ec/dpi600\ecrm1728.pk><C:/Users/TristenPierson/scoop/apps/latex/current/te
-xmfs/install/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/TristenPierson
-/scoop/apps/latex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi10.
-pfb><C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/install/fonts/type
-1/public/amsfonts/cm/cmmi5.pfb><C:/Users/TristenPierson/scoop/apps/latex/curren
-t/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/TristenPier
-son/scoop/apps/latex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cmmi
-7.pfb><C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/install/fonts/ty
-pe1/public/amsfonts/cm/cmmi8.pfb><C:/Users/TristenPierson/scoop/apps/latex/curr
-ent/texmfs/install/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/TristenPi
-erson/scoop/apps/latex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cm
-r12.pfb><C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/install/fonts/
-type1/public/amsfonts/cm/cmr5.pfb><C:/Users/TristenPierson/scoop/apps/latex/cur
-rent/texmfs/install/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Users/TristenPi
-erson/scoop/apps/latex/current/texmfs/install/fonts/type1/public/amsfonts/cm/cm
-r7.pfb><C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/install/fonts/t
-ype1/public/amsfonts/cm/cmr8.pfb><C:/Users/TristenPierson/scoop/apps/latex/curr
-ent/texmfs/install/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/TristenP
-ierson/scoop/apps/latex/current/texmfs/install/fonts/type1/public/amsfonts/cm/c
-msy7.pfb><C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/install/fonts
-/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/TristenPierson/scoop/apps/latex/c
-urrent/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on main.pdf (10 pages, 398509 bytes).
+ 75i,12n,79p,1019b,644s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/install/fonts/type1/
+public/lm/lmbx10.pfb><C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/i
+nstall/fonts/type1/public/lm/lmbx12.pfb><C:/Users/TristenPierson/scoop/apps/lat
+ex/current/texmfs/install/fonts/type1/public/lm/lmex10.pfb><C:/Users/TristenPie
+rson/scoop/apps/latex/current/texmfs/install/fonts/type1/public/lm/lmmi10.pfb><
+C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/install/fonts/type1/pub
+lic/lm/lmmi12.pfb><C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/inst
+all/fonts/type1/public/lm/lmmi5.pfb><C:/Users/TristenPierson/scoop/apps/latex/c
+urrent/texmfs/install/fonts/type1/public/lm/lmmi6.pfb><C:/Users/TristenPierson/
+scoop/apps/latex/current/texmfs/install/fonts/type1/public/lm/lmmi7.pfb><C:/Use
+rs/TristenPierson/scoop/apps/latex/current/texmfs/install/fonts/type1/public/lm
+/lmmi8.pfb><C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/install/fon
+ts/type1/public/lm/lmr10.pfb><C:/Users/TristenPierson/scoop/apps/latex/current/
+texmfs/install/fonts/type1/public/lm/lmr12.pfb><C:/Users/TristenPierson/scoop/a
+pps/latex/current/texmfs/install/fonts/type1/public/lm/lmr17.pfb><C:/Users/Tris
+tenPierson/scoop/apps/latex/current/texmfs/install/fonts/type1/public/lm/lmr5.p
+fb><C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/install/fonts/type1
+/public/lm/lmr6.pfb><C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/in
+stall/fonts/type1/public/lm/lmr7.pfb><C:/Users/TristenPierson/scoop/apps/latex/
+current/texmfs/install/fonts/type1/public/lm/lmr8.pfb><C:/Users/TristenPierson/
+scoop/apps/latex/current/texmfs/install/fonts/type1/public/lm/lmri10.pfb><C:/Us
+ers/TristenPierson/scoop/apps/latex/current/texmfs/install/fonts/type1/public/l
+m/lmsy10.pfb><C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/install/f
+onts/type1/public/lm/lmsy7.pfb><C:/Users/TristenPierson/scoop/apps/latex/curren
+t/texmfs/install/fonts/type1/public/lm/lmsy8.pfb><C:/Users/TristenPierson/scoop
+/apps/latex/current/texmfs/install/fonts/type1/public/lm/lmtk10.pfb><C:/Users/T
+ristenPierson/scoop/apps/latex/current/texmfs/install/fonts/type1/public/lm/lmt
+t10.pfb><C:/Users/TristenPierson/scoop/apps/latex/current/texmfs/install/fonts/
+type1/public/amsfonts/symbols/msam10.pfb><C:/Users/TristenPierson/scoop/apps/la
+tex/current/texmfs/install/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on main.pdf (15 pages, 537712 bytes).
 PDF statistics:
- 829 PDF objects out of 1000 (max. 8388607)
- 82 named destinations out of 1000 (max. 500000)
- 89 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 503 PDF objects out of 1000 (max. 8388607)
+ 102 named destinations out of 1000 (max. 500000)
+ 42641 words of extra memory for PDF output out of 42996 (max. 10000000)
 

@@ -7,49 +7,47 @@ Reallocating 'name_of_file' (item size: 1) to 11 items.
 Database file #1: references.bib
 Warning--entry type for "specsmith" isn't style-file defined
 --line 134 of file references.bib
-Warning--entry type for "specsmith_docs" isn't style-file defined
---line 142 of file references.bib
 Warning--entry type for "mpmath" isn't style-file defined
 --line 159 of file references.bib
-You've used 15 entries,
+You've used 13 entries,
             2118 wiz_defined-function locations,
-            581 strings with 5995 characters,
-and the built_in function-call counts, 4044 in all, are:
-= -- 401
-> -- 150
+            574 strings with 5797 characters,
+and the built_in function-call counts, 3575 in all, are:
+= -- 355
+> -- 136
 < -- 0
-+ -- 66
-- -- 46
-* -- 243
-:= -- 698
-add.period$ -- 43
-call.type$ -- 15
-change.case$ -- 67
++ -- 59
+- -- 42
+* -- 218
+:= -- 620
+add.period$ -- 38
+call.type$ -- 13
+change.case$ -- 59
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 153
-empty$ -- 351
-format.name$ -- 46
-if$ -- 829
+cite$ -- 13
+duplicate$ -- 135
+empty$ -- 305
+format.name$ -- 42
+if$ -- 731
 int.to.chr$ -- 0
-int.to.str$ -- 15
-missing$ -- 14
-newline$ -- 76
-num.names$ -- 30
-pop$ -- 73
+int.to.str$ -- 13
+missing$ -- 13
+newline$ -- 67
+num.names$ -- 26
+pop$ -- 62
 preamble$ -- 1
-purify$ -- 53
+purify$ -- 47
 quote$ -- 0
-skip$ -- 108
+skip$ -- 93
 stack$ -- 0
-substring$ -- 261
-swap$ -- 15
+substring$ -- 234
+swap$ -- 13
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 56
+type$ -- 48
 warning$ -- 0
-while$ -- 45
-width$ -- 17
-write$ -- 157
-(There were 3 warnings)
+while$ -- 39
+width$ -- 15
+write$ -- 138
+(There were 2 warnings)

@@ -1,8 +1,8 @@
 {
   "aee_version": "0.3.0",
   "specsmith_version": "0.11.8",
-  "run_date": "2026-05-31",
-  "elapsed_s": 0.01,
+  "run_date": "2026-06-01",
+  "elapsed_s": 0.02,
   "papers": [
     {
       "rank": 1,
@@ -67,7 +67,7 @@
     {
       "rank": 6,
       "paper_id": "this-work",
-      "title": "Pierson 2026 log-concavity via Polya",
+      "title": "Pierson 2026 log-concavity via Polya (v7)",
       "certainty": 0.1688,
       "tier": 3,
       "claims_rh": true,
